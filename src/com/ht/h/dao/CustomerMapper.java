@@ -1,5 +1,6 @@
 package com.ht.h.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import com.ht.h.bean.Customer;
@@ -18,4 +19,8 @@ public interface CustomerMapper {
     int updateByPrimaryKey(Customer record);
     
     Customer cusLogin(Map<String, Object> map);
+    
+    List<Customer> queryAll(Map<String, Object> map);
+    
+    Long getTotal(Map<String, Object> map);
 }

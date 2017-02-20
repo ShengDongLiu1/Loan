@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.h.dao.FrozenMapper">
+  <resultMap id="BaseResultMap" type="com.ht.h.bean.Frozen">
+    <id column="fid" jdbcType="INTEGER" property="fid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="fmoney" jdbcType="DECIMAL" property="fmoney" />
+    <result column="ftime" jdbcType="TIMESTAMP" property="ftime" />
+    <result column="fstate" jdbcType="VARCHAR" property="fstate" />
+    <result column="fremarks" jdbcType="VARCHAR" property="fremarks" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    fid, uid, fmoney, ftime, fstate, fremarks
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from frozen
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from frozen
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ht.h.bean.Frozen">
+    insert into frozen (fid, uid, fmoney, 
+      ftime, fstate, fremarks
+      )
+    values (#{fid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{fmoney,jdbcType=DECIMAL}, 
+      #{ftime,jdbcType=TIMESTAMP}, #{fstate,jdbcType=VARCHAR}, #{fremarks,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.h.bean.Frozen">
+    insert into frozen
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        fid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="fmoney != null">
+        fmoney,
+      </if>
+      <if test="ftime != null">
+        ftime,
+      </if>
+      <if test="fstate != null">
+        fstate,
+      </if>
+      <if test="fremarks != null">
+        fremarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="fmoney != null">
+        #{fmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="ftime != null">
+        #{ftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fstate != null">
+        #{fstate,jdbcType=VARCHAR},
+      </if>
+      <if test="fremarks != null">
+        #{fremarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.h.bean.Frozen">
+    update frozen
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="fmoney != null">
+        fmoney = #{fmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="ftime != null">
+        ftime = #{ftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fstate != null">
+        fstate = #{fstate,jdbcType=VARCHAR},
+      </if>
+      <if test="fremarks != null">
+        fremarks = #{fremarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.h.bean.Frozen">
+    update frozen
+    set uid = #{uid,jdbcType=INTEGER},
+      fmoney = #{fmoney,jdbcType=DECIMAL},
+      ftime = #{ftime,jdbcType=TIMESTAMP},
+      fstate = #{fstate,jdbcType=VARCHAR},
+      fremarks = #{fremarks,jdbcType=VARCHAR}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

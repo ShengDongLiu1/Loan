@@ -116,7 +116,7 @@
 						<li class="divider visible-phone"></li>
 						<li id="xiala">
 							<a tabindex="-1" href="<%=basePath%>user/logout" target="_top">Logout</a>
-							<a tabindex="-1" href="javascript:void(0)" onclick="show()" target="_top">锁屏</a>
+							<a tabindex="-1" href="javascript:void(0)" onclick="showLock()" target="_top">锁屏</a>
 							<a tabindex="-1" href='javascript:void(0)' onclick="openditu()">百度地图名片</a>
 						</li>
 					</ul>
@@ -197,12 +197,12 @@
 		<script src="<%=basePath%>assets/jslib/bootstrap/js/bootstrap.js"></script>
 		<script src="<%=basePath%>js/Bubbles.js"></script>
 		<script type="text/javascript">
-		var lockUser='${lockUser}';
+		var lockUser='${sessionScope.lockUsers}';
 		if(lockUser != ''){
-			show();
+			showLock();
 		}
 		
-		function show()  //显示隐藏层和弹出层	
+		function showLock()  //显示隐藏层和弹出层	
 		{	
 			lockUser='lockUser';
 			$('#lock_inp').val('');
@@ -235,7 +235,7 @@
 		}
 		
 		function addTab(title, url){
-			var lockUser='${lockUser}';
+			lockUser='${sessionScope.lockUsers}';
 			if(lockUser != ''){
 				location.reload([true]);
 				return false;
@@ -287,7 +287,7 @@
 			}
 			//5分钟无操作自动锁屏
 			if( now - lastMove > 500000 ){
-				show();
+				showLock();
 				lockUser='lockUser';
 			}
 		}, 1000);

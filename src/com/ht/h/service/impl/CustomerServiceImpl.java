@@ -1,5 +1,6 @@
 package com.ht.h.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -49,6 +50,16 @@ public class CustomerServiceImpl implements CustomerService{
 	@Override
 	public Customer cusLogin(Map<String, Object> map) {
 		return userDao.cusLogin(map);
+	}
+
+	@Override
+	public List<Customer> queryAll(Map<String, Object> map) {
+		return userDao.queryAll(map);
+	}
+
+	@Override
+	public Long getTotal(Map<String, Object> map) {
+		return userDao.getTotal(map);
 	}
 
 }
