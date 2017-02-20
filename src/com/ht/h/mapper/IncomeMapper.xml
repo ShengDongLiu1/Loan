@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.h.dao.IncomeMapper">
+  <resultMap id="BaseResultMap" type="com.ht.h.bean.Income">
+    <id column="iid" jdbcType="INTEGER" property="iid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="itype" jdbcType="VARCHAR" property="itype" />
+    <result column="imoney" jdbcType="DECIMAL" property="imoney" />
+    <result column="itime" jdbcType="TIMESTAMP" property="itime" />
+    <result column="iremarks" jdbcType="VARCHAR" property="iremarks" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    iid, uid, itype, imoney, itime, iremarks
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from income
+    where iid = #{iid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from income
+    where iid = #{iid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ht.h.bean.Income">
+    insert into income (iid, uid, itype, 
+      imoney, itime, iremarks
+      )
+    values (#{iid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{itype,jdbcType=VARCHAR}, 
+      #{imoney,jdbcType=DECIMAL}, #{itime,jdbcType=TIMESTAMP}, #{iremarks,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.h.bean.Income">
+    insert into income
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="iid != null">
+        iid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="itype != null">
+        itype,
+      </if>
+      <if test="imoney != null">
+        imoney,
+      </if>
+      <if test="itime != null">
+        itime,
+      </if>
+      <if test="iremarks != null">
+        iremarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="iid != null">
+        #{iid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="itype != null">
+        #{itype,jdbcType=VARCHAR},
+      </if>
+      <if test="imoney != null">
+        #{imoney,jdbcType=DECIMAL},
+      </if>
+      <if test="itime != null">
+        #{itime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iremarks != null">
+        #{iremarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.h.bean.Income">
+    update income
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="itype != null">
+        itype = #{itype,jdbcType=VARCHAR},
+      </if>
+      <if test="imoney != null">
+        imoney = #{imoney,jdbcType=DECIMAL},
+      </if>
+      <if test="itime != null">
+        itime = #{itime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iremarks != null">
+        iremarks = #{iremarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.h.bean.Income">
+    update income
+    set uid = #{uid,jdbcType=INTEGER},
+      itype = #{itype,jdbcType=VARCHAR},
+      imoney = #{imoney,jdbcType=DECIMAL},
+      itime = #{itime,jdbcType=TIMESTAMP},
+      iremarks = #{iremarks,jdbcType=VARCHAR}
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+</mapper>
