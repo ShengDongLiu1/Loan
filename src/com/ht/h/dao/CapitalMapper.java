@@ -1,5 +1,8 @@
 package com.ht.h.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.ht.h.bean.Capital;
 
 public interface CapitalMapper {
@@ -14,4 +17,10 @@ public interface CapitalMapper {
     int updateByPrimaryKeySelective(Capital record);
 
     int updateByPrimaryKey(Capital record);
+    
+    List<Capital> selectAll(Map<String, Object> map);
+    
+    Long getTotal(Map<String, Object> map);
+    
+    
 }

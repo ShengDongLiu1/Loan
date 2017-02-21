@@ -1,5 +1,8 @@
 package com.ht.h.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -42,6 +45,16 @@ public class CapitalServiceImpl implements CapitalService{
 	@Override
 	public int updateByPrimaryKey(Capital record) {
 		return capitalDao.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Capital> selectAll(Map<String, Object> map) {
+		return capitalDao.selectAll(map);
+	}
+
+	@Override
+	public Long getTotal(Map<String, Object> map) {
+		return capitalDao.getTotal(map);
 	}
 
 }

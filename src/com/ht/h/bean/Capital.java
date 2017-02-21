@@ -22,6 +22,10 @@ public class Capital {
     private Long still;
 
     private Date ctime;
+    
+    private String username;
+    
+    private Customer customer;
 
     public Integer getCid() {
         return cid;
@@ -99,7 +103,30 @@ public class Capital {
         return ctime;
     }
 
-    public void setCtime(Date ctime) {
+    @Override
+	public String toString() {
+		return "Capital [cid=" + cid + ", uid=" + uid + ", allasset=" + allasset + ", income=" + income
+				+ ", expenditure=" + expenditure + ", collect=" + collect + ", available=" + available + ", frozen="
+				+ frozen + ", still=" + still + ", ctime=" + ctime + "]";
+	}
+
+	public void setCtime(Date ctime) {
         this.ctime = ctime;
     }
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 }

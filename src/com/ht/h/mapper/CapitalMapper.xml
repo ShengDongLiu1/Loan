@@ -13,9 +13,31 @@
     <result column="still" jdbcType="DECIMAL" property="still" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
   </resultMap>
+  
+  <resultMap id="uid,username"  type="com.ht.h.bean.Customer">
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+   </resultMap>
   <sql id="Base_Column_List">
     cid, uid, allasset, income, expenditure, collect, available, frozen, still, ctime
   </sql>
+  
+  <select id="selectAll" parameterType="Map" resultMap="BaseResultMap">
+		select ca.*,cu.uid,cu.username from capital ca, customer cu where ca.uid=cu.uid
+		<if test="username!=null and username!='' ">
+			and cu.username like #{username}
+		</if>
+		order by ctime desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<select id="getTotal" parameterType="Map" resultType="Long">
+        select count(*) from capital
+    </select>
+  
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

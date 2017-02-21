@@ -1,115 +1,65 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
 %>
 
-<!DOCTYPE HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    <title>用户管理</title>
-			<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>assets/jslib/bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>assets/css/theme.css">
-		<link rel="stylesheet"
-			href="<%=basePath%>assets/jslib/font-awesome/css/font-awesome.css">
-		<script src="<%=basePath%>assets/jslib/jquery-1.7.2.min.js"
-			type="text/javascript"></script>
+<head>
+<base href="<%=basePath%>">
 
-  </head>
-  
- <body class="content1">
-		<ul class="breadcrumb">
-			<li class="active">
-				用户列表
-			</li>
-		</ul>
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<form class="form-inline" method="post"
-					action="<%=basePath%>user/search">
-					<input class="input-xlarge" placeholder="用户名..." name="username"
-						type="text" value="${param.username}">
-					<input class="btn icon-search" type="submit" value="查询" />
-					<a class="btn btn-primary"
-						href="<%=basePath%>user/add"> <i
-						class="icon-plus"></i> 增加用户 </a>
-				</form>
+<title>资金管理</title>
+<link rel="stylesheet" href="<%=path %>/js/jquery-easyui/themes/default/easyui.css"/>
+<link rel="stylesheet" href="<%=path %>/js/site_main.css"/>
+<link rel="stylesheet" type="text/css" href="<%=path %>/js/jquery-easyui/themes/icon.css">
+<script type="text/javascript" src="<%=path %>/js/jquery.min.js"></script>
+<script type="text/javascript" src="<%=path %>/js/jquery-easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="<%=path %>/js/jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="<%=path %>/js/site_easyui.js"></script>
+<script type="text/javascript" src="<%=path %>/js/toDate.js"></script>
 
-				<div class="well">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>
-									用户ID
-								</th>
-								<th>
-									角色名
-								</th>
-								<th>
-									用户名
-								</th>
-								<th>
-									用户姓名
-								</th>
-								
-								<th>
-									用户密码
-								</th>
-								<th>
-									用户状态
-								</th>
-								<th style="width: 90px;text-align: center">
-									操作
-								</th>
-								
-							</tr>
-						</thead>
-						<tbody>
-							
-							<c:forEach items="${listuser}" var="item">
-								<tr>
-									<td>
-										${item.userid}
-									</td>
-									<td>
-										${item.rolename}
-									</td>
-									<td>
-										${item.username}
-									</td>
-									<td>
-										${item.usertruename}
-									</td>
-									<td>
-										${item.userpwd}
-									</td>									
-									<td>
-										<c:choose>
-											<c:when test="${item.userstate==\"1\"}">
-												正常		
-											</c:when>
-											<c:otherwise>锁定</c:otherwise>
-										</c:choose>
-									</td>
-									<td>
-										<a href="<%=basePath%>user/update?userid=${item.userid}">编辑</a>
-										&ensp;
-										<a href="<%=basePath%>user/delete?userid=${item.userid}">删除</a>
-										&ensp;
-									</td>
-									
-								</tr>
-							</c:forEach>
-							
-						</tbody>
-					</table>
-					
-				</div>
-			</div>
-		</div>
-	</body>
+<script type="text/javascript">
+    var url;
+    function searchUser() {
+        $("#dg").datagrid('load', {
+            "username" : $("#username").val()
+        });
+    }
+   
+</script>
+</head>
+
+<body style="margin: 1px">
+
+    <table id="dg" title="资金管理" class="easyui-datagrid" fitColumns="true"
+        pagination="true" rownumbers="true"
+        url="${pageContext.request.contextPath}/capital/capitalPageList" fit="true"
+        toolbar="#tb">
+        <thead>
+            <tr>
+                <th field="cid"  checkbox="true"  width="50" align="center">编号</th>
+                <th field="username" width="50" align="center">用户</th>
+                <th field="allasset" width="50" align="center">资产总额</th>
+                <th field="income" width="50" align="center">累计收入</th>
+                <th field="expenditure" width="50" align="center">累计支出</th>
+                <th field="collect" width="50" align="center">待收金额</th>
+                <th field="available" width="50" align="center">可用金额</th>
+                <th field="frozen" width="50" align="center">冻结金额</th>
+                <th field="still" width="50" align="center">待还金额</th>
+                <th field="ctime" width="50" align="center"  formatter="toDate">最近更新时间</th>
+            </tr>
+        </thead>
+    </table>
+    <div id="tb">
+        <div>
+            &nbsp;用户名：&nbsp;<input type="text" id="username" size="20"
+                onkeydown="if(event.keyCode == 13)searchUser()" /> <a
+                href="javascript:searchUser()" class="easyui-linkbutton"
+                iconCls="icon-search" plain="true">查询</a>
+        </div>
+     </div>
+</body>
 </html>
