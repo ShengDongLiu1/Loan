@@ -36,7 +36,7 @@
 		<thead>
 			<tr>
 				<th field="bid" checkbox="true">编号</th>
-				<th field="uid" width="7%" align="center" formatter="toUsername">客户</th>
+				<th field="uid" width="7%" align="center">客户</th>
 				<th field="baccount" width="7%" align="center">开户行</th>
 				<th field="bcardnumber" width="7%" align="center">卡号</th>
 				<th field="btime" width="7%" align="center" formatter="toDate">提交时间</th>
