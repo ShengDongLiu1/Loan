@@ -10,17 +10,48 @@
     <result column="rcounterfee" jdbcType="DECIMAL" property="rcounterfee" />
     <result column="ractual" jdbcType="DECIMAL" property="ractual" />
     <result column="rstate" jdbcType="VARCHAR" property="rstate" />
+    <result column="rserial" jdbcType="VARCHAR" property="rserial" />
     <result column="rtime" jdbcType="TIMESTAMP" property="rtime" />
   </resultMap>
   <sql id="Base_Column_List">
-    rid, uid, rtype, rbank, rmoney, rcounterfee, ractual, rstate, rtime
+    rid,uid, rtype, rbank, rmoney, rcounterfee,rserial, ractual, rstate, rtime
   </sql>
+  
+   <sql id="Base_Column_Lists">
+    rid, u.uid, rtype, rbank, rmoney, rcounterfee,rserial, ractual, rstate, rtime, username
+  </sql>
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from recharge
+    from recharge 
     where rid = #{rid,jdbcType=INTEGER}
   </select>
+  
+  <select id="queryAll" parameterType="Map" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_Lists" /> from recharge r, Customer u
+		<where>
+			r.rid=u.uid
+			<if test="rstate != null and rstate != '' ">
+				and r.rstate like #{rstate}
+			</if>
+		</where>
+		order by r.rid desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+  </select>
+  
+  <select id="getTotal" parameterType="Map" resultType="Long">
+  	select count(*) from recharge r, Customer u
+		<where>
+			r.rid=u.uid
+			<if test="rstate != null and rstate != '' ">
+				and r.rstate like #{rstate}
+			</if>
+		</where>
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from recharge
     where rid = #{rid,jdbcType=INTEGER}
@@ -35,7 +66,7 @@
       #{ractual,jdbcType=DECIMAL}, #{rstate,jdbcType=VARCHAR}, #{rtime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ht.h.bean.Recharge">
+  <insert id="insertSelective" parameterType="com.ht.h.bean.Recharge" useGeneratedKeys="true" keyProperty="rid">
     insert into recharge
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="rid != null">
