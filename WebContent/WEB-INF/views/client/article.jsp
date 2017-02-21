@@ -23,51 +23,7 @@
 <![endif]-->
 </head>
 <body>
-<!-- header start -->
-<div class="zxcf_top_wper">
-	<div class="zxcf_top px1000 clearfix">
-		 <div class="zxcf_top_l fl">
-		    <img src="<%=path %>/images/zxcf_phone.png" alt="">
-		    400-027-0101(工作时间9:00-17:30)
-		    <a href="#"><img src="<%=path %>/images/zxcf_weixin.png" alt=""></a>
-		    <a href="#"><img src="<%=path %>/images/zxcf_sina.png" alt=""></a>
-		    <a href="#"><img src="<%=path %>/images/zxcf_qq.png" alt=""></a>
-		 </div>
-		 <div class="zxcf_top_r fr">
-			<a href="<%=path %>/client/login" class="curspan">立即登录</a>
-		 	<span>|</span>
-		 	<a href="<%=path %>/client/register">免费注册</a>
-		 	<span>|</span>
-		 	<a href="<%=path %>/client/problem">常见问题</a>
-		 </div>
-	</div>
-</div>
-<!-- end top -->
-<div class="zxcf_nav_wper">
-	<div class="zxcf_nav clearfix px1000">
-		 <div class="zxcf_nav_l fl"><img src="<%=path %>/images/zxcf_logo.png" alt=""></div>
-		 <div class="zxcf_nav_r fr">
-		 	<img src="<%=path %>/images/zxcf_perinfo.png" alt="">
-		 	<span>我的账户
-		 	<img src="<%=path %>/images/zxcf_icon01.png" alt=""></span>
-		 	<ul class="zxcf_perinfo" style="display:none;">
-		 		<li><a href="#">111</a></li>
-		 		<li><a href="#">111</a></li>
-		 		<li><a href="#">111</a></li>
-		 	</ul>
-		 </div>
-	</div>
-</div>
-<div class="zxcf_menu_wper">
-	<div class="zxcf_menu px1000">
-		  <a href="<%=path %>/client/index" class="zm_cura">首页</a>
-		  <a href="<%=path %>/client/invest">我要投资</a>
-		  <a href="<%=path %>/client/borrow">我要借款</a>
-		  <a href="#">实时财务</a>
-		  <a href="<%=path %>/client/noticelist.html">新手指引</a>
-		  <a href="#" style="margin-right:0;">关于我们</a>
-	</div>
-</div>
+<jsp:include flush="true" page="top.jsp"></jsp:include>
 <!-- end  -->
 <div class="notic_con_wper">
 	  <div class="notic_con px1000">
