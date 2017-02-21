@@ -1,5 +1,8 @@
 package com.ht.h.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.ht.h.bean.Expenditure;
 
 public interface ExpenditureMapper {
@@ -14,4 +17,8 @@ public interface ExpenditureMapper {
     int updateByPrimaryKeySelective(Expenditure record);
 
     int updateByPrimaryKey(Expenditure record);
+    
+    List<Expenditure> queryAll(Map<String, Object> map);
+    
+    Long getTotal(Map<String, Object> map);
 }

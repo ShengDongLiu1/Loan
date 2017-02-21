@@ -12,45 +12,44 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ht.h.bean.Income;
+import com.ht.h.bean.Expenditure;
 import com.ht.h.bean.PageBean;
 import com.ht.h.dto.StringUtil;
-import com.ht.h.service.interfaces.IncomeService;
+import com.ht.h.service.interfaces.ExpenditureService;
 
 @Controller
-@RequestMapping("/income")
-public class IncomeController {
-	
+@RequestMapping("/expenditure")
+public class ExpenditureController {
 	@Resource
-	private IncomeService incomeService;
+	private ExpenditureService expenditureService;
 	
 	/**
-	 * 跳转到收入列表
+	 * 跳转到支出列表
 	 * @return
 	 */
-	@RequestMapping(value="/toIncList")
-	public String toIncomeList(){
-		return "income/incList";
+	@RequestMapping(value="/toExpendList")
+	public String toExpendList(){
+		return "expenditure/expendList";
 	}
 	
 	/**
-	 * 收入列表
+	 * 支出列表
 	 * @param income
 	 * @param page
 	 * @param rows
 	 * @return
 	 */
-	@RequestMapping(value="/incomeList",method=RequestMethod.POST)
+	@RequestMapping(value="/expenditureList",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> incomeList(Income income,@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,String username){
+	public Map<String, Object> expenditureList(Expenditure expenditure,@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,String username){
 		PageBean pageBean=new PageBean(Integer.parseInt(page),Integer.parseInt(rows));
 		Map<String, Object> map=new HashMap<>();
 		map.put("username", StringUtil.formatLike(username));
-		map.put("itype", StringUtil.formatLike(income.getItype()));
+		map.put("itype", StringUtil.formatLike(expenditure.getEtype()));
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
-		List<Income> incList=incomeService.queryAll(map);
-		Long total=incomeService.getTotal(map);
+		List<Expenditure> incList=expenditureService.queryAll(map);
+		Long total=expenditureService.getTotal(map);
 		map.put("rows", incList);
 		map.put("total", total);
 		return map;
