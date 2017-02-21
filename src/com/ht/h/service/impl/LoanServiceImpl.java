@@ -1,5 +1,8 @@
 package com.ht.h.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -42,5 +45,15 @@ public class LoanServiceImpl implements LoanService{
 	@Override
 	public int updateByPrimaryKey(Loan record) {
 		return loanDao.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Loan> queryAll(Map<String, Object> map) {
+		return loanDao.queryAll(map);
+	}
+
+	@Override
+	public Long getTotal(Map<String, Object> map) {
+		return loanDao.getTotal(map);
 	}
 }
