@@ -1,5 +1,8 @@
 package com.ht.h.service.interfaces;
 
+import java.util.List;
+import java.util.Map;
+
 import com.ht.h.bean.Recharge;
 
 public interface RechargeService {
@@ -14,4 +17,8 @@ public interface RechargeService {
     int updateByPrimaryKeySelective(Recharge record);
 
     int updateByPrimaryKey(Recharge record);
+    
+    List<Recharge> queryAll(Map<String, Object> map);
+    
+    Long getTotal(Map<String, Object> map);
 }
