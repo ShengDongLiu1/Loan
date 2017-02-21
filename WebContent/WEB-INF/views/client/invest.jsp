@@ -12,15 +12,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <title>invest</title>
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
-<!-- <link rel="stylesheet/less" type="text/css" href="css/style.less" /> -->
 <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>
-<!--[if IE 6]> 
-<script src="./js/iepng.js" type="text/javascript"></script> 
-<script type="text/javascript">
-   EvPNG.fix('div, ul, img, li, input,span, p');
-</script>
-<![endif]-->
 </head>
 <body>
 <jsp:include flush="true" page="top.jsp"></jsp:include>

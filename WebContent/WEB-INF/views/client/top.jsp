@@ -16,7 +16,7 @@
 <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>
 <meta charset="utf-8">
-<title>多级CSS3动画下拉菜单</title>
+<title></title>
 <style>
 #menu li {
 	position: relative;
