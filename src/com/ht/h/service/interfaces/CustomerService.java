@@ -23,4 +23,8 @@ public interface CustomerService {
     List<Customer> queryAll(Map<String, Object> map);
     
     Long getTotal(Map<String, Object> map);
+    
+    Customer repeatUsername(String username);
+    
+    Customer repeatPhone(String phone);
 }
