@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>收入列表</title>
+<title>入库列表</title>
 <link rel="stylesheet" href="<%=path %>/js/jquery-easyui/themes/default/easyui.css"/>
 <link rel="stylesheet" href="<%=path %>/js/site_main.css"/>
 <link rel="stylesheet" type="text/css" href="<%=path %>/js/jquery-easyui/themes/icon.css">
@@ -82,7 +82,7 @@ $(function(){
 </head>
 <body>
 	<table id="list" class="easyui-datagrid" toolbar="#kj" style="width:100%" data-options="
-		url:'<%=path %>/income/incomeList',
+		url:'<%=path %>/expenditure/expenditureList',
 		method:'post',
 		rownumbers:true,	
 		singleSelect:false,
@@ -94,12 +94,12 @@ $(function(){
 	">
 		<thead data-options="frozen:true">
 			<tr>
-				<th field="iid" checkbox="true">编号</th>
+				<th field="eid" checkbox="true">编号</th>
 				<th field="customer" width="15%" align="center" formatter="userName">用户名</th>
-				<th field="itype" width="15%" align="center">收入类型</th>
-				<th field="imoney" width="10%" align="center">收入金额</th>
-				<th field="itime" width="15%" align="center" formatter="jsonDateFormat">收入时间</th>
-				<th field="iremarks" width="25%" align="center">收入备注</th>
+				<th field="etype" width="15%" align="center">支出类型</th>
+				<th field="emoney" width="10%" align="center">支出金额</th>
+				<th field="etime" width="15%" align="center" formatter="jsonDateFormat">支出时间</th>
+				<th field="eremarks" width="25%" align="center">支出备注</th>
 			</tr>
 		</thead>
 	</table>
@@ -109,7 +109,7 @@ $(function(){
 		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-print'" onclick="window.print();">打印</a>
 		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-export1'" onclick="location.href='#'">导出</a>
 		用户名：<input id="susername" class="easyui-validatebox easyui-textbox" data-options="required:false" />&nbsp;
-		收入类型：<select id="sitype" class="easyui-combobox" data-options="editable:false" style="width:10%">
+		支出类型：<select id="sitype" class="easyui-combobox" data-options="editable:false" style="width:10%">
 			<option value=""> </option>
 			<option value="借款">借款</option>
 			<option value="利息">利息</option>
