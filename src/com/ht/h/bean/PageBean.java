@@ -1,27 +1,18 @@
 package com.ht.h.bean;
 
 /**
- * ��ҳModel��
+ * 页数
  * @author 
  *
  */
 public class PageBean {
 
-<<<<<<< Updated upstream
-	private int page; // ��ǰҳ
-	private int pageSize; // һҳ��ʾ�ĸ���
-	@SuppressWarnings("unused")
-	private int start;	//从第几条记录�?始查
-	private int total;	//����������
-	private int count;	//��ҳ��
-=======
-	private int page; // 当前页
-	private int pageSize; // 一页显示的个数
-	@SuppressWarnings("unused")
-	private int start;	//从第几条记录开始查
-	private int total;	//记录的总条数
-	private int count;	//总页数
->>>>>>> Stashed changes
+	  private int page; // 当前页 
+	  private int pageSize; // 一页显示的个数 
+	  @SuppressWarnings("unused") 
+	  private int start;  //从第几条记录开始查 
+	  private int total;  //记录的总条数 
+	  private int count;  //总页数 
 	
 	
 	public PageBean(int page, int pageSize) {
