@@ -26,7 +26,7 @@
 <body>
 	
 	<table id="dg" class="easyui-datagrid" toolbar="#tb" data-options="
-		url:'<%=path %>/rechargeQ/queryAll',
+		url:'<%=path %>/recharge/queryAll',
 		method:'post', 
 		rownumbers:true,
 		autoRowHeight: true,

@@ -9,21 +9,26 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ht.h.bean.Customer;
 import com.ht.h.bean.PageBean;
 import com.ht.h.bean.Recharge;
 import com.ht.h.service.interfaces.RechargeService;
 import com.ht.h.util.IPTimeStamp;
+import com.ht.h.util.ResponseUtil;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 @Controller
-@RequestMapping("/rechargeQ")
+@RequestMapping("/recharge")
 public class RechargeController {
 
 	private final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -58,7 +63,7 @@ public class RechargeController {
 	
 	//分页查询
 	@RequestMapping("/queryAll")
-	public String queryAll(@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,Recharge recharge,HttpServletRequest request){
+	public String queryAll(@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,Recharge recharge,HttpServletResponse response,HttpServletRequest request) throws Exception{
 		PageBean pageBean=new PageBean(Integer.parseInt(page),Integer.parseInt(rows));
 		Map<String, Object> map = new HashMap<String,Object>();
 		map.put("rstate", recharge.getRstate());
@@ -67,7 +72,16 @@ public class RechargeController {
 		map.put("size", pageBean.getPageSize());
 		List<Recharge> list=rechargeService.queryAll(map);
 		Long total=rechargeService.getTotal(map);
-		pageBean.setTotal(Integer.parseInt(String.valueOf(total)));
+		JSONObject result = new JSONObject();
+		JSONArray jsonArray = JSONArray.fromObject(list);
+		result.put("rows", jsonArray);
+		result.put("total", total);
+		ResponseUtil.write(response, result);
 		return null;
+	}
+	
+	@RequestMapping(value="/list",method=RequestMethod.GET)
+	public String recharge(){
+		return "recharge/wdzh_cz";
 	}
 }
