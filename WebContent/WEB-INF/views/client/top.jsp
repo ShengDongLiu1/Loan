@@ -11,12 +11,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-	<title>首页</title>
+	<title>首页顶部</title>
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
 <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>
 <meta charset="utf-8">
-<title></title>
 <style>
 #menu li {
 	position: relative;
