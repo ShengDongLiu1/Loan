@@ -16,10 +16,14 @@ public class Recharge {
     private Long rcounterfee;
 
     private Long ractual;
+    
+    private String rserial;
 
-    private String rstate;
+	private String rstate;
 
     private Date rtime;
+    
+    private String username;
 
     public Integer getRid() {
         return rid;
@@ -36,6 +40,22 @@ public class Recharge {
     public void setUid(Integer uid) {
         this.uid = uid;
     }
+
+    public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getRserial() {
+		return rserial;
+	}
+
+	public void setRserial(String rserial) {
+		this.rserial = rserial;
+	}
 
     public String getRtype() {
         return rtype;

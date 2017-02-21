@@ -1,5 +1,8 @@
 package com.ht.h.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -42,6 +45,16 @@ public class RepaymentServiceImpl implements RepaymentService{
 	@Override
 	public int updateByPrimaryKey(Repayment record) {
 		return repaymentDao.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Repayment> queryAll(Map<String, Object> map) {
+		return repaymentDao.queryAll(map);
+	}
+
+	@Override
+	public Long getTotal(Map<String, Object> map) {
+		return repaymentDao.getTotal(map);
 	}
 
 }

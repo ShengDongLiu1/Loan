@@ -118,18 +118,14 @@
 	<div class="zxcf_nav clearfix px1000">
 		 <div class="zxcf_nav_l fl"><img src="<%=path %>/images/zxcf_logo.png" alt=""></div>
 		 <div class="zxcf_nav_r fr">
-		 	<%-- <img src="<%=path %>/images/zxcf_perinfo.png" alt="">
-		 	<span>我的账户
-		 	<img src="<%=path %>/images/zxcf_icon01.png" alt=""></span> --%>
 		 	<ul id="menu" style="display:none;">
 		 		<li><img src="<%=path %>/images/zxcf_perinfo.png" alt="">
-				 	<span>我的账户
-				 	<img src="<%=path %>/images/zxcf_icon01.png" alt=""></span>
+				 	<span>我的账户<img src="<%=path %>/images/zxcf_icon01.png" alt=""></span>
 					<ul style="text-align: center;">
-						<li> <a href="">我的资料</a></li>
-						<li> <a href="">修改密码</a></li>
-						<li> <a href="">页面锁屏</a></li>
-						<li> <a href="">退出账户</a></li>
+						<li onclick="tz('')"><a>我的资料</a></li>
+						<li onclick="tz('<%=path %>/client/accountfund')"><a>账户资金</a></li>
+						<li><a href="">修改密码</a></li>
+						<li><a href="">退出账户</a></li>
 					</ul>
 				</li>
 		 	</ul>
@@ -166,6 +162,9 @@ $(function() {
 	var isiPad = navigator.userAgent.match(/iPad/i) != null;
 	if (isiPad) $('#menu ul').addClass('no-transition');
 });
+function tz(ym){
+	window.location.href=ym;
+}
 </script>
 
 
