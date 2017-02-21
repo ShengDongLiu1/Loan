@@ -15,7 +15,17 @@ public class Bank {
 
     private String bstate;
 
-    public Integer getBid() {
+    private Customer customer;
+    
+    public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Integer getBid() {
         return bid;
     }
 

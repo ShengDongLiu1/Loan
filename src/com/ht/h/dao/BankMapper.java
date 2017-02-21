@@ -1,5 +1,8 @@
 package com.ht.h.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.ht.h.bean.Bank;
 
 public interface BankMapper {
@@ -14,4 +17,8 @@ public interface BankMapper {
     int updateByPrimaryKeySelective(Bank record);
 
     int updateByPrimaryKey(Bank record);
+
+	List<Bank> select(Map<String, Object> map);
+
+	Long queryAllCount(Map<String, Object> map);
 }

@@ -8,6 +8,11 @@
     <result column="bcardnumber" jdbcType="VARCHAR" property="bcardnumber" />
     <result column="btime" jdbcType="TIMESTAMP" property="btime" />
     <result column="bstate" jdbcType="VARCHAR" property="bstate" />
+    
+     <association property="customer" javaType="com.ht.h.bean.Customer">
+	    <result column="uid" property="uid" />
+    	<result column="username" property="username" />
+	</association>
   </resultMap>
   <sql id="Base_Column_List">
     bid, uid, baccount, bcardnumber, btime, bstate
@@ -103,4 +108,45 @@
       bstate = #{bstate,jdbcType=VARCHAR}
     where bid = #{bid,jdbcType=INTEGER}
   </update>
+  
+  
+   <select id="select" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select b.bid , b.uid , b.Baccount , b.Bcardnumber , b.Btime, b.Bstate , cus.UID ,cus.Username
+   	 from bank b,customer cus
+    <where>
+    	b.uid=cus.uid 
+    	<if test="bcardnumber!=null and bcardnumber!='' ">
+			and b.bcardnumber like #{bcardnumber}
+		</if>
+		<if test="bstate!=null and bstate!='' ">
+			and b.bstate like #{bstate}
+		</if>
+		
+		<if test="btime!=null and btime!='' and btime1!=null and btime1!=''">
+			and b.btime between #{btime} and #{btime1}
+		</if>
+    </where>
+  	 order by b.bid desc
+  	 <if test="start!=null and size!=null">
+		limit #{start},#{size}
+	</if>
+  </select>
+  
+   <!-- 查询银行卡条数 -->
+   <select id="queryAllCount" parameterType="java.util.Map" resultType="Long">
+ 	select count(*) from bank b,customer cus
+		 <where>
+    	b.uid=cus.uid 
+    	<if test="bcardnumber!=null and bcardnumber!='' ">
+			and b.bcardnumber like #{bcardnumber}
+		</if>
+		<if test="bstate!=null and bstate!='' ">
+			and b.bstate like #{bstate}
+		</if>
+		
+		<if test="btime!=null and btime!='' and btime1!=null and btime1!=''">
+			and b.btime between #{btime} and #{btime1}
+		</if>
+    </where>
+ </select>
 </mapper>

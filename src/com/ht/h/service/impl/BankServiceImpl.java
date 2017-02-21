@@ -1,5 +1,8 @@
 package com.ht.h.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -42,6 +45,16 @@ public class BankServiceImpl implements BankService{
 	@Override
 	public int updateByPrimaryKey(Bank record) {
 		return bankDao.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Bank> select(Map<String, Object> map) {
+		return bankDao.select(map);
+	}
+
+	@Override
+	public Long queryAllCount(Map<String, Object> map) {
+		return bankDao.queryAllCount(map);
 	}
 
 }
