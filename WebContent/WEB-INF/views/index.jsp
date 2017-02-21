@@ -180,7 +180,6 @@
 			<div id="loac_title">解锁系统</div>
 			<div id="mass">
 				<p>系统已锁定,请输入用户密码进行解密</p>
-				<input type="password" name="old_password" style="display: none">
 				<input type="password" name="old_password" id="lock_inp" placeholder="输入密码" onfocus="clearErr()">&nbsp;
 				<a href="javascript:void(0)" onClick="hide();">
 					<img src="<%=path%>/image/unlocked.png" alt="解锁" style="width:30px;height:30px;vertical-align:middle"/>

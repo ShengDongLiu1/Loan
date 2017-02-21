@@ -16,7 +16,12 @@
 <script type="text/javascript" src="<%=path %>/js/toDate.js"></script>
 
 <style type="text/css">
+
 .easyui-textbox{width:10%;}
+
+.dj:link{color:orange;}
+
+.jd:link{color:green;}
 </style>
 <script>
 $(function(){
@@ -74,7 +79,8 @@ $(function(){
 		var username = $('#susername').textbox('getValue');
 		var realname = $('#srealname').textbox('getValue');
 		var idnumber = $('#sidnumber').numberbox('getValue');
-		var ustate = $('#sustate').combobox('getValue');
+		var ustate = '${ustate}';
+		//var ustate = $('#sustate').combobox('getValue');
 		$('#list').datagrid('load',{  
 			username:username,
 			realname:realname,
@@ -82,11 +88,42 @@ $(function(){
 			ustate:ustate
 		}); 
 	}
+	
+	//客户状态
+	function cusState(value){
+		var btn="";
+		if(value == 1){
+			btn="正常";
+		}else if(value == 2){
+			btn="已冻结";
+		}
+		return btn;
+	}
+	
+	//操作按钮
+	function upState(val,obj){
+		var btn="";
+		if(obj.ustate == 1){
+			btn="<a href=\"#\" class=\"dj\" onclick=\"upCusSta(2,"+obj.uid+");\">冻结</a>";
+		}else if(obj.ustate == 2){
+			btn="<a href=\"#\" class=\"jd\" onclick=\"upCusSta(1,"+obj.uid+");\">解冻</a>";
+		}
+		return btn;
+	}
+	
+	//执行修改状态操作
+	function upCusSta(ustate,uid){
+		$.post("<%=path%>/customer/upState",{'ustate':ustate,'uid':uid},function(index){
+ 			$.messager.alert('系统提示',index.result,'info');
+ 			$("#list").datagrid("reload");	//刷新表格
+		},"json");
+	}
 </script>
 </head>
 <body>
 	<table id="list" class="easyui-datagrid" toolbar="#kj" style="width:100%" data-options="
 		url:'<%=path %>/customer/cusList',
+		queryParams:{ustate:${ustate}},
 		method:'post',
 		rownumbers:true,	
 		singleSelect:false,
@@ -99,15 +136,16 @@ $(function(){
 		<thead data-options="frozen:true">
 			<tr>
 				<th field="uid" checkbox="true">编号</th>
-				<th field="username" width="10%" align="center">用户名</th>
-				<th field="realname" width="10%" align="center">真实姓名</th>
+				<th field="username" width="9%" align="center">用户名</th>
+				<th field="realname" width="9%" align="center">真实姓名</th>
 				<th field="sex" width="8%" align="center">性别</th>
-				<th field="idnumber" width="15%" align="center">身份证号</th>
-				<th field="phone" width="12%" align="center">电话号码</th>
+				<th field="idnumber" width="14%" align="center">身份证号</th>
+				<th field="phone" width="10%" align="center">电话号码</th>
 				<th field="credit" width="8%" align="center">信用度</th>
-				<th field="createtime" width="13%" align="center" formatter="jsonDateFormat">创建时间</th>
+				<th field="createtime" width="10%" align="center" formatter="jsonDateFormat">创建时间</th>
 				<th field="information" width="13%" align="center">投资信息</th>
-				<th field="ustate" width="8%" align="center">状态</th>
+				<th field="ustate" width="8%" align="center" formatter="cusState">状态</th>
+				<th field="caozuo" width="8%" align="center" formatter="upState">操作</th>
 			</tr>
 		</thead>
 	</table>
@@ -119,11 +157,12 @@ $(function(){
 		用户名：<input id="susername" class="easyui-validatebox easyui-textbox" data-options="required:false" />&nbsp;
 		真实姓名：<input id="srealname" class="easyui-validatebox easyui-textbox" data-options="required:false" />&nbsp;
 		身份证号码：<input id="sidnumber" class="easyui-validatebox easyui-numberbox" data-options="required:false" />&nbsp;
-		状态：<select id="sustate" class="easyui-combobox" data-options="editable:false" style="width:10%">
-			<option value=""></option>
-			<option value="1">冻结</option>
-			<option value="2">正常</option>
-		</select>&nbsp;
+		<!-- 状态：<select id="sustate" class="easyui-combobox" data-options="editable:false" style="width:10%">
+			<option value=""> </option>
+			<option value="1">正常</option>
+			<option value="2">冻结</option>
+		</select> -->
+		&nbsp;
 		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="seachs();">搜索</a>
 	</div>
 	

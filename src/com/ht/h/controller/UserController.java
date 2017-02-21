@@ -291,7 +291,6 @@ public class UserController {
 			map.put("result", "会话已失效，请重新登录！"); 
 		}else if(pwd != null && pwd.equals(sysuser.getUserpwd())){
 			session.removeAttribute("lockUsers");
-			System.out.println("*****"+session.getAttribute("lockUsers"));
 			map.put("result", "success");
 		}else{
 			map.put("result", "密码输入错误，解锁失败！");

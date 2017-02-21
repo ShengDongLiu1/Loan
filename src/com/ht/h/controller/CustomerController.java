@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -27,11 +28,22 @@ public class CustomerController {
 	
 	
 	/**
-	 * 跳转到客户列表
+	 * 跳转到正常客户列表
 	 * @return
 	 */
-	@RequestMapping(value="/toList")
-	public String toList(){
+	@RequestMapping(value="/toList1")
+	public String toList1(HttpServletRequest request){
+		request.setAttribute("ustate", 1);
+		return "customer/cusList";
+	}
+	
+	/**
+	 * 跳转到冻结客户列表
+	 * @return
+	 */
+	@RequestMapping(value="/toList2")
+	public String toList2(HttpServletRequest request){
+		request.setAttribute("ustate", 2);
 		return "customer/cusList";
 	}
 	
@@ -70,7 +82,13 @@ public class CustomerController {
 		return "client/index";
 	}
 	
-	
+	/**
+	 * 客户列表
+	 * @param customer
+	 * @param page
+	 * @param rows
+	 * @return
+	 */
 	@RequestMapping(value="/cusList")
 	@ResponseBody
 	public Map<String, Object> allCustomer(Customer customer,@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows){
@@ -86,6 +104,27 @@ public class CustomerController {
 		Long total=customerService.getTotal(map);
 		map.put("rows", cusList);
 		map.put("total", total);
+		return map;
+	}
+	
+	@RequestMapping(value="/upState")
+	@ResponseBody
+	public Map<String, Object> upState(Customer customer){
+		Map<String, Object> map=new HashMap<>();
+		int resultCount=customerService.updateByPrimaryKeySelective(customer);
+		if(resultCount > 0){
+			if("2".equals(customer.getUstate())){
+				map.put("result", "冻结成功");
+			}else if("1".equals(customer.getUstate())){
+				map.put("result", "解冻成功");
+			}
+		}else{
+			if("2".equals(customer.getUstate())){
+				map.put("result", "冻结失败");
+			}else if("1".equals(customer.getUstate())){
+				map.put("result", "解冻失败");
+			}
+		}
 		return map;
 	}
 	
