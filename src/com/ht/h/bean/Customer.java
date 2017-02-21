@@ -24,7 +24,7 @@ public class Customer {
     private Date createtime;
 
     private String information;
-
+    
     public Integer getUid() {
         return uid;
     }

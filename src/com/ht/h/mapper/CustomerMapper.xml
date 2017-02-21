@@ -206,7 +206,7 @@
 		</if>
 	</select>
 	
-	<!-- 查询博文总条数 -->
+	<!-- 查询客户总条数 -->
 	<select id="getTotal" parameterType="Map" resultType="Long">
 		select count(*) from customer
 		<where>

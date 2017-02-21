@@ -9,6 +9,22 @@
     <result column="itime" jdbcType="TIMESTAMP" property="itime" />
     <result column="iremarks" jdbcType="VARCHAR" property="iremarks" />
   </resultMap>
+  
+  <resultMap id="queryResultMap" type="com.ht.h.bean.Income">
+    <id column="iid" jdbcType="INTEGER" property="iid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="itype" jdbcType="VARCHAR" property="itype" />
+    <result column="imoney" jdbcType="DECIMAL" property="imoney" />
+    <result column="itime" jdbcType="TIMESTAMP" property="itime" />
+    <result column="iremarks" jdbcType="VARCHAR" property="iremarks" />
+    
+    <association property="customer" javaType="com.ht.h.bean.Customer">
+	    <result property="uid" column="uid"/>
+		<result property="username" column="username"/>
+		<result property="realname" column="realname"/>
+	</association>
+  </resultMap>
+  
   <sql id="Base_Column_List">
     iid, uid, itype, imoney, itime, iremarks
   </sql>
@@ -103,4 +119,36 @@
       iremarks = #{iremarks,jdbcType=VARCHAR}
     where iid = #{iid,jdbcType=INTEGER}
   </update>
+  
+  	<!-- 分页加条件查询 -->
+	<select id="queryAll" parameterType="Map" resultMap="queryResultMap">
+		select i.*,cu.uid,cu.username,cu.realname from income i,customer cu
+		<where>
+			i.uid=cu.uid
+			<if test="username!=null and username!='' ">
+				and cu.username like #{username}
+			</if>
+			<if test="itype!=null and itype!='' ">
+				and i.itype like #{itype}
+			</if>
+		</where>
+		order by i.itime desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<!-- 查询收入总条数 -->
+	<select id="getTotal" parameterType="Map" resultType="Long">
+		select count(*) from income i,customer cu
+		<where>
+		i.uid=cu.uid
+			<if test="username!=null and username!='' ">
+				and cu.username like #{username}
+			</if>
+			<if test="itype!=null and itype!='' ">
+				and i.itype like #{itype}
+			</if>
+		</where>
+	</select>
 </mapper>

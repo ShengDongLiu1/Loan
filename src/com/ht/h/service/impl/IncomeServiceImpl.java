@@ -1,5 +1,8 @@
 package com.ht.h.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -42,6 +45,16 @@ public class IncomeServiceImpl implements IncomeService{
 	@Override
 	public int updateByPrimaryKey(Income record) {
 		return incomeDao.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Income> queryAll(Map<String, Object> map) {
+		return incomeDao.queryAll(map);
+	}
+
+	@Override
+	public Long getTotal(Map<String, Object> map) {
+		return incomeDao.getTotal(map);
 	}
 
 }

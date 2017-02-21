@@ -14,6 +14,8 @@ public class Income {
     private Date itime;
 
     private String iremarks;
+    
+    private Customer customer;
 
     public Integer getIid() {
         return iid;
@@ -62,4 +64,13 @@ public class Income {
     public void setIremarks(String iremarks) {
         this.iremarks = iremarks == null ? null : iremarks.trim();
     }
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+    
 }
