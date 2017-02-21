@@ -59,8 +59,6 @@
 	  	     </div>
 	  </div>
 </div>
-<script type="text/javascript">
-	
-</script>
+<jsp:include flush="true" page="bottom.jsp"></jsp:include>
 </body>
 </html>
