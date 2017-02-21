@@ -20,6 +20,10 @@ public class Repayment {
     private String rtype;
 
     private String rstate;
+    
+    private Customer customer;
+    
+    private Loan loan;
 
     public Integer getRid() {
         return rid;
@@ -92,4 +96,21 @@ public class Repayment {
     public void setRstate(String rstate) {
         this.rstate = rstate == null ? null : rstate.trim();
     }
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Loan getLoan() {
+		return loan;
+	}
+
+	public void setLoan(Loan loan) {
+		this.loan = loan;
+	}
+    
 }
