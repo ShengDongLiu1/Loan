@@ -88,4 +88,13 @@ public class ClientController {
 	public String detail(){
 		return "client/detail";
 	}
+	
+	/*
+	 * 跳转到我的账户
+	 * */
+	@RequestMapping(value="left")
+	public String left(){
+		return "client/left";
+	}
+	
 }
