@@ -51,7 +51,7 @@
 											 <li><img src="<%=path %>/images/bor_pic03.png" alt="">个人或企业银行征信记录良好
 											 </li>
 											 <li><img src="<%=path %>/images/bor_pic04.png" alt="">
-											  无现有诉讼记录
+										  无现有诉讼记录
 											 </li>
 											 
 										</ul>
