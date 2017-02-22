@@ -1,5 +1,8 @@
 package com.ht.h.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -42,5 +45,15 @@ public class WithdrawalsServiceImpl implements WithdrawalsService{
 	@Override
 	public int updateByPrimaryKey(Withdrawals record) {
 		return withdrawalsDao.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Withdrawals> selectWithdrawals(Map<String, Object> map) {
+		return withdrawalsDao.selectWithdrawals(map);
+	}
+
+	@Override
+	public Long getTotal(Map<String, Object> map) {
+		return withdrawalsDao.getTotal(map);
 	}
 }

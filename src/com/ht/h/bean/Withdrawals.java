@@ -2,6 +2,12 @@ package com.ht.h.bean;
 
 import java.util.Date;
 
+/**
+ * 提现表
+ * @author LiuShengDong
+ *
+ */
+
 public class Withdrawals {
     private Integer wid;
 
@@ -21,7 +27,17 @@ public class Withdrawals {
 
     private Date wtime;
 
-    public Integer getWid() {
+    private Customer customer;
+    
+    public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Integer getWid() {
         return wid;
     }
 

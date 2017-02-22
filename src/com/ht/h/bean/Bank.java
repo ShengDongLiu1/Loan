@@ -2,6 +2,11 @@ package com.ht.h.bean;
 
 import java.util.Date;
 
+/**
+ * 银行卡信息表
+ * @author LiuShengDong
+ *
+ */
 public class Bank {
     private Integer bid;
 
