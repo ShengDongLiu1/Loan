@@ -35,16 +35,15 @@
 		fit:true">
 		<thead>
 			<tr>
-			
 				<th field="rid" checkbox="true" width="100">编号</th>
-				<th field="username" width="100">用户名</th>
-				<th field="rtype"  width="100">充值类型</th>
-				<th field="rserial"  width="100">流水号</th>
-				<th field="rmoney"  width="100">充值金额</th>
-				<th field="rcounterfee"  width="100">费率</th>
-				<th field="ractual"  width="100">到账金额</th>
-				<th field="rtime"  width="100">充值时间</th>
-				<th field="rstate"  width="100">状态</th>
+				<th field="username" align="center" width="150">用户名</th>
+				<th field="rtype" align="center" width="110">充值类型</th>
+				<th field="rserial" align="center" width="150">流水号</th>
+				<th field="rmoney" align="center" width="80">充值金额</th>
+				<th field="rcounterfee" align="center" width="80">费率</th>
+				<th field="ractual" align="center" width="80">到账金额</th>
+				<th field="rtime" width="120" align="center" formatter="toDate">充值时间</th>
+				<th field="rstate" align="center"  width="100">状态</th>
 			</tr>
 		</thead>
 	</table>
@@ -129,8 +128,9 @@
 		    d = d < 10 ? ('0' + d) : d;  
 		    var h = date.getHours();  
 		    var minute = date.getMinutes();  
-		    minute = minute < 10 ? ('0' + minute) : minute;  
-		    return y + '-' + m + '-' + d+' '+h+':'+minute;  
+		    minute = minute < 10 ? ('0' + minute) : minute;
+		    var s=date.getSeconds();
+		    return y + '-' + m + '-' + d+'<br>'+h+':'+minute+':'+s;  
 		};
 
 		/* 将{"date":14,"day":3,"hours":19,"minutes"……}转换为Thu Mar 19 2015 12:00:00 GMT+0800 (中国标准时间) */
