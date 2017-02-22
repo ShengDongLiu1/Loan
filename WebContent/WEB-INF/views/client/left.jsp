@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="/Loan/css/pjcss/public.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/account.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/datepicker.css">
-.
 </head>
 <body bgcolor="#FFFFCC">
 	<jsp:include flush="true" page="top.jsp"></jsp:include>
