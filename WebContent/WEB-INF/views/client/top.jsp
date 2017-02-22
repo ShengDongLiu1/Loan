@@ -172,7 +172,7 @@ $(window).load(function(){
                     <p>
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=844661789&site=qq&menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:844661789:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>豪傻</span>
+                          <span>豪哥</span>
                     	</a>
                     </p>
                     <p>
@@ -233,7 +233,10 @@ $(window).load(function(){
 		    400-027-0101(工作时间9:00-17:30)
 		    <a href="#"><img src="<%=path %>/images/zxcf_weixin.png" alt=""></a>
 		    <a href="#"><img src="<%=path %>/images/zxcf_sina.png" alt=""></a>
-		    <a href="#"><img src="<%=path %>/images/zxcf_qq.png" alt=""></a>
+		    
+		    
+		    <!-- 分享到QQ空间 -->
+		    <a href="javascript:void(0);" onclick="window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+encodeURIComponent(document.location.href));return false;" title="分享到QQ空间" id="k_qqshare"><img src="<%=path %>/images/zxcf_qq.png" alt=""></a>
 		 </div>
 		 <div class="zxcf_top_r fr">
 		 	<c:if test="${customer.uid == null}">
@@ -247,6 +250,8 @@ $(window).load(function(){
 			 	<span>|</span>
 		 		<a href="javascript:void(0)">注销</a>
 		 	</c:if>
+		 	<span>|</span>
+		 	<a href="#">充值</a>
 		 	<span>|</span>
 		 	<a href="<%=path %>/client/problem">常见问题</a>
 		 </div>
