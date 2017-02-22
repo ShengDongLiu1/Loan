@@ -36,11 +36,12 @@
 		<thead>
 			<tr>
 				<th field="bid" checkbox="true">编号</th>
-				<th field="uid" width="7%" align="center">客户</th>
-				<th field="baccount" width="7%" align="center">开户行</th>
-				<th field="bcardnumber" width="7%" align="center">卡号</th>
-				<th field="btime" width="7%" align="center" formatter="toDate">提交时间</th>
-				<th field="bstate" width="7%" align="center" >状态</th>
+				<th field="username" width="10%" align="center" formatter="toUsername">客户用户名</th>
+				<th field="realname" width="10%" align="center" formatter="toRealname">真实姓名</th>
+				<th field="baccount" width="10%" align="center">开户行</th>
+				<th field="bcardnumber" width="20%" align="center">卡号</th>
+				<th field="btime" width="15%" align="center" formatter="toDate">提交时间</th>
+				<th field="bstate" width="10%" align="center" >状态</th>
 			</tr>
 		</thead>
 	</table>
@@ -51,9 +52,12 @@
 				银行卡账号管理
 			</h1>
 		</div>
-		<a href="javascript:openUserAddDialog()" class="easyui-linkbutton" data-options="iconCls:'icon-add'" >添加</a>
-		<a href="javascript:openUserModifyDialog()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" >编辑</a>
-		<a href="javascript:deleteTest()" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" >删除</a>
+		<!-- 筛选 -->
+		用户名：<input id="username" class="easyui-validatebox easyui-textbox" style="width:100px;"/>
+		真实姓名：<input id="realname" class="easyui-validatebox easyui-textbox" style="width:100px;"/>
+		提交时间：<input id="btime" class="easyui-datetimebox easyui-textbox" style="width:100px;"/>-
+				<input id="btime1" class="easyui-datetimebox easyui-textbox" style="width:100px;"/>
+		<a href="javascript:selectfiltrate()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">筛选</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="javascript:daochuTest()" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" >导出</a>
 	</div>
 
@@ -90,7 +94,7 @@
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>时间：</td>
                         <td><input id="tdate" name="tdate"
-                            class="easyui-datetimebox" required="true" />&nbsp;<span
+                            class="easyui-datetimebox" required="true" />&nbsp;<span.
                             style="color: red">*</span>
                         </td>
                     </tr>
@@ -141,26 +145,14 @@
 			 date.setSeconds(obj.seconds);
 			return formatDateTime(date);
 		}
-		function toUsername(value){
-			return value.customer.username
+		function toUsername(value,obj){
+			return obj.customer.username
 		}
-		
-	    function openUserAddDialog() {
-	        $("#dlg").dialog("open").dialog("setTitle", "添加用户");
-	        url = "${pageContext.request.contextPath}/test/save.do";
-	    }
+		function toRealname(value,obj){
+			return obj.customer.realname
+		}
 	    
-	    function openUserModifyDialog() {
-	        var selectedRows = $("#dg").datagrid("getSelections");
-	        if (selectedRows.length != 1) {
-	            $.messager.alert("系统提示", "请选择一条要编辑的数据！");
-	            return;
-	        }
-	        var row = selectedRows[0];
-	        $("#dlg").dialog("open").dialog("setTitle", "编辑用户信息");
-	        $("#fm").form("load", row);
-	        url = "${pageContext.request.contextPath}/test/save.do?tid=" + row.tid;
-	    }
+	
 	    
 	    function saveUser() {
 	        $("#fm").form("submit", {
@@ -191,38 +183,24 @@
 	        $("#dlg").dialog("close");
 	        resetValue();
 	    }
-
-		 function deleteTest() {
-		        var selectedRows = $("#dg").datagrid("getSelections");
-		        if (selectedRows.length == 0) {
-		            $.messager.alert("系统提示", "请选择要删除的数据！");
-		            return;
-		        }
-		        var strIds = [];
-		        for ( var i = 0; i < selectedRows.length; i++) {
-		            strIds.push(selectedRows[i].tid);
-		        }
-		        var ids = strIds.join(",");
-		        $.messager.confirm("系统提示", "您确定要删除这<font color=red>"
-		                + selectedRows.length + "</font>条数据吗？", function(r) {
-		            if (r) {
-		                $.post("${pageContext.request.contextPath}/test/delete.do", {
-		                    ids : ids
-		                }, function(result) {
-		                    if (result.success) {
-		                        $.messager.alert("系统提示", "数据已成功删除！");
-		                        $("#dg").datagrid("reload");
-		                    } else {
-		                        $.messager.alert("系统提示", "数据删除失败，请联系系统管理员！");
-		                    }
-		                }, "json");
-		            }
-		        });
-		    }
 		    
 		    function daochuTest() {
 		    	window.location.href='<%=path %>/test/daochu.do?page=1&rows=100';
 		    	$.messager.alert('提示', '导出成功', 'info');
+		    }
+		    
+		    function selectfiltrate(){ 
+		    	var realname=$('#realname').textbox('getValue');
+		    	var username=$('#username').textbox('getValue');
+		    	var btime=$('#btime').textbox('getValue');
+		    	var btime1=$('#btime1').textbox('getValue');
+		    	 $("#dg").datagrid("load",{realname:realname,username:username,btime:btime,btime1:btime1});
+		    	
+		    	        $("#realname").textbox('setValue',"");
+		    	        $("#username").textbox('setValue',"");
+		    	        $("#btime").textbox('setValue',"");
+		    	        $("#btime1").textbox('setValue',"");
+		    	    
 		    }
 	</script>
 </body>
