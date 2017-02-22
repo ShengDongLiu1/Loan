@@ -28,7 +28,7 @@ public class IncomeController {
 	 * 跳转到收入列表
 	 * @return
 	 */
-	@RequestMapping(value="toIncList")
+	@RequestMapping(value="/toIncList")
 	public String toIncomeList(){
 		return "income/incList";
 	}

@@ -1,5 +1,8 @@
 package com.ht.h.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -42,6 +45,17 @@ public class RechargeServiceImpl implements RechargeService{
 	@Override
 	public int updateByPrimaryKey(Recharge record) {
 		return rechargDao.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Recharge> queryAll(Map<String, Object> map) {
+		return rechargDao.queryAll(map);
+	}
+
+	@Override
+	public Long getTotal(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return rechargDao.getTotal(map);
 	}
 
 }

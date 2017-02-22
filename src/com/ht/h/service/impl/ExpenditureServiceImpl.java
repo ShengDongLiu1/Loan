@@ -1,5 +1,8 @@
 package com.ht.h.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -42,6 +45,16 @@ public class ExpenditureServiceImpl implements ExpenditureService{
 	@Override
 	public int updateByPrimaryKey(Expenditure record) {
 		return expenditureDao.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Expenditure> queryAll(Map<String, Object> map) {
+		return expenditureDao.queryAll(map);
+	}
+
+	@Override
+	public Long getTotal(Map<String, Object> map) {
+		return expenditureDao.getTotal(map);
 	}
 
 }

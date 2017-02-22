@@ -61,5 +61,16 @@ public class CustomerServiceImpl implements CustomerService{
 	public Long getTotal(Map<String, Object> map) {
 		return userDao.getTotal(map);
 	}
+	
+	
+	@Override
+	public Customer repeatUsername(String username) {
+		return userDao.repeatUsername(username);
+	}
+
+	@Override
+	public Customer repeatPhone(String phone) {
+		return userDao.repeatPhone(phone);
+	}
 
 }

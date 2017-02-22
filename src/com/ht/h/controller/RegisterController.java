@@ -5,25 +5,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest; 
-import javax.servlet.http.HttpSession; 
- 
-import org.apache.commons.httpclient.HttpClient; 
-import org.apache.commons.httpclient.HttpException; 
-import org.apache.commons.httpclient.NameValuePair; 
-import org.apache.commons.httpclient.methods.PostMethod; 
-import org.dom4j.Document; 
-import org.dom4j.DocumentException; 
-import org.dom4j.DocumentHelper; 
-import org.dom4j.Element; 
-import org.springframework.stereotype.Controller; 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ht.h.bean.Customer;
-import com.ht.h.service.interfaces.CustomerService;
-import com.sun.org.apache.xpath.internal.operations.And; 
+import com.ht.h.service.interfaces.CustomerService; 
  
 /* 
  * 注册 
@@ -52,7 +51,6 @@ public class RegisterController {
 	    HttpSession session = request.getSession(); 
 	    session.setAttribute("yanzheng", mobile_code); 
 	    System.out.println(mobile_code+"-----dddd----");
-	    System.out.println(session.getAttribute("yanzheng")+"===================");
 	    String content = new String("您的验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。"); 
 	       
 	    NameValuePair[] data = {//提交短信   
@@ -104,23 +102,28 @@ public class RegisterController {
 	@ResponseBody
 	public Map<String, Object> userRegister(Customer customer,String yanzheng,HttpSession session){
 		Map<String, Object> map=new HashMap<>();
-		map.put("phone", customer.getUsername());
+		map.put("phone", customer.getPhone());
 		map.put("username", customer.getUsername());
 		map.put("userpwd", customer.getUserpwd());
 		map.put("yanzheng", yanzheng);
-		int insert1 = 0;
-		System.out.println(yanzheng+"yanzheng============");
-		System.out.println(session.getAttribute("yanzheng")+"*******************8");
-		if(yanzheng.equals(session.getAttribute("yanzheng"))  ){
-			 insert1 =customerService.insert(customer);
-		}else{
-			map.put("result", "验证码错误");
+		String yzm = session.getAttribute("yanzheng").toString();
+		try{
+			Customer username1 =  customerService.repeatUsername(customer.getUsername());
+			Customer phone1 =  customerService.repeatPhone(customer.getPhone());
+			if(!yzm.equals(yanzheng)){
+				 map.put("result", "验证码错误");
+			}else if(username1!=null){
+				map.put("result", "该用户名已经存在");
+			}else if(phone1!=null){
+				map.put("result", "该手机号已经被注册");
+			}else{
+				 customerService.insert(customer);
+				 map.put("result", "success");
+			}
+		}catch(NullPointerException n){
+			n.printStackTrace();
 		}
-		if(insert1 < 0 ){
-			map.put("result", "success");
-		}else{
-			map.put("result", "注册失败");
-		}
+		
 		return map;
 	}
 } 

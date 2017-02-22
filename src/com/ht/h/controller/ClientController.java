@@ -67,6 +67,14 @@ public class ClientController {
 		return "client/noticelist";
 	}
 	
+	/*
+	 * 跳转到	账户资金页面
+	 * */
+	@RequestMapping(value="accountfund")
+	public String accountfund(){
+		return "client/accountfund";
+	}
+	
 	
 	/*
 	 * 跳转到公司公告页面
@@ -80,4 +88,13 @@ public class ClientController {
 	public String detail(){
 		return "client/detail";
 	}
+	
+	/*
+	 * 跳转到我的账户
+	 * */
+	@RequestMapping(value="left")
+	public String left(){
+		return "client/left";
+	}
+	
 }

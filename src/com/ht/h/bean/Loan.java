@@ -20,6 +20,8 @@ public class Loan {
     private String lstate;
 
     private Date ltime;
+    
+    private Customer customer;
 
     public Integer getLid() {
         return lid;
@@ -92,4 +94,13 @@ public class Loan {
     public void setLtime(Date ltime) {
         this.ltime = ltime;
     }
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+    
 }

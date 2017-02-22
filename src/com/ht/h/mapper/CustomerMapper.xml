@@ -28,6 +28,14 @@
     and userpwd = #{userpwd,jdbcType=VARCHAR}
   </select>
   
+  <select id="repeatUsername"  parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select uid from customer where (username= #{username})
+  </select>
+  
+   <select id="repeatPhone"  parameterType="java.lang.String" resultMap="BaseResultMap">
+	select uid from customer where (phone= #{phone})  
+   </select>
+  
   <!-- 根据id查询客户信息 -->
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 

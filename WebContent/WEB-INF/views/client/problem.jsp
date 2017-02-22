@@ -146,6 +146,6 @@
 		  </p>
 	</div>
 </div>
-<!-- footer end -->
+<jsp:include flush="true" page="bottom.jsp"></jsp:include>
 </body>
 </html>

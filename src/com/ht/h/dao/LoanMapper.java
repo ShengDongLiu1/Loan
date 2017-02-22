@@ -1,5 +1,8 @@
 package com.ht.h.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.ht.h.bean.Loan;
 
 public interface LoanMapper {
@@ -14,4 +17,8 @@ public interface LoanMapper {
     int updateByPrimaryKeySelective(Loan record);
 
     int updateByPrimaryKey(Loan record);
+    
+    List<Loan> queryAll(Map<String, Object> map);
+    
+    Long getTotal(Map<String, Object> map);
 }

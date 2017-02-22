@@ -105,7 +105,7 @@
 		 	</c:if>
 		 	<c:if test="${customer.uid != null}">
 			 	<span>欢迎</span>
-			 	<a href="javascript:void(0)">${customer.username}</a>
+			 	<a href="<%=path %>/client/left" >${customer.username}</a>
 			 	<span>|</span>
 		 		<a href="javascript:void(0)">注销</a>
 		 	</c:if>
@@ -119,15 +119,10 @@
 	<div class="zxcf_nav clearfix px1000">
 		 <div class="zxcf_nav_l fl"><img src="<%=path %>/images/zxcf_logo.png" alt=""></div>
 		 <div class="zxcf_nav_r fr">
-		 	<%-- <img src="<%=path %>/images/zxcf_perinfo.png" alt="">
-		 	<span>我的账户
-		 	<img src="<%=path %>/images/zxcf_icon01.png" alt=""></span> --%>
 		 	<ul id="menu" style="display:none;">
 		 		<li><img src="<%=path %>/images/zxcf_perinfo.png" alt="">
-				 	<span>我的账户
-				 	<img src="<%=path %>/images/zxcf_icon01.png" alt=""></span>
+				 	<span onclick="tz('<%=path %>/client/left')">我的账户<img src="<%=path %>/images/zxcf_icon01.png" /></span>
 					<ul style="text-align: center;">
-						<li> <a href="">我的资料</a></li>
 						<li> <a href="">修改密码</a></li>
 						<li> <a href="">页面锁屏</a></li>
 						<li> <a href="">退出账户</a></li>
@@ -147,8 +142,9 @@
 		  <a href="#" style="margin-right:0;">关于我们</a>
 	</div>
 </div>
-<script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script><script>
-$(function() {
+<script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
+<script>
+	$(function() {
 	if ($.browser.msie && $.browser.version.substr(0,1) < 7){
 	$('li').has('ul').mouseover(function(){
 		$(this).children('ul').css('visibility','visible');
@@ -163,12 +159,13 @@ $(function() {
 		$("#menu").slideToggle();
 	});
 
+	
 	// iPad
 	var isiPad = navigator.userAgent.match(/iPad/i) != null;
 	if (isiPad) $('#menu ul').addClass('no-transition');
-});
+	
+	});
 </script>
-
 
 </body>
 </html>

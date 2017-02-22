@@ -14,6 +14,8 @@ public class Expenditure {
     private Date etime;
 
     private String eremarks;
+    
+    private Customer customer;
 
     public Integer getEid() {
         return eid;
@@ -62,4 +64,13 @@ public class Expenditure {
     public void setEremarks(String eremarks) {
         this.eremarks = eremarks == null ? null : eremarks.trim();
     }
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+    
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%
+<%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
@@ -70,10 +70,10 @@
 	  	   	     	   	    	  	 <input type="text" placeholder="用户名/手机" id="username" class="lg_input01 lg_input" onfocus="clearErro();">
 	  	   	     	   	    	  </p>
                                   <p class="mt20">
-	  	   	     	   	    	  	 <input type="text" placeholder="密码" id="userpwd" class="lg_input02 lg_input" onfocus="clearErro();">
+	  	   	     	   	    	  	 <input type="password" placeholder="密码" id="userpwd" class="lg_input02 lg_input" onfocus="clearErro();">
 	  	   	     	   	    	  </p>
                                   <p class="mt20">
-	  	   	     	   	    	  	 <input type="text" placeholder="密码确认" id="userpwd2" class="lg_input02 lg_input" onfocus="clearErro();">
+	  	   	     	   	    	  	 <input type="password" placeholder="密码确认" id="userpwd2" class="lg_input02 lg_input" onfocus="clearErro();">
 	  	   	     	   	    	  </p>
                                   <p class="mt20">
                                 	  <input type="text" placeholder="手机号" id="phone" class="lg_input03 lg_input" onfocus="clearErro();"> 
@@ -83,7 +83,7 @@
 	  	   	     	   	    	  	 <input type="button" id="hsbtn" value="免费获取验证码" onclick="time(hsbtn)" style="width: 120px; height: 35px;text-align:center" class="lg_btn" /> 
 	  	   	     	   	    	  </p>
                                   <p class="pt10"><span id="erro"></span></p>
-                                 <p class="mt20"><a href="#" class="lg_btn" onclick="checkRegister();" >立即注册</a></p>
+                                  <p class="mt20"><a href="javascript:void(0)" class="lg_btn" onclick="checkRegister();" >立即注册</a></p>
 	  	   	     	   	    </fieldset>
 	  	   	     	   </form>
 		   	   </div>
@@ -147,10 +147,10 @@ var wait = 60;
 function time(btn) {
   	var phone = document.getElementById('phone').value;
     if(phone==null || phone=="" ){ 
-        alert("手机号码不能为空！");  
+    	$("#erro").html("*请输入手机号码");
         return false; 
     }else if(!(/^1[34578]\d{9}$/.test(phone))){
-    	alert("手机号码有误，请重填")
+    	$("#erro").html("*手机号码有误，请重填");
     	return false; 
     }else{
 	    if (wait == 60) {
@@ -190,14 +190,22 @@ function checkRegister(){
 	var userpwd2=$("#userpwd2").val();
 	var phone=$("#phone").val();
 	var yzm=$("#yzm").val();
-	alert(yzm+"------");
 	if(username == ""){
 		$("#erro").html("*请输入用户名");
+		return false;
+	}else if(username.length < 2){
+		$("#erro").html("*用户名不小于2位");
 		return false;
 	}else if(userpwd == ""){
 		$("#erro").html("*请输入用户密码");
 		return false;
 	}else if(userpwd.length < 4){
+		$("#erro").html("*用户名密码不小于4位");
+		return false;
+	}else if(userpwd2 == ""){
+		$("#erro").html("*请再次输入用户密码");
+		return false;
+	}else if(userpwd2.length < 4){
 		$("#erro").html("*用户名密码不小于4位");
 		return false;
 	}else if(userpwd!=userpwd2){
@@ -211,14 +219,11 @@ function checkRegister(){
 		return false;
 	}else{
 		$.post("../register/userregister",{'username':username,'userpwd':userpwd,'phone':phone,'yanzheng':yzm},function(index){
-			if(index.resuslt == 'success'){
-				window.location.href="../client/login";
+			if(index.result == 'success'){
+				alert("注册成功！")
+				window.location.href="<%=path%>/client/login";
 			}else{
 				$("#erro").html(index.result);
-				$("#userpwd").val("");
-				$("#userpwd2").val("");
-				$("#phone").val("");
-				$("#yzm").val("");
 			}
 		},"json");
 	}

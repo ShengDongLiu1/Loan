@@ -12,6 +12,25 @@
     <result column="lstate" jdbcType="VARCHAR" property="lstate" />
     <result column="ltime" jdbcType="TIMESTAMP" property="ltime" />
   </resultMap>
+  
+  <resultMap id="queryResultMap" type="com.ht.h.bean.Loan">
+    <id column="lid" jdbcType="INTEGER" property="lid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="ltitle" jdbcType="VARCHAR" property="ltitle" />
+    <result column="lmoney" jdbcType="DECIMAL" property="lmoney" />
+    <result column="lrate" jdbcType="DECIMAL" property="lrate" />
+    <result column="lterm" jdbcType="INTEGER" property="lterm" />
+    <result column="ltype" jdbcType="VARCHAR" property="ltype" />
+    <result column="lstate" jdbcType="VARCHAR" property="lstate" />
+    <result column="ltime" jdbcType="TIMESTAMP" property="ltime" />
+    
+    <association property="customer" javaType="com.ht.h.bean.Customer">
+	    <result property="uid" column="uid"/>
+		<result property="username" column="username"/>
+		<result property="realname" column="realname"/>
+	</association>
+  </resultMap>
+  
   <sql id="Base_Column_List">
     lid, uid, ltitle, lmoney, lrate, lterm, ltype, lstate, ltime
   </sql>
@@ -138,4 +157,48 @@
       ltime = #{ltime,jdbcType=TIMESTAMP}
     where lid = #{lid,jdbcType=INTEGER}
   </update>
+  
+  	<!-- 分页加条件查询 -->
+	<select id="queryAll" parameterType="Map" resultMap="queryResultMap">
+		select l.*,cu.uid,cu.username,cu.realname from loan l,customer cu
+		<where>
+			l.uid=cu.uid
+			<if test="username!=null and username!='' ">
+				and cu.username like #{username}
+			</if>
+			<if test="ltitle!=null and ltitle!='' ">
+				and l.ltitle like #{ltitle}
+			</if>
+			<if test="lterm!=null and lterm!='' ">
+				and l.lterm = #{lterm}
+			</if>
+			<if test="ltype!=null and ltype!='' ">
+				and l.ltype = #{ltype}
+			</if>
+		</where>
+		order by l.ltime desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<!-- 查询借款总条数 -->
+	<select id="getTotal" parameterType="Map" resultType="Long">
+		select count(*) from loan l,customer cu
+		<where>
+			l.uid=cu.uid
+			<if test="username!=null and username!='' ">
+				and cu.username like #{username}
+			</if>
+			<if test="ltitle!=null and ltitle!='' ">
+				and l.ltitle like #{ltitle}
+			</if>
+			<if test="lterm!=null and lterm!='' ">
+				and l.lterm = #{lterm}
+			</if>
+			<if test="ltype!=null and ltype!='' ">
+				and l.ltype = #{ltype}
+			</if>
+		</where>
+	</select>
 </mapper>

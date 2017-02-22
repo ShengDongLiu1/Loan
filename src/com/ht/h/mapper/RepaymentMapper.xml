@@ -12,6 +12,30 @@
     <result column="rtype" jdbcType="VARCHAR" property="rtype" />
     <result column="rstate" jdbcType="VARCHAR" property="rstate" />
   </resultMap>
+  
+  <resultMap id="queryResultMap" type="com.ht.h.bean.Repayment">
+    <id column="rid" jdbcType="INTEGER" property="rid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="lid" jdbcType="INTEGER" property="lid" />
+    <result column="reperiods" jdbcType="INTEGER" property="reperiods" />
+    <result column="rexpiretime" jdbcType="TIMESTAMP" property="rexpiretime" />
+    <result column="rmoney" jdbcType="DECIMAL" property="rmoney" />
+    <result column="rtime" jdbcType="TIMESTAMP" property="rtime" />
+    <result column="rtype" jdbcType="VARCHAR" property="rtype" />
+    <result column="rstate" jdbcType="VARCHAR" property="rstate" />
+    
+    <association property="customer" javaType="com.ht.h.bean.Customer">
+	    <result property="uid" column="uid"/>
+		<result property="username" column="username"/>
+		<result property="realname" column="realname"/>
+	</association>
+	
+	<association property="loan" javaType="com.ht.h.bean.Loan">
+	    <result property="lid" column="lid"/>
+		<result property="ltitle" column="ltitle"/>
+		<result property="lmoney" column="lmoney"/>
+	</association>
+  </resultMap>
   <sql id="Base_Column_List">
     rid, uid, lid, reperiods, rexpiretime, rmoney, rtime, rtype, rstate
   </sql>
@@ -138,4 +162,48 @@
       rstate = #{rstate,jdbcType=VARCHAR}
     where rid = #{rid,jdbcType=INTEGER}
   </update>
+  
+  	<!-- 分页加条件查询 -->
+	<select id="queryAll" parameterType="Map" resultMap="queryResultMap">
+		select re.*,cu.uid,cu.username,cu.realname,l.lid,l.ltitle,l.lmoney from repayment re,customer cu,loan l
+		<where>
+			re.uid=cu.uid and re.lid=l.lid
+			<if test="username!=null and username!='' ">
+				and cu.username like #{username}
+			</if>
+			<if test="ltitle!=null and ltitle!='' ">
+				and l.ltitle like #{ltitle}
+			</if>
+			<if test="reperiods!=null and reperiods!='' ">
+				and re.reperiods = #{reperiods}
+			</if>
+			<if test="rstate!=null and rstate!='' ">
+				and re.rstate = #{rstate}
+			</if>
+		</where>
+		order by re.rtime desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<!-- 查询还款总条数 -->
+	<select id="getTotal" parameterType="Map" resultType="Long">
+		select count(*) from repayment re,customer cu,loan l
+		<where>
+			re.uid=cu.uid and re.lid=l.lid
+			<if test="username!=null and username!='' ">
+				and cu.username like #{username}
+			</if>
+			<if test="ltitle!=null and ltitle!='' ">
+				and l.ltitle like #{ltitle}
+			</if>
+			<if test="reperiods!=null and reperiods!='' ">
+				and re.reperiods = #{reperiods}
+			</if>
+			<if test="rstate!=null and rstate!='' ">
+				and re.rstate = #{rstate}
+			</if>
+		</where>
+	</select>
 </mapper>
