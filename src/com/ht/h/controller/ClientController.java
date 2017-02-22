@@ -66,15 +66,7 @@ public class ClientController {
 	public String noticelist(){
 		return "client/noticelist";
 	}
-	
-	/*
-	 * 跳转到	账户资金页面
-	 * */
-	@RequestMapping(value="accountfund")
-	public String accountfund(){
-		return "client/accountfund";
-	}
-	
+
 	
 	/*
 	 * 跳转到公司公告页面
@@ -95,6 +87,72 @@ public class ClientController {
 	@RequestMapping(value="left")
 	public String left(){
 		return "client/left";
+	}
+	
+	/*
+	 * 跳转到充值
+	 * */
+	@RequestMapping(value="recharge")
+	public String recharge(){
+		return "client/recharge";
+	}
+	/*
+	 * 跳转到提现
+	 * */
+	@RequestMapping(value="funds")
+	public String funds(){
+		return "client/funds";
+	}
+	
+	/*
+	 * 资金记录
+	 * */
+	@RequestMapping(value="MoneyRecord")
+	public String MoneyRecord(){
+		return "client/MoneyRecord";
+	}
+	
+	
+	/*
+	 * 投资管理
+	 * */
+	@RequestMapping(value="investment")
+	public String investment(){
+		return "client/investment";
+	}
+	
+	/*
+	 *借款管理
+	 * */
+	@RequestMapping(value="BorrowMoney")
+	public String BorrowMoney(){
+		return "client/BorrowMoney";
+	}
+	
+	/*
+	 *银行卡管理
+	 * */
+	@RequestMapping(value="BankCard")
+	public String BankCard(){
+		return "client/BankCard";
+	}
+	
+	/**
+	 * 
+	 * 跳转到安全设置
+	 */
+	@RequestMapping(value="security")
+	public String security(){
+		return "client/security";
+	}
+	
+	/**
+	 * 
+	 * 跳转到消息中心
+	 */
+	@RequestMapping(value="MessageCenter")
+	public String MessageCenter(){
+		return "client/MessageCenter";
 	}
 	
 }

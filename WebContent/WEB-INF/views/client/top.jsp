@@ -264,7 +264,7 @@ $(window).load(function(){
 		 <div class="zxcf_nav_r fr">
 		 	<ul id="menu" style="display:none;">
 		 		<li><img src="<%=path %>/images/zxcf_perinfo.png" alt="">
-				 	<span onclick="tz('<%=path %>/client/left')">我的账户<img src="<%=path %>/images/zxcf_icon01.png" /></span>
+				 	<span>我的账户<img src="<%=path %>/images/zxcf_icon01.png" /></span>
 					<ul style="text-align: center;">
 						<li> <a href="">修改密码</a></li>
 						<li> <a href="">页面锁屏</a></li>
@@ -275,8 +275,8 @@ $(window).load(function(){
 		 </div>
 	</div>
 </div>
-<div class="zxcf_menu_wper">
-	<div class="zxcf_menu px1000">
+<div class="zxcf_menu_wper" >
+	<div class="zxcf_menu px1000" style="margin-left: 21.5%;">
 		  <a href="<%=path %>/client/index" class="zm_cura">首页</a>
 		  <a href="<%=path %>/client/invest">我要投资</a>
 		  <a href="<%=path %>/client/borrow">我要借款</a>
