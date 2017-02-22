@@ -11,7 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 	<title>detail</title>
-<link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
+<link rel="stylesheet" type="text/css" href="<%=path %>/client/style.css">
 <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>
 </head>

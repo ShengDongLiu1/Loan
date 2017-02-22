@@ -96,7 +96,7 @@
 		      	    	 	 	借款金额：<span>2000000元</span>
 		      	    	 	 </li>
 		      	    	 	 <li>
-		      	    	 	 	 <a href="11112/detail.html" class="invest_btn">立即投资</a>
+		      	    	 	 	 <a href="<%=path %>/client/detail" class="invest_btn">立即投资</a>
 		      	    	 	 </li>
 		      	    	 </ul>
 	      	    	</div>
@@ -126,7 +126,7 @@
 		      	    	 	 	借款金额：<span>2000000元</span>
 		      	    	 	 </li>
 		      	    	 	 <li>
-		      	    	 	 	 <a href="11112/detail.html" class="invest_btn">立即投资</a>
+		      	    	 	 	 <a href="<%=path %>/client/detail" class="invest_btn">立即投资</a>
 		      	    	 	 </li>
 		      	    	 </ul>
 	      	    	</div>
@@ -172,7 +172,7 @@
 					      	    	  </ul>  
          	  	    	  	   </div>
          	  	    	  	   <!--  -->
-         	  	    	  	   <a href="11112/detail.html" class="block3_btn fl">立即投资</a>
+         	  	    	  	   <a href="<%=path %>/client/detail" class="block3_btn fl">立即投资</a>
          	  	    	  </div>
          	  	    	  <!--listone  -->
          	  	    	  <div class="block3_proone clearfix clear">
@@ -200,7 +200,7 @@
 					      	    	  </ul>  
          	  	    	  	   </div>
          	  	    	  	   <!--  -->
-         	  	    	  	   <a href="11112/detail.html" class="block3_btn fl">立即投资</a>
+         	  	    	  	   <a href="<%=path %>/client/detail" class="block3_btn fl">立即投资</a>
          	  	    	  </div>
          	  	    	  <!--listone  -->
          	  	    	  <div class="block3_proone clearfix clear">
@@ -228,7 +228,7 @@
 					      	    	  </ul>  
          	  	    	  	   </div>
          	  	    	  	   <!--  -->
-         	  	    	  	   <a href="11112/detail.html" class="block3_btn fl">立即投资</a>
+         	  	    	  	   <a href="<%=path %>/client/detail" class="block3_btn fl">立即投资</a>
          	  	    	  </div>
          	  	    	  <!--listone  -->
          	  	    	  <div class="block3_proone clearfix clear">
@@ -256,7 +256,7 @@
 					      	    	  </ul>  
          	  	    	  	   </div>
          	  	    	  	   <!--  -->
-         	  	    	  	   <a href="11112/detail.html" class="block3_btn fl">立即投资</a>
+         	  	    	  	   <a href="<%=path %>/client/detail" class="block3_btn fl">立即投资</a>
          	  	    	  </div>
          	  	    	  <!--listone  -->
          	  	    	  <div class="block3_proone clearfix clear">
@@ -284,7 +284,7 @@
 					      	    	  </ul>  
          	  	    	  	   </div>
          	  	    	  	   <!--  -->
-         	  	    	  	   <a href="11112/detail.html" class="block3_btn fl">立即投资</a>
+         	  	    	  	   <a href="<%=path %>/client/detail" class="block3_btn fl">立即投资</a>
          	  	    	  </div>
          	  	    	  <!--listone  -->
          	  	    </div>
