@@ -1,6 +1,6 @@
 var contentType = "application/x-www-form-urlencoded; charset=utf-8";
 var oPage;
-/*$(function(){
+$(function(){
 		//初始化footer
 		utils.initPage();
 		if(!utils.Storage.getItem('uid')){
@@ -10,7 +10,7 @@ var oPage;
 			return;
 		};
 		hashChange();
-});*/
+});
 function hashChange(){
 	var hash = location.hash.replace('#','');
 	$('.sub-nav li').removeClass('active');
@@ -2574,7 +2574,7 @@ function detailLinkInit(){
 	                	 }
 	                 }
 	                 ];
-	var detailPage = new Page('repaymentDetail.do.htm'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/app/repaymentDetail.do*/,param,$('#repay .listTable1 .listData'),$('#repay .listTable1 .detailPaging'),dlistData,function(){});
+	var detailPage = new Page('../app/repaymentDetail.do.htm'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/app/repaymentDetail.do*/,param,$('#repay .listTable1 .listData'),$('#repay .listTable1 .detailPaging'),dlistData,function(){});
 	//还款中
 	$('#detail-h').unbind('click').click(function(){
 		borrowFlag = 'repaymenting';
@@ -2591,7 +2591,7 @@ function detailLinkInit(){
 		$('.listTable3').hide();
 		$('.listTable2').hide();
 		$('.listTable1').show();
-		detailPage = new Page('repaymentDetail.do.htm'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/app/repaymentDetail.do*/,param,$('#repay .listTable1 .listData'),$('#repay .listTable1 detailPaging'),dlistData,function(){});
+		detailPage = new Page('../app/repaymentDetail.do.htm'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/app/repaymentDetail.do*/,param,$('#repay .listTable1 .listData'),$('#repay .listTable1 detailPaging'),dlistData,function(){});
 	});
 	//已还完
 	$('#detail-y').unbind('click').click(function(){
@@ -2606,7 +2606,7 @@ function detailLinkInit(){
 		$('.listTable3').hide();
 		$('.listTable1').hide();
 		$('.listTable2').show();
-		detailPage = new Page('repaymentDetail.do.htm'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/app/repaymentDetail.do*/,param,$('#repay .listTable2 .listData'),$('#repay .listTable2 .detailPaging'),dlistData1,function(){});
+		detailPage = new Page('../app/repaymentDetail.do.htm'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/app/repaymentDetail.do*/,param,$('#repay .listTable2 .listData'),$('#repay .listTable2 .detailPaging'),dlistData1,function(){});
 	});
 	//还款明细
 	$('#detail-m').unbind('click').click(function(){
@@ -2621,7 +2621,7 @@ function detailLinkInit(){
 		$('.listTable2').hide();
 		$('.listTable1').hide();
 		$('.listTable3').show();
-		detailPage = new Page('repaymentDetail.do.htm'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/app/repaymentDetail.do*/,param,$('#repay .listTable3 .listData'),$('#repay .listTable3 .detailPaging'),dlistData2,function(){});
+		detailPage = new Page('../app/repaymentDetail.do.htm'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/app/repaymentDetail.do*/,param,$('#repay .listTable3 .listData'),$('#repay .listTable3 .detailPaging'),dlistData2,function(){});
 	});
 	$('#detailSearch').unbind('click').click(function(){
 		if(borrowFlag=='repaymenting'){
@@ -3982,7 +3982,7 @@ function unReadSys(){
 
 
 function weixin1() {
-	$("#weixin").attr("style","background:url('wechart.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/images/wechart.jpg*/)left top /100% no-repeat;");
+	$("#weixin").attr("style","background:url('src/images/wechart.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/images/wechart.jpg*/)left top /100% no-repeat;");
 }
 
 function weixin2() {

@@ -757,7 +757,7 @@ utils.getImgCode = function(el,type){
  */
 function newPointer(){
 	//预先加载
-	preloadImages(['new-step0.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step0.jpg*/,'new-step1.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step1.jpg*/,'new-step2.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step2.jpg*/,'new-step3.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step3.jpg*/,'new-step4.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step4.jpg*/,'new-step5.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step5.jpg*/]);
+	preloadImages(['src/images/new-step0.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step0.jpg*/,'src/images/new-step1.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step1.jpg*/,'src/images/new-step2.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step2.jpg*/,'src/images/new-step3.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step3.jpg*/,'src/images/new-step4.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step4.jpg*/,'src/images/new-step5.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step5.jpg*/]);
 	
 	var oWidth = document.documentElement.offsetWidth;
 	var i = 0;

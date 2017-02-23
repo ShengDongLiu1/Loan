@@ -178,4 +178,9 @@
 	<!--[if lt IE 9]>
 	    <script src="src/libs/json2.js"></script>
 	<![endif]-->
+	<script type="text/javascript" src="/Loan/js/pjjs/jquery.js"></script>
+	<script type="text/javascript" src="/Loan/js/pjjs/chart.js"></script>
+	<script type="text/javascript" src="/Loan/js/pjjs/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/Loan/js/pjjs/public.js"></script>
+	<script type="text/javascript" src="/Loan/js/pjjs/account.js"></script>
 </body></html>

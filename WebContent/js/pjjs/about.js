@@ -181,8 +181,11 @@ function initYybg(){
 						var str = investAmount.split("");
 						var investAmountDIV = "";
 						for (var i=0; i<investAmount.length; i++) {
-							if (str[i] == "," || str[i] == ".") {
-								investAmountDIV += '<div class="marginLeft">,</div>';
+							if (isNaN(str[i])) {
+								if (str[i] == ",")
+									investAmountDIV += '<div class="marginLeft">,</div>';
+								if (str[i] == ".")
+									investAmountDIV += '<div class="marginLeft">.</div>';
 							} else {
 								investAmountDIV += '<div class="item_Div">' + str[i] + '</div>';
 								if (str[(i+1)] === "," || str[(i+1)] === ".") {
@@ -201,7 +204,7 @@ function initYybg(){
 		        				suffix : '' 
 		  				};
 						$(".moneyDiv").html(investAmountDIV);
-						var count1 = new CountUp("dealNumber", 0, data.dealNumber, 2, 2.5, options);
+						var count1 = new CountUp("dealNumber", 0, data.dealNumber, 0, 2.5, options);
 						var count2 = new CountUp("repayAmount", 0, data.repayAmount, 2, 2.5, options);
 						var count3 = new CountUp("unRepayAmount", 0, data.unRepayAmount, 2, 2.5, options);
 						var count4 = new CountUp("hasInterest", 0, data.hasInterest, 2, 2.5, options);
@@ -500,7 +503,7 @@ function initGsd(){
 	    	$('.about-right').empty();
 	    	$('.about-right').html(data);
 	    	$('#xy').hide();
-	    	$('#gd').hide();
+	    	$('#gd1').hide();
 	    	
 	    	$('#gsdt').click(function(){
 	    		if($(this).hasClass('active')){
@@ -533,7 +536,7 @@ function initGsd(){
 }
 //公司动态
 function initGsdt(){
-	$('#gd').show();
+	$('#gd1').show();
 	$('#xy').hide();
 	var dataList = [
 	                {
@@ -547,11 +550,11 @@ function initGsdt(){
 	                	}
 	                }
 	                ]
-	var oPage = new Page('http://120.76.203.19:8090/shzc_test/WEB-PC/app/getMediaReport.do',{},$('#gd .listData'),$('#gd .paging'),dataList,function(){});
+	var oPage = new Page('http://120.76.203.19:8090/shzc_test/WEB-PC/app/getMediaReport.do',{},$('#gd1 .listData'),$('#gd1 .paging'),dataList,function(){});
 }
 //媒体报道
 function  initXyxw(){
-	$('#gd').hide();
+	$('#gd1').hide();
 	$('#xy').show();
 	var dataList = [
 	                {
@@ -642,7 +645,7 @@ function initMap() {
 function loadScript() {
   var script = document.createElement("script");
   script.type = "text/javascript";
-  script.src = "js-v=2.exp&callback=initMap"/*tpa=http://map.qq.com/api/js?v=2.exp&callback=initMap*/;
+  script.src = "../../../../map.qq.com/api/js-v=2.exp&callback=initMap"/*tpa=http://map.qq.com/api/js?v=2.exp&callback=initMap*/;
   document.body.appendChild(script);
 }
 //时间格式化
