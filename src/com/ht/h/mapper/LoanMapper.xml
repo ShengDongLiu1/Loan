@@ -175,6 +175,9 @@
 			<if test="ltype!=null and ltype!='' ">
 				and l.ltype = #{ltype}
 			</if>
+			<if test="lstate!=null and lstate!='' ">
+				and l.lstate = #{lstate}
+			</if>
 		</where>
 		order by l.ltime desc
 		<if test="start!=null and size!=null">
@@ -198,6 +201,9 @@
 			</if>
 			<if test="ltype!=null and ltype!='' ">
 				and l.ltype = #{ltype}
+			</if>
+			<if test="lstate!=null and lstate!='' ">
+				and l.lstate = #{lstate}
 			</if>
 		</where>
 	</select>

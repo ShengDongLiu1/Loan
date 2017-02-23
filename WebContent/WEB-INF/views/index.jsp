@@ -12,7 +12,7 @@
 	<head>
 		<base href="<%=basePath%>">
 		<base target="main" />
-		<title>欢迎使用宏图物流仓库管理系统</title>
+		<title>欢迎使用中兴财富系统</title>
 		<link rel="stylesheet" type="text/css"
 			href="<%=basePath%>assets/jslib/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css"
@@ -116,7 +116,7 @@
 						<li class="divider visible-phone"></li>
 						<li id="xiala">
 							<a tabindex="-1" href="<%=basePath%>user/logout" target="_top">Logout</a>
-							<a tabindex="-1" href="javascript:void(0)" onclick="showLock()" target="_top">锁屏</a>
+							<a tabindex="-1" href="javascript:void(0)" onclick="showLock()" target="_top">锁屏(Alt + L)</a>
 							<a tabindex="-1" href='javascript:void(0)' onclick="openditu()">百度地图名片</a>
 						</li>
 					</ul>
@@ -300,6 +300,8 @@
 
 			    	hide();
 
+			     }else if((ev.altKey)&& ev.keyCode==76){
+			    	 showLock();
 			     }
 			}
 		}); 
