@@ -11,6 +11,12 @@
     <result column="wactual" jdbcType="DECIMAL" property="wactual" />
     <result column="wstate" jdbcType="VARCHAR" property="wstate" />
     <result column="wtime" jdbcType="TIMESTAMP" property="wtime" />
+    
+    <association property="customer" javaType="com.ht.h.bean.Customer"> 
+      <result property="uid" column="uid"/> 
+    <result property="username" column="username"/> 
+    <result property="realname" column="realname"/> 
+  </association> 
   </resultMap>
   <sql id="Base_Column_List">
     wid, uid, wnumber, wbank, wmoney, wcounterfee, wactual, wstate, wtime
@@ -138,4 +144,42 @@
       wtime = #{wtime,jdbcType=TIMESTAMP}
     where wid = #{wid,jdbcType=INTEGER}
   </update>
+  
+  <!-- 分页加条件查询 --> 
+  <select id="selectWithdrawals" parameterType="Map" resultMap="BaseResultMap"> 
+    select w.*,cu.uid,cu.username,cu.realname from withdrawals w,customer cu 
+    <where> 
+      w.uid=cu.uid 
+      <if test="username!=null and username!='' "> 
+        and cu.username like #{username} 
+      </if> 
+      <if test="wnumber!=null and wnumber!='' "> 
+        and w.wnumber like #{wnumber} 
+      </if> 
+      <if test="wbank!=null and wbank!='' "> 
+        and w.wbank like #{wbank} 
+      </if> 
+    </where> 
+    order by w.wtime desc 
+    <if test="start!=null and size!=null"> 
+      limit #{start},#{size} 
+    </if> 
+  </select> 
+   
+  <!-- 查询收入总条数 --> 
+  <select id="getTotal" parameterType="Map" resultType="Long"> 
+    select count(*) from withdrawals w,customer cu 
+    <where> 
+      w.uid=cu.uid 
+      <if test="username!=null and username!='' "> 
+        and cu.username like #{username} 
+      </if> 
+      <if test="wnumber!=null and wnumber!='' "> 
+        and w.wnumber like #{wnumber} 
+      </if> 
+      <if test="wbank!=null and wbank!='' "> 
+        and w.wbank like #{wbank} 
+      </if> 
+    </where> 
+  </select> 
 </mapper>

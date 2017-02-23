@@ -968,6 +968,7 @@ body {
   margin-right: 40px;
 }
 .zxcf_menu .zm_cura {
+	margin-left:0px;
   background: #5d5b5f;
 }
 .zxcf_menu a:hover {

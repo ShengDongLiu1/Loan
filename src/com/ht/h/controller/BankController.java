@@ -36,9 +36,11 @@ public class BankController {
 
 	
 	@RequestMapping(value="/banks",method=RequestMethod.GET)
-	public String select(@RequestParam(value="btime1",required=false)String btime1,@RequestParam(value="btime",required=false)String btime,@RequestParam(value="bstate",required=false)String bstate,@RequestParam(value="bcardnumber",required=false)String bcardnumber,@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,HttpServletResponse response,HttpSession session) throws Exception{
+	public String select(@RequestParam(value="username",required=false)String username,@RequestParam(value="realname",required=false)String realname,@RequestParam(value="btime1",required=false)String btime1,@RequestParam(value="btime",required=false)String btime,@RequestParam(value="bstate",required=false)String bstate,@RequestParam(value="bcardnumber",required=false)String bcardnumber,@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,HttpServletResponse response,HttpSession session) throws Exception{
 		PageBean pageBean=new PageBean(Integer.parseInt(page),Integer.parseInt(rows));
 		Map<String, Object> map= new HashMap<>();
+		map.put("username", StringUtil.formatLike(username));
+		map.put("realname", StringUtil.formatLike(realname));
 		map.put("bcardnumber", StringUtil.formatLike(bcardnumber));
 		map.put("bstate", StringUtil.formatLike(bstate));
 		map.put("btime", btime);

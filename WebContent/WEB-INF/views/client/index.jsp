@@ -11,22 +11,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<title>首页</title>
-<link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
-<script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
+<link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/> 
+<title>鸿金金融</title> 
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/service.css"/>
+<script type="text/javascript" src="<%=path %>/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="<%=path %>/js/jquery.fixed.1.5.1.js"></script>
+
+ <link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
+<%-- <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script> --%>
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>
+
 </head>
 <body>
 <jsp:include flush="true" page="top.jsp"></jsp:include>
 <!-- end  -->
-<div class="zscf_banner_wper">
+<div class="zscf_banner_wper">	
 	<div class="zscf_banner px1000">
 		  <div class="zscf_box">
 		  	   <p>累计成交：<strong>12亿2332万元</strong></p>
 		  	   <p>运营时间：<strong>123天</strong></p>
 		  	   <p><strong>24</strong>小时成功转让率<strong>12.12%</strong></p>
-		  	   <a href="#" class="btn btn1">立即登录</a><br>
-		  	   <a href="#" class="btn btn2">立即注册</a>
+		  	   <a href="<%=path %>/client/login" class="btn btn1">立即登录</a><br>
+		  	   <a href="<%=path %>/client/register" class="btn btn2">立即注册</a>
 		  </div>
 	</div>
 </div>
@@ -422,5 +428,6 @@
 	</div>
 </div>
 <jsp:include flush="true" page="bottom.jsp"></jsp:include>
+
 </body>
 </html>

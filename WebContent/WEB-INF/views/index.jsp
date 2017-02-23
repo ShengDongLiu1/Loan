@@ -12,7 +12,11 @@
 	<head>
 		<base href="<%=basePath%>">
 		<base target="main" />
+<<<<<<< HEAD
 		<title>欢迎使用中兴财富系统</title>
+=======
+		<title>欢迎使用鸿金金融后台管理系统</title> 
+>>>>>>> master
 		<link rel="stylesheet" type="text/css"
 			href="<%=basePath%>assets/jslib/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css"
@@ -125,7 +129,7 @@
 			</ul>
 			<a class="brand" href="#">
 				<span class="first">欢迎使用</span> 
-				<span class="second">管理系统</span>
+				 <span class="second">鸿金金融后台管理系统</span> 
 			</a>
 			
 			<div class="alt" >

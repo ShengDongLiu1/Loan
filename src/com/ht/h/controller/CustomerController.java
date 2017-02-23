@@ -18,6 +18,7 @@ import com.ht.h.bean.Customer;
 import com.ht.h.bean.PageBean;
 import com.ht.h.dto.StringUtil;
 import com.ht.h.service.interfaces.CustomerService;
+import com.ht.h.util.AES;
 
 @Controller
 @RequestMapping("/customer")
@@ -52,14 +53,16 @@ public class CustomerController {
 	 * @param customer
 	 * @param session
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping(value="/cusLogin",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> cusLogin(Customer customer,HttpSession session){
+	public Map<String, Object> cusLogin(Customer customer,HttpSession session) throws Exception{
 		Map<String, Object> map=new HashMap<>();
 		map.put("phone", customer.getUsername());
 		map.put("username", customer.getUsername());
 		map.put("userpwd", customer.getUserpwd());
+		/*map.put("userpwd", (AES.getInstance().encrypt(customer.getUserpwd())));*/
 		customer=customerService.cusLogin(map);
 		if(customer != null){
 			System.out.println(customer);
@@ -126,6 +129,24 @@ public class CustomerController {
 			}
 		}
 		return map;
+	}
+	
+	/**
+	 * 修改客户登录密码
+	 * @param uid
+	 * @param newPassword
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/UpdatePassword")
+	public String UpdatePassword(@RequestParam("uid") String uid,@RequestParam("newPassword") String newPassword) throws Exception{
+		Customer customer=new Customer();
+		customer.setUid(Integer.valueOf(uid));
+		/*customer.setUserpwd(AES.getInstance().encrypt(newPassword));*/
+		customer.setUserpwd(newPassword);
+		int ret=customerService.updateByPrimaryKeySelective(customer);
+		return "client/login";
+		
 	}
 	
 }

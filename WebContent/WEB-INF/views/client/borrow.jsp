@@ -10,7 +10,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-	<title>borrow</title>
+<link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/> 
+<title>鸿金金融</title> 
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
 <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>
@@ -51,7 +52,7 @@
 											 <li><img src="<%=path %>/images/bor_pic03.png" alt="">个人或企业银行征信记录良好
 											 </li>
 											 <li><img src="<%=path %>/images/bor_pic04.png" alt="">
-											  无现有诉讼记录
+										  无现有诉讼记录
 											 </li>
 											 
 										</ul>

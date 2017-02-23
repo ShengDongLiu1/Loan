@@ -12,6 +12,7 @@
      <association property="customer" javaType="com.ht.h.bean.Customer">
 	    <result column="uid" property="uid" />
     	<result column="username" property="username" />
+    	<result column="realname" property="realname" />
 	</association>
   </resultMap>
   <sql id="Base_Column_List">
@@ -111,10 +112,16 @@
   
   
    <select id="select" parameterType="java.util.Map" resultMap="BaseResultMap">
-    select b.bid , b.uid , b.Baccount , b.Bcardnumber , b.Btime, b.Bstate , cus.UID ,cus.Username
+    select b.bid , b.uid , b.baccount , b.bcardnumber , b.btime, b.bstate , cus.uid ,cus.username,cus.realname
    	 from bank b,customer cus
     <where>
     	b.uid=cus.uid 
+    	<if test="username!=null and username!='' ">
+			and cus.username like #{username}
+		</if>
+		<if test="realname!=null and realname!='' ">
+			and cus.realname like #{realname}
+		</if>
     	<if test="bcardnumber!=null and bcardnumber!='' ">
 			and b.bcardnumber like #{bcardnumber}
 		</if>

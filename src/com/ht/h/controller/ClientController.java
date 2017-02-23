@@ -26,11 +26,43 @@ public class ClientController {
 	
 	
 	/*
-	 * 跳转到常见问题
+	 * 跳转到常见问题1
 	 * */
 	@RequestMapping(value="problem")
 	public String problem(){
 		return "client/problem";
+	}
+	
+	/*
+	 * 跳转到常见问题2
+	 * */
+	@RequestMapping(value="problem2")
+	public String problem2(){
+		return "client/problem2";
+	}
+	
+	/*
+	 * 跳转到常见问题3
+	 * */
+	@RequestMapping(value="problem3")
+	public String problem3(){
+		return "client/problem3";
+	}
+	
+	/*
+	 * 跳转到常见问题4
+	 * */
+	@RequestMapping(value="problem4")
+	public String problem4(){
+		return "client/problem4";
+	}
+	
+	/*
+	 * 跳转到常见问题5
+	 * */
+	@RequestMapping(value="problem5")
+	public String problem5(){
+		return "client/problem5";
 	}
 	
 	
@@ -66,15 +98,7 @@ public class ClientController {
 	public String noticelist(){
 		return "client/noticelist";
 	}
-	
-	/*
-	 * 跳转到	账户资金页面
-	 * */
-	@RequestMapping(value="accountfund")
-	public String accountfund(){
-		return "client/accountfund";
-	}
-	
+
 	
 	/*
 	 * 跳转到公司公告页面
@@ -95,6 +119,72 @@ public class ClientController {
 	@RequestMapping(value="left")
 	public String left(){
 		return "client/left";
+	}
+	
+	/*
+	 * 跳转到充值
+	 * */
+	@RequestMapping(value="recharge")
+	public String recharge(){
+		return "client/recharge";
+	}
+	/*
+	 * 跳转到提现
+	 * */
+	@RequestMapping(value="funds")
+	public String funds(){
+		return "client/funds";
+	}
+	
+	/*
+	 * 资金记录
+	 * */
+	@RequestMapping(value="MoneyRecord")
+	public String MoneyRecord(){
+		return "client/MoneyRecord";
+	}
+	
+	
+	/*
+	 * 投资管理
+	 * */
+	@RequestMapping(value="investment")
+	public String investment(){
+		return "client/investment";
+	}
+	
+	/*
+	 *借款管理
+	 * */
+	@RequestMapping(value="BorrowMoney")
+	public String BorrowMoney(){
+		return "client/BorrowMoney";
+	}
+	
+	/*
+	 *银行卡管理
+	 * */
+	@RequestMapping(value="BankCard")
+	public String BankCard(){
+		return "client/BankCard";
+	}
+	
+	/**
+	 * 
+	 * 跳转到安全设置
+	 */
+	@RequestMapping(value="security")
+	public String security(){
+		return "client/security";
+	}
+	
+	/**
+	 * 
+	 * 跳转到消息中心
+	 */
+	@RequestMapping(value="MessageCenter")
+	public String MessageCenter(){
+		return "client/MessageCenter";
 	}
 	
 }

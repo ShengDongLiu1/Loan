@@ -10,7 +10,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-	<title>公告列表</title>
+<link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/>  
+  <title>鸿金金融</title> 
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
 <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>
@@ -27,124 +28,66 @@
 	  	     	  <div class="notic_sec_l fl">
 	  	     	  	  <h3><img src="<%=path %>/images/notic_pic01.png" alt=""></h3>
 	  	     	  	  <ul class="notic_secl_ul">
-	  	     	  	  	   <li class="notic_curli">注册与登录 </li>
-	  	     	  	  	   <li>账户与安全 </li>
-	  	     	  	  	   <li>充值与提现 </li>
-	  	     	  	  	   <li>投资与还款 </li>
-	  	     	  	  	   <li>充值与提现 </li>
+	  	     	  	  	   <li class="notic_curli"><a href="<%=path %>/client/problem">操作流程</a> </li>
+	  	     	  	  	   <li><a href="<%=path %>/client/problem2">账户与安全</a> </li>
+	  	     	  	  	   <li><a href="<%=path %>/client/problem3">充值与提现</a> </li>
+	  	     	  	  	   <li><a href="<%=path %>/client/problem4">投资与还款</a> </li>
+	  	     	  	  	   <li><a href="<%=path %>/client/problem5">注册与认证</a> </li>
 
 	  	     	  	  </ul>
 	  	     	  </div>
 	  	     	  <!-- end l -->
 	  	     	  <div class="notic_sec_r fl">
-	  	     	  	   <h2 class="notic_secr_tit">常见问题</h2>
-
 	  	     	  	   <div class="hc_zjwt ">
 	 	    	   	
 	 	    	   	   <div class="hc_zjwt_one mt20" >
-	 	    	   	   	    <h3 class="hc_zjwt_onebg01">如何充值？</h3>
+	 	    	   	   	    <h3 class="hc_zjwt_onebg01">充值流程</h3>
 	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	 asdf sdf asdf asdf asdf asdf asdf asdf sad
+	 	    	   	   	    	先登录账户，可自由选择多个入口进行充值，登录后在首页上方点击“充值”→快速进入充值界面；或者登录后在首页直接点击“我的账户”，也可直接进入充值界面。
 	 	    	   	   	    </div>
 	 	    	   	   </div>
 	 	    	   	   <!-- end proone -->
 	 	    	   	   <div class="hc_zjwt_one mt20">
-	 	    	   	   	    <h3 class="">如何充值？</h3>
+	 	    	   	   	    <h3 class="">提现操作</h3>
 	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	 asdf sdf asdf asdf asdf asdf asdf asdf sad
+	 	    	   	   	    	1、登录个人账户，进入“我的账户”，点击“提现”。<br/>
+	 	    	   	   	    	2、确认提现银行帐号、用户真实姓名、等信息。<br/>
+								3、输入提现金额和交易密码。<br/>
+								4、点击“获取验证码”按钮获取手机验证码，并在获取后输入手机验证码。<br/>
+								5、确认所有信息无误后，点击“立即提现”，完成提现。<br/>
 	 	    	   	   	    </div>
 	 	    	   	   </div>
 	 	    	   	   <!-- end proone -->
 	 	    	   	   <div class="hc_zjwt_one mt20">
-	 	    	   	   	    <h3 class="hc_zjwt_onebg01">如何充值？</h3>
+	 	    	   	   	    <h3 class="hc_zjwt_onebg01">银行卡绑定</h3>
 	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	 asdf sdf asdf asdf asdf asdf asdf asdf sad
-	 	    	   	   	    </div>
-	 	    	   	   </div>
-	 	    	   	   <!-- end proone -->
-	 	    	   	    <div class="hc_zjwt_one mt20">
-	 	    	   	   	    <h3 class="">如何充值？</h3>
-	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	 asdf sdf asdf asdf asdf asdf asdf asdf sad
-	 	    	   	   	    </div>
-	 	    	   	   </div>
-	 	    	   	   <!-- end proone -->
-	 	    	   	   <div class="hc_zjwt_one mt20">
-	 	    	   	   	    <h3 class="hc_zjwt_onebg01">如何充值？</h3>
-	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	 asdf sdf asdf asdf asdf asdf asdf asdf sad
-	 	    	   	   	    </div>
-	 	    	   	   </div>
-	 	    	   	   <!-- end proone -->
-	 	    	   	    <div class="hc_zjwt_one mt20">
-	 	    	   	   	    <h3 class="">如何充值？</h3>
-	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	 asdf sdf asdf asdf asdf asdf asdf asdf sad
+	 	    	   	   	    	 1、登录个人账户，进入“我的账户”，点击“我的银行卡”→“添加银行卡”；进入界面<br/>
+	 	    	   	   	    	 2、确认用户真实姓名；<br/>
+								 3、选择所属银行及银行卡所属地；<br/>
+								 4、填写银行卡号汇付交易密码；<br/>
+								 5、确认所有信息无误后，点击“确定”，完成银行卡绑定；<br/>
 	 	    	   	   	    </div>
 	 	    	   	   </div>
 	 	    	   	   <!-- end proone -->
 	 	    	   	   <div class="hc_zjwt_one mt20">
-	 	    	   	   	    <h3 class="hc_zjwt_onebg01">如何充值？</h3>
+	 	    	   	   	    <h3 class="">账户安全设置</h3>
 	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	 asdf sdf asdf asdf asdf asdf asdf asdf sad
+	 	    	   	   	    	 1、登录个人账户，进入“我的账户”，左下角点击“安全设置”；<br/>
+	 	    	   	   	    	 2、根据提示完善邮箱绑定、身份认证、及交易密码设置。<br/>
 	 	    	   	   	    </div>
 	 	    	   	   </div>
 	 	    	   	   <!-- end proone -->
-
+	 	    	   	   <div class="hc_zjwt_one mt20">
+	 	    	   	   	    <h3 class="hc_zjwt_onebg01">忘记密码后找回</h3>
+	 	    	   	   	    <div class="hc_answer" style="display: none;">
+	 	    	   	   	    	 在登录页面选择“忘记密码”进行重置，通过用户已经绑定的手机号码进行找回。
+	 	    	   	   	    </div>
+	 	    	   	   </div>
 	 	    	   </div>
 	  	     	  	     
 	  	     	  </div>
 	  	     </div>
 	  </div>
-</div>
-
-<!-- footer start -->
-<div class="zscf_aboutus_wper">
-	  <div class="zscf_aboutus px1000 clearfix">
-	  	    <div class="zscf_aboutus_l fl">
-	  	    	   <ul class="zscf_aboutus_lul clearfix">
-	  	    	   	  <li class="pt10"><a href="#"><img src="<%=path %>/images/app.png" alt=""></a>
-	  	    	   	  </li>
-	  	    	   	  <li>
-	  	    	   	  <p class="pb20">服务热线</p>
-	  	    	   	  <strong>400-027-0101</strong>
-	  	    	   	  </li>
-	  	    	   	  <li>
-	  	    	   	  	  <p class="pb10 linkpic">
-	  	    	   	  	     <a href="#"><img src="<%=path %>/images/ft_sina.png" alt=""></a>
-	  	    	   	  	     <a href="#"><img src="<%=path %>/images/ft_weixin.png" alt=""></a>
-	  	    	   	  	     <a href="#"><img src="<%=path %>/images/ft_erji.png" alt=""></a>
-	  	    	   	  	  </p>
-	  	    	   	  	  <p><a href="#">kefu@zhongxincaifu.com</a></p>
-	  	    	   	  </li>
-	  	    	   </ul>
-	  	    </div>
-	  	    <!-- end left -->
-	  	    <div class="zscf_aboutus_r fl clearfix">
-	  	    	 <a href="#" class="fl ft_ewm"><img src="<%=path %>/images/ft_erweima.png" alt=""></a>
-	  	    	 <ul class="fl clearfix">
-	  	    	 	<li><a href="#">联系我们</a></li>
-	  	    	 	<li><a href="#">我要融资</a></li>
-	  	    	 	<li><a href="<%=path %>/client/problem">帮助中心</a></li>
-	  	    	 	<li><a href="#">友情链接</a></li>
-	  	    	 	<li><a href="#">招贤纳士</a></li>
-	  	    	 	<li><a href="#">收益计算器</a></li>
-	  	    	 </ul>
-	  	    </div>
-	  	    <!-- end right -->
-
-	  </div>
-</div>
-
-<div class="zscf_bottom_wper">
-	<div class="zscf_bottom px1000 clearfix">
-		  <p class="fl">© 2014 zhongxincaifu &nbsp;  &nbsp;&nbsp;   中兴财富金融信息服务股份有限公司 &nbsp;&nbsp;&nbsp;    来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
-		  <p class="fr">
-		    <a href="#"><img src="<%=path %>/images/360.png" alt=""></a>
-		    <a href="#"><img src="<%=path %>/images/kexin.png" alt=""></a>
-		    <a href="#"><img src="<%=path %>/images/norton.png" alt=""></a>
-		  </p>
-	</div>
 </div>
 <jsp:include flush="true" page="bottom.jsp"></jsp:include>
 </body>
