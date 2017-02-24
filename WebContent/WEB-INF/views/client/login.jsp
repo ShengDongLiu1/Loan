@@ -9,8 +9,9 @@
 <!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-	<title>首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/>  
+  <title>鸿金金融</title> 
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
 <!-- <link rel="stylesheet/less" type="text/css" href="css/style.less" /> -->
 <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
@@ -50,7 +51,7 @@
 		 <div class="zxcf_nav_r fr">
 		 		<img src="<%=path %>/images/lg_pic01.png" alt=""> 
 		 	<span>
-		    <a href="#">返回首页</a></span>
+		    <a href="<%=path %>/client/index">返回首页</a></span> 
 		 	
 		 </div>
 	</div>
@@ -66,7 +67,7 @@
 	  	   	     <div class="lg_section_r fl">
 	  	   	     	   <h2 class="lg_sec_tit clearfix">
 	  	   	     	      <span class="fl">登录</span>
-	  	   	     	      <em class="fr">没有帐号，<a href="#">立即注册</a></em>
+	  	   	     	       <em class="fr">没有帐号，<a href="<%=path %>/client/register">立即注册</a></em> 
 	  	   	     	   </h2>
 	  	   	     	   <form>
 	  	   	     	   	    <fieldset>

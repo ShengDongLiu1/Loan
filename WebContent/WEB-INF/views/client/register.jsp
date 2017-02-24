@@ -10,7 +10,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-	<title>注册</title>
+<link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/>  
+  <title>鸿金金融</title> 
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
 <!-- <link rel="stylesheet/less" type="text/css" href="css/style.less" /> -->
 <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>

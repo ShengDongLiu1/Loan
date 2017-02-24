@@ -11,6 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/> 
 <title>安全设置</title>
 <link rel="stylesheet" href="/Loan/css/pjcss/public.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/account.css">

@@ -11,7 +11,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<title>首页</title>
+<link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/> 
+<title>鸿金金融</title> 
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/service.css"/>
 <script type="text/javascript" src="<%=path %>/js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/jquery.fixed.1.5.1.js"></script>

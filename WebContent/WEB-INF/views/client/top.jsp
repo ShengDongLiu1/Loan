@@ -11,6 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/> 
 	<title>首页</title>
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>

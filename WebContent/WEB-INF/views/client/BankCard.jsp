@@ -11,7 +11,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<title>银行卡管理</title>
+<link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/> 
+<title>鸿金金融</title> 
 <link rel="stylesheet" href="/Loan/css/pjcss/public.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/account.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/datepicker.css">
