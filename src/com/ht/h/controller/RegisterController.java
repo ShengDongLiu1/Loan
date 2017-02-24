@@ -19,10 +19,12 @@ import org.dom4j.Element;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ht.h.bean.Customer;
-import com.ht.h.service.interfaces.CustomerService; 
+import com.ht.h.service.interfaces.CustomerService;
+import com.ht.h.util.AES; 
  
 /* 
  * 注册 
@@ -100,7 +102,8 @@ public class RegisterController {
   
 	@RequestMapping(value="/userregister",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> userRegister(Customer customer,String yanzheng,HttpSession session){
+	public Map<String, Object> userRegister(Customer customer,String yanzheng,HttpSession session) throws Exception{
+		/*customer.setUserpwd(AES.getInstance().encrypt(customer.getUserpwd()));*/
 		Map<String, Object> map=new HashMap<>();
 		map.put("phone", customer.getPhone());
 		map.put("username", customer.getUsername());

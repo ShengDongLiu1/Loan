@@ -3402,7 +3402,7 @@ function changePhoneStepTwo(){
 	})
 }
 //修改登录交易密码
-function changePwd(type){
+function changePwd(){
 	utils.Dialog(true);
 	$('.change-pwd').fadeIn();
 	$('.change-pwd .close').click(function(){
@@ -3414,19 +3414,25 @@ function changePwd(type){
 	$('#confirmPassword').val("");
 	//修改登录密码
 	$('#pwd-submit').unbind('click').click(function(){
-		changePwdSubmit(type);
+		changePwdSubmit();
 	});
 }
-function changePwdSubmit(type){
+
+function changePwdSubmit(){
 	var oldPassword = $('#oldPassword').val();
 	var newPassword = $('#newPassword').val();
 	var confirmPassword = $('#confirmPassword').val();
+	var wornpwd = $('#wornpwd').val();
 	if(oldPassword == ''){
 		utils.toast('原始密码不能为空');
 		return;
 	}
-	if(newPassword == '' || newPassword.length<6){
-		utils.toast('密码长度必须为6-20个字符');
+	if(oldPassword != wornpwd){
+		utils.toast('您输入的原密码有误');
+		return;
+	}
+	if(newPassword == '' || newPassword.length<4){
+		utils.toast('密码长度必须为4-20个字符');
 		return;
 	}
 	if(confirmPassword == ''){
@@ -3441,52 +3447,11 @@ function changePwdSubmit(type){
 		utils.toast('两次密码输入不一致');
 		return;
 	}
-	var param = {
-			oldPassword:oldPassword,
-			newPassword:newPassword,
-			confirmPassword:confirmPassword,
-			type:type
-	};
-	$('#pwd-submit').addClass('disabled').text('提交中...').unbind('click');
-	//修改登录密码
-	utils.ajax({
-		url:'http://120.76.203.19:8090/shzc_test/WEB-PC/app/changeLoginPassword.do',
-		data:JSON.stringify(param),
-		dataType:'json',
-		success:function(data){
-			$('#pwd-submit').removeClass('disabled').text('确认').bind('click',function(){
-				changePwdSubmit(type);
-			});
-			if (data == 1) {
-				utils.alert("两次密码输入不一致");
-				return;
-			} else if (data == 2) {
-				utils.alert("旧密码错误");
-				return;
-			} else if (data == 3) {
-				utils.alert("新密码修改失败");
-				return;
-			} else if (data == 4) {
-				utils.alert("密码长度输入错误,密码长度范围为6-20");
-				return;
-			} else if (data == 5) {
-				utils.alert("*修改失败！你的账号出现异常，请速与管理员联系！");
-				return;
-			} else if (data == 6) {
-				utils.alert("登录密码不能和交易密码一样！");
-				return;
-			} else if (data == 7) {
-				utils.alert("交易密码不能和登录密码一样！");
-				return;
-			} else {
-				$('.change-pwd .popup-from').hide().siblings('.popup-result').show();
-				$('#submit-success').click(function(){
-					window.location.reload();
-				})
-			}
-		}
-	})	
-
+	if(newPassword == confirmPassword){
+		utils.toast('密码修改成功，请重新登录');
+		$("#update_form").submit();
+	}
+	
 }
 //我的银行卡
 function initMyDebitCard() {
@@ -3791,7 +3756,7 @@ function deleteMsg (obj) {
 	}
 	if(!window.confirm("确定要删除吗?")){
 	  $("#deleteMsg").attr("disabled",false);
-		return;
+		return; 
 	}
 	var ids = stIdArray.join(",");
 	$.ajax({
@@ -3882,104 +3847,6 @@ function unReadSys(){
 		}
 	});
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function weixin1() {
 	$("#weixin").attr("style","background:url('src/images/wechart.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/images/wechart.jpg*/)left top /100% no-repeat;");

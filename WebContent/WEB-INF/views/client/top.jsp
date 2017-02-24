@@ -267,7 +267,7 @@ $(window).load(function(){
 		 		<li><img src="<%=path %>/images/zxcf_perinfo.png" alt="">
 				 	<span>我的账户<img src="<%=path %>/images/zxcf_icon01.png" /></span>
 					<ul style="text-align: center;">
-						<li> <a href="">修改密码</a></li>
+						<li> <a href="<%=path %>/client/security">编辑资料</a></li>
 						<li> <a href="">页面锁屏</a></li>
 						<li> <a href="">退出账户</a></li>
 					</ul>
