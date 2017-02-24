@@ -191,7 +191,7 @@ $(window).load(function(){
                     <p>
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1298762198&site=qq&menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:1298762198:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>大鹏</span>
+                          <span>吴鹏</span>
                     	</a>
                     </p>
                     <p>
