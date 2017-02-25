@@ -77,7 +77,7 @@
                                    认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
                            	   </li>
                            	   <li class="prolist_btn">
-                           	   	    <a href="<%=path %>/11112/detail.html" class="pro_btn">立即投资</a>
+                           	   	    <a href="<%=path %>/client/detail" class="pro_btn">立即投资</a>
                            	   </li>
                            </ul>
 	  	             </div>
@@ -99,7 +99,7 @@
                                    认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
                            	   </li>
                            	   <li class="prolist_btn">
-                           	   	    <a href="<%=path %>/11112/detail.html" class="pro_btn">立即投资</a>
+                           	   	    <a href="<%=path %>/client/detail" class="pro_btn">立即投资</a>
                            	   </li>
                            </ul>
 	  	             </div>
@@ -121,7 +121,7 @@
                                    认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
                            	   </li>
                            	   <li class="prolist_btn">
-                           	   	    <a href="<%=path %>/11112/detail.html" class="pro_btn">立即投资</a>
+                           	   	    <a href="<%=path %>/client/detail" class="pro_btn">立即投资</a>
                            	   </li>
                            </ul>
 	  	             </div>
@@ -143,7 +143,7 @@
                                    认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
                            	   </li>
                            	   <li class="prolist_btn">
-                           	   	    <a href="<%=path %>/11112/detail.html" class="pro_btn">立即投资</a>
+                           	   	    <a href="<%=path %>/client/detail" class="pro_btn">立即投资</a>
                            	   </li>
                            </ul>
 	  	             </div>
@@ -165,7 +165,7 @@
                                    认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
                            	   </li>
                            	   <li class="prolist_btn">
-                           	   	    <a href="<%=path %>/11112/detail.html" class="pro_btn">立即投资</a>
+                           	   	    <a href="<%=path %>/client/detail" class="pro_btn">立即投资</a>
                            	   </li>
                            </ul>
 	  	             </div>

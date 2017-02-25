@@ -20,66 +20,19 @@
  <link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
 <%-- <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script> --%>
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>
-<style type="text/css">
-body { font:13px/1.5 "Microsoft Yahei" }
-a{ color:yellow;text-decoration:none;}
-a:hover { text-decoration:none; color:red;}
-.clearfix:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
-.clearfix{*zoom:1;}
-
-.demo { width:960px; margin:0 auto; padding:100px 50px 0; background-color:#f2f2f2; }
-.qhd-desc h2 { margin-bottom:0.8em; }
-.qhd-desc h3 { margin-bottom:0.6em; }
-.qhd-desc p { margin-bottom:0.5em; }
-.demo-copyright { margin-top:100px; text-align:center; }
-</style>
-<script language="javascript">
-//must window loading,don't use the document loading
-$(window).load(function(){
-	
-	//悬浮客服
-	$("#fixedBox2").fix({
-		position 		: "left",	//悬浮位置 - left或right
-		horizontal  	: 0,		//水平方向的位置 - 默认为数字
-		vertical    	: null,		//垂直方向的位置 - 默认为null
-		halfTop     	: false,	//是否垂直居中位置
-		minStatue 		: false,	//是否最小化
-		hideCloseBtn 	: false,	//是否隐藏关闭按钮
-		skin 			: "gray",	//皮肤
-		showBtnWidth 	: 28,       //show_btn_width
-		contentBoxWidth : 154, 		//side_content_width
-		durationTime 	: 600		//完成时间
-	});
-	
-	//悬浮客服
-	$("#fixedBox").fix({
-		position 		: "right",	//悬浮位置 - left或right
-		horizontal  	: 0,		//水平方向的位置 - 默认为数字
-		vertical    	: 100,      //垂直方向的位置 - 默认为null
-		halfTop     	: true,	    //是否垂直居中位置
-		minStatue 		: false,	//是否最小化
-		hideCloseBtn 	: false,	//是否隐藏关闭按钮
-		skin 			: "blue",	//皮肤
-		showBtnWidth 	: 28,       //show_btn_width
-		contentBoxWidth : 154, 		//side_content_width
-		durationTime 	: 1000		//完成时间
-	});
-	
-});
-</script>
 
 </head>
 <body>
 <jsp:include flush="true" page="top.jsp"></jsp:include>
 <!-- end  -->
-<div class="zscf_banner_wper">
+<div class="zscf_banner_wper">	
 	<div class="zscf_banner px1000">
 		  <div class="zscf_box">
 		  	   <p>累计成交：<strong>12亿2332万元</strong></p>
 		  	   <p>运营时间：<strong>123天</strong></p>
 		  	   <p><strong>24</strong>小时成功转让率<strong>12.12%</strong></p>
-		  	   <a href="#" class="btn btn1">立即登录</a><br>
-		  	   <a href="#" class="btn btn2">立即注册</a>
+		  	   <a href="<%=path %>/client/login" class="btn btn1">立即登录</a><br>
+		  	   <a href="<%=path %>/client/register" class="btn btn2">立即注册</a>
 		  </div>
 	</div>
 </div>

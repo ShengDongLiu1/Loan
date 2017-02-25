@@ -249,13 +249,13 @@ $(window).load(function(){
 			 	<span>欢迎</span>
 			 	<a href="<%=path %>/client/left" >${customer.username}</a>
 			 	<span>|</span>
-		 		<a href="javascript:void(0)">注销</a>
+		 		<a href="<%=path %>/customer/logOut">注销</a>
 		 	</c:if>
 		 	<span>|</span>
 		 	<a href="#">充值</a>
 		 	<span>|</span>
 		 	<a href="<%=path %>/client/problem">常见问题</a>
-		 </div>
+		 </div> 
 	</div>
 </div>
 <!-- end top -->
@@ -302,9 +302,9 @@ $(window).load(function(){
 		$("#menu").slideToggle();
 	});
 
-	
+	  
 	// iPad
-	var isiPad = navigator.userAgent.match(/iPad/i) != null;
+	var isiPad = navigator.userAgent.match(/iPad/i) != null;	
 	if (isiPad) $('#menu ul').addClass('no-transition');
 	
 	});
