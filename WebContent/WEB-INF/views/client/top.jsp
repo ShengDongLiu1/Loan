@@ -249,13 +249,13 @@ $(window).load(function(){
 			 	<span>欢迎</span>
 			 	<a href="<%=path %>/client/left" >${customer.username}</a>
 			 	<span>|</span>
-		 		<a href="<%=path %>/customer/logOut">注销</a>
+		 		<a href="javascript:void(0)">注销</a>
 		 	</c:if>
 		 	<span>|</span>
 		 	<a href="#">充值</a>
 		 	<span>|</span>
 		 	<a href="<%=path %>/client/problem">常见问题</a>
-		 </div> 
+		 </div>
 	</div>
 </div>
 <!-- end top -->
@@ -265,12 +265,12 @@ $(window).load(function(){
 		 <div class="zxcf_nav_r fr">
 		 	<ul id="menu" style="display:none;">
 		 		<li><img src="<%=path %>/images/zxcf_perinfo.png" alt="">
-				 	<span href="<%=path %>/client/left" >我的账户<img src="<%=path %>/images/zxcf_icon01.png" /></span>
-					<%-- <ul style="text-align: center;">
+				 	<span>我的账户<img src="<%=path %>/images/zxcf_icon01.png" /></span>
+					<ul style="text-align: center;">
 						<li> <a href="<%=path %>/client/security">编辑资料</a></li>
 						<li> <a href="">页面锁屏</a></li>
 						<li> <a href="">退出账户</a></li>
-					</ul> --%>
+					</ul>
 				</li>
 		 	</ul>
 		 </div>
@@ -302,9 +302,9 @@ $(window).load(function(){
 		$("#menu").slideToggle();
 	});
 
-	  
+	
 	// iPad
-	var isiPad = navigator.userAgent.match(/iPad/i) != null;	
+	var isiPad = navigator.userAgent.match(/iPad/i) != null;
 	if (isiPad) $('#menu ul').addClass('no-transition');
 	
 	});

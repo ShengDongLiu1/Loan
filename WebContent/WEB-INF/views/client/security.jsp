@@ -54,11 +54,6 @@
 </div>
 <div class="account-content" style="display: block;">
 	<div class="safe">
-		<div class="safe-top">
-			<p class="safe-t-text">您的资料完善度</p>
-			<p class="safe-t-line"><em style="width: 100%;"></em></p>
-			<p class="safe-t-r">高</p>
-		</div>
 		<div class="safe-content">
 			<ul class="safe-list">
 				<li>
