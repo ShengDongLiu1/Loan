@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,4 +61,13 @@ public class WithdrawalsController {
 		ResponseUtil.write(response, result);
 		return null; 
 	} 
+	
+	@RequestMapping(value="/add") 
+	public String add(Withdrawals withdrawals,HttpServletRequest request){
+		System.out.println("111111111");
+		int wit = withdrawalsService.insert(withdrawals);
+		request.setAttribute("wit", wit);
+		return "views/client/funds";
+	}
+	
 }
