@@ -252,7 +252,7 @@ $(window).load(function(){
 		 		<a href="javascript:void(0)">注销</a>
 		 	</c:if>
 		 	<span>|</span>
-		 	<a href="#">充值</a>
+		 	<a href="<%=path%>/client/recharge">充值</a>
 		 	<span>|</span>
 		 	<a href="<%=path %>/client/problem">常见问题</a>
 		 </div>

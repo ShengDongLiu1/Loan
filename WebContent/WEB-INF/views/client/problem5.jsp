@@ -28,11 +28,11 @@
 	  	     	  <div class="notic_sec_l fl">
 	  	     	  	  <h3><img src="<%=path %>/images/notic_pic01.png" alt=""></h3>
 	  	     	  	  <ul class="notic_secl_ul">
-	  	     	  	  	   <li class="notic_curli"><a href="<%=path %>/client/problem">操作流程</a> </li>
+	  	     	  	  	   <li><a href="<%=path %>/client/problem">操作流程</a> </li>
 	  	     	  	  	   <li><a href="<%=path %>/client/problem2">账户与安全</a> </li>
 	  	     	  	  	   <li><a href="<%=path %>/client/problem3">充值与提现</a> </li>
 	  	     	  	  	   <li><a href="<%=path %>/client/problem4">投资与还款</a> </li>
-	  	     	  	  	   <li><a href="<%=path %>/client/problem5">注册与认证</a> </li>
+	  	     	  	  	   <li class="notic_curli"><a href="<%=path %>/client/problem5">注册与认证</a> </li>
 
 	  	     	  	  </ul>
 	  	     	  </div>
@@ -41,46 +41,44 @@
 	  	     	  	   <div class="hc_zjwt ">
 	 	    	   	
 	 	    	   	   <div class="hc_zjwt_one mt20" >
-	 	    	   	   	    <h3 class="hc_zjwt_onebg01">充值流程</h3>
+	 	    	   	   	    <h3 class="hc_zjwt_onebg01">为什么实名认证通不能通过？</h3>
 	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	先登录账户，可自由选择多个入口进行充值，登录后在首页上方点击“充值”→快速进入充值界面；或者登录后在首页直接点击“我的账户”，也可直接进入充值界面。
+	 	    	   	   	    	以下三种情况可能会导致实名认证无法通过：<br />
+							   （1）军人身份；<br />
+							   （2）港澳台同胞以及国外户口；<br />
+							   （3）户口办理过迁移没有落户成功或落户时信息未做变更，无法通过审核。<br />
 	 	    	   	   	    </div>
 	 	    	   	   </div>
 	 	    	   	   <!-- end proone -->
 	 	    	   	   <div class="hc_zjwt_one mt20">
-	 	    	   	   	    <h3 class="">提现操作</h3>
+	 	    	   	   	    <h3 class="">为什么要进行实名登记？</h3>
 	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	1、登录个人账户，进入“我的账户”，点击“提现”。<br/>
-	 	    	   	   	    	2、确认提现银行帐号、用户真实姓名、等信息。<br/>
-								3、输入提现金额和交易密码。<br/>
-								4、点击“获取验证码”按钮获取手机验证码，并在获取后输入手机验证码。<br/>
-								5、确认所有信息无误后，点击“立即提现”，完成提现。<br/>
+	 	    	   	   	    	为了提高账户安全等级，保障资金的安全性和合同的有效性，客户需在首次充值前完成实名
+								登记，鸿金金融承诺会对所有客户资料严格保密。
 	 	    	   	   	    </div>
 	 	    	   	   </div>
 	 	    	   	   <!-- end proone -->
 	 	    	   	   <div class="hc_zjwt_one mt20">
-	 	    	   	   	    <h3 class="hc_zjwt_onebg01">银行卡绑定</h3>
+	 	    	   	   	    <h3 class="hc_zjwt_onebg01">一个手机号可以注册几个账号？</h3>
 	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	 1、登录个人账户，进入“我的账户”，点击“我的银行卡”→“添加银行卡”；进入界面<br/>
-	 	    	   	   	    	 2、确认用户真实姓名；<br/>
-								 3、选择所属银行及银行卡所属地；<br/>
-								 4、填写银行卡号汇付交易密码；<br/>
-								 5、确认所有信息无误后，点击“确定”，完成银行卡绑定；<br/>
+	 	    	   	   	    	手机号、邮箱和客户的身份信息都具有唯一性，故一个手机号只能注册绑定一个账户。
 	 	    	   	   	    </div>
 	 	    	   	   </div>
 	 	    	   	   <!-- end proone -->
 	 	    	   	   <div class="hc_zjwt_one mt20">
-	 	    	   	   	    <h3 class="">账户安全设置</h3>
+	 	    	   	   	    <h3 class="">注册成功后用户名可以修改吗？</h3>
 	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	 1、登录个人账户，进入“我的账户”，左下角点击“安全设置”；<br/>
-	 	    	   	   	    	 2、根据提示完善邮箱绑定、身份认证、及交易密码设置。<br/>
+	 	    	   	   	    	鸿金金融平台用户名注册成功后不可以修改，建议您注册时不要使用真实姓名作为用户名。
 	 	    	   	   	    </div>
 	 	    	   	   </div>
 	 	    	   	   <!-- end proone -->
 	 	    	   	   <div class="hc_zjwt_one mt20">
-	 	    	   	   	    <h3 class="hc_zjwt_onebg01">忘记密码后找回</h3>
+	 	    	   	   	    <h3 class="hc_zjwt_onebg01">注册时手机收不到验证码怎么办？</h3>
 	 	    	   	   	    <div class="hc_answer" style="display: none;">
-	 	    	   	   	    	 在登录页面选择“忘记密码”进行重置，通过用户已经绑定的手机号码进行找回。
+	 	    	   	   	    	 （1）确认短信是否被手机软件拦截或过滤
+								 （2）确认手机是否能正常接收短信（信号问题、欠费、停机等）
+								 （3）短信收发过程中可能会有延时，请耐心等候
+								 （4）若仍然收不到验证码，请联系客服。
 	 	    	   	   	    </div>
 	 	    	   	   </div>
 	 	    	   </div>

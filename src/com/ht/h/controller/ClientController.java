@@ -26,11 +26,43 @@ public class ClientController {
 	
 	
 	/*
-	 * 跳转到常见问题
+	 * 跳转到常见问题1
 	 * */
 	@RequestMapping(value="problem")
 	public String problem(){
 		return "client/problem";
+	}
+	
+	/*
+	 * 跳转到常见问题2
+	 * */
+	@RequestMapping(value="problem2")
+	public String problem2(){
+		return "client/problem2";
+	}
+	
+	/*
+	 * 跳转到常见问题3
+	 * */
+	@RequestMapping(value="problem3")
+	public String problem3(){
+		return "client/problem3";
+	}
+	
+	/*
+	 * 跳转到常见问题4
+	 * */
+	@RequestMapping(value="problem4")
+	public String problem4(){
+		return "client/problem4";
+	}
+	
+	/*
+	 * 跳转到常见问题5
+	 * */
+	@RequestMapping(value="problem5")
+	public String problem5(){
+		return "client/problem5";
 	}
 	
 	
