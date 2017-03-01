@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!-- saved from url=(0050)http://mertest.chinapnr.com/muser/bankcard/addCard -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style media="screen"></style>
@@ -8,9 +10,9 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no">
-<link rel="stylesheet" href="/Loan/css/huifucss/style.css">
-<link rel="shortcut icon" href="http://mertest.chinapnr.com/cash/favicon.ico">
-<script src="/Loan/js/huifujs/jquery-1.8.2.min.js"></script>
+<link rel="stylesheet" href="/Loan/css/huifucss/2/style.css">
+<link rel="shortcut icon" href="http://mertest.chinapnr.com/muser/favicon.ico">
+<script src="/Loan/js/huifujs/jquery-1.8.2.min.js.下载"></script>
 </head>
 <body class="w960">
   <div class="wrapper">
@@ -72,7 +74,7 @@
                       <label class="label">所属银行:</label>
                       <div class="form-unit form-unit-action">
                         <div class="form-unit-info">
-                          <b class="form-unit-icon" style="background-image: url(&quot;http://test.chinapnr.com/statics//common/images/bank/sml/ABC.png&quot;);">中国农业银行</b>
+                          <b class="form-unit-icon" style="background-image: url(&quot;http://test.chinapnr.com/statics//common/images/bank/sml/ABC.png&quot;);"></b>
                           <span></span>
                           <i class="form-unit-action-arrow"></i>
                         </div>
@@ -85,107 +87,107 @@
                           <div class="tips-content-long">
                             <div class="tips-list tips-list-bank">
                                     <a href="javascript:;" rel="ICBC" name="中国工商银行">
-                                      <img src="./汇付天下_files/ICBC.png" width="114" height="34">
+                                      <img src="../images/huifu/ICBC.png" width="114" height="34">
                                       <span>中国工商银行</span>
                                     </a>
                                     <a href="javascript:;" rel="ABC" name="中国农业银行" class="on">
-                                      <img src="./汇付天下_files/ABC.png" width="114" height="34">
+                                      <img src="../images/huifu/ABC.png" width="114" height="34">
                                       <span>中国农业银行</span>
                                     </a>
                                     <a href="javascript:;" rel="CMB" name="招商银行">
-                                      <img src="./汇付天下_files/CMB.png" width="114" height="34">
+                                      <img src="../images/huifu/CMB.png" width="114" height="34">
                                       <span>招商银行</span>
                                     </a>
                                     <a href="javascript:;" rel="CCB" name="中国建设银行">
-                                      <img src="./汇付天下_files/CCB.png" width="114" height="34">
+                                      <img src="../images/huifu/CCB.png" width="114" height="34">
                                       <span>中国建设银行</span>
                                     </a>
                                     <a href="javascript:;" rel="BJRCB" name="北京农村商业银行">
-                                      <img src="./汇付天下_files/BJRCB.png" width="114" height="34">
+                                      <img src="../images/huifu/BJRCB.png" width="114" height="34">
                                       <span>北京农村商业银行</span>
                                     </a>
                                     <a href="javascript:;" rel="BOC" name="中国银行">
-                                      <img src="./汇付天下_files/BOC.png" width="114" height="34">
+                                      <img src="../images/huifu/BOC.png" width="114" height="34">
                                       <span>中国银行</span>
                                     </a>
                                     <a href="javascript:;" rel="BOCOM" name="交通银行">
-                                      <img src="./汇付天下_files/BOCOM.png" width="114" height="34">
+                                      <img src="../images/huifu/BOCOM.png" width="114" height="34">
                                       <span>交通银行</span>
                                     </a>
                                     <a href="javascript:;" rel="CEB" name="中国光大银行">
-                                      <img src="./汇付天下_files/CEB.png" width="114" height="34">
+                                      <img src="../images/huifu/CEB.png" width="114" height="34">
                                       <span>中国光大银行</span>
                                     </a>
                                     <a href="javascript:;" rel="SDB" name="深圳发展银行">
-                                      <img src="./汇付天下_files/SDB.png" width="114" height="34">
+                                      <img src="../images/huifu/SDB.png" width="114" height="34">
                                       <span>深圳发展银行</span>
                                     </a>
                                     <a href="javascript:;" rel="SPDB" name="浦东发展银行">
-                                      <img src="./汇付天下_files/SPDB.png" width="114" height="34">
+                                      <img src="../images/huifu/SPDB.png" width="114" height="34">
                                       <span>浦东发展银行</span>
                                     </a>
                                     <a href="javascript:;" rel="BCCB" name="北京银行">
-                                      <img src="./汇付天下_files/BCCB.png" width="114" height="34">
+                                      <img src="../images/huifu/BCCB.png" width="114" height="34">
                                       <span>北京银行</span>
                                     </a>
                                     <a href="javascript:;" rel="BOS" name="上海银行">
-                                      <img src="./汇付天下_files/BOS.png" width="114" height="34">
+                                      <img src="../images/huifu/BOS.png" width="114" height="34">
                                       <span>上海银行</span>
                                     </a>
                                     <a href="javascript:;" rel="CBHB" name="渤海银行">
-                                      <img src="./汇付天下_files/CBHB.png" width="114" height="34">
+                                      <img src="../images/huifu/CBHB.png" width="114" height="34">
                                       <span>渤海银行</span>
                                     </a>
                                     <a href="javascript:;" rel="CIB" name="兴业银行">
-                                      <img src="./汇付天下_files/CIB.png" width="114" height="34">
+                                      <img src="../images/huifu/CIB.png" width="114" height="34">
                                       <span>兴业银行</span>
                                     </a>
                                     <a href="javascript:;" rel="CMBC" name="中国民生银行">
-                                      <img src="./汇付天下_files/CMBC.png" width="114" height="34">
+                                      <img src="../images/huifu/CMBC.png" width="114" height="34">
                                       <span>中国民生银行</span>
                                     </a>
                                     <a href="javascript:;" rel="CZB" name="浙商银行">
-                                      <img src="./汇付天下_files/CZB.png" width="114" height="34">
+                                      <img src="../images/huifu/CZB.png" width="114" height="34">
                                       <span>浙商银行</span>
                                     </a>
                                     <a href="javascript:;" rel="GDB" name="广发银行">
-                                      <img src="./汇付天下_files/GDB.png" width="114" height="34">
+                                      <img src="../images/huifu/GDB.png" width="114" height="34">
                                       <span>广发银行</span>
                                     </a>
                                     <a href="javascript:;" rel="HXB" name="华夏银行">
-                                      <img src="./汇付天下_files/HXB.png" width="114" height="34">
+                                      <img src="../images/huifu/HXB.png" width="114" height="34">
                                       <span>华夏银行</span>
                                     </a>
                                     <a href="javascript:;" rel="HZCB" name="杭州银行">
-                                      <img src="./汇付天下_files/HZCB.png" width="114" height="34">
+                                      <img src="../images/huifu/HZCB.png" width="114" height="34">
                                       <span>杭州银行</span>
                                     </a>
                                     <a href="javascript:;" rel="MINTAI" name="浙江民泰商业银行">
-                                      <img src="./汇付天下_files/MINTAI.png" width="114" height="34">
+                                      <img src="../images/huifu/MINTAI.png" width="114" height="34">
                                       <span>浙江民泰商业银行</span>
                                     </a>
                                     <a href="javascript:;" rel="NJCB" name="南京银行">
-                                      <img src="./汇付天下_files/NJCB.png" width="114" height="34">
+                                      <img src="../images/huifu/NJCB.png" width="114" height="34">
                                       <span>南京银行</span>
                                     </a>
                                     <a href="javascript:;" rel="PINGAN" name="平安银行">
-                                      <img src="./汇付天下_files/PINGAN.png" width="114" height="34">
+                                      <img src="../images/huifu/PINGAN.png" width="114" height="34">
                                       <span>平安银行</span>
                                     </a>
                                     <a href="javascript:;" rel="PSBC" name="中国邮政储蓄银行">
-                                      <img src="./汇付天下_files/PSBC.png" width="114" height="34">
+                                      <img src="../images/huifu/PSBC.png" width="114" height="34">
                                       <span>中国邮政储蓄银行</span>
                                     </a>
                                     <a href="javascript:;" rel="SRCB" name="上海农村商业银行">
-                                      <img src="./汇付天下_files/SRCB.png" width="114" height="34">
+                                      <img src="../images/huifu/SRCB.png" width="114" height="34">
                                       <span>上海农村商业银行</span>
                                     </a>
                                     <a href="javascript:;" rel="ZJTLCB" name="浙江泰隆商业银行">
-                                      <img src="./汇付天下_files/ZJTLCB.png" width="114" height="34">
+                                      <img src="../images/huifu/ZJTLCB.png" width="114" height="34">
                                       <span>浙江泰隆商业银行</span>
                                     </a>
                                     <a href="javascript:;" rel="CITIC" name="中信银行">
-                                      <img src="./汇付天下_files/CITIC.png" width="114" height="34">
+                                      <img src="../images/huifu/CITIC.png" width="114" height="34">
                                       <span>中信银行</span>
                                     </a>
                               <!-- -->
@@ -359,8 +361,8 @@
       <span class="phone">客服电话: <i>400 820 2819</i></span>
     </div>
   </div>
-  <script src="/Loan/js/huifujs/plugins.min.js"></script>
-  <script src="/Loan/js/huifujs/main.js"></script>
+  <script src="/Loan/js/huifujs/plugins.min.js.下载"></script>
+  <script src="/Loan/js/huifujs/main.js.下载"></script>
   <script>
     var conPath = '/muser';
     if(document.getElementById('isDepoBank') && document.getElementById('isDepoBank').value === 'Y'){
@@ -369,22 +371,22 @@
     }
   </script>  </div>
   </div>
-  <script src="/Loan/js/huifujs/jsencrypt.js"></script>
+  <script src="/Loan/js/huifujs/jsencrypt.js.下载"></script>
   <script>
     var pKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCp7nRzVJd2yMTmovNrZpF0zBK+U89HexVtgOVDi5kzeHgsrBuM7ZWznT2wET5UoGr7oVihMX9dtAeRVgIRt0pPicHqzMo4/tdEfP/1mPi1q7NJcLHC/L+l59PG+83jH0QWcsorWqttANJpA/qvg7jb9qYtpGxvkpf+648te+bFIQIDAQAB";
     var staticsRoot = 'http://test.chinapnr.com/statics/';
     var queryAreaByProvUrl = '/muser/ajax/queryAreaByProv';
   </script>
-<script type="text/javascript" src="/Loan/js/huifujs/useragents.js"></script>
+<script type="text/javascript" src="/Loan/js/huifujs/useragents.js.下载"></script>
 <script>
 try{
   var t = jQuery;
   document.write("<script type='text/javascript' src='/Loan/js/huifujs/jQuery.md5.js'><\/script>");
 }catch(e){
-  document.write("<script type='text/javascript' src='/Loan/js/huifujs/zepto.md5.js'><\/script>");
+  document.write("<script type='text/javascript' src=/Loan/js/huifujs/zepto.md5.js'><\/script>");
 }
-</script><script type="text/javascript" src="/Loan/js/huifujs/jQuery.md5.js"></script>
-<script type="text/javascript" src="/Loan/js/huifujs/postbe.js"></script>
+</script><script type="text/javascript" src="/Loan/js/huifujs/jQuery.md5.js.下载"></script>
+<script type="text/javascript" src=/Loan/js/huifujs/postbe.js.下载"></script>
 
 <script>
 try {

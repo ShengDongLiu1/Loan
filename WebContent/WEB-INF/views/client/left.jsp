@@ -37,7 +37,7 @@
 				<ul class="sub-nav">
 					<li><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
 					<li><a href="<%=path%>/client/security">安全设置</a></li>
-					<li><a href="<%=path%>/client/MessageCenter">消息中心</a></li>
+					<%-- <li><a href="<%=path%>/client/MessageCenter">消息中心</a></li> --%>
 				</ul>
 			</div>
 		</div>
@@ -51,16 +51,16 @@
 <div class="account-content" style="display: block;">
 	<div class="center-view">
 		<div class="center-header">
-			<img src="./asda_files/header.png" width="120" height="120">
+			<img src="../images/huifu/c.jpg" width="120" height="120">
 		</div>
 		<div class="center-self">
-			<p class="name">龙哥</p>
+			<p class="name">傑哥</p>
 			<p class="safety">安全等级： <span id="safeLevel">高</span></p>
 			<p class="center-icon">
 				<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#safe" class="icon icon-c-phone"></a>
 				<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#safe" class="icon icon-c-mail"></a>
 			</p>
-			<p id="registpay"><a href="javascript:;">登录汇付</a></p>
+			<!-- <p id="registpay"><a href="javascript:;">登录汇付</a></p> -->
 		</div>
 		<div class="center-user">
 			<p class="amt color"><span id="usableSum">250436507.25</span>元</p>
@@ -73,10 +73,10 @@
 		<div class="center-profit">
 			<p class="amt"><span id="earnSum">1764.62</span>元</p>
 			<p class="text">收益总额</p>
-			<p class="icon icon-quan">代金券 <b id="voucher">0</b> 张，现金券 <b id="cashMap">0</b> 张</p>
+		<!-- 	<p class="icon icon-quan">代金券 <b id="voucher">0</b> 张，现金券 <b id="cashMap">0</b> 张</p> -->
 		</div>	
 	</div>
-	<div class="center-main">
+<%-- 	<div class="center-main">
 		<div class="canvas">
 			<div id="myChart" style="width:350px;height:350px;" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 350px; height: 350px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="350" height="350"><desc>Created with Highcharts 4.0.3</desc><defs><clippath id="highcharts-1"><rect x="0" y="0" width="330" height="325"></rect></clippath></defs><rect x="0" y="0" width="350" height="350" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect><path fill="rgba(248,210,128,0.25)" d="M 0 0"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" style="cursor:pointer;"><path fill="#f8d280" d="M 164.96893983643648 10.000003163061535 A 152.5 152.5 0 1 1 70.0364558934137 281.8238253272013 L 89.57403750878515 257.27441536234267 A 121.125 121.125 0 1 0 164.9753300832024 41.375002512300526 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#6dbfff" d="M 69.91717956974192 281.72880213701427 A 152.5 152.5 0 0 1 64.07705185224589 276.82763680390553 L 84.84070757772645 253.3061311991676 A 121.125 121.125 0 0 0 89.47930082219665 257.1989420252187 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#fb9898" d="M 63.96277469596647 276.72665670876466 A 152.5 152.5 0 0 1 164.78818055944407 10.000147106547672 L 164.83175980500107 41.375116841184166 A 121.125 121.125 0 0 0 84.74994154130452 253.22592651704338 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#86da70" d="M 164.94068049283067 10.000011537062505 A 152.5 152.5 0 0 1 164.78818055944407 10.000147106547672 L 164.83175980500107 41.375116841184166 A 121.125 121.125 0 0 0 164.95288475209256 41.37500916345374 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)"></g></g><g class="highcharts-legend" zIndex="7"><g zIndex="1"><g></g></g></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(121,260)" opacity="0" visibility="hidden"><path fill="none" d="M 3.5 0.5 L 110.5 0.5 C 113.5 0.5 113.5 0.5 113.5 3.5 L 113.5 46.5 C 113.5 49.5 113.5 49.5 110.5 49.5 L 3.5 49.5 C 0.5 49.5 0.5 49.5 0.5 46.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)" width="113" height="49"></path><path fill="none" d="M 3.5 0.5 L 110.5 0.5 C 113.5 0.5 113.5 0.5 113.5 3.5 L 113.5 46.5 C 113.5 49.5 113.5 49.5 110.5 49.5 L 3.5 49.5 C 0.5 49.5 0.5 49.5 0.5 46.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)" width="113" height="49"></path><path fill="none" d="M 3.5 0.5 L 110.5 0.5 C 113.5 0.5 113.5 0.5 113.5 3.5 L 113.5 46.5 C 113.5 49.5 113.5 49.5 110.5 49.5 L 3.5 49.5 C 0.5 49.5 0.5 49.5 0.5 46.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)" width="113" height="49"></path><path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 110.5 0.5 C 113.5 0.5 113.5 0.5 113.5 3.5 L 113.5 46.5 C 113.5 49.5 113.5 49.5 110.5 49.5 L 3.5 49.5 C 0.5 49.5 0.5 49.5 0.5 46.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#f8d280" stroke-width="1"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="21"><tspan style="font-size: 10px">投资总额</tspan><tspan style="fill:" x="8" dy="16">●</tspan><tspan dx="0"> 金额: </tspan><tspan style="font-weight:bold" dx="0">156,995</tspan></text></g></svg></div></div>
 			<div class="center-total">
@@ -94,7 +94,7 @@
 			<p class="color color4"></p>
 			<p>奖励金额：<span id="otherEarnAmount">26.71</span></p>
 		</div>
-	</div>
+	</div> --%>
 	<div id="huifuHtml"></div>
 </div>
 <div class="popup regist-box">

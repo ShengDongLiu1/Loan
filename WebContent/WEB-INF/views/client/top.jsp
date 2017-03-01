@@ -68,23 +68,23 @@ $(window).load(function(){
 });
 </script>
 <style>
-#menu li {
+/* #menu li {
 	position: relative;
-}
+} */
 #menu a {
 	float: left;
 	padding: 12px 30px;
-	color: #999;
+	/* color: #999; */
 	text-transform: uppercase;
-	font: bold 12px Arial, Helvetica;
+/* 	font: bold 12px Arial, Helvetica; */
 	text-decoration: none;
 	text-shadow: 0 1px 0 #000;
 }
 #menu li:hover > a {
-	color: #fafafa;
+	/* color: #fafafa; */
 }
 *html #menu li a:hover {
-	color: #fafafa;
+	/* color: #fafafa; */
 }
 #menu ul {
 	margin: 20px 0 0 0;
@@ -125,7 +125,7 @@ $(window).load(function(){
 	_height: 10px;
 	display: block;
 	white-space: nowrap;
-	float: none;
+	/* float: none; */
 	text-transform: none;
 }
 @media screen and (min-width: 600px) {
@@ -198,7 +198,7 @@ $(window).load(function(){
                     <p>
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1733091639&site=qq&menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:1733091639:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>大头</span>
+                          <span>傑哥</span>
                     	</a>
                     </p>
                      <p>
@@ -264,13 +264,11 @@ $(window).load(function(){
 		 <div class="zxcf_nav_l fl"><img src="<%=path %>/images/zxcf_logo.png" alt=""></div>
 		 <div class="zxcf_nav_r fr">
 		 	<ul id="menu" style="display:none;">
-		 		<li><img src="<%=path %>/images/zxcf_perinfo.png" alt="">
-				 	<span>我的账户<img src="<%=path %>/images/zxcf_icon01.png" /></span>
-					<ul style="text-align: center;">
-						<li> <a href="<%=path %>/client/security">编辑资料</a></li>
-						<li> <a href="">页面锁屏</a></li>
-						<li> <a href="">退出账户</a></li>
-					</ul>
+		 		<li>
+		 			<a onclick="tz()">
+		 			<img src="<%=path %>/images/zxcf_perinfo.png">
+				 	<span>我的账户</span>
+				 	</a>
 				</li>
 		 	</ul>
 		 </div>
@@ -308,6 +306,10 @@ $(window).load(function(){
 	if (isiPad) $('#menu ul').addClass('no-transition');
 	
 	});
+
+	function tz(){
+		window.location.href="<%=path %>/client/left"; 
+	}
 </script>
 
 </body>
