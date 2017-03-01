@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +25,35 @@ public class LoanController {
 	@Resource
 	private LoanService loanService;
 	
-	@RequestMapping("/toLoanList")
-	public String toLoanList(){
+	/**
+	 * 跳转到所有借款
+	 * @return
+	 */
+	@RequestMapping("/toLoanList1")
+	public String toLoanList1(HttpServletRequest request){
+		request.setAttribute("lstate", "");
+		return "loan/loanList";
+	}
+	
+	/**
+	 * 跳转到招标中的借款
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/toLoanList2")
+	public String toLoanList2(HttpServletRequest request){
+		request.setAttribute("lstate", "2");
+		return "loan/loanList";
+	}
+	
+	/**
+	 * 满标借款
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/toLoanList3")
+	public String toLoanList3(HttpServletRequest request){
+		request.setAttribute("lstate", "3");
 		return "loan/loanList";
 	}
 	
@@ -44,8 +72,9 @@ public class LoanController {
 		Map<String, Object> map=new HashMap<>();
 		map.put("username", StringUtil.formatLike(username));
 		map.put("ltitle", StringUtil.formatLike(loan.getLtitle()));
-		map.put("lterm", loan.getLterm());
 		map.put("ltype", loan.getLtype());
+		map.put("lterm", loan.getLterm());
+		map.put("lstate", loan.getLstate());
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		List<Loan> loanList=loanService.queryAll(map);

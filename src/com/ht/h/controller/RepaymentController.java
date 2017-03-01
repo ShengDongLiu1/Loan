@@ -23,6 +23,10 @@ public class RepaymentController {
 	@Resource
 	private RepaymentService repaymentService;
 	
+	/**
+	 * 跳转到借款列表
+	 * @return
+	 */
 	@RequestMapping("/toRepayList")
 	public String toRepayList(){
 		return "repayment/repayList";

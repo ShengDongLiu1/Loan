@@ -82,8 +82,25 @@ $(function(){
 		return value.username;
 	}
 	
+	//真实姓名
+	function trueName(val,obj){
+		return obj.customer.realname;
+	}
+	
+	//借款标题
 	function ltitle(value){
 		return value.ltitle;
+	}
+	
+	//还款状态
+	function rstate(value){
+		var btn="";
+		if(value == 1){
+			btn="已还款"
+		}else if(value == 2){
+			btn="未还款"
+		}
+		return btn;
 	}
 	
 </script>
@@ -104,12 +121,13 @@ $(function(){
 			<tr>
 				<th field="lid" checkbox="true">编号</th>
 				<th field="customer" width="10%" align="center" formatter="userName">用户名</th>
+				<th field="trueName" width="10%" align="center" formatter="trueName">姓名</th>
 				<th field="loan" width="10%" align="center" formatter="ltitle">借款标题</th>
 				<th field="reperiods" width="12%" align="center">期数</th>
 				<th field="rexpiretime" width="10%" align="center" formatter="jsonDateFormat">到期时间</th>
 				<th field="rmoney" width="10%" align="center">应还金额</th>
 				<th field="rtype" width="10%" align="center">是否还款</th>
-				<th field="rstate" width="12%" align="center">还款状态</th>
+				<th field="rstate" width="12%" align="center" formatter="rstate">还款状态</th>
 				<th field="rtime" width="12%" align="center" formatter="jsonDateFormat">还款时间</th>
 			</tr>
 		</thead>
