@@ -51,7 +51,7 @@
 <div class="account-content" style="display: block;">
 	<div class="center-view">
 		<div class="center-header">
-			<img src="../images/huifu/c.jpg" width="120" height="120">
+			<img src="../images/c.jpg" width="120" height="120">
 		</div>
 		<div class="center-self">
 			<p class="name">傑哥</p>
