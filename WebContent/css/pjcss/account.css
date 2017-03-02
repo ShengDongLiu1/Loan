@@ -1563,11 +1563,11 @@ p.tips-title b{
 /*bank card*/
 
 .bank-card_1 {
-    background: url("debitCard01.jpg")/*tpa=http://120.76.203.19:8090/shzc_test/images/debitCard/debitCard01.jpg*/;
+    background: url("../../images/debitCard01.jpg");
 }
 
 .bank-card_2 {
-    background: url("debitCard02.jpg")/*tpa=http://120.76.203.19:8090/shzc_test/images/debitCard/debitCard02.jpg*/;
+    background: url("../../images/debitCard02.jpg");
 }
 
 .bank-addCard {
@@ -1644,7 +1644,7 @@ p.tips-title b{
 
 .bank-addCard {
     font-size: 10px;
-    height: 30px;
+    height: 55px;
     width: 100%;
     float: bottom;
     text-align: center;

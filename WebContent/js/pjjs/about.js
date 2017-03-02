@@ -85,7 +85,7 @@ function hashChange(){
 //信息披露
 function initCyjg(){
 	$.ajax({
-		url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/xxpl.html',
+		url: 'src/template/about/xxpl.html',
 		type: "get",
 		dataType: "html",
 		contentType:contentType,
@@ -162,7 +162,7 @@ function initCyjg(){
 //平台运营信息
 function initYybg(){
 	$.ajax({
-		url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/ptyy.html',
+		url: 'src/template/about/ptyy.html',
 		type: "get",
 		dataType: "html",
 		contentType:contentType,
@@ -171,7 +171,7 @@ function initYybg(){
 			$('.about-right').html(data);
 			$('#yybgDiv').hide();
 			$.ajax({
-				url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/app/informationRevealed.do',
+				url: '../app/informationRevealed.do',
 				type: "get",
 				dataType: "json",
 				contentType:contentType,
@@ -241,7 +241,7 @@ function initYybg(){
 				$('.em-line').animate({'left':'120'},500);
 				
 				$.ajax({
-					url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/app/yybgInit2.do',
+					url: '../app/yybgInit2.do',
 					type: "get",
 					dataType: "json",
 					contentType:contentType,
@@ -267,7 +267,7 @@ function initYybg(){
 //借款项目信息
 function initJkxm(){
 	$.ajax({
-		url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/jkxm.html',
+		url: 'src/template/about/jkxm.html',
 		type: "get",
 		dataType: "html",
 		contentType:contentType,
@@ -313,7 +313,7 @@ function initJkxm(){
 //股东背景
 function initGdbj(){
 	$.ajax({
-	    url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/gdbj.html',
+	    url: 'src/template/about/gdbj.html',
 	    type: "get",
 	    dataType: "html",
 	    contentType:contentType,
@@ -335,7 +335,7 @@ function initGdbj(){
 //股东背景
 function initGdbj2(){
 	$.ajax({
-		url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/gdbj.html',
+		url: 'src/template/about/gdbj.html',
 		type: "get",
 		dataType: "html",
 		contentType:contentType,
@@ -350,7 +350,7 @@ function initGdbj2(){
 //公司简介
 function initGsjj(){
 	$.ajax({
-	    url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/gsjj.html',
+	    url: 'src/template/about/gsjj.html',
 	    type: "get",
 	    dataType: "html",
 	    contentType:contentType,
@@ -363,7 +363,7 @@ function initGsjj(){
 //平台资质
 function initPtzz(){
 	$.ajax({
-	    url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/ptzz.html',
+	    url: 'src/template/about/ptzz.html',
 	    type: "get",
 	    dataType: "html",
 	    contentType:contentType,
@@ -460,7 +460,7 @@ picBanner.prototype.prev = function(){
 //顾问团队
 function initGwtd(){
 	$.ajax({
-	    url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/gwtd.html',
+	    url: 'src/template/about/gwtd.html',
 	    type: "get",
 	    dataType: "html",
 	    contentType:contentType,
@@ -482,7 +482,7 @@ function initGwtd(){
 //管理团队
 function initGltd(){
 	$.ajax({
-	    url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/gltd.html',
+	    url: 'src/template/about/gltd.html',
 	    type: "get",
 	    dataType: "html",
 	    contentType:contentType,
@@ -495,7 +495,7 @@ function initGltd(){
 //公司动态
 function initGsd(){
 	$.ajax({
-	    url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/gsdt.html',
+	    url: 'src/template/about/gsdt.html',
 	    type: "get",
 	    dataType: "html",
 	    contentType:contentType,
@@ -543,14 +543,14 @@ function initGsdt(){
 	                	key:'',resolve:function(val,record){
 	                		var oDiv = '<img class="news-img" src="'+record.imgPath+'" width="200" height="120" />'+
 	                				'<div class="news-content">'+
-	                					'<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/news.html?id='+record.id+'" class="news-title">'+record.title+'</a>'+
+	                					'<a href="news.html?id='+record.id+'" class="news-title">'+record.title+'</a>'+
 	                					'<p class="news-about">'+strChina(record.content)+'</p>'+
 	                					'<p class="news-time">'+strTime(record.publishTime)+'</p></div>';
 	                		return oDiv;
 	                	}
 	                }
 	                ]
-	var oPage = new Page('http://120.76.203.19:8090/shzc_test/WEB-PC/app/getMediaReport.do',{},$('#gd1 .listData'),$('#gd1 .paging'),dataList,function(){});
+	var oPage = new Page('../app/getMediaReport.do',{},$('#gd1 .listData'),$('#gd1 .paging'),dataList,function(){});
 }
 //媒体报道
 function  initXyxw(){
@@ -561,21 +561,21 @@ function  initXyxw(){
 	                	key:'',resolve:function(val,record){
 	                		var oDiv = '<img class="news-img" src="'+record.imgPath+'" width="200" height="120" />'+
 	                				'<div class="news-content">'+
-	                					'<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/news.html?id='+record.id+'&type=1" class="news-title">'+record.title+'</a>'+
+	                					'<a href="news.html?id='+record.id+'&type=1" class="news-title">'+record.title+'</a>'+
 	                					'<p class="news-about">'+strChina(record.content)+'</p>'+
 	                					'<p class="news-time">'+strTime(record.publishTime)+'</p></div>';
 	                		return oDiv;
 	                	}
 	                }
 	                ]
-	var oPage = new Page('http://120.76.203.19:8090/shzc_test/WEB-PC/app/getIndustryNews.do',{},$('#xy .listData'),$('#xy .paging'),dataList,function(){});
+	var oPage = new Page('../app/getIndustryNews.do',{},$('#xy .listData'),$('#xy .paging'),dataList,function(){});
 }
 
 
 //平台公告
 function initPtgg(){
 	$.ajax({
-	    url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/ptgg.html',
+	    url: 'src/template/about/ptgg.html',
 	    type: "get",
 	    dataType: "html",
 	    contentType:contentType,
@@ -585,7 +585,7 @@ function initPtgg(){
 	    	var dataList = [
 	    	                {
 	    	                	key:'',resolve:function(val,record){
-	    	                		var oLi = '<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/news.html?id='+record.id+'&flag=1" target="_blank" class="title">'+record.title+'</a><span class="time">'+strTime(record.publishTime)+'</span>';
+	    	                		var oLi = '<a href="news.html?id='+record.id+'&flag=1" target="_blank" class="title">'+record.title+'</a><span class="time">'+strTime(record.publishTime)+'</span>';
 	    	                		return oLi;
 	    	                	}
 	    	                }
@@ -593,14 +593,14 @@ function initPtgg(){
 	    	var param = {
 	    			announcementType:''
 	    	}
-	    	var oPage = new Page('http://120.76.203.19:8090/shzc_test/WEB-PC/app/queryNewsList.do',param,$('#ptgg .listData'),$('#ptgg .paging'),dataList,function(){});
+	    	var oPage = new Page('../app/queryNewsList.do',param,$('#ptgg .listData'),$('#ptgg .paging'),dataList,function(){});
 	    }
 	});
 }
 //招贤纳士
 function initZxns(){
 	$.ajax({
-	    url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/zxns.html',
+	    url: 'src/template/about/zxns.html',
 	    type: "get",
 	    dataType: "html",
 	    contentType:contentType,
@@ -618,7 +618,7 @@ function initZxns(){
 //联系我们
 function initLxwm(){
 	$.ajax({
-	    url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/about/lxwm.html',
+	    url: 'src/template/about/lxwm.html',
 	    type: "get",
 	    dataType: "html",
 	    contentType:contentType,
@@ -645,7 +645,7 @@ function initMap() {
 function loadScript() {
   var script = document.createElement("script");
   script.type = "text/javascript";
-  script.src = "../../../../map.qq.com/api/js-v=2.exp&callback=initMap"/*tpa=http://map.qq.com/api/js?v=2.exp&callback=initMap*/;
+  script.src = "http://map.qq.com/api/js?v=2.exp&callback=initMap";
   document.body.appendChild(script);
 }
 //时间格式化
@@ -670,7 +670,7 @@ function AgreeMent(){
 	$('.AgreeMent .popup-area').empty();
 	var param={"info":"{TypeId:'"+id+"'}"};
 	utils.ajax({
-        url:'http://120.76.203.19:8090/shzc_test/WEB-PC/app/querytips.do',
+        url:'../app/querytips.do',
         data:param,
         dataType:'json',
         success: function(data){

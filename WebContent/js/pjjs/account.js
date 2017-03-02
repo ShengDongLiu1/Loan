@@ -1,16 +1,17 @@
 var contentType = "application/x-www-form-urlencoded; charset=utf-8";
 var oPage;
-$(function(){
+/*$(function(){
+		var uid=${customer.uid};
 		//初始化footer
 		utils.initPage();
-		if(!utils.Storage.getItem('uid')){
+		if(uid==null){
 			utils.alert('您还未登录，请先登录！',function(){
 				window.location.href='http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/login.html';
 			});
 			return;
 		};
 		hashChange();
-});
+});*/
 function hashChange(){
 	var hash = location.hash.replace('#','');
 	$('.sub-nav li').removeClass('active');

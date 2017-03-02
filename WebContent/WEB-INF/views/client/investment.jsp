@@ -24,7 +24,7 @@
 			<div class="account-left-nav">
 				<div class="navbar icon icon-account">我的账户</div>
 				<ul class="sub-nav">
-					<li class="active"><a href="<%=path %>/client/left">账户总览</a></li>
+					<li class="active"><a href="<%=path %>/client/left?uid=${customer.uid}">账户总览</a></li>
 					<li><a href="<%=path%>/client/recharge">充值</a></li>
 					<li><a href="<%=path%>/client/funds">提现</a></li>
 					<li><a href="<%=path%>/client/MoneyRecord">资金记录</a></li>
@@ -38,7 +38,7 @@
 				<ul class="sub-nav">
 					<li><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
 					<li><a href="<%=path%>/client/security">安全设置</a></li>
-					<li><a href="<%=path%>/client/MessageCenter">消息中心</a></li>
+					<%-- <li><a href="<%=path%>/client/MessageCenter">消息中心</a></li> --%>
 				</ul>
 			</div>
 		</div>
@@ -76,7 +76,17 @@
 				<div class="children6">投资时间</div>
 			</li>
 		</ul>
-		<ul class="investData listData"><li class="interval"><div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=388" title="多金宝小测试3">多金宝小测试3</a></div><div class="children1">多金宝</div><div class="children2">9%</div><div class="children3">4个月</div><div class="children4">等额本息</div><div class="children5"><span class="black">1,000.00</span></div><div class="children6">2016-09-14</div></li><li><div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=387" title="恒金宝测试002">恒金宝测试0...</a></div><div class="children1">恒金保</div><div class="children2">12%</div><div class="children3">1个月</div><div class="children4">按月付息，到期还本</div><div class="children5"><span class="black">1,000.00</span></div><div class="children6">2016-09-14</div></li><li class="interval"><div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=386" title="恒大金宝001">恒大金宝001</a></div><div class="children1">恒金保</div><div class="children2">12%</div><div class="children3">1个月</div><div class="children4">按月付息，到期还本</div><div class="children5"><span class="black">1,000.00</span></div><div class="children6">2016-09-14</div></li><li><div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=385" title="恒金宝小测试1">恒金宝小测试1</a></div><div class="children1">恒金保</div><div class="children2">12%</div><div class="children3">1个月</div><div class="children4">按月付息，到期还本</div><div class="children5"><span class="black">1,000.00</span></div><div class="children6">2016-09-14</div></li><li class="interval"><div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=384" title="恒金宝测试洪金宝">恒金宝测试洪...</a></div><div class="children1">恒金保</div><div class="children2">12%</div><div class="children3">1个月</div><div class="children4">按月付息，到期还本</div><div class="children5"><span class="black">1,000.00</span></div><div class="children6">2016-09-14</div></li><li><div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=372" title="合同测试8">合同测试8</a></div><div class="children1">普金保</div><div class="children2">5%</div><div class="children3">3个月</div><div class="children4">等额本息</div><div class="children5"><span class="black">1,000.00</span></div><div class="children6">2016-09-13</div></li><li class="interval"><div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=371" title="合同测试7">合同测试7</a></div><div class="children1">普金保</div><div class="children2">9%</div><div class="children3">2个月</div><div class="children4">按月付息，到期还本</div><div class="children5"><span class="black">5,000.00</span></div><div class="children6">2016-09-13</div></li><li><div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=369" title="sdrgvsdsgvd">sdrgvs...</a></div><div class="children1">普金保</div><div class="children2">12%</div><div class="children3">1个月</div><div class="children4">按月付息，到期还本</div><div class="children5"><span class="black">1,000.00</span></div><div class="children6">2016-09-13</div></li><li class="interval"><div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=368" title="wefefew">wefefew</a></div><div class="children1">普金保</div><div class="children2">12%</div><div class="children3">1个月</div><div class="children4">按月付息，到期还本</div><div class="children5"><span class="black">1,000.00</span></div><div class="children6">2016-09-13</div></li><li><div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=326" title="发标测试2016">发标测试20...</a></div><div class="children1">普金保</div><div class="children2">12%</div><div class="children3">1个月</div><div class="children4">按月付息，到期还本</div><div class="children5"><span class="black">1,000.00</span></div><div class="children6">2016-09-09</div></li></ul>
+		<ul class="investData listData">
+			<li class="interval">
+				<div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=388" title="多金宝小测试3">多金宝小测试3</a></div>
+				<div class="children1">多金宝</div>
+				<div class="children2">9%</div>
+				<div class="children3">4个月</div>
+				<div class="children4">等额本息</div>
+				<div class="children5"><span class="black">1,000.00</span></div>
+				<div class="children6">2016-09-14</div>
+			</li>
+		</ul>
 		<ul class="paging" style="width: 340px; margin: 30px auto 0px;"><li><button type="button" class="pre">上一页</button></li><li class="active"><button type="button" data-num="1">1</button></li><li><button type="button" data-num="2">2</button></li><li><button type="button" data-num="3">3</button></li><li><button type="button" data-num="4">4</button></li><li><button type="button" class="next">下一页</button></li></ul>
 	</div>
 	<div class="invest-listData invest-listData2">

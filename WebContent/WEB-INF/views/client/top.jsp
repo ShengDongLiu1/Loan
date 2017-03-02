@@ -137,8 +137,6 @@ $(window).load(function(){
 </head>
 
 <body>
-
-
 <div class="fixed_box" id="fixedBox">
     <div class="content_box">
         <div class="content_inner">
@@ -161,7 +159,7 @@ $(window).load(function(){
                     <p>
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=956450236&site=qq&menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:956450236:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>狗蛋</span>
+                          <span>发哥</span>
                     	</a>
                     </p>       
                     <p>                        
@@ -247,7 +245,7 @@ $(window).load(function(){
 		 	</c:if>
 		 	<c:if test="${customer.uid != null}">
 			 	<span>欢迎</span>
-			 	<a href="<%=path %>/client/left" >${customer.username}</a>
+			 	<a href="<%=path %>/client/left?uid=${customer.uid}">${customer.username}</a>
 			 	<span>|</span>
 		 		<a href="javascript:void(0)">注销</a>
 		 	</c:if>
@@ -265,7 +263,7 @@ $(window).load(function(){
 		 <div class="zxcf_nav_r fr">
 		 	<ul id="menu" style="display:none;">
 		 		<li>
-		 			<a onclick="tz()">
+		 			<a  onclick="MyAccount()">
 		 			<img src="<%=path %>/images/zxcf_perinfo.png">
 				 	<span>我的账户</span>
 				 	</a>
@@ -281,7 +279,7 @@ $(window).load(function(){
 		  <a href="<%=path %>/client/borrow">我要借款</a>
 		  <a href="#">实时财务</a>
 		  <a href="<%=path %>/client/noticelist">新手指引</a>
-		  <a href="#" style="margin-right:0;">关于我们</a>
+		  <a href="<%=path %>/client/AboutUs" style="margin-right:0;">关于我们</a>
 	</div>
 </div>
 <script>
@@ -306,9 +304,10 @@ $(window).load(function(){
 	if (isiPad) $('#menu ul').addClass('no-transition');
 	
 	});
-
-	function tz(){
-		window.location.href="<%=path %>/client/left"; 
+	
+	function MyAccount(){
+		var uid=${customer.uid};
+		window.location.href='<%=path %>/client/left?uid='+uid; 
 	}
 </script>
 

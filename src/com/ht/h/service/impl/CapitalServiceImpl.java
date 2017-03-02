@@ -57,4 +57,10 @@ public class CapitalServiceImpl implements CapitalService{
 		return capitalDao.getTotal(map);
 	}
 
+	@Override
+	public Capital selectByFund(Integer cid) {
+		
+		return capitalDao.selectByFund(cid);
+	}
+
 }

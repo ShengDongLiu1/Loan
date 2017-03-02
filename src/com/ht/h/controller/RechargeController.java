@@ -12,16 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ht.h.bean.Bank;
 import com.ht.h.bean.Customer;
 import com.ht.h.bean.PageBean;
 import com.ht.h.bean.Recharge;
+import com.ht.h.service.interfaces.BankService;
 import com.ht.h.service.interfaces.RechargeService;
-import com.ht.h.util.IPTimeStamp;
 import com.ht.h.util.ResponseUtil;
 
 import net.sf.json.JSONArray;
@@ -33,32 +36,75 @@ public class RechargeController {
 
 	private final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
+	private final SimpleDateFormat SDFS = new SimpleDateFormat("yyyyMMddHHmmss");
+	
 	@Resource
 	private RechargeService rechargeService;
 	
+	@Autowired
+	private BankService bankService;
+	
 	@RequestMapping("/add")
 	public String add(Recharge recharge,HttpServletRequest request) throws ParseException{
-		
 		HttpSession session=request.getSession();
 		Customer customer=(Customer)session.getAttribute("customer");
 		recharge.setUid(customer.getUid());
-		recharge.setRtype("汇付充值");
+		recharge.setRtype("网银充值");
 		recharge.setRcounterfee((long) 0);
 		recharge.setRactual(recharge.getRmoney());
 		recharge.setRstate("失败");
-		IPTimeStamp ipt=new IPTimeStamp();
-		recharge.setRserial(ipt.getTimeStamp());
+		recharge.setRserial(SDFS.format(new Date()));
 		recharge.setRtime(SDF.parse(SDF.format(new Date())));
 		int id=rechargeService.insertSelective(recharge);
-		request.setAttribute("id", id);
-		return null;
+		int rid;
+		if(id!=0){
+			rid=rechargeService.queryByRserial(recharge.getRserial());
+			request.setAttribute("id", rid);
+		}
+		request.setAttribute("money", recharge.getRmoney());
+		return "recharge/LastStep";
 	}
 	
 	@RequestMapping("/update")
-	public String upDate(Recharge recharge,HttpServletRequest request){
+	@ResponseBody
+	public Map<String, Object> upDate(Recharge recharge,HttpServletRequest request){
 		recharge.setRstate("成功");
-		rechargeService.updateByPrimaryKeySelective(recharge);
-		return null;
+		int i=rechargeService.updateByPrimaryKeySelective(recharge);
+		Map<String, Object> map = new HashMap<String,Object>();
+		if(i==0){
+			map.put("errorMsg", "请先添加银行卡！");
+			map.put("result", "fail");
+		}else{
+			map.put("result","seccuss");
+		}
+		return map;
+	}
+	
+	@RequestMapping("/queryByBank")
+	@ResponseBody
+	public Map<String, Object> queryByBank(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		Customer cus=(Customer)session.getAttribute("customer");
+		List<Bank> bank=bankService.queryByUid(cus.getUid());
+		Map<String, Object> map = new HashMap<String,Object>();
+		if(bank.isEmpty()){
+			map.put("errorMsg", "请先添加银行卡！");
+			map.put("result", "fail");
+		}else{
+			map.put("result","seccuss");
+		}
+		request.setAttribute("bank", bank);
+		return map;
+	}
+	
+	@RequestMapping("/queryBank")
+	@ResponseBody
+	public List<Bank> queryBank(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		Customer cus=(Customer)session.getAttribute("customer");
+		List<Bank> bank=bankService.queryByUid(cus.getUid());
+		request.setAttribute("bank", bank);
+		return bank;
 	}
 	
 	//分页查询

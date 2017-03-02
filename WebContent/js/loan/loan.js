@@ -101,4 +101,69 @@ $(function(){
 	$('textarea').focus(function(){
 		$('.mess').html('');
 	});
+<<<<<<< Updated upstream
 });
+
+//查询客户的借款申请
+function selCusLoan(num){
+	var page=1;
+	var addpage=0;
+	if(num == 2){//上一页
+		addpage=$("#page").html();
+		page=parseInt(addpage)-1;
+		if(page == 0){
+			page=1;
+			alert('当前页已经是第一页！');
+			return false;
+		}
+	}else if(num == 3){//下一页
+		addpage=$("#page").html();
+		page+=parseInt(addpage);
+		if(parseInt($("#count").html())<page){
+			page=parseInt($("#count").html());
+			alert('当前页已经是最后一页！');
+			return false;
+		}
+	}
+	$.post("../loan/selCusLoan",{'page':page,'rows':10},function(index){
+		if(index.error != null){
+			alert(index.error);
+			return false;
+		}
+		var tbody = ""; 
+		$.each(index.loanList,function(n,value){
+			tbody+=
+			"<tr class='loantr'>"+
+				"<td>"+(n+1)+"</td>"+
+ 				"<td>"+value.ltitle+"</td>"+
+ 				"<td>"+value.lmoney+"</td>"+
+ 				"<td>"+value.lterm+"</td>"+
+ 				"<td>"+value.lrate+"%</td>"+
+ 				"<td>"+value.lclass+"</td>"+
+ 				"<td>"+xingyong(value.lclass,value.lnums)+"</td>"+
+ 				"<td>"+xingyong(value.lclass,value.lmoneys)+"</td>"+
+ 				"<td>"+value.ltype+"</td>"+
+ 				"<td>"+value.lmiaoshu+"</td>"+
+ 				"<td>"+value.lstate+"</td>"+
+ 				"<td>"+jsonDateFormat(value.ltime)+"</td>"+
+			"</tr>"
+		});
+		$('#cusLoan').html(tbody);
+		$("#page").html(index.page);
+	    $("#count").html(index.count);
+	    $("#total").html(index.total);
+		$("tr:odd").css("background-color", "#F3F3F3");
+	},"json");
+}
+
+//信用贷款
+function xingyong(lclass,lnums){
+	if(lclass == '信用贷款'){
+		return '无';
+	}else{
+		return lnums;
+	}
+}
+=======
+});
+>>>>>>> Stashed changes

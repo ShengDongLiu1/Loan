@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<!-- saved from url=(0073)http://mertest.chinapnr.com/cash/cashier/charge/desktop/routingPayChannel -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style media="screen"></style>
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>汇付天下</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<link rel="shortcut icon" href="http://mertest.chinapnr.com/cash/favicon.ico">
-<link rel="stylesheet" href="/Loan/css/huifucss/style.css">
-<script src="/Loan/js/huifujs/jquery-1.8.2.min.js"></script><style type="text/css" adt="123"></style><style>@font-face{font-family:uc-nexus-iconfont;src:url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'),url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')}</style><script>!
+<!-- saved from url=(0055)http://120.76.203.19:8090/shzc_test/WEB-PC/account.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" charset="utf-8" async="" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/ta.php"></script><script type="text/javascript" charset="utf-8" async="" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/contains.js"></script><script type="text/javascript" charset="utf-8" async="" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/localStorage.js"></script><script type="text/javascript" charset="utf-8" async="" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/taskMgr.js"></script><script type="text/javascript" charset="utf-8" async="" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/views.js"></script>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台</title>
+	<meta name="keywords" content="普金资本，P2P汽车、房产融资，借贷，理财计划，投资理财">
+	<meta name="description" content="普金资本是目前中国P2P投资融资行业中最快速、最安全的网上理财平台，为借贷和民间投资用户提供安全、高效的理财服务。">
+	<link rel="stylesheet" href="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/public.css">
+	<link rel="stylesheet" href="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/account.css">
+	<link rel="stylesheet" href="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/datepicker.css">
+<style type="text/css" adt="123"></style><style>@font-face{font-family:uc-nexus-iconfont;src:url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'),url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')}</style><script>!
     function e(t, n, i) {
         function o(a, s) {
             if (!n[a]) {
@@ -1901,211 +1900,228 @@ if(/v\.youku\.com\/v_show\/id/.test(document.URL)){
     document.getElementById('vpactionv5_wrap').style.position = 'absolute';
     document.getElementById('vpactionv5_wrap').style.top = '50px'
 }
-</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style></head>
-<body class="w960">
-  <div class="wrapper">
-    <div class="min-width-out">
-    <div class="min-width-in">
-    <div class="min-width">
-          <div class="header">
-            <div class="content">
-              <a href="http://www.chinapnr.com/" target="_blank" class="logo-new" title="汇付天下"></a>
-            	<div id="logo-extra"><img id="logo-extra-img"></div>
-            </div>
-          </div>
-      <div class="main">
-        <div class="content">
-          <h1 class="page-title">网银支付</h1>
-          <form id="chargeVoForm" name="chargeVoForm" method="post" action="http://mertest.chinapnr.com/cash/cashier/charge/desktop/netPayConfirm">
-              <input type="hidden" name="sysId" value="MUSER">
-              <input type="hidden" name="merCustId" value="6000060003321114" id="merCustId">
-              <input type="hidden" name="usrCustId" value="6000060004112605" id="usrCustId">
-              <input type="hidden" name="ordId" value="0001103952">
-              <input type="hidden" name="ordDate" value="20170223">
-              <input type="hidden" name="subAcctId" value="MDT000001">
-              <input type="hidden" name="acctType" value="MERDT">
-              <input type="hidden" name="chargeAmt" value="222.00">
-              <input type="hidden" name="merPriv" value="Version=10|CmdId=NetSave|MerCustId=6000060003321114|UsrCustId=6000060004112605|TransAmt=222.00|OrdId=0001103952|OrdDate=20170223">
-              <input type="hidden" name="retUrl" value="http://mertest.chinapnr.com/muser/result/b2csave">
-              <input type="hidden" name="bgRetUrl" value="">
-              <input type="hidden" name="operId" value="000001">
-              <input type="hidden" name="loginId" value="pjzb_1223566788">
-              <input type="hidden" name="pageType" value="">
-              <input type="hidden" name="orgOrdId" value="20170223190805598483">
-              <input type="hidden" name="checkValue" value="c1226fe62f10fd7466d680b9085386d6">
-              <input type="hidden" name="routeSysId" value="">
-              <input type="hidden" name="veriRuleId" value="">
-              <input type="hidden" name="payRuleId" value="">
-              <input type="hidden" name="usrQpAuth" value="">
-              <input type="hidden" name="SourceId" value="00000033">
-              <!--设置商户是否存管银行标识和存管行简称-->
-              <input type="hidden" name="isDepoBank" id="isDepoBank" value="N">
-              <input type="hidden" name="depoBankId" id="depoBankId" value="">
-              <input type="hidden" name="chargeTimeStamp" value="1487848087026">
-              <input type="hidden" name="verifySeqId" value="">
-              <input type="hidden" id="p2pSaveId" name="p2pSaveId" value="201702230001103952">
-              <input type="hidden" name="chargeFeeObj" value="">
-              <input type="hidden" id="isQpCashSupport" name="isQpCashSupport" value="N">
-              <input type="hidden" id="payType" name="payType" value="">
-              <input type="hidden" id="collCustId" name="collCustId" value="">
-              <input type="hidden" id="transPayAmt" name="transPayAmt" value="">
-              <input type="hidden" id="forwordQpBp" name="forwordQpBp" value="false">
-              <input type="hidden" id="isFrzPayAmt" name="isFrzPayAmt" value="">  
-              <input type="hidden" id="cmdId" name="cmdId" value="NetSave">  
-              <input type="hidden" id="AccountReformSwitch" name="AccountReformSwitch" value="">  
-              <input type="hidden" id="Version" name="Version" value="10">  
-              <input type="hidden" id="transName" name="transName" value="">
-              <input type="hidden" id="transFeeName" name="transFeeName" value="">
-              <input type="hidden" id="transObj" name="transObj" value="">            <input type="hidden" name="gateBusiId" value="B2C">
-            <input type="hidden" name="gateBankId" value="CIB">
-            <input type="hidden" name="dcFlag" value="D">
-            <input type="hidden" name="Version" value="10">
-            <input type="hidden" name="cmdId" value="NetSave">
-            <input type="hidden" name="payType" value="">
-            <input type="hidden" name="IsDepoBank" value="N">
-            <input type="hidden" name="AccountReformSwitch" value="">
-            <div class="form form-border mb30">
-              <!--平台名称-->
-              <div class="form-title form-title-big">
-                <p class="info mb15"><span>平台名称:普金资本</span>
-                <span>公司名称: 普金资本运营(赣州)有限公司</span></p>
-                <p class="info"><span>汇付账号：pjzb_1223566788</span></p>
-              </div>
-              <!--end-->
-              <div class="form-content">
-                <!--账户余额开始-->
-                <dl class="form-list form-list-no-icon">
-                  <dd>
-                    <div class="form-group">
-                      <label class="label">账户余额（元）:</label>
-                      <span class="form-text">250,436,720.25</span>
-                      <a href="javascript:;" class="limit-pop-link"></a>
-                    </div>
-                    	<div class="form-group">
-	                      <label class="label">支付金额（元）:</label>
-	                      <input id="chargeAmt" name="chargeAmt" type="hidden" value="222.00">
-	                      <span class="form-text"><i class="form-money">222.00</i></span>
-	                    </div>
-                    <div class="form-group">
-                      <label class="label">所选银行:</label>
-                      <div class="select-bank">
-                        <img src="./汇付天下2_files/CIB.png" width="115" height="35">
-                          <span>个人</span>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="label">&nbsp;</label>
-                      <span class="form-text" style="color:#c00;font-size:11px;font-weight:normal">温馨提示:为了您的账户安全，您的当日个人网银支付金额需要第二日起可取现</span>
-                    </div>
-                  </dd>
-                </dl>
-                <!--确定按钮-->
-                <div class="form-btns">
-                  <p>您正在对专属账户进行支付，汇付天下根据您的指令，将资金从您的银行账户划转至专属账户<br><br></p>
-                  <a href="javascript:$(&#39;form&#39;).submit();" class="btn btn-primary"><span>登录到网上银行支付</span></a>
-                  <input type="submit" class="btn-submit">
-                </div>
-                <!--end-->
-              </div>
-            </div>
-          </form>
-          <a href="javascript:;" class="activity"><img src="./汇付天下2_files/routingPayChannel" alt=""></a>
-        </div>
-      </div>
-<div class="secure-tips mb30">
-  <h2>汇付天下，全面保障您的资金安全<i></i></h2>
-  <div class="content">
-    <p>汇付天下P2P账户系统托管，是汇付天下为P2P行业量身定制的账户系统与支付服务系统。一方面，为P2P平台开发定制账户系统，提供系统外包运营服务；另一方面，为P2P平台提供支付和结算服务，帮助平台和用户实现充值、取现、资金划拨等服务；投资人资金划入虚拟账户后，平台无法触碰资金，避免了资金池模式。但是，我们对投资风险（包括但不限于平台或其他借款人违约）不承担任何责任，投资需谨慎。</p>
-  </div>
-</div>    </div>
-    </div>
-    </div>
-    <div class="push"></div>
-  </div>
-  <div class="min-width-out">
-  <div class="min-width-in">
-  <div class="footer min-width">
-    <div class="content">
-      汇付天下有限公司版权所有  Copyright © 2016 ChinaPnR All Right Reserved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402000137"><img src="./汇付天下2_files/babhtb.png" style="absolute:middle;"> 沪公网安备 31010402000137号</a>
-      <br>
-      <a href="http://www.chinapnr.com/" target="_blank">关于汇付天下</a>
-      <a href="http://www.chinapnr.com/security_01.html" target="_blank">安全保障</a>
-      <a href="http://www.chinapnr.com/helpcenter.html" target="_blank">帮助中心</a>
-      <a href="http://www.chinapnr.com/contactus.html" target="_blank">联系我们</a>
-      <span class="phone">客服电话: <i>400 820 2819</i></span>
-    </div>
-  </div>
-  <script src="/Loan/js/huifujs/plugins.min.js"></script>
-  <script src="/Loan/js/huifujs/main.js"></script>
-  <!--<script src="http://192.168.31.236:8004/v3/script/main.js"></script>-->
-  <script>
-    var conPath = '/cash';
-    if(document.getElementById('isDepoBank') && document.getElementById('isDepoBank').value === 'Y'){
-      document.getElementById('logo-extra-img').src = 'http://test.chinapnr.com/statics//common/images/bank/depo/'+document.getElementById('depoBankId').value+'.png';
-      document.getElementById('logo-extra').style.display = 'inline-block';
-    }
-  </script>  </div>
-  </div>
-  <script>
-    var rootServer = 'http://mertest.chinapnr.com';
-    $.ajax({
-      url: '/cash/ajax/selectActivityInfo',
-      type: 'post',
-      dataType: 'json',
-      success:function(json){
-        if(json.ifShowActivityInfo=='Y'){
-          $('.activity').attr('href',json.activityUrl).css("display","block");
-          $('.activity img').attr('src','http://test.chinapnr.com/statics//cash'+json.activityImgUrl);
-        }
-      }
-    });
-  </script>
-<script type="text/javascript" src="/Loan/js/huifujs/useragents.js"></script>
-<script>
-try{
-  var t = jQuery;
-  document.write("<script type='text/javascript' src='/cash/scripts/jQuery.md5.js'><\/script>");
-}catch(e){
-  document.write("<script type='text/javascript' src='/cash/scripts/zepto.md5.js'><\/script>");
-}
-</script><script type="text/javascript" src="/Loan/js/huifujs/jQuery.md5.js"></script>
-<script type="text/javascript" src="/Loan/js/huifujs/postbe.js"></script>
+</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style><script charset="utf-8" async="" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/i.js" id="_da"></script></head>
+<body onhashchange="hashChange()" youdao="bind"><iframe src="javascript:false" title="" frameborder="0" tabindex="-1" style="position: absolute; width: 0px; height: 0px; border: 0px;" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/saved_resource.html"></iframe><iframe style="display: none;" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/saved_resource(1).html"></iframe><style type="text/css">.WPA3-SELECT-PANEL { z-index:2147483647; width:463px; height:292px; margin:0; padding:0; border:1px solid #d4d4d4; background-color:#fff; border-radius:5px; box-shadow:0 0 15px #d4d4d4;}.WPA3-SELECT-PANEL * { position:static; z-index:auto; top:auto; left:auto; right:auto; bottom:auto; width:auto; height:auto; max-height:auto; max-width:auto; min-height:0; min-width:0; margin:0; padding:0; border:0; clear:none; clip:auto; background:transparent; color:#333; cursor:auto; direction:ltr; filter:; float:none; font:normal normal normal 12px "Helvetica Neue", Arial, sans-serif; line-height:16px; letter-spacing:normal; list-style:none; marks:none; overflow:visible; page:auto; quotes:none; -o-set-link-source:none; size:auto; text-align:left; text-decoration:none; text-indent:0; text-overflow:clip; text-shadow:none; text-transform:none; vertical-align:baseline; visibility:visible; white-space:normal; word-spacing:normal; word-wrap:normal; -webkit-box-shadow:none; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; box-shadow:none; -webkit-border-radius:0; -moz-border-radius:0; -ms-border-radius:0; -o-border-radius:0; border-radius:0; -webkit-opacity:1; -moz-opacity:1; -ms-opacity:1; -o-opacity:1; opacity:1; -webkit-outline:0; -moz-outline:0; -ms-outline:0; -o-outline:0; outline:0; -webkit-text-size-adjust:none; font-family:Microsoft YaHei,Simsun;}.WPA3-SELECT-PANEL a { cursor:auto;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-TOP { height:25px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CLOSE { float:right; display:block; width:47px; height:25px; background:url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CLOSE:hover { background-position:0 -25px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-MAIN { padding:23px 20px 45px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-GUIDE { margin-bottom:42px; font-family:"Microsoft Yahei"; font-size:16px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-SELECTS { width:246px; height:111px; margin:0 auto;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CHAT { float:right; display:block; width:88px; height:111px; background:url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat 0 -80px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CHAT:hover { background-position:-88px -80px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-AIO-CHAT { float:left;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-QQ { display:block; width:76px; height:76px; margin:6px; background:url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat -50px 0;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-QQ-ANONY { background-position:-130px 0;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-LABEL { display:block; padding-top:10px; color:#00a2e6; text-align:center;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-BOTTOM { padding:0 20px; text-align:right;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-INSTALL { color:#8e8e8e;}</style><style type="text/css">.WPA3-CONFIRM { z-index:2147483647; width:285px; height:141px; margin:0; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR0AAACNCAMAAAC9pV6+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjU5QUIyQzVCNUIwQTExRTJCM0FFRDNCMTc1RTI3Nzg4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjU5QUIyQzVDNUIwQTExRTJCM0FFRDNCMTc1RTI3Nzg4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NTlBQjJDNTk1QjBBMTFFMkIzQUVEM0IxNzVFMjc3ODgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NTlBQjJDNUE1QjBBMTFFMkIzQUVEM0IxNzVFMjc3ODgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6QoyAtAAADAFBMVEW5xdCkvtNjJhzf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) no-repeat;}.WPA3-CONFIRM { *background-image:url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/panel.png);}.WPA3-CONFIRM * { position:static; z-index:auto; top:auto; left:auto; right:auto; bottom:auto; width:auto; height:auto; max-height:auto; max-width:auto; min-height:0; min-width:0; margin:0; padding:0; border:0; clear:none; clip:auto; background:transparent; color:#333; cursor:auto; direction:ltr; filter:; float:none; font:normal normal normal 12px "Helvetica Neue", Arial, sans-serif; line-height:16px; letter-spacing:normal; list-style:none; marks:none; overflow:visible; page:auto; quotes:none; -o-set-link-source:none; size:auto; text-align:left; text-decoration:none; text-indent:0; text-overflow:clip; text-shadow:none; text-transform:none; vertical-align:baseline; visibility:visible; white-space:normal; word-spacing:normal; word-wrap:normal; -webkit-box-shadow:none; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; box-shadow:none; -webkit-border-radius:0; -moz-border-radius:0; -ms-border-radius:0; -o-border-radius:0; border-radius:0; -webkit-opacity:1; -moz-opacity:1; -ms-opacity:1; -o-opacity:1; opacity:1; -webkit-outline:0; -moz-outline:0; -ms-outline:0; -o-outline:0; outline:0; -webkit-text-size-adjust:none;}.WPA3-CONFIRM * { font-family:Microsoft YaHei,Simsun;}.WPA3-CONFIRM .WPA3-CONFIRM-TITLE { height:40px; margin:0; padding:0; line-height:40px; color:#2b6089; font-weight:normal; font-size:14px; text-indent:80px;}.WPA3-CONFIRM .WPA3-CONFIRM-CONTENT { height:55px; margin:0; line-height:55px; color:#353535; font-size:14px; text-indent:29px;}.WPA3-CONFIRM .WPA3-CONFIRM-PANEL { height:30px; margin:0; padding-right:16px; text-align:right;}.WPA3-CONFIRM .WPA3-CONFIRM-BUTTON { position:relative; display:inline-block!important; display:inline; zoom:1; width:99px; height:30px; margin-left:10px; line-height:30px; color:#000; text-decoration:none; font-size:12px; text-align:center;}.WPA3-CONFIRM .WPA3-CONFIRM-BUTTON-FOCUS { width:78px;}.WPA3-CONFIRM .WPA3-CONFIRM-BUTTON .WPA3-CONFIRM-BUTTON-TEXT { line-height:30px; text-align:center; cursor:pointer;}.WPA3-CONFIRM-CLOSE { position:absolute; top:7px; right:7px; width:10px; height:10px; cursor:pointer;}</style>
+	<!--[if lt IE 8]>
+    <div class="show-danger">您正在使用 <strong>过时的</strong> 浏览器. 是时候 <a href="http://browsehappy.com/">更换一个更好的浏览器</a> 来提升用户体验.</div>
+  	<![endif]-->
+	<!-- top -->
+	<div class="top" id="top"><!-- top -->
+<div class="wrap">
+	<div class="top-left icon icon-phone">
+		<span>客服热线：</span>400-606-2079 <span>（8:30～17:30）</span>
+	</div>
+	<div class="top-right cl">
+		<ul class="top-list">
+			<li class="first"><a href="javascript:;" class="">退出</a></li>
+			<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#tuijian" class="icon icon-inv">邀请有礼</a></li>
+			<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/about.html#gdbj">关于我们</a></li>
+			<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/help.html">帮助中心</a></li>
+			<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#ipay" class="pay">充值</a></li>
+			<li class="no"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html" class="user">龙哥</a></li>
+		</ul>
+	</div>
+</div>
+</div>
+	<!-- nav -->
+	<div class="nav">
+		<div class="wrap cl">
+			<div class="logo"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/index.html"><img src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/logo.png" alt="普金资本"></a></div>
+			<div class="nav-bar">
+				<ul>
+					<li class="icon icon-acc"><a href="javascript:void(0);">我的账户</a></li>
+					<!-- <li><a href="javascript:void(0);">信息披露</a></li> -->
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/about.html">信息披露</a></li>
+					<!-- <li><a href="javascript:void(0);" onclick="newPointer()">新手指导</a></li> -->
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/safety.html">安全保障</a></li>
+					<li>
+						<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest_list.html">投资理财</a>
+						<div class="sub-nav">
+							<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest_list.html#006">恒金保</a>
+							<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest_list.html#004">普金保</a>
+							<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest_list.html#003">多金宝</a>
+							<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/creditor_list.html">债权转让</a>
+							<p class="left"></p>
+							<p class="right"></p>
+						</div>
+					</li>
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/index.html">首页</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="account cl">
+		<div class="account-left">
+			<div class="account-left-nav">
+				<div class="navbar icon icon-account">我的账户</div>
+				<ul class="sub-nav">
+					<li class="active"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#account">账户总览</a></li>
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#ipay">充值</a></li>
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#cash">提现</a></li>
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#taste">我的赠券</a></li>
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#fund">资金记录</a></li>
+				</ul>
+				<div class="navbar icon icon-self">我的管理</div>
+				<ul class="sub-nav">
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#invest">投资管理</a></li>
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#claimm">债权管理</a></li>
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#claimb">债权购买</a></li>
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#loan">借款管理</a></li>
+				</ul>
+				<div class="navbar icon icon-settings">账户设置</div>
+				<ul class="sub-nav">
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#bank">我的银行卡</a></li>
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#safe">安全设置</a></li>
+					<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#msg">消息中心</a></li>
+				</ul>
+			</div>
+			<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#tuijian" class="tuijian"><img src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/tuijian.png"></a>
+		</div>
+		<!-- begin -->
+		<div class="account-right"><div class="account-right-nav">
+	<div class="sub-a-nav">
+		<a href="javascript:void(0);" class="active">账户总览</a>
+	</div>
+	<em></em>
+</div>
+<div class="account-content" style="display: block;">
+	<div class="center-view">
+		<div class="center-header">
+			<img src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/header.png" width="120" height="120">
+		</div>
+		<div class="center-self">
+			<p class="name">龙哥</p>
+			<p class="safety">安全等级： <span id="safeLevel">高</span></p>
+			<p class="center-icon">
+				<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#safe" class="icon icon-c-phone"></a>
+				<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#safe" class="icon icon-c-mail"></a>
+			</p>
+			<p id="registpay"><a href="javascript:;">登录汇付</a></p>
+		</div>
+		<div class="center-user">
+			<p class="amt color"><span id="usableSum">250436933.25</span>元</p>
+			<p class="text">可用余额</p>
+			<p class="link">
+				<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#ipay" class="active">充值</a>
+				<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#cash">提现</a>
+			</p>
+		</div>
+		<div class="center-profit">
+			<p class="amt"><span id="earnSum">1764.62</span>元</p>
+			<p class="text">收益总额</p>
+			<p class="icon icon-quan">代金券 <b id="voucher">0</b> 张，现金券 <b id="cashMap">0</b> 张</p>
+		</div>	
+	</div>
+	<div class="center-main">
+		<div class="canvas">
+			<div id="myChart" style="width:350px;height:350px;" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 350px; height: 350px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="350" height="350"><desc>Created with Highcharts 4.0.3</desc><defs><clippath id="highcharts-1"><rect x="0" y="0" width="330" height="325"></rect></clippath></defs><rect x="0" y="0" width="350" height="350" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" style="cursor:pointer;"><path fill="#f8d280" d="M 164.96893983643648 10.000003163061535 A 152.5 152.5 0 1 1 70.0364558934137 281.8238253272013 L 89.57403750878515 257.27441536234267 A 121.125 121.125 0 1 0 164.9753300832024 41.375002512300526 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#6dbfff" d="M 69.91717956974192 281.72880213701427 A 152.5 152.5 0 0 1 64.07705185224589 276.82763680390553 L 84.84070757772645 253.3061311991676 A 121.125 121.125 0 0 0 89.47930082219665 257.1989420252187 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#fb9898" d="M 63.96277469596647 276.72665670876466 A 152.5 152.5 0 0 1 164.78818055944407 10.000147106547672 L 164.83175980500107 41.375116841184166 A 121.125 121.125 0 0 0 84.74994154130452 253.22592651704338 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#86da70" d="M 164.94068049283067 10.000011537062505 A 152.5 152.5 0 0 1 164.78818055944407 10.000147106547672 L 164.83175980500107 41.375116841184166 A 121.125 121.125 0 0 0 164.95288475209256 41.37500916345374 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)"></g></g><g class="highcharts-legend" zIndex="7"><g zIndex="1"><g></g></g></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(0,-9999)"><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path><path fill="rgba(249, 249, 249, .85)" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="21"></text></g></svg></div></div>
+			<div class="center-total">
+				<p id="allTotal">250538464.79</p>
+				<p class="text">总资产</p>
+			</div>
+		</div>
+		<div class="center-data">
+			<p class="color color1"></p>
+			<p>投资总额：<span id="investSum">156995.00</span></p>
+			<p class="color color2"></p>
+			<p>冻结金额：<span id="freezeAmount">2095.00</span></p>
+			<p class="color color3"></p>
+			<p>待收总额：<span id="forPaySum">99436.54</span></p>
+			<p class="color color4"></p>
+			<p>奖励金额：<span id="otherEarnAmount">26.71</span></p>
+		</div>
+	</div>
+	<div id="huifuHtml"></div>
+<iframe id="tmp_downloadhelper_iframe" style="display: none;" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/saved_resource(2).html"></iframe></div>
+<div class="popup regist-box">
+	<p class="title left">注册汇付天下</p>
+	<a href="javascript:void(0);" class="close icon icon-close"></a>
+	<div class="popup-from">
+		<button type="button" class="btn" id="person-submit">个人用户注册</button>
+		<button type="button" class="btn" id="single-submit">企业用户注册</button>
+	</div>
+</div></div>
+		<!-- end -->
+	</div>
+	<div id="ajaxFooter">	
+	<div class="mod-sidebar">
+		<ul>
+			<li><a href="javascript:;" class="sidebar-qq" id="BizQQWPA"></a></li>
+			<li><a href="javascript:;" class="sidebar-wx"></a></li>
+			<li><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/calculator.html" class="sidebar-cl"></a></li>
+			<li><a href="javascript:;" class="wenquan" title="填写即送5元代金券"></a></li>
+			<li><a href="javascript:;" class="sidebar-top"></a></li>
+		</ul>
+	</div>
+	<!-- concat -->
+	<div class="index-concat">
+		<div class="wrap cl">
+			<div class="index-concat-left">
+				<img src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/index_erweima.png" alt="扫码关注普金资本">
+			</div>
+			<div class="index-concat-phone">
+				<p>财富热线</p>
+				<h3>400-606-2079</h3>
+			</div>
+			<div class="index-concat-channel">
+				<p class="about_cel_text">
+					<a target="_blank" href="http://weibo.com/pujinziben" class="about_wb"></a>
+					<a href="javascript:void(0);" class="about_wx line_02">
+						<span class="line_l_h">
+							<span class="line_l_sj"></span>
+							<span class="line_l_text">关注普金资本公众号</span>
+							<span class="line_l_pic"></span>
+						</span>
+					</a>
+					<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=b21f94451a224d115c56e3e20626abf75f33fff218f82fd8dd4a04954f80c70d" class="about_qq"></a>
+					<a href="javascript:void(0);" class="about_wx about_rr">
+						<span class="line_l_j">
+							<span class="line_l_sj"></span>
+							<span class="line_l_texts">400-606-2079</span>
+						</span>
+					</a>
+				</p>
+				<p class="about_cel_no">admin@pujinziben.com</p>
+			</div>
+			<div class="index-concat-link cl"><a href="javascript:;" class="title">友情链接</a></div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="wrap">
+			<p class="text">
+			版权所有 © 普金资本运营（赣州）有限公司 All rights reserved <br>
+			备案确认书：<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank" class="beian">赣ICP备16004010号</a><a href="http://new.cnzz.com/v1/login.php?siteid=1260871948" target="_blank">  <img src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/CNZZ.png" alt=""></a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=36070202000195" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;" class="beian"><img src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/beian.png" style="float:left;">赣公网安备 36070202000195号</a>
+			 		 
+			</p>
+			<div class="footer-list" style="width:690px;">
+				<a href="https://credit.cecdc.com/CX20160720023638001698.html"><img src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/ft_link_01.png" alt=""></a>
+				<a href="https://www.yunaq.com/analytics/login/?site=pujinziben.com"><img src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/ft_link_02.png" alt=""></a>
+				<a href="http://si.trustutn.org/info?sn=876160725000486996572"><img src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/ft_link_03.png" alt=""></a> 
+				<a href="http://webscan.360.cn/index/checkwebsite/url/www.pujinziben.com"><img width="110px" height="40px" border="0" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/745ef449cbf0f6a74791f73d57aa7ac2"></a>
+				<a href="http://v.pinpaibao.com.cn/authenticate/cert/?site=www.pujinziben.com&amp;at=business">
+					<img src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/ft_link_04.png" alt="">
+				</a>
+				<a target="_blank" href="http://ec.eqixin.com/?sn=QX3712005910061483682343"><img width="112px" height="34px" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/2.png"></a>
+			</div>
+		</div>
+	</div>
+	<div class="popup wechart-box">
+		<p class="title left">关注普金资本微信公众号</p>
+		<a href="javascript:void(0);" class="close icon icon-close"></a>
+		<div class="popup-from">
+			<img src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/wechart.jpg">
+		</div>
+	</div>
+</div>
+	<!--[if lt IE 9]>
+	    <script src="src/libs/json2.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/jquery.js"></script>
+	<script type="text/javascript" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/chart.js"></script>
+	<script type="text/javascript" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/public.js"></script>
+	<!-- 客服QQ -->
+	<script charset="utf-8" type="text/javascript" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/wpa.php"></script>
+	<script type="text/javascript" src="./我的账户—普金资本-安全可靠专注于供应链金融的国资背景P2P理财平台_files/account.js"></script>
 
-<script>
-    try {
-        initPostbeData("218.204.104.234","10","00000033"
-                ,"000110395220170223","6000060003321114","6000060004112605"
-                ,"http://192.168.0.206:9999","P2P","[source_id:00000032;user_id:;trans_amt:222.00;card_id:;bank_name:CIB;bank_prov:null;bank_area:null;bank_mp:null;failure_reason:null;]");
-
-        //    /muser/ajax/posebe
-        //http://mobileservice.chinapnr.com/postbe
-        //http://192.168.3.100:9819/muser/ajax/posebe
-
-
-  //      if(supportUnload()){
-//        window.addEventListener("onbeforeunload", smartSend, false);
-//        window.addEventListener("onunload", smartSend, false);
-
-            //window.onbeforeunload = function (e) {
-            //    smartSend();
-            //};
-           // window.onunload = function (e) {
-          //      smartSend();
-          //  };
-            //内部发送postbe
-            var conPath='/cash';
-            if(conPath!=null||conPath!=''){
-             var path='/cash/ajax/sendPostUrl';
-              javaSendUrl(path);
-            }
-          //  setTimeout('smartSend()',1000*60*30);
-      //  }else{
-      //      sendPostbe('NA');
-      //  }
-    } catch (e) {
-        console.log(e);
-    }
-</script>
-
-
-</body></html>
+<audio controls="controls" style="display: none;"></audio><div id="window-resizer-tooltip"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth"></span> x <span class="tooltipHeight" id="winHeight"></span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth"></span> x <span class="tooltipHeight" id="vpHeight"></span></div><a id="ext_btt" href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#"><img src="chrome-extension://alpoeaffjpfnidlkiidponkainlnfhnl/images/icon.png"></a><div id="sel-ext-win" class="sel-text-win" style="display: none;"></div></body><style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style></html>

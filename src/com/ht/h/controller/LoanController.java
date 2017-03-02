@@ -61,6 +61,17 @@ public class LoanController {
 	}
 	
 	/**
+	 * 借款审批
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/toLoanList4")
+	public String toLoanList4(HttpServletRequest request){
+		request.setAttribute("lstate", "1");
+		return "loan/loanList";
+	}
+	
+	/**
 	 * 借款列表
 	 * @param loan
 	 * @param page
@@ -88,16 +99,13 @@ public class LoanController {
 		return map;
 	}
 	
-	/**
-	 * 客户申请借款
-	 * @param loan
-	 * @param request
-	 * @param session
-	 * @return
-	 */
-	@RequestMapping(value="/addLoan")
+		
+	@RequestMapping(value="/addLoan",method=RequestMethod.POST)
 	public String addLoan(Loan loan,HttpServletRequest request,HttpSession session){
 		Customer customer=(Customer) session.getAttribute("customer");
+		if(customer == null){
+			return "redirect:/client/login";
+		}
 		loan.setUid(customer.getUid());
 		loan.setLstate("1");
 		loan.setLtime(new Date());
@@ -108,5 +116,44 @@ public class LoanController {
 			request.setAttribute("result", "申请提交失败！");
 		}
 		return "redirect:/client/borrow";
+	}
+	
+	/**
+	 * 查询用户自己的借款
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/selCusLoan",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> selCusLoan(Loan loan,@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,HttpSession session){
+		PageBean pageBean=null;
+		if(page == null || rows == null){
+			pageBean=new PageBean(1,10);
+		}else{
+			pageBean=new PageBean(Integer.parseInt(page),Integer.parseInt(rows));
+		}
+		Map<String, Object> map=new HashMap<>();
+		Customer customer=(Customer) session.getAttribute("customer");
+		if(customer == null){
+			map.put("error", "请先登录！");
+			return map;
+		}
+		map.put("uid", customer.getUid());
+		map.put("ltitle", StringUtil.formatLike(loan.getLtitle()));
+		map.put("ltype", loan.getLtype());
+		map.put("lterm", loan.getLterm());
+		map.put("lstate", loan.getLstate());
+		map.put("lclass", loan.getLclass());
+		map.put("start", pageBean.getStart());
+		map.put("size", pageBean.getPageSize());
+		List<Loan> loanList=loanService.queryAll(map);
+		Long total=loanService.getTotal(map);
+		pageBean.setTotal(Integer.valueOf(total.toString()));
+		map.put("loanList", loanList);
+		map.put("total", total);		//记录总条数
+		map.put("count",pageBean.getCount());//共几页
+		map.put("page", pageBean.getPage());//当前页
+		map.put("pageSize", pageBean.getPageSize());//一页显示的个数
+		return map;
 	}
 }

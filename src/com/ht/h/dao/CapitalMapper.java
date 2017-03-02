@@ -13,7 +13,9 @@ public interface CapitalMapper {
     int insertSelective(Capital record);
 
     Capital selectByPrimaryKey(Integer cid);
-
+    
+    Capital selectByFund(Integer cid);
+    
     int updateByPrimaryKeySelective(Capital record);
 
     int updateByPrimaryKey(Capital record);

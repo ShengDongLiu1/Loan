@@ -21,4 +21,8 @@ public interface WithdrawalsService {
     List<Withdrawals> selectWithdrawals(Map<String, Object> map);
     
     Long getTotal(Map<String, Object> map);
+
+	int withdrawalsCount();
+
+	List<Withdrawals> withdrawalsQueryAll(Map<String, Object> map);
 }

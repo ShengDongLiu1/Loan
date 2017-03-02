@@ -22,7 +22,7 @@
     width: 899px;
     padding: 27px 40px 60px;
     display: table-cell;
-    background: url("product-loading.gif")/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/images/product-loading.gif*/center center no-repeat;
+    background: url(../images/product-loading.gif)center center no-repeat;
     background-color: #fff;
     vertical-align: top;
 }
@@ -40,11 +40,11 @@
 	text-indent:48px;
 }
 .icon-about{
-	background-image: url("icon-about-gray.png")/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/images/about/icon-about-gray.png*/;
+	background-image: url(../images/about/icon-about-gray.png);
     background-repeat: no-repeat;
 }
 .active .icon-about,.about-left-nav .sub-nav>li a:hover.icon-about{
-	background-image: url("icon-about-white.png")/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/images/about/icon-about-white.png*/;
+	background-image: url(../images/about/icon-about-white.png);
 	background-color:#eb2a2b;
 	color:#fff;
 }
@@ -333,7 +333,7 @@
 	line-height:18px;
 	color:#999;
 	padding-left:25px;
-	background:url("time.png")/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/images/about/time.png*/ left center no-repeat;
+	background:url(../images/about/time.png) left center no-repeat;
 }
 .notice-list li{
 	height:60px;
@@ -366,7 +366,7 @@
 	width:1200px;
 	min-height:300px;
 	margin:30px auto 0;
-	background: url("product-loading.gif")/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/images/product-loading.gif*/center center no-repeat;
+	background: url(../images/product-loading.gif)center center no-repeat;
     background-color: #fff;
 }
 .news-contents{
@@ -389,7 +389,7 @@
 .news-contents .news-contents-top>a.links{
 	width:36px;
 	height:36px;
-	background-image: url("news-top.png")/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/images/about/news-top.png*/;
+	background-image: url(../images/about/news-top.png);
     background-repeat: no-repeat;
 	margin-right:10px;
 }
@@ -423,7 +423,7 @@
 	height:36px;
 	line-height:36px;
 	color:#999;
-	background:url("time.png")/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/images/about/time.png*/ left center no-repeat;
+	background:url(../images/about/time.png) left center no-repeat;
 	text-indent:24px;
 }
 .news-contents .news-back{
@@ -497,7 +497,7 @@
 .content-lxwm div.bottom .left{
 	width:100px;
 	height:100px;
-	background-image: url("lxwm.png")/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/images/about/lxwm.png*/;
+	background-image: url(../images/about/lxwm.png);
     background-repeat: no-repeat;
 	background-color:#ffdfdd;
 	float:left;
@@ -559,7 +559,7 @@
     position: absolute;
     left: 60px;
     bottom:140px;
-    background: url("weixintop.png")/*tpa=http://120.76.203.19:8090/shzc_test/css/shImages/weixintop.png*/ -93px top no-repeat;
+    background: url(../../../css/shImages/weixintop.png) -93px top no-repeat;
 }
 .weChart .loginTag{
 	width:120px;
@@ -603,11 +603,11 @@
 }
 .oBanner-box a.is-next{
 	right:10px;
-	background:#000 url("next.png")/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/images/about/next.png*/ center center no-repeat;
+	background:#000 url(../images/about/next.png) center center no-repeat;
 }
 .oBanner-box a.is-prev{
 	left:10px;
-	background:#000 url("prev.png")/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/images/about/prev.png*/ center center no-repeat;
+	background:#000 url(../images/about/prev.png) center center no-repeat;
 }
 .oBanner-box .oImg-box{
 	transition:.4s;
