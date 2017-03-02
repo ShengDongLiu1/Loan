@@ -18,7 +18,10 @@
 <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>
 <script type="text/javascript" src="<%=path %>/js/loan/loan.js"></script>
+<<<<<<< Updated upstream
 <script type="text/javascript" src="<%=path %>/js/toDate.js"></script>
+=======
+>>>>>>> Stashed changes
 <style type="text/css">
 .mess{color:red;}
 </style>
@@ -37,9 +40,13 @@
 	  	    	   	  <span class="bor_decurspan">房产抵押</span>
 	  	    	   	  <span>车辆抵押</span>
 	  	    	   	  <span>信用贷款</span>
+<<<<<<< Updated upstream
 	  	    	   	  <c:if test="${customer != null }">
 	  	    	   	  	<span onclick="selCusLoan();">我的借款</span>
 	  	    	   	  </c:if>
+=======
+	  	    	   	  <span>我的借款</span>
+>>>>>>> Stashed changes
 	  	    	   </h2>
 	  	    	   <div class="bor_detail_box">
 	  	    	   	    <div class="bor_det_one clearfix pt30 pb30">
@@ -104,12 +111,19 @@
   	    	   	    	  	     	  	  	   <input type="radio" class="input3">
   	    	   	    	  	     	  	   	   紧急借款 
   	    	   	    	  	     	  	   </div> -->
+<<<<<<< Updated upstream
   	    	   	    	  	     	  	   <c:if test="${customer != null }">
 	  	    	   	    	  	     	  	   <div class="mt30">
 	  	    	   	    	  	     	  	   	   <label></label>
 	  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan();" style="background:#FFA800;border:none;padding-left:45px;"/>
 	  	    	   	    	  	     	  	   </div>
   	    	   	    	  	     	  	   </c:if>
+=======
+  	    	   	    	  	     	  	   <div class="mt30">
+  	    	   	    	  	     	  	   	   <label></label>
+  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan();" style="background:#FFA800;border:none;padding-left:45px;"/>
+  	    	   	    	  	     	  	   </div>
+>>>>>>> Stashed changes
   	    	   	    	  	     	  </fieldset>
   	    	   	    	  	     </form>
 	  	    	   	    	  </div>
@@ -169,12 +183,19 @@
   	    	   	    	  	     	  	   	   <textarea name="lmiaoshu"></textarea>
   	    	   	    	  	     	  	   	   <span class="mess" id="me28"></span>
   	    	   	    	  	     	  	   </div>
+<<<<<<< Updated upstream
   	    	   	    	  	     	  	   <c:if test="${customer != null }">
 	  	    	   	    	  	     	  	   <div class="mt30">
 	  	    	   	    	  	     	  	   	   <label></label>
 	  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan1();" style="background:#FFA800;border:none;padding-left:45px;"/>
 	  	    	   	    	  	     	  	   </div>
   	    	   	    	  	     	  	   </c:if>
+=======
+  	    	   	    	  	     	  	   <div class="mt30">
+  	    	   	    	  	     	  	   	   <label></label>
+  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan1();" style="background:#FFA800;border:none;padding-left:45px;"/>
+  	    	   	    	  	     	  	   </div>
+>>>>>>> Stashed changes
   	    	   	    	  	     	  </fieldset>
   	    	   	    	  	     </form>
 	  	    	   	    	  </div>
@@ -204,7 +225,11 @@
   	    	   	    	  	     	  	   </div>
   	    	   	    	  	     	  	   <div class="mt15 guarmethod clearfix">
   	    	   	    	  	     	  	   	   <label class="guarmethod_l fl">*担保方式</label>
+<<<<<<< Updated upstream
   	    	   	    	  	     	  	   	   <input type="text" name="lclass" value="信用贷款" readonly="readonly"/>
+=======
+  	    	   	    	  	     	  	   	   <input type="text" name="lclass" value="信用贷款" disabled="true" />
+>>>>>>> Stashed changes
   	    	   	    	  	     	  	   	   <span class="mess" id="me34"></span>
   	    	   	    	  	     	  	   </div>
   	    	   	    	  	     	  	   <div class="mt15">
@@ -226,18 +251,26 @@
   	    	   	    	  	     	  	   	   <textarea name="lmiaoshu"></textarea>
   	    	   	    	  	     	  	   	   <span class="mess" id="me38"></span>
   	    	   	    	  	     	  	   </div>
+<<<<<<< Updated upstream
   	    	   	    	  	     	  	   <c:if test="${customer != null }">
 	  	    	   	    	  	     	  	   <div class="mt30">
 	  	    	   	    	  	     	  	   	   <label></label>
 	  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan2()" style="background:#FFA800;border:none;padding-left:45px;"/>
 	  	    	   	    	  	     	  	   </div>
   	    	   	    	  	     	  	   </c:if>
+=======
+  	    	   	    	  	     	  	   <div class="mt30">
+  	    	   	    	  	     	  	   	   <label></label>
+  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan2()" style="background:#FFA800;border:none;padding-left:45px;"/>
+  	    	   	    	  	     	  	   </div>
+>>>>>>> Stashed changes
   	    	   	    	  	     	  </fieldset>
   	    	   	    	  	     </form>
 	  	    	   	    	  </div>
 	  	    	   	    </div>
 	  	    	   	    <!-- end 信用贷款 -->
 	  	    	   	    
+<<<<<<< Updated upstream
 	  	    	   	    <!-- 我的借款 -->
 	  	    	   	    <div class="bor_det_one clearfix pt30 pb30" style="display:none;">
 	  	    	   	    	<table id="lotab">
@@ -272,6 +305,10 @@
 	  	    	   	    			</tr>
 	  	    	   	    		</tfoot>
 	  	    	   	    	</table>
+=======
+	  	    	   	    <div class="bor_det_one clearfix pt30 pb30" style="display:none;">
+	  	    	   	    	我的借款
+>>>>>>> Stashed changes
 	  	    	   	    </div>
 	  	    	   </div>
 	  	    </div>

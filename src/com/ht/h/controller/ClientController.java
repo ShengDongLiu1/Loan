@@ -1,6 +1,15 @@
 package com.ht.h.controller;
 
+<<<<<<< Updated upstream
 import javax.servlet.http.HttpServletRequest;
+=======
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+>>>>>>> Stashed changes
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +20,13 @@ import com.ht.h.bean.Capital;
 import com.ht.h.service.interfaces.CapitalService;
 
 
+import com.ht.h.bean.Bank;
+import com.ht.h.bean.Customer;
+import com.ht.h.bean.Recharge;
+import com.ht.h.dto.Pager;
+import com.ht.h.service.interfaces.BankService;
+import com.ht.h.service.interfaces.RechargeService;
+
 
 @Controller
 @RequestMapping(value="client")
@@ -18,6 +34,12 @@ public class ClientController {
 
 	@Autowired
 	private CapitalService capitalService;
+	
+	@Autowired
+	private BankService bankService;
+	
+	@Autowired
+	private RechargeService rechargeService;
 	
 	/*
 	 * 跳转到首页
@@ -154,8 +176,25 @@ public class ClientController {
 	 * 资金记录
 	 * */
 	@RequestMapping(value="MoneyRecord")
-	public String MoneyRecord(){
-		return "client/MoneyRecord";
+	public String MoneyRecord(HttpServletRequest request){
+		//if(state == "1" && state.equals("1")){//查询充值表
+			Pager<Recharge> pager = new Pager<Recharge>();
+			pager.setPageSize(10);
+			int count = rechargeService.rechargetCount();
+			int total = count % pager.getPageSize() == 0 ? count / pager.getPageSize() : count / pager.getPageSize() +1;
+			pager.setTotal(total);
+			if(pager.getTotal() == 0){
+				pager.setPageNo(1);
+			}else{
+				pager.setPageNo(pager.getTotal());
+			}
+			Map<String,Object> map=new HashMap<String,Object>();
+			map.put("start", pager.getBeginIndex());
+			map.put("size", pager.getPageSize());
+			List<Recharge> userList=rechargeService.rechargetQueryAll(map);
+			pager.setRows(userList);
+			request.setAttribute("rechList", pager);
+			return "client/MoneyRecord";
 	}
 	
 	
@@ -179,7 +218,10 @@ public class ClientController {
 	 *银行卡管理
 	 * */
 	@RequestMapping(value="BankCard")
-	public String BankCard(){
+	public String BankCard(HttpServletRequest request,HttpSession session){
+		Customer customer=(Customer) session.getAttribute("customer");
+		List<Bank> list=bankService.selectCard(customer.getUid());//查询所有数据
+		request.setAttribute("bankList", list);
 		return "client/BankCard";
 	}
 	

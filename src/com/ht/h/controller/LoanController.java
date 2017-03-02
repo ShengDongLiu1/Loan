@@ -57,6 +57,7 @@ public class LoanController {
 	@RequestMapping("/toLoanList3")
 	public String toLoanList3(HttpServletRequest request){
 		request.setAttribute("lstate", "3");
+<<<<<<< Updated upstream
 		return "loan/loanList";
 	}
 	
@@ -68,6 +69,8 @@ public class LoanController {
 	@RequestMapping("/toLoanList4")
 	public String toLoanList4(HttpServletRequest request){
 		request.setAttribute("lstate", "1");
+=======
+>>>>>>> Stashed changes
 		return "loan/loanList";
 	}
 	
@@ -106,6 +109,7 @@ public class LoanController {
 	 * @param session
 	 * @return
 	 */
+<<<<<<< Updated upstream
 	@RequestMapping(value="/addLoan",method=RequestMethod.POST)
 	public String addLoan(Loan loan,HttpServletRequest request,HttpSession session){
 		Customer customer=(Customer) session.getAttribute("customer");
@@ -116,6 +120,14 @@ public class LoanController {
 		loan.setLstate("1");
 		loan.setLtime(new Date());
 		System.out.println("抵押类型："+loan.getLclass());
+=======
+	@RequestMapping(value="/addLoan")
+	public String addLoan(Loan loan,HttpServletRequest request,HttpSession session){
+		Customer customer=(Customer) session.getAttribute("customer");
+		loan.setUid(customer.getUid());
+		loan.setLstate("1");
+		loan.setLtime(new Date());
+>>>>>>> Stashed changes
 		int result=loanService.insertSelective(loan);
 		if(result > 0){
 			request.setAttribute("result", "申请已提交！");
@@ -124,6 +136,7 @@ public class LoanController {
 		}
 		return "redirect:/client/borrow";
 	}
+<<<<<<< Updated upstream
 	
 	/**
 	 * 查询用户自己的借款
@@ -163,4 +176,6 @@ public class LoanController {
 		map.put("pageSize", pageBean.getPageSize());//一页显示的个数
 		return map;
 	}
+=======
+>>>>>>> Stashed changes
 }

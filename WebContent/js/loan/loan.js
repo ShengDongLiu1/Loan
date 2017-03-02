@@ -101,6 +101,7 @@ $(function(){
 	$('textarea').focus(function(){
 		$('.mess').html('');
 	});
+<<<<<<< Updated upstream
 });
 
 //查询客户的借款申请
@@ -163,3 +164,6 @@ function xingyong(lclass,lnums){
 		return lnums;
 	}
 }
+=======
+});
+>>>>>>> Stashed changes

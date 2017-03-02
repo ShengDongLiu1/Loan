@@ -13,12 +13,30 @@
     <result column="rserial" jdbcType="VARCHAR" property="rserial" />
     <result column="rtime" jdbcType="TIMESTAMP" property="rtime" />
   </resultMap>
+  
+   <resultMap id="CapRecMap" type="com.ht.h.bean.Recharge">
+    <id column="rid" jdbcType="INTEGER" property="rid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="rtype" jdbcType="VARCHAR" property="rtype" />
+    <result column="rmoney" jdbcType="DECIMAL" property="rmoney" />
+    <result column="rtime" jdbcType="TIMESTAMP" property="rtime" />
+    
+     <association property="capital" javaType="com.ht.h.bean.Capital">
+	    <result column="cid" property="cid" />
+    	<result column="uid" jdbcType="INTEGER" property="uid" />
+    	<result column="available" jdbcType="DECIMAL" property="available" />
+	</association>
+  </resultMap>
   <sql id="Base_Column_List">
     rid,uid, rtype, rbank, rmoney, rcounterfee,rserial, ractual, rstate, rtime
   </sql>
   
    <sql id="Base_Column_Lists">
     rid, u.uid, rtype, rbank, rmoney, rcounterfee,rserial, ractual, rstate, rtime, username
+  </sql>
+  
+  <sql id="Cap_Rec_List">
+    r.rtime,r.rtype,r.Rmoney,c.Available
   </sql>
   
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -179,4 +197,25 @@
       rtime = #{rtime,jdbcType=TIMESTAMP}
     where rid = #{rid,jdbcType=INTEGER}
   </update>
+  
+  
+   <select id="rechargetQueryAll" parameterType="Map" resultMap="CapRecMap">
+  	select <include refid="Cap_Rec_List" /> 
+  		
+  	from recharge r, capital c
+		<where>
+			r.uid=c.uid
+			<if test="rtime!=null and rtime!='' and rtime1!=null and rtime1!=''">
+			and r.rtime between #{rtime} and #{rtime1}
+		</if>
+		</where>
+		order by r.rtime desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+  </select>
+  
+  <select id="rechargetCount" resultType="int">
+		select count(*) from recharge
+	</select>
 </mapper>

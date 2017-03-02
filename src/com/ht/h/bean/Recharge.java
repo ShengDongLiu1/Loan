@@ -24,8 +24,18 @@ public class Recharge {
     private Date rtime;
     
     private String username;
+    
+    private Capital capital;
 
-    public Integer getRid() {
+    public Capital getCapital() {
+		return capital;
+	}
+
+	public void setCapital(Capital capital) {
+		this.capital = capital;
+	}
+
+	public Integer getRid() {
         return rid;
     }
 

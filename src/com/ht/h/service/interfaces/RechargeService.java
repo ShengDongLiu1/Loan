@@ -23,4 +23,11 @@ public interface RechargeService {
     Long getTotal(Map<String, Object> map);
     
     int queryByRserial(String Rserial);
+<<<<<<< Updated upstream
+=======
+
+	int rechargetCount();
+
+	List<Recharge> rechargetQueryAll(Map<String, Object> map);
+>>>>>>> Stashed changes
 }

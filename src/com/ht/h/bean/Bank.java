@@ -77,4 +77,11 @@ public class Bank {
     public void setBstate(String bstate) {
         this.bstate = bstate == null ? null : bstate.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Bank [bid=" + bid + ", uid=" + uid + ", baccount=" + baccount + ", bcardnumber=" + bcardnumber
+				+ ", btime=" + btime + ", bstate=" + bstate + ", customer=" + customer + "]";
+	}
+    
 }
