@@ -149,13 +149,13 @@ $(window).load(function(){
                     <p>
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1223348320&site=qq&menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:1223348320:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>东哥</span>
+                          <span>傻猴</span>
                     	</a>
                     </p>
                      <p>                              
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1274603021&amp;site=qq&amp;menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:1274603021:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>乐哥</span>
+                          <span>乐古</span>
                     	</a>
                     </p>
                     <p>
@@ -173,7 +173,7 @@ $(window).load(function(){
                     <p>
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=844661789&site=qq&menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:844661789:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>豪哥</span>
+                          <span>豪傻</span>
                     	</a>
                     </p>
                     <p>
@@ -185,7 +185,7 @@ $(window).load(function(){
                     <p>
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=599646324&site=qq&menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:599646324:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>骚根</span>
+                          <span>根哥</span>
                     	</a>
                     </p>
                   
