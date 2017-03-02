@@ -169,6 +169,14 @@ public class ClientController {
 		return "client/BankCard";
 	}
 	
+	/*
+	 *添加银行卡
+	 * */
+	@RequestMapping(value="AddCard")
+	public String AddCard(){
+		return "huifuPage/AddCard";
+	}
+	
 	/**
 	 * 
 	 * 跳转到安全设置

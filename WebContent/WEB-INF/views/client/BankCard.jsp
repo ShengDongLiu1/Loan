@@ -52,7 +52,7 @@
 </div>
 <div id="myDebitCard" class="account-content">
 	
-<div id="card1" class="bank-card_1"><div class="bank-top"><div class="bank-cardTitle">邮储银行</div><div class="bank-cardType">储蓄卡</div></div><div class="bank-center"><div class="bank-cardNumber">6217 **** **** 1491</div><div class="bank-userName">*洁龙</div></div></div><div id="card3" class="bank-card_3" onclick="addCard();" style="cursor:pointer;"><div class="bank-addCard"><a href="javascript:;">添加银行卡</a></div></div></div>
+<div id="card1" class="bank-card_1"><div class="bank-top"><div class="bank-cardTitle">邮储银行</div><div class="bank-cardType">储蓄卡</div></div><div class="bank-center"><div class="bank-cardNumber">6217 **** **** 1491</div><div class="bank-userName">*洁龙</div></div></div><div id="card3" class="bank-card_3" onclick="addCard();" style="cursor:pointer;"><div class="bank-addCard"><a href="<%=path%>/client/AddCard">添加银行卡</a></div></div></div>
 </div>
 		<!-- end -->
 	</div>
