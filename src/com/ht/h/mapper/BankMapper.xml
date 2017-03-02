@@ -165,7 +165,6 @@
 		</if>
     </where>
  </select>
- 
   <select id="selectCard" parameterType="java.lang.Integer" resultMap="selectMap">
     select 
     <include refid="Base_Column_List" />
