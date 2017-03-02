@@ -24,6 +24,5 @@ public interface BankMapper {
 	
 	List<Bank> selectCard(Integer uid);
 	
-	List<Bank> selectCard(Integer uid);
 	List<Bank> queryByUid(int uid);
 }
