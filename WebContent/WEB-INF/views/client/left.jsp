@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="/Loan/css/pjcss/datepicker.css">
 
 <script type="text/javascript" src="<%=path %>/js/jquery-1.4.4.min.js"></script>
+<script charset="utf-8" async="" src="<%=path %>/js/pjjs/i.js" id="_da"></script>
 <script type="text/javascript" src="<%=path %>/js/pjjs/bootstrap-datepicker.js"></script>
 
 
@@ -113,4 +114,9 @@
 		<!-- end -->
 	</div>
 	<jsp:include flush="true" page="bottom.jsp"></jsp:include>
+	<script type="text/javascript" src="<%=path %>/js/pjjs/jquery.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/pjjs/public.js"></script>
+	<!-- 客服QQ -->
+	<script type="text/javascript" src="<%=path %>/js/pjjs/countUp.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/pjjs/about.js"></script>
 </body></html>

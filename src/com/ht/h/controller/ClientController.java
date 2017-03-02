@@ -260,4 +260,12 @@ public class ClientController {
 		return "client/pay";
 	}
 	
+	/*
+	 * 关于我们
+	 */
+	@RequestMapping(value="AboutUs")
+	public String AboutUs(){
+		return "client/AboutUs";
+	}
+	
 }

@@ -279,7 +279,7 @@ $(window).load(function(){
 		  <a href="<%=path %>/client/borrow">我要借款</a>
 		  <a href="#">实时财务</a>
 		  <a href="<%=path %>/client/noticelist">新手指引</a>
-		  <a href="#" style="margin-right:0;">关于我们</a>
+		  <a href="<%=path %>/client/AboutUs" style="margin-right:0;">关于我们</a>
 	</div>
 </div>
 <script>
