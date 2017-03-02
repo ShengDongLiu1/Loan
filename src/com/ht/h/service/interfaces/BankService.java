@@ -21,4 +21,6 @@ public interface BankService {
 	List<Bank> select(Map<String, Object> map);
 
 	Long queryAllCount(Map<String, Object> map);
+	
+	List<Bank> queryByUid(int uid);
 }

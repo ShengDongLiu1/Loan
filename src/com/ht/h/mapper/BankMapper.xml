@@ -156,4 +156,10 @@
 		</if>
     </where>
  </select>
+ 
+ <!-- 查询当前用户所以银行卡信息 -->
+ <select id="queryByUid" parameterType="Integer" resultMap="BaseResultMap">
+ 	select * from bank where uid=#{0};
+ </select>
+ 
 </mapper>
