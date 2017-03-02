@@ -1,15 +1,12 @@
 package com.ht.h.controller;
 
-<<<<<<< Updated upstream
 import javax.servlet.http.HttpServletRequest;
-=======
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
->>>>>>> Stashed changes
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -21,10 +21,8 @@ public interface BankMapper {
 	List<Bank> select(Map<String, Object> map);
 
 	Long queryAllCount(Map<String, Object> map);
-<<<<<<< Updated upstream
 	
-=======
 	List<Bank> selectCard(Integer uid);
->>>>>>> Stashed changes
+	
 	List<Bank> queryByUid(int uid);
 }

@@ -58,12 +58,6 @@ public class BankServiceImpl implements BankService{
 	}
 
 	@Override
-<<<<<<< Updated upstream
-	public List<Bank> queryByUid(int uid) {
-		return bankDao.queryByUid(uid);
-	}
-
-=======
 	public List<Bank> selectCard(Integer uid) {
 		return bankDao.selectCard(uid);
 	}
@@ -71,5 +65,4 @@ public class BankServiceImpl implements BankService{
 	public List<Bank> queryByUid(int uid) {
 		return bankDao.queryByUid(uid);
 	}
->>>>>>> Stashed changes
 }

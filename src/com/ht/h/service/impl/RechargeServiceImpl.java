@@ -64,8 +64,6 @@ public class RechargeServiceImpl implements RechargeService{
 		return rechargDao.queryByRserial(Rserial);
 	}
 
-<<<<<<< Updated upstream
-=======
 	@Override
 	public int rechargetCount() {
 		// TODO 自动生成的方法存根
@@ -78,5 +76,4 @@ public class RechargeServiceImpl implements RechargeService{
 		return rechargDao.rechargetQueryAll(map);
 	}
 
->>>>>>> Stashed changes
 }

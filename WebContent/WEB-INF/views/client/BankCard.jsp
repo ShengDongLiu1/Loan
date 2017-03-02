@@ -13,7 +13,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/> 
-<title>鸿金金融</title> 
+<title>鸿金金融</title>
 <link rel="stylesheet" href="/Loan/css/pjcss/public.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/account.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/datepicker.css">
@@ -49,21 +49,11 @@
 	<div class="sub-a-nav">
 		<a href="javascript:void(0);" class="active">我的银行卡</a>
 	</div>
-<<<<<<< Updated upstream
 	<em></em>
 </div>
 <div id="myDebitCard" class="account-content">
 	
-<div id="card1" class="bank-card_1"><div class="bank-top"><div class="bank-cardTitle">邮储银行</div><div class="bank-cardType">储蓄卡</div></div><div class="bank-center"><div class="bank-cardNumber">6217 **** **** 1491</div><div class="bank-userName">*洁龙</div></div></div><div id="card3" class="bank-card_3" onclick="addCard();" style="cursor:pointer;"><div class="bank-addCard"><a href="<%=path%>/client/AddCard">添加银行卡</a></div></div></div>
-</div>
-		<!-- end -->
-	</div>
-	<jsp:include flush="true" page="bottom.jsp"></jsp:include>
-=======
-		<em></em>
-	</div>
-	<div id="myDebitCard" class="account-content">
-		
+<div id="myDebitCard" class="account-content">
 		<c:forEach var="list" items="${bankList}">
 			<div id="card1" class="bank-card_1">
 				<div class="bank-top">
@@ -80,10 +70,14 @@
 		<div id="card3" class="bank-card_3" onclick="addCard();" style="cursor:pointer;">
 			<div class="bank-addCard"><a href="javascript:;">添加银行卡</a></div>
 		</div>
-	</div>
-</div>
+	</div></div>
 		<!-- end -->
 	</div>
+	<jsp:include flush="true" page="bottom.jsp"></jsp:include>
+		<em></em>
+	</div>
+	
+		<!-- end -->
 	<div id="ajaxFooter">	
 	<div class="mod-sidebar">
 		<ul>
@@ -134,7 +128,6 @@
 			</p>
 			<div class="footer-list" style="width:690px;">
 				<a href="https://credit.cecdc.com/CX20160720023638001698.html"><img src="./asda_files/ft_link_01.png" alt=""></a>
-	</script>
 				<a href="https://www.yunaq.com/analytics/login/?site=pujinziben.com"><img src="./asda_files/ft_link_02.png" alt=""></a>
 				<a href="http://si.trustutn.org/info?sn=876160725000486996572"><img src="./asda_files/ft_link_03.png" alt=""></a> 
 				<a href="http://webscan.360.cn/index/checkwebsite/url/www.pujinziben.com"><img width="110px" height="40px" border="0" src="./asda_files/745ef449cbf0f6a74791f73d57aa7ac2"></a>
@@ -177,5 +170,6 @@
 	        }
 	    })
 	}
->>>>>>> Stashed changes
-</body></html>
+	</script>
+</body>
+</html>

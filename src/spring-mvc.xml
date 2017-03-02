@@ -42,15 +42,13 @@
     		<mvc:exclude-mapping path="/user/unlock"/>
     		<mvc:exclude-mapping path="/front/list"/>
     		<mvc:exclude-mapping path="/banktion/selectCard"/>
+    		<mvc:exclude-mapping path="/capital/selectAngodiv1"/>
     		<mvc:exclude-mapping path="/customer/*"/>
     		<mvc:exclude-mapping path="/register/*"/>
     		<mvc:exclude-mapping path="/recharge/*"/> 
     		<mvc:exclude-mapping path="/client/*"/>
     		<mvc:exclude-mapping path="/loan/addLoan"/>
-<<<<<<< Updated upstream
     		<mvc:exclude-mapping path="/loan/selCusLoan"/>
-=======
->>>>>>> Stashed changes
     		<mvc:exclude-mapping path="/css/*.css"/>
     		<mvc:exclude-mapping path="/11112/css/*.css"/>
     		<mvc:exclude-mapping path="/11112/images/*.jpg"/>
