@@ -86,7 +86,7 @@
                           	  <input type="text" placeholder="100">
                           </p>
                           <p class="det_shouyi">每投资1万元收益<strong>183.33元</strong></p>
-                          <p><a href="#" class=" pro_btn det_btn">立即投资</a></p>
+                          <p><a href="<%=path %>/client/pay" class=" pro_btn det_btn">立即投资</a></p>
 	  	     	    </div>
 	  	     </div>
 	  	     <!-- end block1 -->

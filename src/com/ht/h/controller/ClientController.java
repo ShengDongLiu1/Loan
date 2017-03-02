@@ -195,4 +195,13 @@ public class ClientController {
 		return "client/MessageCenter";
 	}
 	
+	/**
+	 * 
+	 * 跳转到消息中心
+	 */
+	@RequestMapping(value="pay")
+	public String pay(){
+		return "client/pay";
+	}
+	
 }
