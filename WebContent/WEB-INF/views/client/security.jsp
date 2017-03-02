@@ -80,7 +80,6 @@ function idcardSubmit(){
 	}
 }
 
-
 </script>
 </head>
 <body bgcolor="#FFFFCC">
@@ -123,19 +122,25 @@ function idcardSubmit(){
 					<div class="safe-list-1">
 						<p class="icon icon-true" id="cellPhone-icon">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机</p>
 					</div>
-					<div class="safe-list-2" id="cellPhone-text">1587****015</div>
+					<div class="safe-list-2" id="cellPhone-text">${customer.codephone} </div>
 					<div class="safe-list-3">
 						<a href="javascript:;" id="cellPhone" class="on">已绑定</a>
-						<a href="javascript:;" onclick="changePhone()">修改</a>
+						<a href="javascript:;" onclick="changePhone('<%=path %>',${customer.phone},'getMsgCodeOld')">修改</a>
 					</div>
 				</li>
 				<li>
 					<div class="safe-list-1">
 						<p class="icon icon-true" id="email-icon">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</p>
 					</div>
-					<div class="safe-list-2" id="email-text">1*******2@qq.com</div>
+					<div class="safe-list-2" id="email-text">${customer.email }</div>
 					<div class="safe-list-3">
-						<a href="javascript:;" id="email" class="on">已绑定</a>
+					<c:if test="${customer.email != null }">
+						<a href="javascript:;" id="emailno" class="on">已绑定</a>
+					</c:if>
+					<c:if test="${customer.email == null}">
+						<a href="javascript:;" onclick="bindEmail()" >绑定</a>
+					</c:if>
+					<a href="javascript:;" onclick="bindEmail('<%=path %>')" >绑定</a>
 					</div>
 				</li>
 				<li>
@@ -181,40 +186,37 @@ function idcardSubmit(){
 </div>
 <div class="popup bind-email">
 	<p class="title left">绑定邮箱</p>
-	<a href="javascript:void(0);" class="close icon icon-close"></a>
+	<a href="javascript:void(0);" style="background-image: url('../images/close.jpg');" class="close"></a>
 	<div class="popup-from">
+		<form action="<%=path %>/customer/editemail?uid=${customer.uid}" id="email_form"  method="post">
 		<div class="label cl">
-			<label>添加邮箱</label><input type="text" id="addEmail" maxlength="30" placeholder="输入您的邮箱地址">
+			<label>添加邮箱</label><input type="text" id="addEmail" name="addEmail" maxlength="30" placeholder="输入您的邮箱地址">
 		</div>
 		<button type="button" class="btn" id="email-submit">添加邮箱</button>
+		</form>
 	</div>
 </div>
 <div class="popup change-phone">
 	<p class="title left">修改手机号</p>
 	<a href="javascript:void(0);" style="background-image: url('../images/close.jpg');" class="close"></a>
 	<div class="popup-from step1">
+		<form action="<%=path %>/customer/UpdatePhoneNumber?uid=${customer.uid}" id="phoneupdate_form"  method="post">
 		<div class="label cl">
 			<label>原手机号</label>
-			<p class="text" id="oldPhoneNum"></p>
+			<p class="text" id="oldPhoneNum" >${customer.phone }</p>
 		</div>
 		<div class="label label-msg cl">
 			<label>验证码</label>
-			<input type="text" id="oldMobliePhoneCode" maxlength="6" placeholder="输入您短信验证码">
+			<input type="text" id="oldMobliePhoneCode" name="oldMobliePhoneCode" maxlength="6" placeholder="输入您短信验证码">
 			<button type="button" id="getMsgCodeOld">获取验证码</button>
 		</div>
-		<button type="button" class="btn" id="phone-submit-one">验证</button>
-	</div>
-	<div class="popup-from step2">
 		<div class="label cl">
 			<label>新手机号</label>
-			<input type="text" id="newMobliePhone" maxlength="11" placeholder="输入您的新手机号码">
+			<input type="hidden" id="codemes" value="${errorcode }">
+			<input type="text" id="newMobliePhone"  name="newMobliePhone" maxlength="11" placeholder="输入您的新手机号码">
+			<button type="button" class="btn" id="phone-submit">修改</button>
 		</div>
-		<div class="label label-msg cl">
-			<label>验证码</label>
-			<input type="text" id="newMobliePhoneCode" maxlength="6" placeholder="输入您短信验证码">
-			<button type="button" id="getMsgCode">获取验证码</button>
-		</div>
-		<button type="button" class="btn" id="phone-submit">修改</button>
+		</form>
 	</div>
 	<div class="popup-result">
 		<div class="success">

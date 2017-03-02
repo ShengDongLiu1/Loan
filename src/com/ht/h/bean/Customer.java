@@ -16,6 +16,8 @@ public class Customer {
     private String idnumber;
 
     private String phone;
+    
+    private String codephone;
 
     private Double credit;
 
@@ -24,6 +26,8 @@ public class Customer {
     private Date createtime;
 
     private String information;
+    
+    private String email;
     
     public Integer getUid() {
         return uid;
@@ -118,5 +122,21 @@ public class Customer {
 		return "Customer [uid=" + uid + ", username=" + username + ", userpwd=" + userpwd + ", realname=" + realname
 				+ ", sex=" + sex + ", idnumber=" + idnumber + ", phone=" + phone + ", credit=" + credit + ", ustate="
 				+ ustate + ", createtime=" + createtime + ", information=" + information + "]";
+	}
+
+	public String getCodephone() {
+		return codephone;
+	}
+
+	public void setCodephone(String codephone) {
+		this.codephone = codephone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
