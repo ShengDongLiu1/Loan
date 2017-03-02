@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -13,9 +14,11 @@
 <link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/> 
 <title>我要借款</title> 
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
+<link rel="stylesheet" type="text/css" href="<%=path %>/css/lotable.css">
 <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>
 <script type="text/javascript" src="<%=path %>/js/loan/loan.js"></script>
+<script type="text/javascript" src="<%=path %>/js/toDate.js"></script>
 <style type="text/css">
 .mess{color:red;}
 </style>
@@ -34,7 +37,9 @@
 	  	    	   	  <span class="bor_decurspan">房产抵押</span>
 	  	    	   	  <span>车辆抵押</span>
 	  	    	   	  <span>信用贷款</span>
-	  	    	   	  <span>我的借款</span>
+	  	    	   	  <c:if test="${customer != null }">
+	  	    	   	  	<span onclick="selCusLoan();">我的借款</span>
+	  	    	   	  </c:if>
 	  	    	   </h2>
 	  	    	   <div class="bor_detail_box">
 	  	    	   	    <div class="bor_det_one clearfix pt30 pb30">
@@ -99,10 +104,12 @@
   	    	   	    	  	     	  	  	   <input type="radio" class="input3">
   	    	   	    	  	     	  	   	   紧急借款 
   	    	   	    	  	     	  	   </div> -->
-  	    	   	    	  	     	  	   <div class="mt30">
-  	    	   	    	  	     	  	   	   <label></label>
-  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan();" style="background:#FFA800;border:none;padding-left:45px;"/>
-  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <c:if test="${customer != null }">
+	  	    	   	    	  	     	  	   <div class="mt30">
+	  	    	   	    	  	     	  	   	   <label></label>
+	  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan();" style="background:#FFA800;border:none;padding-left:45px;"/>
+	  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   </c:if>
   	    	   	    	  	     	  </fieldset>
   	    	   	    	  	     </form>
 	  	    	   	    	  </div>
@@ -162,10 +169,12 @@
   	    	   	    	  	     	  	   	   <textarea name="lmiaoshu"></textarea>
   	    	   	    	  	     	  	   	   <span class="mess" id="me28"></span>
   	    	   	    	  	     	  	   </div>
-  	    	   	    	  	     	  	   <div class="mt30">
-  	    	   	    	  	     	  	   	   <label></label>
-  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan1();" style="background:#FFA800;border:none;padding-left:45px;"/>
-  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <c:if test="${customer != null }">
+	  	    	   	    	  	     	  	   <div class="mt30">
+	  	    	   	    	  	     	  	   	   <label></label>
+	  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan1();" style="background:#FFA800;border:none;padding-left:45px;"/>
+	  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   </c:if>
   	    	   	    	  	     	  </fieldset>
   	    	   	    	  	     </form>
 	  	    	   	    	  </div>
@@ -195,7 +204,7 @@
   	    	   	    	  	     	  	   </div>
   	    	   	    	  	     	  	   <div class="mt15 guarmethod clearfix">
   	    	   	    	  	     	  	   	   <label class="guarmethod_l fl">*担保方式</label>
-  	    	   	    	  	     	  	   	   <input type="text" name="lclass" value="信用贷款" disabled="true" />
+  	    	   	    	  	     	  	   	   <input type="text" name="lclass" value="信用贷款" readonly="readonly"/>
   	    	   	    	  	     	  	   	   <span class="mess" id="me34"></span>
   	    	   	    	  	     	  	   </div>
   	    	   	    	  	     	  	   <div class="mt15">
@@ -217,18 +226,52 @@
   	    	   	    	  	     	  	   	   <textarea name="lmiaoshu"></textarea>
   	    	   	    	  	     	  	   	   <span class="mess" id="me38"></span>
   	    	   	    	  	     	  	   </div>
-  	    	   	    	  	     	  	   <div class="mt30">
-  	    	   	    	  	     	  	   	   <label></label>
-  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan2()" style="background:#FFA800;border:none;padding-left:45px;"/>
-  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <c:if test="${customer != null }">
+	  	    	   	    	  	     	  	   <div class="mt30">
+	  	    	   	    	  	     	  	   	   <label></label>
+	  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan2()" style="background:#FFA800;border:none;padding-left:45px;"/>
+	  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   </c:if>
   	    	   	    	  	     	  </fieldset>
   	    	   	    	  	     </form>
 	  	    	   	    	  </div>
 	  	    	   	    </div>
 	  	    	   	    <!-- end 信用贷款 -->
 	  	    	   	    
+	  	    	   	    <!-- 我的借款 -->
 	  	    	   	    <div class="bor_det_one clearfix pt30 pb30" style="display:none;">
-	  	    	   	    	我的借款
+	  	    	   	    	<table id="lotab">
+	  	    	   	    		<thead>
+	  	    	   	    			<tr class="loantr loh">
+	  	    	   	    				<td>编号</td>
+	  	    	   	    				<td>借款标题</td>
+	  	    	   	    				<td>借款金额</td>
+	  	    	   	    				<td>期数</td>
+	  	    	   	    				<td>利率</td>
+	  	    	   	    				<td>担保方式</td>
+	  	    	   	    				<td>数量</td>
+	  	    	   	    				<td>价值</td>
+	  	    	   	    				<td>价款类型</td>
+	  	    	   	    				<td>描述</td>
+	  	    	   	    				<td>状态</td>
+	  	    	   	    				<td>申请时间</td>
+	  	    	   	    			</tr>
+	  	    	   	    		</thead>
+	  	    	   	    		<tbody id="cusLoan">
+	  	    	   	    			<tr class="loantr"></tr>
+	  	    	   	    		</tbody>
+	  	    	   	    		<tfoot>
+	  	    	   	    			<tr class="loantr loh">
+	  	    	   	    				<td colspan="12">
+	  	    	   	    					<a href="javascript:void(0)" onclick="selCusLoan(2);">上一页</a>&nbsp;&nbsp;&nbsp;
+	  	    	   	    					<a href="javascript:void(0)" onclick="selCusLoan(3);">下一页</a>&nbsp;&nbsp;&nbsp;
+	  	    	   	    					当前页 第<span id="page"></span>页&nbsp;&nbsp;&nbsp;
+											共<span id="count"></span>页&nbsp;&nbsp;&nbsp;
+											共<span id="total"></span>条数据
+	  	    	   	    				</td>
+	  	    	   	    			</tr>
+	  	    	   	    		</tfoot>
+	  	    	   	    	</table>
 	  	    	   	    </div>
 	  	    	   </div>
 	  	    </div>

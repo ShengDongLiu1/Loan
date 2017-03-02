@@ -214,6 +214,9 @@
 		select l.*,cu.uid,cu.username,cu.realname from loan l,customer cu
 		<where>
 			l.uid=cu.uid
+			<if test="uid!=null">
+				and cu.uid = #{uid}
+			</if>
 			<if test="username!=null and username!='' ">
 				and cu.username like #{username}
 			</if>
@@ -244,6 +247,9 @@
 		select count(*) from loan l,customer cu
 		<where>
 			l.uid=cu.uid
+			<if test="uid!=null">
+				and cu.uid = #{uid}
+			</if>
 			<if test="username!=null and username!='' ">
 				and cu.username like #{username}
 			</if>

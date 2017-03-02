@@ -97,6 +97,24 @@ $(function(){
 		return val+"个月";
 	}
 	
+	//房屋或车辆数量
+	function shuliang(val,obj){
+		if(obj.lclass == '信用贷款'){
+			return "无";
+		}else{
+			return obj.lnums;
+		}
+	}
+	
+	//房屋或车辆价值
+	function jiazhi(val,obj){
+		if(obj.lclass == '信用贷款'){
+			return "无";
+		}else{
+			return obj.lmoneys;
+		}
+	}
+	
 	//借款状态
 	function lstate(value){
 		var btn="";
@@ -116,8 +134,13 @@ $(function(){
 		return btn;
 	}
 	
+	//操作
 	function caozuo(){
-		var btn="<a href='#'>查看</a>";
+		var btn="<a href='#'>查看</a>&nbsp;";
+		var lstate='${lstate}'
+		if(lstate == 1){
+			btn+="<a href='#'>通过</a>";
+		}
 		return btn;
 	}
 	
@@ -147,8 +170,8 @@ $(function(){
 				<th field="lrate" width="5%" align="center" formatter="liLV">利率</th>
 				<th field="lterm" width="5%" align="center" formatter="qixian">借款期限</th>
 				<th field="lclass" width="8%" align="center">担保方式</th>
-				<th field="lnums" width="6%" align="center">数量</th>
-				<th field="lmoneys" width="8%" align="center">价值</th>
+				<th field="lnums1" width="6%" align="center" formatter="shuliang">数量</th>
+				<th field="lmoneys1" width="8%" align="center" formatter="jiazhi">价值</th>
 				<th field="lmiaoshu" width="13%" align="center">借款描述</th>
 				<th field="ltype" width="8%" align="center">借款类型</th>
 				<th field="lstate" width="5%" align="center" formatter="lstate">借款状态</th>
@@ -169,7 +192,6 @@ $(function(){
 			<option value="房产抵押">房产抵押</option>
 			<option value="车辆抵押">车辆抵押</option>
 			<option value="信用贷款">信用贷款</option>
-			<option value="零首付车贷">零首付车贷</option>
 		</select>
 		借款类型：<select id="sltype" class="easyui-combobox" data-options="editable:false" style="width:10%;padding-left:23px;">
 			<option value="">--请选择--</option>

@@ -1,0 +1,15 @@
+#lotab{
+	width:100%;
+	border:solid #48ADE5; border-width:1px 0px 0px 1px;
+}
+
+.loh{
+	font-weight:bold;
+}
+
+.loantr td{
+	border:solid #48ADE5; 
+	border-width:0px 1px 1px 0px; 
+	padding:10px 0px;
+	text-align:center;
+}
