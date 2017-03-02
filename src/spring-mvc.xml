@@ -42,7 +42,8 @@
     		<mvc:exclude-mapping path="/user/unlock"/>
     		<mvc:exclude-mapping path="/front/list"/>
     		<mvc:exclude-mapping path="/customer/*"/>
-    		<mvc:exclude-mapping path="/register/*"/> 
+    		<mvc:exclude-mapping path="/register/*"/>
+    		<mvc:exclude-mapping path="/recharge/*"/> 
     		<mvc:exclude-mapping path="/client/*"/>
     		<mvc:exclude-mapping path="/loan/addLoan"/>
     		<mvc:exclude-mapping path="/css/*.css"/>
@@ -51,6 +52,7 @@
     		<mvc:exclude-mapping path="/11112/images/*.png"/>
     		<mvc:exclude-mapping path="/11112/js/*.js"/>
     		<mvc:exclude-mapping path="/images/*.png"/>
+    		<mvc:exclude-mapping path="/image/*.png"/>
     		<mvc:exclude-mapping path="/images/*.jpg"/>
     		<mvc:exclude-mapping path="/js/*.js"/>
     		<bean class="com.ht.h.interceptors.BackInterceptor"/>

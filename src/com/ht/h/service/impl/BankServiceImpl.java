@@ -57,4 +57,9 @@ public class BankServiceImpl implements BankService{
 		return bankDao.queryAllCount(map);
 	}
 
+	@Override
+	public List<Bank> queryByUid(int uid) {
+		return bankDao.queryByUid(uid);
+	}
+
 }

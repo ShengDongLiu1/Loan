@@ -58,4 +58,10 @@ public class RechargeServiceImpl implements RechargeService{
 		return rechargDao.getTotal(map);
 	}
 
+	@Override
+	public int queryByRserial(String Rserial) {
+		// TODO Auto-generated method stub
+		return rechargDao.queryByRserial(Rserial);
+	}
+
 }

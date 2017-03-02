@@ -42,6 +42,10 @@
 		</if>
   </select>
   
+  <select id="queryByRserial" parameterType="String" resultType="Integer">
+  	select rid from recharge r where rserial=#{0}
+  </select>
+  
   <select id="getTotal" parameterType="Map" resultType="Long">
   	select count(*) from recharge r, Customer u
 		<where>
@@ -66,7 +70,7 @@
       #{ractual,jdbcType=DECIMAL}, #{rstate,jdbcType=VARCHAR}, #{rtime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ht.h.bean.Recharge" useGeneratedKeys="true" keyProperty="rid">
+  <insert id="insertSelective" parameterType="com.ht.h.bean.Recharge" >
     insert into recharge
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="rid != null">
@@ -83,6 +87,9 @@
       </if>
       <if test="rmoney != null">
         rmoney,
+      </if>
+       <if test="rserial != null">
+        rserial,
       </if>
       <if test="rcounterfee != null">
         rcounterfee,
@@ -112,6 +119,9 @@
       </if>
       <if test="rmoney != null">
         #{rmoney,jdbcType=DECIMAL},
+      </if>
+       <if test="rserial != null">
+        #{rserial,jdbcType=DECIMAL},
       </if>
       <if test="rcounterfee != null">
         #{rcounterfee,jdbcType=DECIMAL},
