@@ -12,11 +12,7 @@
 	<head>
 		<base href="<%=basePath%>">
 		<base target="main" />
-<<<<<<< HEAD
-		<title>欢迎使用中兴财富系统</title>
-=======
 		<title>欢迎使用鸿金金融后台管理系统</title> 
->>>>>>> master
 		<link rel="stylesheet" type="text/css"
 			href="<%=basePath%>assets/jslib/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css"
@@ -301,7 +297,6 @@
 			document.onkeydown = function(e){ 
 			    var ev = document.all ? window.event : e;
 			    if(ev.keyCode==13) {
-
 			    	hide();
 
 			     }else if((ev.altKey)&& ev.keyCode==76){

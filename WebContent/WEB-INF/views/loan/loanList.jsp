@@ -72,17 +72,14 @@ $(function(){
 		var ltitle = $('#sltitle').numberbox('getValue');
 		var ltype = $('#sltype').combobox('getValue');
 		var lstate = $('#slstate').combobox('getValue');
+		var lclass = $('#slclass').combobox('getValue');
 		$('#list').datagrid('load',{  
 			username:username,
 			ltitle:ltitle,
 			ltype:ltype,
-			lstate:lstate
+			lstate:lstate,
+			lclass:lclass
 		}); 
-	}
-	
-	//用户名
-	function userName(value){
-		return value.username;
 	}
 	
 	//真实姓名
@@ -144,15 +141,18 @@ $(function(){
 		<thead data-options="frozen:true">
 			<tr>
 				<th field="lid" checkbox="true">编号</th>
-				<th field="customer" width="10%" align="center" formatter="userName">用户名</th>
-				<th field="truename" width="10%" align="center" formatter="trueName">用户名</th>
-				<th field="ltitle" width="12%" align="center">借款标题</th>
-				<th field="lmoney" width="9%" align="center">借款金额</th>
-				<th field="lrate" width="9%" align="center" formatter="liLV">利率</th>
-				<th field="lterm" width="8%" align="center" formatter="qixian">借款期限</th>
-				<th field="ltype" width="10%" align="center">借款类型</th>
-				<th field="lstate" width="10%" align="center" formatter="lstate">借款状态</th>
-				<th field="ltime" width="11%" align="center" formatter="jsonDateFormat">筹标时间</th>
+				<th field="truename" width="6%" align="center" formatter="trueName">姓名</th>
+				<th field="ltitle" width="8%" align="center">借款标题</th>
+				<th field="lmoney" width="8%" align="center">借款金额</th>
+				<th field="lrate" width="5%" align="center" formatter="liLV">利率</th>
+				<th field="lterm" width="5%" align="center" formatter="qixian">借款期限</th>
+				<th field="lclass" width="8%" align="center">担保方式</th>
+				<th field="lnums" width="6%" align="center">数量</th>
+				<th field="lmoneys" width="8%" align="center">价值</th>
+				<th field="lmiaoshu" width="13%" align="center">借款描述</th>
+				<th field="ltype" width="8%" align="center">借款类型</th>
+				<th field="lstate" width="5%" align="center" formatter="lstate">借款状态</th>
+				<th field="ltime" width="9%" align="center" formatter="jsonDateFormat">筹标时间</th>
 				<th field="caozuo" width="8%" align="center" formatter="caozuo">操作</th>
 			</tr>
 		</thead>
@@ -164,6 +164,13 @@ $(function(){
 		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-export1'" onclick="location.href='#'">导出</a>
 		用户名：<input id="susername" class="easyui-validatebox easyui-textbox" data-options="required:false" />&nbsp;
 		借款标题：<input id="sltitle" class="easyui-validatebox easyui-textbox" data-options="required:false" />&nbsp;
+		抵押类型：<select id="slclass" class="easyui-combobox" data-options="editable:false" style="width:10%;padding-left:23px;">
+			<option value="">--请选择--</option>
+			<option value="房产抵押">房产抵押</option>
+			<option value="车辆抵押">车辆抵押</option>
+			<option value="信用贷款">信用贷款</option>
+			<option value="零首付车贷">零首付车贷</option>
+		</select>
 		借款类型：<select id="sltype" class="easyui-combobox" data-options="editable:false" style="width:10%;padding-left:23px;">
 			<option value="">--请选择--</option>
 			<option value="借款">借款</option>

@@ -11,10 +11,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <link rel="icon" href="<%=path %>/images/logo.jpg" type="image/x-icon"/> 
-<title>鸿金金融</title> 
+<title>我要借款</title> 
 <link rel="stylesheet" type="text/css" href="<%=path %>/css/style.css">
 <script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/all.js"></script>
+<script type="text/javascript" src="<%=path %>/js/loan/loan.js"></script>
+<style type="text/css">
+.mess{color:red;}
+</style>
 </head>
 <body>
 <jsp:include flush="true" page="top.jsp"></jsp:include>
@@ -30,119 +34,202 @@
 	  	    	   	  <span class="bor_decurspan">房产抵押</span>
 	  	    	   	  <span>车辆抵押</span>
 	  	    	   	  <span>信用贷款</span>
-	  	    	   	  <span>零首付车贷</span>
+	  	    	   	  <span>我的借款</span>
 	  	    	   </h2>
 	  	    	   <div class="bor_detail_box">
 	  	    	   	    <div class="bor_det_one clearfix pt30 pb30">
-	  	    	   	    	  <div class="bor_det_onel fl">
-	  	    	   	    	  	       <p class="bor_p1">中兴财富平台的借款功能旨在帮助借款用户以
-										低成本获得借款。用户在需要资金时，可以将
-										自有房产和车产作为抵押物，小油菜线下审核
-										通过后，根据抵押物的价值融资。</p>
-										<p class="bor_p2">中兴财富平台的借款功能旨在帮助借款用户以
-										低成本获得借款。用户在需要资金时，可以将
-										自有房产和车产作为抵押物，小油菜线下审核
-										通过后，根据抵押物的价值融资。</p>
-										<h3 class="bor_onel_tit"><span>申请条件</span></h3>
-										<ul class="bor_onel_ul">
-											 <li><img src="<%=path %>/images/bor_pic01.png" alt="">年满18周岁以上的公民
-											 </li>
-											 <li><img src="<%=path %>/images/bor_pic02.png" alt="">需要北京房产或车产抵押
-											 </li>
-											 <li><img src="<%=path %>/images/bor_pic03.png" alt="">个人或企业银行征信记录良好
-											 </li>
-											 <li><img src="<%=path %>/images/bor_pic04.png" alt="">
-										  无现有诉讼记录
-											 </li>
-											 
-										</ul>
-										<h3 class="bor_onel_tit"><span>提交资料</span></h3>
-										<ul class="bor_onel_ul">
-											 <li>&nbsp;<img src="<%=path %>/images/bor_pic05.png" alt="">省份证
-											 </li>
-											 <li><img src="<%=path %>/images/bor_pic06.png" alt="">申请资料
-											 </li>
-											 <li><img src="<%=path %>/images/bor_pic07.png" alt="">其他
-											 </li>
-											
-											 
-										</ul>
-	  	    	   	    	  </div>  
+	  	    	   	    	  <jsp:include page="../loan/loanMess.jsp"></jsp:include>
 	  	    	   	    	  <!-- end l -->
 	  	    	   	    	  <div class="bor_det_oner fl">
-	  	    	   	    	  	     <form>
-	  	    	   	    	  	     	  <fieldset>
-	  	    	   	    	  	     	  	   <div>
-	  	    	   	    	  	     	  	   	   <label>申请人</label>
-	  	    	   	    	  	     	  	   	   <input type="" >
-	  	    	   	    	  	     	  	   </div>
-	  	    	   	    	  	     	  	   <div class="mt15">
-	  	    	   	    	  	     	  	   	   <label>*借款金额</label>
-	  	    	   	    	  	     	  	   	   <input type="" class="bor_inputbg01">
-	  	    	   	    	  	     	  	   </div>
-                                               <div class="mt15">
-	  	    	   	    	  	     	  	   	   <label>*借款期限</label>
-	  	    	   	    	  	     	  	   	   <input type="" class="bor_inputbg02">
-	  	    	   	    	  	     	  	   </div>
-	  	    	   	    	  	     	  	   <div class="mt15">
-	  	    	   	    	  	     	  	   	   <label>*手机号码</label>
-	  	    	   	    	  	     	  	   	   <input type="" >
-	  	    	   	    	  	     	  	   </div>
-	  	    	   	    	  	     	  	   <div class="mt15 guarmethod clearfix">
-	  	    	   	    	  	     	  	   	   <label class="guarmethod_l fl">*担保方式</label>
-	  	    	   	    	  	     	  	   	   <div class="fl">
-	  	    	   	    	  	     	  	   	   	  <span>房屋数量</span>
-	  	    	   	    	  	     	  	   	   	  <input type="text" class="bor_inputbg03 input2"><br><br>
-	  	    	   	    	  	     	  	   	   	  <span>总价值</span>
-	  	    	   	    	  	     	  	   	   	  <input type="text" class="bor_inputbg04 input2"><br>
-	  	    	   	    	  	     	  	   	   </div>
-	  	    	   	    	  	     	  	   	   
-	  	    	   	    	  	     	  	   </div>
-	  	    	   	    	  	     	  	   <div class="mt15">
-	  	    	   	    	  	     	  	   	   <label>*借款用途</label>
-	  	    	   	    	  	     	  	   	   <select>
-	  	    	   	    	  	     	  	   	   	  <option>选择借款类别</option>
-	  	    	   	    	  	     	  	   	   	  <option>1</option>
-	  	    	   	    	  	     	  	   	   </select>
-	  	    	   	    	  	     	  	   </div>
-	  	    	   	    	  	     	  	    <div class="mt15">
-	  	    	   	    	  	     	  	   	   <label>*借款描述</label> 
-	  	    	   	    	  	     	  	   	   <textarea></textarea>
-	  	    	   	    	  	     	  	   	 
-	  	    	   	    	  	     	  	   </div>
-	  	    	   	    	  	     	  	   <div class="mt15">
-	  	    	   	    	  	     	  	   	   <label>*借款情况</label>
-	  	    	   	    	  	     	  	   	   <input type="radio" class="input3">
-	  	    	   	    	  	     	  	   	   普通借款
-	  	    	   	    	  	     	  	  	   <input type="radio" class="input3">
-	  	    	   	    	  	     	  	   	   紧急借款 
-	  	    	   	    	  	     	  	   </div>
-	  	    	   	    	  	     	  	   <div class="mt15" >
-	  	    	   	    	  	     	  	   	   <label>*验证码</label>
-	  	    	   	    	  	     	  	   	   <input type="text" class="yanzheng" >
-	  	    	   	    	  	     	  	   	   
-	  	    	   	    	  	     	  	   </div>
-	  	    	   	    	  	     	  	   <div class="mt30">
-	  	    	   	    	  	     	  	   	   <label></label>
-	  	    	   	    	  	     	  	   	   <a href="#" class="bor_btn">提交材料</a>
-	  	    	   	    	  	     	  	   </div>
-	  	    	   	    	  	     	  </fieldset>
-	  	    	   	    	  	     </form>
+  	    	   	    	  	     <form action="<%=path %>/loan/addLoan" method="post">
+  	    	   	    	  	     	  <fieldset>
+  	    	   	    	  	     	  	   <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款金额</label>
+  	    	   	    	  	     	  	   	   <input type="number" name="lmoney" class="bor_inputbg01">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me1"></span>
+  	    	   	    	  	     	  	   </div>
+                                              <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款期限</label>
+  	    	   	    	  	     	  	   	   <input type="number" name="lterm" class="bor_inputbg02">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me2"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款利率</label>
+  	    	   	    	  	     	  	   	   <input type="text" name="lrate" class="bor_inputbg06">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me3"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <div class="mt15 guarmethod clearfix">
+  	    	   	    	  	     	  	   	   <label class="guarmethod_l fl">*担保方式</label>
+  	    	   	    	  	     	  	   	   <input type="hidden" name="lclass" value="房产抵押" />
+  	    	   	    	  	     	  	   	   <div class="fl">
+  	    	   	    	  	     	  	   	   	  <span>房屋数量</span>
+  	    	   	    	  	     	  	   	   	  <input type="number" name="lnums" class="bor_inputbg03 input2">
+  	    	   	    	  	     	  	   	   	  <span class="mess" id="me4"></span>
+  	    	   	    	  	     	  	   	   	  <br /><br />
+  	    	   	    	  	     	  	   	   	  <span>总价值</span>
+  	    	   	    	  	     	  	   	   	  <input type="number" name="lmoneys" class="bor_inputbg04 input2">
+  	    	   	    	  	     	  	   	   	  <span class="mess" id="me5"></span><br>
+  	    	   	    	  	     	  	   	   </div>
+  	    	   	    	  	     	  	   	   
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款类型</label>
+  	    	   	    	  	     	  	   	   <select name="ltype">
+  	    	   	    	  	     	  	   	   	  <option value="">选择借款类型</option>
+  	    	   	    	  	     	  	   	   	  <option value="秒还借款">秒还借款</option>
+  	    	   	    	  	     	  	   	   	  <option value="机构担保借款">机构担保借款</option>
+  	    	   	    	  	     	  	   	   </select>
+  	    	   	    	  	     	  	   	   <span class="mess" id="me6"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	    <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款标题</label>
+  	    	   	    	  	     	  	   	   <input type="text" name="ltitle" class="bor_inputbg">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me7"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	    <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款描述</label> 
+  	    	   	    	  	     	  	   	   <textarea name="lmiaoshu"></textarea>
+  	    	   	    	  	     	  	   	   <span class="mess" id="me8"></span>
+  	    	   	    	  	     	  	   	 
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <!-- <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款情况</label>
+  	    	   	    	  	     	  	   	   <input type="radio" class="input3">
+  	    	   	    	  	     	  	   	   普通借款
+  	    	   	    	  	     	  	  	   <input type="radio" class="input3">
+  	    	   	    	  	     	  	   	   紧急借款 
+  	    	   	    	  	     	  	   </div> -->
+  	    	   	    	  	     	  	   <div class="mt30">
+  	    	   	    	  	     	  	   	   <label></label>
+  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan();" style="background:#FFA800;border:none;padding-left:45px;"/>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  </fieldset>
+  	    	   	    	  	     </form>
 	  	    	   	    	  </div>
 	  	    	   	    </div>
-	  	    	   	    <!-- end 房产抵押 -->
-	  	    	   	    <div class="bor_det_one" style="display:none;">
-	  	    	   	    	  2  
+
+						<!-- 车辆抵押 -->	  	    	   	    
+	  	    	   	    <div class="bor_det_one clearfix pt30 pb30" style="display:none;">
+	  	    	   	    	  <jsp:include page="../loan/loanMess.jsp"></jsp:include>
+	  	    	   	    	  <div class="bor_det_oner fl">
+  	    	   	    	  	     <form action="<%=path %>/loan/addLoan" method="post">
+  	    	   	    	  	     	  <fieldset>
+  	    	   	    	  	     	  	   <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款金额</label>
+  	    	   	    	  	     	  	   	   <input type="number" name="lmoney" class="bor_inputbg01">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me21"></span>
+  	    	   	    	  	     	  	   </div>
+                                              <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款期限</label>
+  	    	   	    	  	     	  	   	   <input type="number" name="lterm" class="bor_inputbg02">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me22"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款利率</label>
+  	    	   	    	  	     	  	   	   <input type="text" name="lrate" class="bor_inputbg06">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me23"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <div class="mt15 guarmethod clearfix">
+  	    	   	    	  	     	  	   	   <label class="guarmethod_l fl">*担保方式</label>
+  	    	   	    	  	     	  	   	   <input type="hidden" name="lclass" value="车辆抵押" />
+  	    	   	    	  	     	  	   	   <div class="fl">
+  	    	   	    	  	     	  	   	   	  <span>车辆数量</span>
+  	    	   	    	  	     	  	   	   	  <input type="number" name="lnums" class="bor_inputbg05 input2">
+  	    	   	    	  	     	  	   	   	   <span class="mess" id="me24"></span>
+  	    	   	    	  	     	  	   	   	  <br><br>
+  	    	   	    	  	     	  	   	   	  <span>总价值</span>
+  	    	   	    	  	     	  	   	   	  <input type="number" name="lmoneys" class="bor_inputbg04 input2">
+  	    	   	    	  	     	  	   	   	  <span class="mess" id="me25"></span><br>
+  	    	   	    	  	     	  	   	   </div>
+  	    	   	    	  	     	  	   	   
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款类型</label>
+  	    	   	    	  	     	  	   	   <select name="ltype">
+  	    	   	    	  	     	  	   	   	  <option value="">选择借款类型</option>
+  	    	   	    	  	     	  	   	   	  <option value="秒还借款">秒还借款</option>
+  	    	   	    	  	     	  	   	   	  <option value="机构担保借款">机构担保借款</option>
+  	    	   	    	  	     	  	   	   </select>
+  	    	   	    	  	     	  	   	   <span class="mess" id="me26"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	    <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款标题</label>
+  	    	   	    	  	     	  	   	   <input type="text" name="ltitle" class="bor_inputbg">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me27"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	    <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款描述</label> 
+  	    	   	    	  	     	  	   	   <textarea name="lmiaoshu"></textarea>
+  	    	   	    	  	     	  	   	   <span class="mess" id="me28"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <div class="mt30">
+  	    	   	    	  	     	  	   	   <label></label>
+  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan1();" style="background:#FFA800;border:none;padding-left:45px;"/>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  </fieldset>
+  	    	   	    	  	     </form>
+	  	    	   	    	  </div>
 	  	    	   	    </div>
-	  	    	   	    <!-- end  -->
-	  	    	   	    <div class="bor_det_one" style="display:none;">
-	  	    	   	    	 3
+	  	    	   	    
+	  	    	   	    <!-- 信用贷款 -->
+	  	    	   	    <div class="bor_det_one clearfix pt30 pb30" style="display:none;">
+	  	    	   	    	 <jsp:include page="../loan/loanMess.jsp"></jsp:include>
+	  	    	   	    	 
+	  	    	   	    	 <div class="bor_det_oner fl">
+  	    	   	    	  	     <form action="<%=path %>/loan/addLoan" method="post">
+  	    	   	    	  	     	  <fieldset>
+  	    	   	    	  	     	  	   <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款金额</label>
+  	    	   	    	  	     	  	   	   <input type="number" name="lmoney" class="bor_inputbg01">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me31"></span>
+  	    	   	    	  	     	  	   </div>
+                                              <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款期限</label>
+  	    	   	    	  	     	  	   	   <input type="number" name="lterm" class="bor_inputbg02">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me32"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款利率</label>
+  	    	   	    	  	     	  	   	   <input type="text" name="lrate" class="bor_inputbg06">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me33"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <div class="mt15 guarmethod clearfix">
+  	    	   	    	  	     	  	   	   <label class="guarmethod_l fl">*担保方式</label>
+  	    	   	    	  	     	  	   	   <input type="text" name="lclass" value="信用贷款" disabled="true" />
+  	    	   	    	  	     	  	   	   <span class="mess" id="me34"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款类型</label>
+  	    	   	    	  	     	  	   	   <select name="ltype">
+  	    	   	    	  	     	  	   	   	  <option value="">选择借款类别</option>
+  	    	   	    	  	     	  	   	   	  <option value="秒还借款">秒还借款</option>
+  	    	   	    	  	     	  	   	   	  <option value="机构担保借款">机构担保借款</option>
+  	    	   	    	  	     	  	   	   </select>
+  	    	   	    	  	     	  	   	   <span class="mess" id="me36"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	    <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款标题</label>
+  	    	   	    	  	     	  	   	   <input type="text" name="ltitle" class="bor_inputbg">
+  	    	   	    	  	     	  	   	   <span class="mess" id="me37"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	    <div class="mt15">
+  	    	   	    	  	     	  	   	   <label>*借款描述</label> 
+  	    	   	    	  	     	  	   	   <textarea name="lmiaoshu"></textarea>
+  	    	   	    	  	     	  	   	   <span class="mess" id="me38"></span>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  	   <div class="mt30">
+  	    	   	    	  	     	  	   	   <label></label>
+  	    	   	    	  	     	  	   	   <input type="submit" value="提交申请" class="bor_btn" onclick="return checkLoan2()" style="background:#FFA800;border:none;padding-left:45px;"/>
+  	    	   	    	  	     	  	   </div>
+  	    	   	    	  	     	  </fieldset>
+  	    	   	    	  	     </form>
+	  	    	   	    	  </div>
 	  	    	   	    </div>
-	  	    	   	    <!-- end  -->
-	  	    	   	    <div class="bor_det_one" style="display:none;">
-	  	    	   	    	 4
+	  	    	   	    <!-- end 信用贷款 -->
+	  	    	   	    
+	  	    	   	    <div class="bor_det_one clearfix pt30 pb30" style="display:none;">
+	  	    	   	    	我的借款
 	  	    	   	    </div>
-	  	    	   	    <!-- end  -->
 	  	    	   </div>
 	  	    </div>
 	  </div>

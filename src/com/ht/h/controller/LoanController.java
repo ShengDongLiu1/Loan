@@ -1,11 +1,13 @@
 package com.ht.h.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ht.h.bean.Customer;
 import com.ht.h.bean.Loan;
 import com.ht.h.bean.PageBean;
 import com.ht.h.dto.StringUtil;
@@ -75,6 +78,7 @@ public class LoanController {
 		map.put("ltype", loan.getLtype());
 		map.put("lterm", loan.getLterm());
 		map.put("lstate", loan.getLstate());
+		map.put("lclass", loan.getLclass());
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		List<Loan> loanList=loanService.queryAll(map);
@@ -82,5 +86,27 @@ public class LoanController {
 		map.put("rows", loanList);
 		map.put("total", total);
 		return map;
+	}
+	
+	/**
+	 * 客户申请借款
+	 * @param loan
+	 * @param request
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/addLoan")
+	public String addLoan(Loan loan,HttpServletRequest request,HttpSession session){
+		Customer customer=(Customer) session.getAttribute("customer");
+		loan.setUid(customer.getUid());
+		loan.setLstate("1");
+		loan.setLtime(new Date());
+		int result=loanService.insertSelective(loan);
+		if(result > 0){
+			request.setAttribute("result", "申请已提交！");
+		}else{
+			request.setAttribute("result", "申请提交失败！");
+		}
+		return "redirect:/client/borrow";
 	}
 }

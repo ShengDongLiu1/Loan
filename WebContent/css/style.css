@@ -1862,20 +1862,28 @@ body {
   height: 40px;
   border: 1px solid #eee;
   background-color: #fff;
+  padding-left: 10px;
   padding-right: 50px;
   border-radius: 5px;
+  font-size:15px;
 }
 .bor_det_oner .bor_inputbg01 {
-  background: url(../images/wanyuan.png) no-repeat scroll 235px center #ffffff;
-}
-.bor_det_oner .bor_inputbg04 {
-  background: url(../images/wanyuan.png) no-repeat scroll 170px center #ffffff;
+  background: url(../images/wanyuan.png) no-repeat scroll 255px center #ffffff;
 }
 .bor_det_oner .bor_inputbg02 {
-  background: url(../images/yue.png) no-repeat scroll 235px center #ffffff;
+  background: url(../images/yue.png) no-repeat scroll 255px center #ffffff;
 }
 .bor_det_oner .bor_inputbg03 {
-  background: url(../images/tao.png) no-repeat scroll 170px center #ffffff;
+  background: url(../images/tao.png) no-repeat scroll 190px center #ffffff;
+}
+.bor_det_oner .bor_inputbg04 {
+  background: url(../images/wanyuan.png) no-repeat scroll 190px center #ffffff;
+}
+.bor_det_oner .bor_inputbg05 {
+  background: url(../images/liang.png) no-repeat scroll 190px center #ffffff;
+}
+.bor_det_oner .bor_inputbg06 {
+  background: url(../images/bai.png) no-repeat scroll 250px center #ffffff;
 }
 .bor_det_oner .input2 {
   width: 170px;

@@ -15,6 +15,14 @@ public class Loan {
 
     private Integer lterm;
 
+    private String lclass;
+
+    private Integer lnums;
+
+    private Long lmoneys;
+
+    private String lmiaoshu;
+
     private String ltype;
 
     private String lstate;
@@ -69,6 +77,38 @@ public class Loan {
 
     public void setLterm(Integer lterm) {
         this.lterm = lterm;
+    }
+
+    public String getLclass() {
+        return lclass;
+    }
+
+    public void setLclass(String lclass) {
+        this.lclass = lclass == null ? null : lclass.trim();
+    }
+
+    public Integer getLnums() {
+        return lnums;
+    }
+
+    public void setLnums(Integer lnums) {
+        this.lnums = lnums;
+    }
+
+    public Long getLmoneys() {
+        return lmoneys;
+    }
+
+    public void setLmoneys(Long lmoneys) {
+        this.lmoneys = lmoneys;
+    }
+
+    public String getLmiaoshu() {
+        return lmiaoshu;
+    }
+
+    public void setLmiaoshu(String lmiaoshu) {
+        this.lmiaoshu = lmiaoshu == null ? null : lmiaoshu.trim();
     }
 
     public String getLtype() {

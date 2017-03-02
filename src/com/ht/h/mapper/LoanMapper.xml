@@ -8,6 +8,10 @@
     <result column="lmoney" jdbcType="DECIMAL" property="lmoney" />
     <result column="lrate" jdbcType="DECIMAL" property="lrate" />
     <result column="lterm" jdbcType="INTEGER" property="lterm" />
+    <result column="lclass" jdbcType="VARCHAR" property="lclass" />
+    <result column="lnums" jdbcType="INTEGER" property="lnums" />
+    <result column="lmoneys" jdbcType="DECIMAL" property="lmoneys" />
+    <result column="lmiaoshu" jdbcType="VARCHAR" property="lmiaoshu" />
     <result column="ltype" jdbcType="VARCHAR" property="ltype" />
     <result column="lstate" jdbcType="VARCHAR" property="lstate" />
     <result column="ltime" jdbcType="TIMESTAMP" property="ltime" />
@@ -20,6 +24,10 @@
     <result column="lmoney" jdbcType="DECIMAL" property="lmoney" />
     <result column="lrate" jdbcType="DECIMAL" property="lrate" />
     <result column="lterm" jdbcType="INTEGER" property="lterm" />
+    <result column="lclass" jdbcType="VARCHAR" property="lclass" />
+    <result column="lnums" jdbcType="INTEGER" property="lnums" />
+    <result column="lmoneys" jdbcType="DECIMAL" property="lmoneys" />
+    <result column="lmiaoshu" jdbcType="VARCHAR" property="lmiaoshu" />
     <result column="ltype" jdbcType="VARCHAR" property="ltype" />
     <result column="lstate" jdbcType="VARCHAR" property="lstate" />
     <result column="ltime" jdbcType="TIMESTAMP" property="ltime" />
@@ -32,9 +40,10 @@
   </resultMap>
   
   <sql id="Base_Column_List">
-    lid, uid, ltitle, lmoney, lrate, lterm, ltype, lstate, ltime
+    lid, uid, ltitle, lmoney, lrate, lterm, lclass, lnums, lmoneys, lmiaoshu, ltype, 
+    lstate, ltime
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from loan
@@ -47,12 +56,14 @@
   <insert id="insert" parameterType="com.ht.h.bean.Loan">
     insert into loan (lid, uid, ltitle, 
       lmoney, lrate, lterm, 
-      ltype, lstate, ltime
-      )
+      lclass, lnums, lmoneys, 
+      lmiaoshu, ltype, lstate, 
+      ltime)
     values (#{lid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{ltitle,jdbcType=VARCHAR}, 
       #{lmoney,jdbcType=DECIMAL}, #{lrate,jdbcType=DECIMAL}, #{lterm,jdbcType=INTEGER}, 
-      #{ltype,jdbcType=VARCHAR}, #{lstate,jdbcType=VARCHAR}, #{ltime,jdbcType=TIMESTAMP}
-      )
+      #{lclass,jdbcType=VARCHAR}, #{lnums,jdbcType=INTEGER}, #{lmoneys,jdbcType=DECIMAL}, 
+      #{lmiaoshu,jdbcType=VARCHAR}, #{ltype,jdbcType=VARCHAR}, #{lstate,jdbcType=VARCHAR}, 
+      #{ltime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.ht.h.bean.Loan">
     insert into loan
@@ -74,6 +85,18 @@
       </if>
       <if test="lterm != null">
         lterm,
+      </if>
+      <if test="lclass != null">
+        lclass,
+      </if>
+      <if test="lnums != null">
+        lnums,
+      </if>
+      <if test="lmoneys != null">
+        lmoneys,
+      </if>
+      <if test="lmiaoshu != null">
+        lmiaoshu,
       </if>
       <if test="ltype != null">
         ltype,
@@ -104,6 +127,18 @@
       <if test="lterm != null">
         #{lterm,jdbcType=INTEGER},
       </if>
+      <if test="lclass != null">
+        #{lclass,jdbcType=VARCHAR},
+      </if>
+      <if test="lnums != null">
+        #{lnums,jdbcType=INTEGER},
+      </if>
+      <if test="lmoneys != null">
+        #{lmoneys,jdbcType=DECIMAL},
+      </if>
+      <if test="lmiaoshu != null">
+        #{lmiaoshu,jdbcType=VARCHAR},
+      </if>
       <if test="ltype != null">
         #{ltype,jdbcType=VARCHAR},
       </if>
@@ -133,6 +168,18 @@
       <if test="lterm != null">
         lterm = #{lterm,jdbcType=INTEGER},
       </if>
+      <if test="lclass != null">
+        lclass = #{lclass,jdbcType=VARCHAR},
+      </if>
+      <if test="lnums != null">
+        lnums = #{lnums,jdbcType=INTEGER},
+      </if>
+      <if test="lmoneys != null">
+        lmoneys = #{lmoneys,jdbcType=DECIMAL},
+      </if>
+      <if test="lmiaoshu != null">
+        lmiaoshu = #{lmiaoshu,jdbcType=VARCHAR},
+      </if>
       <if test="ltype != null">
         ltype = #{ltype,jdbcType=VARCHAR},
       </if>
@@ -152,6 +199,10 @@
       lmoney = #{lmoney,jdbcType=DECIMAL},
       lrate = #{lrate,jdbcType=DECIMAL},
       lterm = #{lterm,jdbcType=INTEGER},
+      lclass = #{lclass,jdbcType=VARCHAR},
+      lnums = #{lnums,jdbcType=INTEGER},
+      lmoneys = #{lmoneys,jdbcType=DECIMAL},
+      lmiaoshu = #{lmiaoshu,jdbcType=VARCHAR},
       ltype = #{ltype,jdbcType=VARCHAR},
       lstate = #{lstate,jdbcType=VARCHAR},
       ltime = #{ltime,jdbcType=TIMESTAMP}
@@ -177,6 +228,9 @@
 			</if>
 			<if test="lstate!=null and lstate!='' ">
 				and l.lstate = #{lstate}
+			</if>
+			<if test="lclass!=null and lclass!='' ">
+				and l.lclass = #{lclass}
 			</if>
 		</where>
 		order by l.ltime desc
@@ -204,6 +258,9 @@
 			</if>
 			<if test="lstate!=null and lstate!='' ">
 				and l.lstate = #{lstate}
+			</if>
+			<if test="lclass!=null and lclass!='' ">
+				and l.lclass = #{lclass}
 			</if>
 		</where>
 	</select>
