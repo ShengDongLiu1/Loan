@@ -1,12 +1,23 @@
 package com.ht.h.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.ht.h.bean.Capital;
+import com.ht.h.service.interfaces.CapitalService;
+
 
 
 @Controller
 @RequestMapping(value="client")
 public class ClientController {
+
+	@Autowired
+	private CapitalService capitalService;
 	
 	/*
 	 * 跳转到首页
@@ -117,7 +128,10 @@ public class ClientController {
 	 * 跳转到我的账户
 	 * */
 	@RequestMapping(value="left")
-	public String left(){
+	public String left(@RequestParam("uid") Integer uid,HttpServletRequest request){
+		Capital capital=new Capital();
+		capital=capitalService.selectByFund(uid);
+		request.setAttribute("fund", capital);
 		return "client/left";
 	}
 	

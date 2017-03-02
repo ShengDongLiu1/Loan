@@ -137,8 +137,6 @@ $(window).load(function(){
 </head>
 
 <body>
-
-
 <div class="fixed_box" id="fixedBox">
     <div class="content_box">
         <div class="content_inner">
@@ -247,7 +245,7 @@ $(window).load(function(){
 		 	</c:if>
 		 	<c:if test="${customer.uid != null}">
 			 	<span>欢迎</span>
-			 	<a href="<%=path %>/client/left" >${customer.username}</a>
+			 	<a href="<%=path %>/client/left?uid=${customer.uid}">${customer.username}</a>
 			 	<span>|</span>
 		 		<a href="javascript:void(0)">注销</a>
 		 	</c:if>
@@ -265,7 +263,7 @@ $(window).load(function(){
 		 <div class="zxcf_nav_r fr">
 		 	<ul id="menu" style="display:none;">
 		 		<li>
-		 			<a onclick="tz()">
+		 			<a  onclick="MyAccount()">
 		 			<img src="<%=path %>/images/zxcf_perinfo.png">
 				 	<span>我的账户</span>
 				 	</a>
@@ -306,9 +304,10 @@ $(window).load(function(){
 	if (isiPad) $('#menu ul').addClass('no-transition');
 	
 	});
-
-	function tz(){
-		window.location.href="<%=path %>/client/left"; 
+	
+	function MyAccount(){
+		var uid=${customer.uid};
+		window.location.href='<%=path %>/client/left?uid='+uid; 
 	}
 </script>
 
