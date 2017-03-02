@@ -163,4 +163,23 @@ public class LoanController {
 		map.put("pageSize", pageBean.getPageSize());//一页显示的个数
 		return map;
 	}
+	
+	/**
+	 * 修改借款状态
+	 * @param loan
+	 * @return
+	 */
+	@RequestMapping(value="/succLoan",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> upState(Loan loan){
+		Map<String, Object> map=new HashMap<>();
+		int resultCount=loanService.updateByPrimaryKeySelective(loan);
+		if(resultCount > 0){
+			map.put("result", "success");
+		}else{
+			map.put("result", "faild");
+		}
+		return map;
+		
+	}
 }

@@ -118,7 +118,9 @@ $(function(){
 	//借款状态
 	function lstate(value){
 		var btn="";
-		if(value == 1){
+		if(value == 0){
+			btn="未通过";
+		}else if(value == 1){
 			btn="初审中";
 		}else if(value == 2){
 			btn="招标中";
@@ -135,13 +137,26 @@ $(function(){
 	}
 	
 	//操作
-	function caozuo(){
+	function caozuo(val,obj){
 		var btn="<a href='#'>查看</a>&nbsp;";
 		var lstate='${lstate}'
 		if(lstate == 1){
-			btn+="<a href='#'>通过</a>";
+			btn+="<a href='javascript:void(0)' onclick='upState("+obj.lid+","+2+");'>通过</a>&nbsp;";
+			btn+="<a href='javascript:void(0)' onclick='upState("+obj.lid+","+0+");'>不通过</a>";
 		}
 		return btn;
+	}
+	
+	//审批改状态
+	function upState(lid,lstate){
+		$.post("<%=path%>/loan/succLoan",{'lid':lid,'lstate':lstate},function(index){
+			if(index.result == 'success'){
+				$.messager.alert('系统提示','操作成功！','info');
+				$("#list").datagrid("reload");
+			}else{
+				$.messager.alert('系统提示','操作失败，请重试！','info');
+			}
+		});
 	}
 	
 </script>
@@ -166,17 +181,17 @@ $(function(){
 				<th field="lid" checkbox="true">编号</th>
 				<th field="truename" width="6%" align="center" formatter="trueName">姓名</th>
 				<th field="ltitle" width="8%" align="center">借款标题</th>
-				<th field="lmoney" width="8%" align="center">借款金额</th>
+				<th field="lmoney" width="6%" align="center">借款金额</th>
 				<th field="lrate" width="5%" align="center" formatter="liLV">利率</th>
 				<th field="lterm" width="5%" align="center" formatter="qixian">借款期限</th>
 				<th field="lclass" width="8%" align="center">担保方式</th>
-				<th field="lnums1" width="6%" align="center" formatter="shuliang">数量</th>
+				<th field="lnums1" width="5%" align="center" formatter="shuliang">数量</th>
 				<th field="lmoneys1" width="8%" align="center" formatter="jiazhi">价值</th>
 				<th field="lmiaoshu" width="13%" align="center">借款描述</th>
 				<th field="ltype" width="8%" align="center">借款类型</th>
 				<th field="lstate" width="5%" align="center" formatter="lstate">借款状态</th>
 				<th field="ltime" width="9%" align="center" formatter="jsonDateFormat">筹标时间</th>
-				<th field="caozuo" width="8%" align="center" formatter="caozuo">操作</th>
+				<th field="caozuo" width="11%" align="center" formatter="caozuo">操作</th>
 			</tr>
 		</thead>
 	</table>
