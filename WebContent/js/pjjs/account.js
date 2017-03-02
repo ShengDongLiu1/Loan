@@ -3453,6 +3453,8 @@ function changePwdSubmit(){
 	}
 	
 }
+
+
 //我的银行卡
 function initMyDebitCard() {
 	$.ajax({
