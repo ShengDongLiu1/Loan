@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -44,31 +45,16 @@
 			</div>
 		</div>
 		<!-- begin -->
-		<div class="account-right"><div class="account-right-nav">
-	<div class="sub-a-nav">
-		<a href="javascript:void(0);" class="active show-ipay">充值</a>
-		<a href="javascript:void(0);" id="czjl">充值记录</a>
-	</div>
-	<em class="em-line"></em>
-</div>
+		<div class="account-right">
+			<div class="account-right-nav">
+				<div class="sub-a-nav">
+					<a href="javascript:void(0);" id="cz">充值</a>
+					<a href="javascript:void(0);" class="active show-ipay">充值记录</a>
+				</div>
+			</div>
 <div class="account-content">
-	<!-- 充值 -->
-	<div class="ipay-pay">
-		<p class="tips-title"><b>温馨提示：</b>凡是在普金资本充值未投标的用户，15天以内提现收取本金0.5%，15天以后提现免费 普金资本禁止信用卡套现、虚假交易
-等行为,一经发现将予以处罚,包括但不限于：限制收款、冻结账户、永久停止服务,并有可能影响相关信用记录。</p>
-		<div class="pay-from">
-			<div class="label cl">
-				<label>充值金额：</label><input type="text" id="ipay-amt" maxlength="18" placeholder="请输入充值金额"><p class="roll">元</p>
-			</div>
-			<div class="label cl">
-				<label>充值类型：</label><img src="<%=path %>/image/huifu.png">
-			</div>
-			<button type="button" class="btn" id="ipay-submit">立即充值</button>
-		</div>
-		<div id="alipay"></div>
-	</div>
 	<!-- 充值记录 -->
-	<div class="ipay-list">
+	<div class="ipay-pay">
 		<div class="account-form cl">
 			<input type="text" class="date icon icon-date" id="startDate">
 			<p class="text">至</p>
@@ -77,21 +63,37 @@
 			<button type="button" class="search" id="ipaySearch">搜索</button>
 		</div>
 		<div class="account-list">
-			<ul class="ipay-list-box list-box">
-				<li class="title">
-					<div class="children0">账户名</div>
-					<div class="children1">充值金额</div>
-					<div class="children2">充值类型</div>
-					<div class="children3">充值时间</div>
-					<div class="children4">充值状态</div>
-				</li>
-			</ul>
-			<ul class="ipay-list-box listData" id="n">
-			
-			</ul>
-			<ul class="paging">
-				
-			</ul>
+			<table class="table" id="sample-table-2">
+				<thead>
+					<tr>
+						<th class="center" width="100">账户名</th>
+						<th class="center" width="100">充值金额</th>
+						<th class="center" width="100">充值类型</th>
+						<th class="center" width="100">充值时间</th>
+						<th class="center" width="100">充值状态</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${list}" var="c" varStatus="status">
+						<tr>
+							<td class="center" width="100">${c.customer.username }</td>
+							<td class="center" width="100">${c.rmoney }</td>
+							<td class="center" width="100">${c.rtype }</td>
+							<td class="center" width="100"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${c.rtime }"/></td>
+							<td class="center" width="100">${c.rstate }</td>
+						</tr>
+					</c:forEach>
+					<tr>
+						<th colspan="13">
+				        	当前第${page }页/共${count }页&nbsp;&nbsp;共${total }条记录&nbsp;&nbsp;
+				        	<a href="javascript:void(0);" id = "first">首页</a>&nbsp;
+				        	<a href="javascript:void(0);" id = "previous" <c:if test='${page == 1}'> style='opacity: 0.2;' </c:if>>上一页</a>&nbsp;
+				        	<a href="javascript:void(0);" id = "next" <c:if test='${count <= page}'> style='opacity: 0.2;' </c:if>>下一页</a>&nbsp;
+				        	<a href="javascript:void(0);" id = "end">尾页</a>
+				        </th>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
@@ -168,22 +170,65 @@
 	</div>
 </div>
 	<script type="text/javascript">
-		$('#ipay-submit').click(function(){
-			var money = $('#ipay-amt').val();
-			$.post("<%=path%>/recharge/queryByBank",
-	            function(data){
-					if(data.result=="fail"){
-					}else if(data.result=="seccuss"){
-						window.location.href="<%=path%>/recharge/add?rmoney="+money; 
-					}
-				}
-		   	)
+		$('#cz').click(function(){
+			window.location.href="<%=path%>/recharge/czadd.do"; 
 		})
-		$('#czjl').click(function(){
-			window.location.href="<%=path%>/recharge/queryBy.do"; 
+		$('.show-ipay-list').click(function(){
+	    		$(this).addClass('active').siblings('a').removeClass('active');
+	    		$('.em-line').animate({'left':'120px'},500);
+	    		$('.ipay-pay').hide();
+	    		$('.ipay-list').show();
+	    		
+	    		$('#startDate').datepicker({format:'yyyy-mm-dd'}).on('changeDate',function(){});
+		    	$('#endDate').datepicker({format:'yyyy-mm-dd'}).on('changeDate',function(){});
+		    	if($('.listData li').size() == 0){
+		    		//初始化数据查询
+			    	initIpayData();
+		    	}
+		    	//搜索
+		    	$('#ipaySearch').unbind('click').click(function(){
+		    		var rtime = $('#startDate').val();
+		    		var rtime1 = $('#endDate').val();
+		    		if(rtime == ''){
+		    			utils.toast('开始时间不能为空');
+		    			return;
+		    		}
+		    		if(rtime1 == ''){
+		    			utils.toast('结束时间不能为空');
+		    			return;
+		    		}
+		    		if(rtime>rtime1){
+		    			utils.toast('开始时间不能大于结束时间');
+		    			return;
+		    		}
+		    		initIpayData(rtime,rtime1);
+		    	});
+	    	});
+		function username(value){
+			var btn="<a href='javascript:onCustomer("+value.uid+")'>"+value.username+"</a>";
+			return btn;
+		}
+		$("#first").click(function(){
+			window.location.href="<%=path%>/recharge/queryBy.do?page=${1}&&rows=${pageSize }"; 
 		})
-		
-//充值记录初始化
-
+		$("#end").click(function(){
+			window.location.href="<%=path%>/recharge/queryBy.do?page=${count == 0 ? 1:count }&&rows=${pageSize }";
+		})
+		$("#previous").click(function(){
+			var page=${page == 1};
+			if(page){
+				return false;
+			}else{
+				window.location.href="<%=path%>/recharge/queryBy.do?page=${page-1}&&rows=${pageSize }"; 
+			}
+		})
+		$("#next").click(function(){
+			var page=${count <= page};
+			if(page){
+				return false;
+			}else{
+				window.location.href="<%=path%>/recharge/queryBy.do?page=${page+1}&&rows=${pageSize }"; 
+			}
+		})
 	</script>
 </body></html>

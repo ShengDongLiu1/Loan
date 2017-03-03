@@ -26,7 +26,7 @@
 <body>
 	
 	<table id="dg" class="easyui-datagrid" toolbar="#tb" data-options="
-		url:'<%=path %>/recharge/queryAll',
+		url:'<%=path %>/recharge/queryAll.do',
 		method:'post', 
 		rownumbers:true,
 		autoRowHeight: true,
@@ -36,7 +36,7 @@
 		<thead>
 			<tr>
 				<th field="rid" checkbox="true" width="100">编号</th>
-				<th field="username" align="center" width="150">用户名</th>
+				<th field="customer" width="150" align="center" formatter="username">用户名</th>
 				<th field="rtype" align="center" width="110">充值类型</th>
 				<th field="rserial" align="center" width="150">流水号</th>
 				<th field="rmoney" align="center" width="80">充值金额</th>
@@ -54,9 +54,18 @@
 				充值记录
 			</h1>
 		</div>
-		<a href="javascript:daochuTest()" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" >查看</a>
+		用户名：<input id="username" class="easyui-validatebox easyui-textbox" style="width:100px;"/>
+		充值时间：<input id="rtime" class="easyui-datetimebox easyui-textbox" style="width:100px;"/>-
+				<input id="rtime1" class="easyui-datetimebox easyui-textbox" style="width:100px;"/>
+		状态：<select id="rstate" class="easyui-combobox" name="rstate" style="width:200px;">
+				<option value="">全部</option>
+				<option value="成功">成功</option>
+				<option value="失败">失败</option>
+			</select>
+		<a href="javascript:selectfiltrate()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">筛选</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	</div>
 
+	
 	<!-- <div id="dlg-buttons">
 	    <a href="javascript:saveUser()" class="easyui-linkbutton"
 	        iconCls="icon-ok">保存</a> <a href="javascript:closeUserDialog()"
@@ -142,90 +151,30 @@
 			 date.setSeconds(obj.seconds);
 			return formatDateTime(date);
 		}
-		/* function toUsername(value){
-			alert(value.customer)
-			return value.customer
-		} */
-		
-	    <%-- function openUserAddDialog() {
-	        $("#dlg").dialog("open").dialog("setTitle", "添加用户");
-	        url = "${pageContext.request.contextPath}/test/save.do";
+		function username(value){
+			var btn="<a href='javascript:onCustomer("+value.uid+")'>"+value.username+"</a>";
+			return btn;
+		}
+		function selectfiltrate(){
+			alert("++++++++");
+	    	var username=$('#username').textbox('getValue');
+	    	var rtime=$('#rtime').textbox('getValue');
+	    	var rtime1=$('#rtime1').textbox('getValue');
+	    	var rstate=$("#rstate").combobox('getValue')
+	    	alert(rstate+"+----------++");
+	    	$('#dg').datagrid('load',{  
+				username:username,
+				rtime:rtime,
+				rtime1:rtime1,
+				rstate:rstate
+			}); 
+   	        $("#rstate").textbox('setValue',"");
+   	        $("#username").textbox('setValue',"");
+   	        $("#rtime").textbox('setValue',"");
+   	        $("#rtime1").textbox('setValue',"");
+	    	    
 	    }
 	    
-	    function openUserModifyDialog() {
-	        var selectedRows = $("#dg").datagrid("getSelections");
-	        if (selectedRows.length != 1) {
-	            $.messager.alert("系统提示", "请选择一条要编辑的数据！");
-	            return;
-	        }
-	        var row = selectedRows[0];
-	        $("#dlg").dialog("open").dialog("setTitle", "编辑用户信息");
-	        $("#fm").form("load", row);
-	        url = "${pageContext.request.contextPath}/test/save.do?tid=" + row.tid;
-	    }
-	    
-	    function saveUser() {
-	        $("#fm").form("submit", {
-	            url : url,
-	            success : function(result) {
-	                var result = eval('(' + result + ')');
-	                if (result.success) {
-	                    $.messager.alert("系统提示", "保存成功！");
-	                    resetValue();
-	                    $("#dlg").dialog("close");
-	                    $("#dg").datagrid("reload");
-	                } else {
-	                    $.messager.alert("系统提示", "保存失败！");
-	                    return;
-	                }
-	            }
-	        });
-	    }
-	    
-	    function resetValue() {
-	        $("#tname").val("");
-	        $("#tsex").val("");
-	        $("#tmes").val("");
-	        $("#tdate").datetimebox("setValue","");
-	    }
-	    
-	    function closeUserDialog() {
-	        $("#dlg").dialog("close");
-	        resetValue();
-	    }
-
-		 function deleteTest() {
-		        var selectedRows = $("#dg").datagrid("getSelections");
-		        if (selectedRows.length == 0) {
-		            $.messager.alert("系统提示", "请选择要删除的数据！");
-		            return;
-		        }
-		        var strIds = [];
-		        for ( var i = 0; i < selectedRows.length; i++) {
-		            strIds.push(selectedRows[i].tid);
-		        }
-		        var ids = strIds.join(",");
-		        $.messager.confirm("系统提示", "您确定要删除这<font color=red>"
-		                + selectedRows.length + "</font>条数据吗？", function(r) {
-		            if (r) {
-		                $.post("${pageContext.request.contextPath}/test/delete.do", {
-		                    ids : ids
-		                }, function(result) {
-		                    if (result.success) {
-		                        $.messager.alert("系统提示", "数据已成功删除！");
-		                        $("#dg").datagrid("reload");
-		                    } else {
-		                        $.messager.alert("系统提示", "数据删除失败，请联系系统管理员！");
-		                    }
-		                }, "json");
-		            }
-		        });
-		    }
-		    
-		    function daochuTest() {
-		    	window.location.href='<%=path %>/test/daochu.do?page=1&rows=100';
-		    	$.messager.alert('提示', '导出成功', 'info');
-		    } --%>
 	</script>
 </body>
 </html>

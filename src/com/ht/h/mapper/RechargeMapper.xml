@@ -12,6 +12,12 @@
     <result column="rstate" jdbcType="VARCHAR" property="rstate" />
     <result column="rserial" jdbcType="VARCHAR" property="rserial" />
     <result column="rtime" jdbcType="TIMESTAMP" property="rtime" />
+    
+    <association property="customer" javaType="com.ht.h.bean.Customer"> 
+      <result property="uid" column="uid"/> 
+    <result property="username" column="username"/> 
+    <result property="realname" column="realname"/> 
+  </association> 
   </resultMap>
   
    <resultMap id="CapRecMap" type="com.ht.h.bean.Recharge">
@@ -49,9 +55,15 @@
   <select id="queryAll" parameterType="Map" resultMap="BaseResultMap">
   	select <include refid="Base_Column_Lists" /> from recharge r, Customer u
 		<where>
-			r.rid=u.uid
+			r.uid=u.uid
+			<if test="username != null and username != '' ">
+				and u.username like #{username}
+			</if>
 			<if test="rstate != null and rstate != '' ">
-				and r.rstate like #{rstate}
+				and r.rstate = #{rstate}
+			</if>
+			<if test="rtime!=null and rtime1!=null">
+				and r.rtime between #{rtime} and #{rtime1} 
 			</if>
 		</where>
 		order by r.rid desc
@@ -67,9 +79,15 @@
   <select id="getTotal" parameterType="Map" resultType="Long">
   	select count(*) from recharge r, Customer u
 		<where>
-			r.rid=u.uid
+			r.uid=u.uid	
+			<if test="username != null and username != '' ">
+				and u.username like #{username}
+			</if>
 			<if test="rstate != null and rstate != '' ">
-				and r.rstate like #{rstate}
+				and r.rstate = #{rstate}
+			</if>
+			<if test="rtime!=null and rtime1!=null">
+				and r.rtime between #{rtime} and #{rtime1} 
 			</if>
 		</where>
   </select>
@@ -198,6 +216,7 @@
     where rid = #{rid,jdbcType=INTEGER}
   </update>
   
+<<<<<<< Updated upstream
   
    <select id="rechargetQueryAll" parameterType="Map" resultMap="CapRecMap">
   	select <include refid="Cap_Rec_List" /> 
@@ -210,12 +229,57 @@
 		</if>
 		</where>
 		order by r.rtime desc
+=======
+  <!-- 第一次充值记录查询 -->
+  <select id="queryBy1" resultMap="BaseResultMap">
+  	select * from recharge r,customer u where u.uid=r.uid and u.uid in(select uid from customer) GROUP BY r.uid
+  </select>
+  
+  <select id="getTotal1" resultType="Long">
+  	select * from recharge r,customer u where u.uid=r.uid and u.uid in(select uid from customer) GROUP BY r.uid
+  </select>
+  
+   <select id="queryBy" parameterType="Map" resultMap="BaseResultMap">
+  	select r.*,u.username from recharge r, Customer u
+		<where>
+			r.uid=u.uid	
+			<if test="username != null and username != '' ">
+				and u.username like #{username}
+			</if>
+			<if test="rstate != null and rstate != '' ">
+				and r.rstate = #{rstate}
+			</if>
+			<if test="rtime!=null and rtime1!=null">
+				and r.rtime between #{rtime} and #{rtime1} 
+			</if>
+		</where>
+		order by r.rid desc
+>>>>>>> Stashed changes
 		<if test="start!=null and size!=null">
 			limit #{start},#{size}
 		</if>
   </select>
   
+<<<<<<< Updated upstream
   <select id="rechargetCount" resultType="int">
 		select count(*) from recharge
 	</select>
+=======
+   <select id="getTotalBy" parameterType="Map" resultType="Long">
+  	select count(*) from recharge r, Customer u
+		<where>
+			r.uid=u.uid	
+			<if test="username != null and username != '' ">
+				and u.username like #{username}
+			</if>
+			<if test="rstate != null and rstate != '' ">
+				and r.rstate = #{rstate}
+			</if>
+			<if test="rtime!=null and rtime1!=null">
+				and r.rtime between #{rtime} and #{rtime1} 
+			</if>
+		</where>
+  </select>
+  
+>>>>>>> Stashed changes
 </mapper>

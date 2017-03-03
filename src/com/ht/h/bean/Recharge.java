@@ -23,6 +23,7 @@ public class Recharge {
 
     private Date rtime;
     
+<<<<<<< Updated upstream
     private String username;
     
     private Capital capital;
@@ -34,6 +35,9 @@ public class Recharge {
 	public void setCapital(Capital capital) {
 		this.capital = capital;
 	}
+=======
+    private Customer customer;
+>>>>>>> Stashed changes
 
 	public Integer getRid() {
         return rid;
@@ -51,12 +55,12 @@ public class Recharge {
         this.uid = uid;
     }
 
-    public String getUsername() {
-		return username;
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public String getRserial() {

@@ -54,17 +54,16 @@ public class RechargeServiceImpl implements RechargeService{
 
 	@Override
 	public Long getTotal(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return rechargDao.getTotal(map);
 	}
 
 	@Override
 	public int queryByRserial(String Rserial) {
-		// TODO Auto-generated method stub
 		return rechargDao.queryByRserial(Rserial);
 	}
 
 	@Override
+<<<<<<< Updated upstream
 	public int rechargetCount() {
 		// TODO 自动生成的方法存根
 		return rechargDao.rechargetCount();
@@ -74,6 +73,25 @@ public class RechargeServiceImpl implements RechargeService{
 	public List<Recharge> rechargetQueryAll(Map<String, Object> map) {
 		// TODO 自动生成的方法存根
 		return rechargDao.rechargetQueryAll(map);
+=======
+	public List<Recharge> queryBy1() {
+		return rechargDao.queryBy1();
+	}
+
+	@Override
+	public Long getTotal1() {
+		return rechargDao.getTotal1();
+	}
+
+	@Override
+	public List<Recharge> queryBy(Map<String, Object> map) {
+		return rechargDao.queryBy(map);
+	}
+
+	@Override
+	public Long getTotalBy(Map<String, Object> map) {
+		return rechargDao.getTotalBy(map);
+>>>>>>> Stashed changes
 	}
 
 }
