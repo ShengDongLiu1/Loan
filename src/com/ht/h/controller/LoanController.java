@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 
 import com.ht.h.bean.Customer;
 import com.ht.h.bean.Loan;
@@ -101,7 +102,7 @@ public class LoanController {
 	
 		
 	@RequestMapping(value="/addLoan",method=RequestMethod.POST)
-	public String addLoan(Loan loan,HttpServletRequest request,HttpSession session){
+	public String addLoan(Loan loan,HttpServletRequest request,HttpSession session,RedirectAttributesModelMap modelMap){
 		Customer customer=(Customer) session.getAttribute("customer");
 		if(customer == null){
 			return "redirect:/client/login";
@@ -111,9 +112,9 @@ public class LoanController {
 		loan.setLtime(new Date());
 		int result=loanService.insertSelective(loan);
 		if(result > 0){
-			request.setAttribute("result", "申请已提交！");
+			modelMap.addFlashAttribute("result", "申请已提交！");
 		}else{
-			request.setAttribute("result", "申请提交失败！");
+			modelMap.addFlashAttribute("result", "申请提交失败！");
 		}
 		return "redirect:/client/borrow";
 	}
@@ -155,5 +156,24 @@ public class LoanController {
 		map.put("page", pageBean.getPage());//当前页
 		map.put("pageSize", pageBean.getPageSize());//一页显示的个数
 		return map;
+	}
+	
+	/**
+	 * 修改借款状态
+	 * @param loan
+	 * @return
+	 */
+	@RequestMapping(value="/succLoan",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> upState(Loan loan){
+		Map<String, Object> map=new HashMap<>();
+		int resultCount=loanService.updateByPrimaryKeySelective(loan);
+		if(resultCount > 0){
+			map.put("result", "success");
+		}else{
+			map.put("result", "faild");
+		}
+		return map;
+		
 	}
 }

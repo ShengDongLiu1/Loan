@@ -1,0 +1,27 @@
+.limg{
+	width:240px;
+	height:150px;
+	margin:20px 0px 20px 40px;
+	float:left;
+	background:#8080ff;
+	text-align:center;
+}
+
+.limg span{
+	font-size:14px;
+}
+
+.limg img{
+	width:240px;
+	height:150px;
+	max-height: 150px;
+	max-width: 240px;
+}
+
+.notl{
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+	color:#fff;
+	margin-top:60px;
+}

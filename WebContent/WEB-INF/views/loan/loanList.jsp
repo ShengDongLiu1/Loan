@@ -9,6 +9,7 @@
 <title>借款列表</title>
 <link rel="stylesheet" href="<%=path %>/js/jquery-easyui/themes/default/easyui.css"/>
 <link rel="stylesheet" href="<%=path %>/js/site_main.css"/>
+<link rel="stylesheet" href="<%=path %>/css/loan.css"/>
 <link rel="stylesheet" type="text/css" href="<%=path %>/js/jquery-easyui/themes/icon.css">
 <script type="text/javascript" src="<%=path %>/js/jquery.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/jquery-easyui/jquery.easyui.min.js"></script>
@@ -121,7 +122,9 @@ $(function(){
 	//借款状态
 	function lstate(value){
 		var btn="";
-		if(value == 1){
+		if(value == 0){
+			btn="未通过";
+		}else if(value == 1){
 			btn="初审中";
 		}else if(value == 2){
 			btn="招标中";
@@ -139,17 +142,61 @@ $(function(){
 	
 <<<<<<< Updated upstream
 	//操作
-	function caozuo(){
-		var btn="<a href='#'>查看</a>&nbsp;";
+	function caozuo(val,obj){
+		var btn="<a href='#' onclick='selDatum("+obj.lid+");'>查看</a>&nbsp;";
 		var lstate='${lstate}'
 		if(lstate == 1){
-			btn+="<a href='#'>通过</a>";
+			btn+="<a href='javascript:void(0)' onclick='upState("+obj.lid+","+2+");'>通过</a>&nbsp;";
+			btn+="<a href='javascript:void(0)' onclick='upState("+obj.lid+","+0+");'>不通过</a>";
 		}
 =======
 	function caozuo(){
 		var btn="<a href='#'>查看</a>";
 >>>>>>> Stashed changes
 		return btn;
+	}
+	
+	
+	//审批改状态
+	function upState(lid,lstate){
+		$.post("<%=path%>/loan/succLoan",{'lid':lid,'lstate':lstate},function(index){
+			if(index.result == 'success'){
+				$.messager.alert('系统提示','操作成功！','info');
+				$("#list").datagrid("reload");
+			}else{
+				$.messager.alert('系统提示','操作失败，请重试！','info');
+			}
+		});
+	}
+	
+	//查询上传的资料
+	function selDatum(lid){
+		$.post("<%=path%>/datum/selDatum",{'lid':lid},function(index){
+			if(index.datum == null){
+				$.messager.alert('系统提示','申请人暂未上传任何资料！','info');
+				return false;
+			}
+			$('#ld1').html(notImg(index.datum.dcard)+"<span>身份证</span>");
+			$('#ld2').html(notImg(index.datum.household)+"<span>户籍证明</span>");
+			$('#ld3').html(notImg(index.datum.dcensus)+"<span>收入证明</span>");
+			$('#ld4').html(notImg(index.datum.dcredit)+"<span>个人信用报告</span>");
+			$('#ld5').html(notImg(index.datum.dapply)+"<span>申请资料</span>");
+			$('#ld6').html(notImg(index.datum.dother1)+"<span>其他</span>");
+			$('#ld7').html(notImg(index.datum.dother2)+"<span>其他</span>");
+			$('#ld8').html(notImg(index.datum.dother3)+"<span>其他</span>");
+			$('#win').window('open');
+		});
+	}
+	
+	//判断是否上传资料
+	function notImg(img){
+		if(img == null || img == ''){
+			return "<p class='notl'>未上传</p>";
+		}else{
+			var img1="<img src='../portrait/";
+			var img2="' />";
+			return img1+img+img2;
+		}
 	}
 	
 </script>
@@ -174,12 +221,16 @@ $(function(){
 				<th field="lid" checkbox="true">编号</th>
 				<th field="truename" width="6%" align="center" formatter="trueName">姓名</th>
 				<th field="ltitle" width="8%" align="center">借款标题</th>
-				<th field="lmoney" width="8%" align="center">借款金额</th>
+				<th field="lmoney" width="6%" align="center">借款金额</th>
 				<th field="lrate" width="5%" align="center" formatter="liLV">利率</th>
 				<th field="lterm" width="5%" align="center" formatter="qixian">借款期限</th>
 				<th field="lclass" width="8%" align="center">担保方式</th>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 				<th field="lnums1" width="6%" align="center" formatter="shuliang">数量</th>
+=======
+				<th field="lnums1" width="5%" align="center" formatter="shuliang">数量</th>
+>>>>>>> master
 				<th field="lmoneys1" width="8%" align="center" formatter="jiazhi">价值</th>
 =======
 				<th field="lnums" width="6%" align="center">数量</th>
@@ -189,7 +240,7 @@ $(function(){
 				<th field="ltype" width="8%" align="center">借款类型</th>
 				<th field="lstate" width="5%" align="center" formatter="lstate">借款状态</th>
 				<th field="ltime" width="9%" align="center" formatter="jsonDateFormat">筹标时间</th>
-				<th field="caozuo" width="8%" align="center" formatter="caozuo">操作</th>
+				<th field="caozuo" width="11%" align="center" formatter="caozuo">操作</th>
 			</tr>
 		</thead>
 	</table>
@@ -228,6 +279,17 @@ $(function(){
 		</c:if>
 		&nbsp;
 		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="seachs();">搜索</a>
+	</div>
+	<div id="win" class="easyui-window" title="借款申请资料" style="width:80%;height:500px"
+    data-options="iconCls:'icon-save',modal:true,closed:true">
+    	<div class="limg" id="ld1"></div>
+    	<div class="limg" id="ld2"></div>
+    	<div class="limg" id="ld3"></div>
+    	<div class="limg" id="ld4"></div>
+    	<div class="limg" id="ld5"></div>
+    	<div class="limg" id="ld6"></div>
+    	<div class="limg" id="ld7"></div>
+    	<div class="limg" id="ld8"></div>
 	</div>
 </body>
 </html>
