@@ -9,6 +9,7 @@
 <title>借款列表</title>
 <link rel="stylesheet" href="<%=path %>/js/jquery-easyui/themes/default/easyui.css"/>
 <link rel="stylesheet" href="<%=path %>/js/site_main.css"/>
+<link rel="stylesheet" href="<%=path %>/css/loan.css"/>
 <link rel="stylesheet" type="text/css" href="<%=path %>/js/jquery-easyui/themes/icon.css">
 <script type="text/javascript" src="<%=path %>/js/jquery.min.js"></script>
 <script type="text/javascript" src="<%=path %>/js/jquery-easyui/jquery.easyui.min.js"></script>
@@ -138,7 +139,7 @@ $(function(){
 	
 	//操作
 	function caozuo(val,obj){
-		var btn="<a href='#'>查看</a>&nbsp;";
+		var btn="<a href='#' onclick='selDatum("+obj.lid+");'>查看</a>&nbsp;";
 		var lstate='${lstate}'
 		if(lstate == 1){
 			btn+="<a href='javascript:void(0)' onclick='upState("+obj.lid+","+2+");'>通过</a>&nbsp;";
@@ -146,6 +147,7 @@ $(function(){
 		}
 		return btn;
 	}
+	
 	
 	//审批改状态
 	function upState(lid,lstate){
@@ -157,6 +159,36 @@ $(function(){
 				$.messager.alert('系统提示','操作失败，请重试！','info');
 			}
 		});
+	}
+	
+	//查询上传的资料
+	function selDatum(lid){
+		$.post("<%=path%>/datum/selDatum",{'lid':lid},function(index){
+			if(index.datum == null){
+				$.messager.alert('系统提示','申请人暂未上传任何资料！','info');
+				return false;
+			}
+			$('#ld1').html(notImg(index.datum.dcard)+"<span>身份证</span>");
+			$('#ld2').html(notImg(index.datum.household)+"<span>户籍证明</span>");
+			$('#ld3').html(notImg(index.datum.dcensus)+"<span>收入证明</span>");
+			$('#ld4').html(notImg(index.datum.dcredit)+"<span>个人信用报告</span>");
+			$('#ld5').html(notImg(index.datum.dapply)+"<span>申请资料</span>");
+			$('#ld6').html(notImg(index.datum.dother1)+"<span>其他</span>");
+			$('#ld7').html(notImg(index.datum.dother2)+"<span>其他</span>");
+			$('#ld8').html(notImg(index.datum.dother3)+"<span>其他</span>");
+			$('#win').window('open');
+		});
+	}
+	
+	//判断是否上传资料
+	function notImg(img){
+		if(img == null || img == ''){
+			return "<p class='notl'>未上传</p>";
+		}else{
+			var img1="<img src='../portrait/";
+			var img2="' />";
+			return img1+img+img2;
+		}
 	}
 	
 </script>
@@ -226,6 +258,17 @@ $(function(){
 		</c:if>
 		&nbsp;
 		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="seachs();">搜索</a>
+	</div>
+	<div id="win" class="easyui-window" title="借款申请资料" style="width:80%;height:500px"
+    data-options="iconCls:'icon-save',modal:true,closed:true">
+    	<div class="limg" id="ld1"></div>
+    	<div class="limg" id="ld2"></div>
+    	<div class="limg" id="ld3"></div>
+    	<div class="limg" id="ld4"></div>
+    	<div class="limg" id="ld5"></div>
+    	<div class="limg" id="ld6"></div>
+    	<div class="limg" id="ld7"></div>
+    	<div class="limg" id="ld8"></div>
 	</div>
 </body>
 </html>

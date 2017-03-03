@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 
 import com.ht.h.bean.Customer;
 import com.ht.h.bean.Loan;
@@ -107,7 +108,7 @@ public class LoanController {
 	 * @return
 	 */
 	@RequestMapping(value="/addLoan",method=RequestMethod.POST)
-	public String addLoan(Loan loan,HttpServletRequest request,HttpSession session){
+	public String addLoan(Loan loan,HttpServletRequest request,HttpSession session,RedirectAttributesModelMap modelMap){
 		Customer customer=(Customer) session.getAttribute("customer");
 		if(customer == null){
 			return "redirect:/client/login";
@@ -118,9 +119,9 @@ public class LoanController {
 		System.out.println("抵押类型："+loan.getLclass());
 		int result=loanService.insertSelective(loan);
 		if(result > 0){
-			request.setAttribute("result", "申请已提交！");
+			modelMap.addFlashAttribute("result", "申请已提交！");
 		}else{
-			request.setAttribute("result", "申请提交失败！");
+			modelMap.addFlashAttribute("result", "申请提交失败！");
 		}
 		return "redirect:/client/borrow";
 	}
