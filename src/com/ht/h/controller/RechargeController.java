@@ -132,7 +132,7 @@ public class RechargeController {
 		return null;
 	}
 	
-	//分页查询
+	//客户查询
 	@RequestMapping("/queryBy")
 	public String queryBy(@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,@RequestParam(value="rtime1",required=false)String rtime1,@RequestParam(value="rstate",required=false)String rstate,@RequestParam(value="rtime",required=false)String rtime,@RequestParam(value="username",required=false)String username,HttpServletResponse response,HttpServletRequest request) throws Exception{
 		PageBean pageBean=null;

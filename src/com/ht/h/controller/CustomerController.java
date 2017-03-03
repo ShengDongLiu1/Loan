@@ -93,7 +93,7 @@ public class CustomerController {
 			customer.setIdnumber(idex+"**************"+end);
 		}
 		phoneindex = customer.getPhone().substring(0,3);
-		phoneend = customer.getPhone().substring(8, 11);
+		//phoneend = customer.getPhone().substring(8, 11);
 		customer.setCodephone(phoneindex+"*******"+phoneend);
 		if(customer != null){
 			session.setAttribute("customer", customer);
