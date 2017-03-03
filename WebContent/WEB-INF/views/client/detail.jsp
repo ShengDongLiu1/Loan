@@ -83,10 +83,11 @@
                           <!--  -->
                           <p class="det_rzye clearfix"><span class="fl">融资余额</span><em class="fr"><strong>1,078,121.00</strong>元</em></p>
                           <p class="det_input">
-                          	  <input type="text" placeholder="100">
+                          	  <input type="text" id="qian" placeholder="100">
+                          	  <input type="hidden" id="uid" value="${customer.uid }">
                           </p>
                           <p class="det_shouyi">每投资1万元收益<strong>183.33元</strong></p>
-                          <p><a href="<%=path %>/client/pay" class=" pro_btn det_btn">立即投资</a></p>
+                          <p><a href="javascript:void(0)" class=" pro_btn det_btn" onclick="touzi()">立即投资</a></p>
 	  	     	    </div>
 	  	     </div>
 	  	     <!-- end block1 -->
@@ -478,4 +479,15 @@
 </div>
 <jsp:include flush="true" page="bottom.jsp"></jsp:include>
 </body>
+<script>
+	function touzi(){
+		var qian = $("#qian").val();
+		var id = $("#uid").val();
+		if(qian==null || qian==""){
+			alert("请输入投资金额!")
+		}else{
+			window.location.href="<%=path%>/client/pay?qian="+qian+"&id="+id;
+		}
+	}
+</script>
 </html>
