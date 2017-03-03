@@ -1,15 +1,11 @@
 package com.ht.h.controller;
 
-<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-=======
-import javax.servlet.http.HttpServletRequest;
->>>>>>> master
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,14 +16,11 @@ import com.ht.h.bean.Bank;
 import com.ht.h.bean.Capital;
 import com.ht.h.bean.Customer;
 import com.ht.h.bean.Recharge;
+import com.ht.h.dto.DateUtil;
 import com.ht.h.dto.Pager;
 import com.ht.h.service.interfaces.BankService;
 import com.ht.h.service.interfaces.CapitalService;
 import com.ht.h.service.interfaces.RechargeService;
-
-import com.ht.h.bean.Capital;
-import com.ht.h.dto.DateUtil;
-import com.ht.h.service.interfaces.CapitalService;
 
 
 @Controller
@@ -42,9 +35,6 @@ public class ClientController {
 	
 	@Autowired
 	private RechargeService rechargeService;
-	
-	@Autowired
-	private CapitalService capitalService;
 	
 	/*
 	 * 跳转到首页
@@ -263,11 +253,13 @@ public class ClientController {
 	 */
 	@RequestMapping(value="pay")
 	public String pay(String qian,String id,HttpServletRequest request) throws Exception{
+		System.out.println("id:==="+id);
 		request.setAttribute("qian", qian);
 		request.setAttribute("dingdan", "HJ"+DateUtil.getCurrentDateStr());
 		request.setAttribute("time1", DateUtil.getCurrentDateStr2());
 		if(id!=null){
 			Capital	capital = capitalService.selectByPrimaryKey(Integer.valueOf(id));
+			System.out.println(capital+"-------------");
 			request.setAttribute("available", capital.getAvailable());
 		}
 		return "client/pay";
