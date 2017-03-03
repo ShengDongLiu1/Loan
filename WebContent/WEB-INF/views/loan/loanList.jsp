@@ -98,7 +98,6 @@ $(function(){
 		return val+"个月";
 	}
 	
-<<<<<<< Updated upstream
 	//房屋或车辆数量
 	function shuliang(val,obj){
 		if(obj.lclass == '信用贷款'){
@@ -117,8 +116,6 @@ $(function(){
 		}
 	}
 	
-=======
->>>>>>> Stashed changes
 	//借款状态
 	function lstate(value){
 		var btn="";
@@ -140,7 +137,6 @@ $(function(){
 		return btn;
 	}
 	
-<<<<<<< Updated upstream
 	//操作
 	function caozuo(val,obj){
 		var btn="<a href='#' onclick='selDatum("+obj.lid+");'>查看</a>&nbsp;";
@@ -149,10 +145,6 @@ $(function(){
 			btn+="<a href='javascript:void(0)' onclick='upState("+obj.lid+","+2+");'>通过</a>&nbsp;";
 			btn+="<a href='javascript:void(0)' onclick='upState("+obj.lid+","+0+");'>不通过</a>";
 		}
-=======
-	function caozuo(){
-		var btn="<a href='#'>查看</a>";
->>>>>>> Stashed changes
 		return btn;
 	}
 	
@@ -225,17 +217,8 @@ $(function(){
 				<th field="lrate" width="5%" align="center" formatter="liLV">利率</th>
 				<th field="lterm" width="5%" align="center" formatter="qixian">借款期限</th>
 				<th field="lclass" width="8%" align="center">担保方式</th>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-				<th field="lnums1" width="6%" align="center" formatter="shuliang">数量</th>
-=======
 				<th field="lnums1" width="5%" align="center" formatter="shuliang">数量</th>
->>>>>>> master
 				<th field="lmoneys1" width="8%" align="center" formatter="jiazhi">价值</th>
-=======
-				<th field="lnums" width="6%" align="center">数量</th>
-				<th field="lmoneys" width="8%" align="center">价值</th>
->>>>>>> Stashed changes
 				<th field="lmiaoshu" width="13%" align="center">借款描述</th>
 				<th field="ltype" width="8%" align="center">借款类型</th>
 				<th field="lstate" width="5%" align="center" formatter="lstate">借款状态</th>
@@ -256,10 +239,6 @@ $(function(){
 			<option value="房产抵押">房产抵押</option>
 			<option value="车辆抵押">车辆抵押</option>
 			<option value="信用贷款">信用贷款</option>
-<<<<<<< Updated upstream
-=======
-			<option value="零首付车贷">零首付车贷</option>
->>>>>>> Stashed changes
 		</select>
 		借款类型：<select id="sltype" class="easyui-combobox" data-options="editable:false" style="width:10%;padding-left:23px;">
 			<option value="">--请选择--</option>

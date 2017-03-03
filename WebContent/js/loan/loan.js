@@ -101,7 +101,6 @@ $(function(){
 	$('textarea').focus(function(){
 		$('.mess').html('');
 	});
-<<<<<<< Updated upstream
 });
 
 //查询客户的借款申请
@@ -162,7 +161,7 @@ function isUpFile(lid,lstate){
 	if(lstate == 1){
 		btn="<a href='javascript:void(0)' onclick='upFile("+lid+");'>上传资料</a>"
 	}else{
-		btn="<a href='javascript:void(0)' onclick=''>查看</a>"
+		btn="——"
 	}
 	return btn;
 }
@@ -175,11 +174,6 @@ function xingyong(lclass,lnums){
 		return lnums;
 	}
 }
-<<<<<<< HEAD
-=======
-});
->>>>>>> Stashed changes
-=======
 
 //借款状态
 function lstate(value){
@@ -217,4 +211,3 @@ $(function(){
 function getFileName(fid){
     $('#'+fid).append("(<span class='okimg'>已选取</span>)");  
 }
->>>>>>> master
