@@ -61,5 +61,14 @@ public class CapitalController {
 		ResponseUtil.write(res, result);
 		return null;
 	}
+	
+	
+	@RequestMapping(value="selectById")
+	public Capital selectById(String id, Capital capital){
+		if(id!=null){
+			capital = capitalService.selectByPrimaryKey(Integer.valueOf(id));
+		}
+		return capital;
+	}
 
 }

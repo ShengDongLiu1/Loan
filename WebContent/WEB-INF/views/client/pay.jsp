@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	String path = request.getContextPath();
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,9 +30,6 @@
 		src:url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'),url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')
 	}
 </style>
-<script>
-
-</script>
 <style type="text/css">
 	object,embed{          
 	      -webkit-animation-duration:.001s;
@@ -77,25 +77,27 @@
                       <dd>
                         <div class="form-group">
                           <label class="label">投资人:</label>
-                          <span class="form-text">xxx</span>
+                          <input type="hidden" id="uid" value="${customer.uid}">
+                          <span class="form-text">${customer.username}</span>
                         </div>
+                        <div id="timer" style="font:11px tahoma;height:10px;"></div>
                         <div class="form-group">
                           <label class="label">投标金额（元）:</label>
-                          <span class="form-text">xxx</span>
+                          <span class="form-text" id="qian">${requestScope.qian}</span>
                         </div>
                         <div class="form-group">
                           <label class="label">订单号:</label>
-                          <span class="form-text">xxx</span>
+                          <span class="form-text" id="dingdan">${requestScope.dingdan}</span>
                         </div>
                         <div class="form-group">
                           <label class="label">投标时间:</label>
-                          <span class="form-text">xxx</span>
+                          <span class="form-text" id="time1">${requestScope.time1}</span>
                         </div>
                       </dd>
                       <dd>
                         <div class="form-group">
                           <label class="label">账户可用余额（元）:</label>
-                          <span class="form-text">xxx</span>
+                          <span class="form-text" id="available">${requestScope.available}</span>
                         </div>
                         <div class="form-group">
                           <label class="label">汇付交易密码:</label>
@@ -115,7 +117,7 @@
                       </dd>
                     </dl>
                     <div class="form-group form-btns">
-                      <a href="javascript:;" class="btn btn-primary"><span>确定</span></a>
+                      <a href="javascript:;" class="btn btn-primary" onclick="toubiao();"><span>确定</span></a>
                       <input type="submit" class="btn-submit">
                     </div>
                   </div>
@@ -182,6 +184,25 @@ try{
 <script type="text/javascript" src="/Loan/js/pjjs/pay/postbe.js"></script>
 
 <script>
+
+function toubiao(){
+	var uid = $("#uid").val();
+	var qian = $("#qian").val();
+	var dingdan = $("#dingdan").val();
+	var time1 = $("#time1").val();
+	var available = $("#available").val();
+	  $.post("<%=path%>/investment/toubiao",{'uid':uid},{'qian':qian},{'dingdan':dingdan},{time1:time1},{'available':available},function(index){ 
+	   		if(index.result=='success'){
+	   			alert('投标成功');
+	   		}else{
+	   			alert("投标失败")
+	   		}
+	  
+	  },"json") 
+}
+
+
+
 try {
     initPostbeData("218.204.104.234","20","00000007"
                     ,"2017030210024437191120170302","6000060003321114","6000060004112605"

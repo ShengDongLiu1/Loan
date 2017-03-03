@@ -1,12 +1,22 @@
 package com.ht.h.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ht.h.bean.Capital;
+import com.ht.h.dto.DateUtil;
+import com.ht.h.service.interfaces.CapitalService;
 
 
 @Controller
 @RequestMapping(value="client")
 public class ClientController {
+	
+	@Autowired
+	private CapitalService capitalService;
 	
 	/*
 	 * 跳转到首页
@@ -197,10 +207,18 @@ public class ClientController {
 	
 	/**
 	 * 
-	 * 跳转到消息中心
+	 * 跳转到汇付天下
+	 * @throws Exception 
 	 */
 	@RequestMapping(value="pay")
-	public String pay(){
+	public String pay(String qian,String id,HttpServletRequest request) throws Exception{
+		request.setAttribute("qian", qian);
+		request.setAttribute("dingdan", "HJ"+DateUtil.getCurrentDateStr());
+		request.setAttribute("time1", DateUtil.getCurrentDateStr2());
+		if(id!=null){
+			Capital	capital = capitalService.selectByPrimaryKey(Integer.valueOf(id));
+			request.setAttribute("available", capital.getAvailable());
+		}
 		return "client/pay";
 	}
 	
