@@ -280,12 +280,12 @@ public class CustomerController {
 			int ret=customerService.updateByPrimaryKeySelective(customer);
 			Customer c=new Customer();
 			c = customerService.selectByPrimaryKey(Integer.valueOf(uid));
-			if(c.getIdnumber() != null){
+			if(!"".equals(c.getIdnumber()) && c.getIdnumber() != null){
 				String idex = c.getIdnumber().substring(0, 3);
 				String end = c.getIdnumber().substring(14, 18);
 				c.setIdnumber(idex+"**************"+end);
 			}
-			if(c.getRealname() != null){
+			if(!"".equals(c.getRealname()) && c.getRealname() != null){
 				String name = c.getRealname().substring(1, c.getRealname().length());
 				c.setRealname("*"+name);
 			}
@@ -311,12 +311,14 @@ public class CustomerController {
 		c = customerService.selectByPrimaryKey(Integer.valueOf(uid));
 		String phoneindex = c.getPhone().substring(0,3);
 		String phoneend = c.getPhone().substring(8, 11);
-		String idex = c.getIdnumber().substring(0, 3);
-		String end = c.getIdnumber().substring(14, 18);
-		String name = c.getRealname().substring(1, c.getRealname().length());
+		if(!c.getIdnumber().equals("") && !c.getRealname().equals("") && c.getIdnumber() != null && c.getRealname() != null){
+			String idex = c.getIdnumber().substring(0, 3);
+			String end = c.getIdnumber().substring(14, 18);
+			String name = c.getRealname().substring(1, c.getRealname().length());
+			c.setRealname("*"+name);
+			c.setIdnumber(idex+"**************"+end);
+		}
 		c.setCodephone(phoneindex+"*******"+phoneend);
-		c.setRealname("*"+name);
-		c.setIdnumber(idex+"**************"+end);
 		session.setAttribute("customer", c);
 		return "client/security";
 	}

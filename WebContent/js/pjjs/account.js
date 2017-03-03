@@ -3298,7 +3298,9 @@ function bindEmail(path){
 			}
 		})
 		utils.toast('一封邮件已发到您的邮箱');
-		$("#email_form").submit();
+		setTimeout(function(){  //使用  setTimeout（）方法设定定时1000毫秒
+			$("#email_form").submit();
+    	},500);
 	});
 	
 };

@@ -134,11 +134,8 @@ function idcardSubmit(){
 					</div>
 					<div class="safe-list-2" id="email-text">${customer.email }</div>
 					<div class="safe-list-3">
-					<c:if test="${customer.email != null }">
+					<c:if test="${customer.email != '' and customer.email != null }">
 						<a href="javascript:;" id="emailno" class="on">已绑定</a>
-					</c:if>
-					<c:if test="${customer.email == null}">
-						<a href="javascript:;" onclick="bindEmail()" >绑定</a>
 					</c:if>
 					<a href="javascript:;" onclick="bindEmail('<%=path %>')" >绑定</a>
 					</div>
