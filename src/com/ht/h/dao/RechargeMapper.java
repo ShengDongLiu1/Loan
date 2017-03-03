@@ -23,12 +23,10 @@ public interface RechargeMapper {
     Long getTotal(Map<String, Object> map);
     
     int queryByRserial(String Rserial);
-<<<<<<< Updated upstream
 
 	int rechargetCount();
 
 	List<Recharge> rechargetQueryAll(Map<String, Object> map);
-=======
     
     List<Recharge> queryBy1();
     
@@ -37,5 +35,4 @@ public interface RechargeMapper {
     List<Recharge> queryBy(Map<String, Object> map);
     
     Long getTotalBy(Map<String, Object> map);
->>>>>>> Stashed changes
 }

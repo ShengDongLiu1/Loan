@@ -183,7 +183,6 @@
 			window.location.href="<%=path%>/recharge/queryBy.do"; 
 		})
 		
-//充值记录初始化
 
 	</script>
 </body></html>

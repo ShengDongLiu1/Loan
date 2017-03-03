@@ -63,17 +63,14 @@ public class RechargeServiceImpl implements RechargeService{
 	}
 
 	@Override
-<<<<<<< Updated upstream
 	public int rechargetCount() {
-		// TODO 自动生成的方法存根
 		return rechargDao.rechargetCount();
 	}
 
 	@Override
 	public List<Recharge> rechargetQueryAll(Map<String, Object> map) {
-		// TODO 自动生成的方法存根
 		return rechargDao.rechargetQueryAll(map);
-=======
+	}
 	public List<Recharge> queryBy1() {
 		return rechargDao.queryBy1();
 	}
@@ -91,7 +88,6 @@ public class RechargeServiceImpl implements RechargeService{
 	@Override
 	public Long getTotalBy(Map<String, Object> map) {
 		return rechargDao.getTotalBy(map);
->>>>>>> Stashed changes
 	}
 
 }
