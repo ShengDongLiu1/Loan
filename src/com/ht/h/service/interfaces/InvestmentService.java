@@ -14,4 +14,6 @@ public interface InvestmentService {
     int updateByPrimaryKeySelective(Investment record);
 
     int updateByPrimaryKey(Investment record);
+    
+    String repeatUser(Integer iuid);
 }

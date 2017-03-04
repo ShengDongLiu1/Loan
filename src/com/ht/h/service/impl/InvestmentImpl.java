@@ -42,5 +42,10 @@ public class InvestmentImpl implements InvestmentService{
 	public int updateByPrimaryKey(Investment record) {
 		return investmentMapper.updateByPrimaryKey(record);
 	}
+
+	@Override
+	public String repeatUser(Integer iuid) {
+		return investmentMapper.repeatUser(iuid);
+	}
 	
 }

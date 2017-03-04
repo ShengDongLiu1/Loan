@@ -57,4 +57,9 @@ public class CapitalServiceImpl implements CapitalService{
 		return capitalDao.getTotal(map);
 	}
 
+	@Override
+	public String selectByid(Integer uid) {
+		return capitalDao.selectByid(uid);
+	}
+
 }

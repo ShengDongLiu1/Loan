@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ht.h.mapper.InvestmentMapper" >
+<mapper namespace="com.ht.h.dao.InvestmentMapper" >
   <resultMap id="BaseResultMap" type="com.ht.h.bean.Investment" >
     <id column="iid" property="iid" jdbcType="INTEGER" />
     <result column="iuid" property="iuid" jdbcType="INTEGER" />
@@ -114,4 +114,8 @@
       iavailable = #{iavailable,jdbcType=DECIMAL}
     where iid = #{iid,jdbcType=INTEGER}
   </update>
+  
+   <select id="repeatUser" resultType="java.lang.String" parameterType="java.lang.Integer" >
+  	select iid from Investment where (iuid= #{uid})
+  </select>
 </mapper>

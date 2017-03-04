@@ -1,15 +1,16 @@
 package com.ht.h.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ht.h.bean.Capital;
+import com.ht.h.bean.Customer;
 import com.ht.h.dto.DateUtil;
 import com.ht.h.service.interfaces.CapitalService;
-
 
 @Controller
 @RequestMapping(value="client")
@@ -17,6 +18,7 @@ public class ClientController {
 	
 	@Autowired
 	private CapitalService capitalService;
+	
 	
 	/*
 	 * 跳转到首页
@@ -118,9 +120,16 @@ public class ClientController {
 		return "client/article";
 	}
 	
-	@RequestMapping(value="detail")
-	public String detail(){
-		return "client/detail";
+	
+	//跳转到我要投资页面
+	@RequestMapping(value="detail1")
+	public String detail(HttpSession session){
+		Customer customer = (Customer) session.getAttribute("customer");
+		if(customer!=null){
+			return "client/detail";
+		}else{
+			return "client/login";
+		}
 	}
 	
 	/*
