@@ -57,4 +57,9 @@ public class IncomeServiceImpl implements IncomeService{
 		return incomeDao.getTotal(map);
 	}
 
+	@Override
+	public List<Income> statementAll() {
+		return incomeDao.statementAll();
+	}
+
 }
