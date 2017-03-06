@@ -62,14 +62,13 @@ public class BankServiceImpl implements BankService{
 		return bankDao.queryByUid(uid);
 	}
 
-<<<<<<< HEAD
 	@Override
 	public void addbank(Bank bank) {
 		bankDao.addbank(bank);
-		
-=======
+	}	
+	
+	@Override
 	public List<Bank> selectCard(Integer uid) {
 		return bankDao.selectCard(uid);
->>>>>>> master
 	}
 }
