@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -16,18 +15,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ht.h.bean.Capital;
 import com.ht.h.bean.Customer;
+<<<<<<< Updated upstream
 import com.ht.h.bean.Frozen;
 import com.ht.h.bean.Repayment;
 import com.ht.h.bean.Withdrawals;
+=======
+>>>>>>> Stashed changes
 import com.ht.h.bean.PageBean;
 import com.ht.h.bean.Recharge;
+import com.ht.h.bean.Withdrawals;
 import com.ht.h.dto.Pager;
 import com.ht.h.dto.StringUtil;
 import com.ht.h.service.interfaces.CapitalService;
 import com.ht.h.service.interfaces.CustomerService;
 import com.ht.h.service.interfaces.FrozenService;
 import com.ht.h.service.interfaces.RechargeService;
-import com.ht.h.service.interfaces.RepaymentService;
 import com.ht.h.service.interfaces.WithdrawalsService;
 import com.ht.h.util.ResponseUtil;
 
