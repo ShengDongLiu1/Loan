@@ -16,10 +16,13 @@ public class Investment {
     private Date itime;
 
     private Long iavailable;
+<<<<<<< HEAD
     
     private String istatus;
     
     private Loan loan;
+=======
+>>>>>>> master
 
     public Integer getIid() {
         return iid;
@@ -76,6 +79,7 @@ public class Investment {
     public void setIavailable(Long iavailable) {
         this.iavailable = iavailable;
     }
+<<<<<<< HEAD
     
 	public String getIstatus() {
 		return istatus;
@@ -92,4 +96,6 @@ public class Investment {
 	public void setLoan(Loan loan) {
 		this.loan = loan;
 	}
+=======
+>>>>>>> master
 }

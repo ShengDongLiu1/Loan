@@ -62,5 +62,15 @@ public class CapitalServiceImpl implements CapitalService{
 		
 		return capitalDao.selectByFund(cid);
 	}
+	
+	@Override
+	public String selectByid(Integer uid) {
+		return capitalDao.selectByid(uid);
+	}
+
+	@Override
+	public Capital selectByPrimaryKey2(Integer cid) {
+		return capitalDao.selectByPrimaryKey2(cid);
+	}
 
 }

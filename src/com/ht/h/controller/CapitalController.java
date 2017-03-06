@@ -115,6 +115,10 @@ public class CapitalController {
 		}
 		return null;
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> master
 	@RequestMapping(value="selectById")
 	public Capital selectById(String id, Capital capital){
 		if(id!=null){
@@ -122,4 +126,8 @@ public class CapitalController {
 		}
 		return capital;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 }

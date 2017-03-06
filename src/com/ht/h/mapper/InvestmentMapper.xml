@@ -9,6 +9,7 @@
     <result column="inumber" property="inumber" jdbcType="VARCHAR" />
     <result column="itime" property="itime" jdbcType="TIMESTAMP" />
     <result column="iavailable" property="iavailable" jdbcType="DECIMAL" />
+<<<<<<< HEAD
     <result column="istatus" property="istatus" jdbcType="VARCHAR" />
   </resultMap>
   
@@ -33,6 +34,11 @@
   </resultMap>
   <sql id="Base_Column_List" >
     iid, iuid, lid, imoney, inumber, itime, iavailable, istatus
+=======
+  </resultMap>
+  <sql id="Base_Column_List" >
+    iid, iuid, lid, imoney, inumber, itime, iavailable
+>>>>>>> master
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -47,10 +53,17 @@
   <insert id="insert" parameterType="com.ht.h.bean.Investment" >
     insert into investment (iid, iuid, lid, 
       imoney, inumber, itime, 
+<<<<<<< HEAD
       iavailable, istatus)
     values (#{iid,jdbcType=INTEGER}, #{iuid,jdbcType=INTEGER}, #{lid,jdbcType=INTEGER}, 
       #{imoney,jdbcType=DECIMAL}, #{inumber,jdbcType=VARCHAR}, #{itime,jdbcType=TIMESTAMP}, 
       #{iavailable,jdbcType=DECIMAL}, #{istatus,jdbcType=VARCHAR})
+=======
+      iavailable)
+    values (#{iid,jdbcType=INTEGER}, #{iuid,jdbcType=INTEGER}, #{lid,jdbcType=INTEGER}, 
+      #{imoney,jdbcType=DECIMAL}, #{inumber,jdbcType=VARCHAR}, #{itime,jdbcType=TIMESTAMP}, 
+      #{iavailable,jdbcType=DECIMAL})
+>>>>>>> master
   </insert>
   <insert id="insertSelective" parameterType="com.ht.h.bean.Investment" >
     insert into investment
@@ -76,9 +89,12 @@
       <if test="iavailable != null" >
         iavailable,
       </if>
+<<<<<<< HEAD
       <if test="istatus != null" >
         istatus,
       </if>
+=======
+>>>>>>> master
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="iid != null" >
@@ -102,9 +118,12 @@
       <if test="iavailable != null" >
         #{iavailable,jdbcType=DECIMAL},
       </if>
+<<<<<<< HEAD
       <if test="istatus != null" >
         #{istatus,jdbcType=VARCHAR},
       </if>
+=======
+>>>>>>> master
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.ht.h.bean.Investment" >
@@ -128,9 +147,12 @@
       <if test="iavailable != null" >
         iavailable = #{iavailable,jdbcType=DECIMAL},
       </if>
+<<<<<<< HEAD
       <if test="istatus != null" >
         istatus = #{istatus,jdbcType=VARCHAR},
       </if>
+=======
+>>>>>>> master
     </set>
     where iid = #{iid,jdbcType=INTEGER}
   </update>
@@ -141,6 +163,7 @@
       imoney = #{imoney,jdbcType=DECIMAL},
       inumber = #{inumber,jdbcType=VARCHAR},
       itime = #{itime,jdbcType=TIMESTAMP},
+<<<<<<< HEAD
       iavailable = #{iavailable,jdbcType=DECIMAL},
       istatus = #{istatus,jdbcType=VARCHAR}
     where iid = #{iid,jdbcType=INTEGER}
@@ -164,4 +187,13 @@
 	     l.lid = i.lid
 	   </where>
 	</select>
+=======
+      iavailable = #{iavailable,jdbcType=DECIMAL}
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+  
+   <select id="repeatUser" resultType="java.lang.String" parameterType="java.lang.Integer" >
+  	select iid from Investment where (iuid= #{uid})
+  </select>
+>>>>>>> master
 </mapper>

@@ -77,29 +77,51 @@
                       <dd>
                         <div class="form-group">
                           <label class="label">投资人:</label>
+<<<<<<< HEAD
                           <input type="hidden" id="uid" value="${customer.uid}">
+=======
+                          <input type="hidden" id="iuid" name="iuid" value="${customer.uid}">
+                          <input type="hidden" id="lid" name="lid" value="${requestScope.lid}">
+>>>>>>> master
                           <span class="form-text">${customer.username}</span>
                         </div>
                         <div id="timer" style="font:11px tahoma;height:10px;"></div>
                         <div class="form-group">
                           <label class="label">投标金额（元）:</label>
+<<<<<<< HEAD
+=======
+                          <input type="hidden" id="imoney" name="imoney" value="${requestScope.qian}">
+>>>>>>> master
                           <span class="form-text" id="qian">${requestScope.qian}</span>
                         </div>
                         <div class="form-group">
                           <label class="label">订单号:</label>
+<<<<<<< HEAD
                           <span class="form-text" id="dingdan">${requestScope.dingdan}</span>
                         </div>
                         <div class="form-group">
                           <label class="label">投标时间:</label>
                           <span class="form-text" id="time1">${requestScope.time1}</span>
+=======
+                          <input type="hidden" id="inumber" name="inumber" value="${requestScope.dingdan}">
+                          <span class="form-text" id="dingdan" >${requestScope.dingdan}</span>
+                        </div>
+                        <div class="form-group">
+                          <label class="label">投标时间:</label>
+                          <span class="form-text" id="time1">当前时间</span>
+>>>>>>> master
                         </div>
                       </dd>
                       <dd>
                         <div class="form-group">
                           <label class="label">账户可用余额（元）:</label>
+<<<<<<< HEAD
+=======
+                          <input type="hidden" id="iavailable" name="iavailable" value="${requestScope.available}">
+>>>>>>> master
                           <span class="form-text" id="available">${requestScope.available}</span>
                         </div>
-                        <div class="form-group">
+                      <!--   <div class="form-group">
                           <label class="label">汇付交易密码:</label>
                           <input type="password" class="form-unit" required="" maxlength="16" pname="transPwd">          
                           <label class="form-tips error required">
@@ -108,21 +130,25 @@
                             </div>
                           </label>
                           <a href="http://mertest.chinapnr.com/muser/password/transpwd/forgetTransPwd?&amp;MerCustId=6000060003321114&amp;UsrCustId=6000060004112605&amp;CmdId=InitiativeTender&amp;Version=20&amp;PageType=&amp;SourceId=00000007" class="form-link" target="_blank">忘记汇付交易密码？</a>
-                        </div>
+                        </div> -->
                         <div class="result result-warning">
                           <div class="result-content">
                             <p class="title">您正在使用汇付天下专属账户支付功能，您充分知晓交易对方信息及交易金额，并不可撤销地授权向汇付天下发出支付指令。<br>您应当对投资可能产生的风险有足够的承受能力。</p>
                           </div>
                         </div>
+                         <span class="form-text" id="err"></span>
                       </dd>
                     </dl>
                     <div class="form-group form-btns">
+<<<<<<< HEAD
                       <a href="javascript:;" class="btn btn-primary" onclick="toubiao();"><span>确定</span></a>
                       <input type="submit" class="btn-submit">
+=======
+                      <a href="javascript:;" class="btn " onclick="toubiao();"><span>确定</span></a>
+>>>>>>> master
                     </div>
                   </div>
                 </div>
-              <input type="hidden" name="password_fake"><input type="hidden" name="transPwd"></form>
             </div>
           </div>
           <div class="secure-tips">
@@ -186,6 +212,7 @@ try{
 <script>
 
 function toubiao(){
+<<<<<<< HEAD
 	var uid = $("#uid").val();
 	var qian = $("#qian").val();
 	var dingdan = $("#dingdan").val();
@@ -214,7 +241,34 @@ try {
             }
 } catch (e) {
     console.log(e);
+=======
+	$("#err").html("");
+	var iuid = $("#iuid").val();
+	var lid = $("#lid").val();
+	var iddd = lid.substring(1,lid.length-1)
+	var imoney = $("#qian").html();
+	var inumber = $("#dingdan").html();
+	var iavailable = $("#available").html();
+	if(parseInt(imoney)<=parseInt(iavailable)){
+	 $.post("<%=path%>/investment/toubiao",{'iuid':iuid,'lid':iddd,'imoney':imoney,'inumber':inumber,'iavailable':iavailable},function(index){ 
+	  		if(index.success){
+	  			alert('投标成功');
+	  			window.location.href="<%=path%>/client/investment";
+	  		}else if(index.result=="err"){
+	  			$("#err").html("该用户已经投标了！");
+	  		}else{
+	  			alert("投标失败")
+	  		}
+	 },"json") 
+	}else{
+		$("#err").html("可用余额不足！");
+	}
+>>>>>>> master
 }
+
+
+
+
 </script>
 
 

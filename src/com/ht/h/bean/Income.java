@@ -72,5 +72,12 @@ public class Income {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+
+	@Override
+	public String toString() {
+		return "Income [iid=" + iid + ", uid=" + uid + ", itype=" + itype + ", imoney=" + imoney + ", itime=" + itime
+				+ ", iremarks=" + iremarks + ", customer=" + customer + "]";
+	}
     
+	
 }
