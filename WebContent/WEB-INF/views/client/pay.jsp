@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	String path = request.getContextPath();
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,9 +30,6 @@
 		src:url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'),url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')
 	}
 </style>
-<script>
-
-</script>
 <style type="text/css">
 	object,embed{          
 	      -webkit-animation-duration:.001s;
@@ -77,27 +77,32 @@
                       <dd>
                         <div class="form-group">
                           <label class="label">投资人:</label>
-                          <span class="form-text">xxx</span>
+                          <input type="hidden" id="iuid" name="iuid" value="${customer.uid}">
+                          <span class="form-text">${customer.username}</span>
                         </div>
+                        <div id="timer" style="font:11px tahoma;height:10px;"></div>
                         <div class="form-group">
                           <label class="label">投标金额（元）:</label>
-                          <span class="form-text">xxx</span>
+                          <input type="hidden" id="imoney" name="imoney" value="${requestScope.qian}">
+                          <span class="form-text" id="qian">${requestScope.qian}</span>
                         </div>
                         <div class="form-group">
                           <label class="label">订单号:</label>
-                          <span class="form-text">xxx</span>
+                          <input type="hidden" id="inumber" name="inumber" value="${requestScope.dingdan}">
+                          <span class="form-text" id="dingdan" >${requestScope.dingdan}</span>
                         </div>
                         <div class="form-group">
                           <label class="label">投标时间:</label>
-                          <span class="form-text">xxx</span>
+                          <span class="form-text" id="time1">当前时间</span>
                         </div>
                       </dd>
                       <dd>
                         <div class="form-group">
                           <label class="label">账户可用余额（元）:</label>
-                          <span class="form-text">xxx</span>
+                          <input type="hidden" id="iavailable" name="iavailable" value="${requestScope.available}">
+                          <span class="form-text" id="available">${requestScope.available}</span>
                         </div>
-                        <div class="form-group">
+                      <!--   <div class="form-group">
                           <label class="label">汇付交易密码:</label>
                           <input type="password" class="form-unit" required="" maxlength="16" pname="transPwd">          
                           <label class="form-tips error required">
@@ -106,21 +111,20 @@
                             </div>
                           </label>
                           <a href="http://mertest.chinapnr.com/muser/password/transpwd/forgetTransPwd?&amp;MerCustId=6000060003321114&amp;UsrCustId=6000060004112605&amp;CmdId=InitiativeTender&amp;Version=20&amp;PageType=&amp;SourceId=00000007" class="form-link" target="_blank">忘记汇付交易密码？</a>
-                        </div>
+                        </div> -->
                         <div class="result result-warning">
                           <div class="result-content">
                             <p class="title">您正在使用汇付天下专属账户支付功能，您充分知晓交易对方信息及交易金额，并不可撤销地授权向汇付天下发出支付指令。<br>您应当对投资可能产生的风险有足够的承受能力。</p>
                           </div>
                         </div>
+                         <span class="form-text" id="err"></span>
                       </dd>
                     </dl>
                     <div class="form-group form-btns">
-                      <a href="javascript:;" class="btn btn-primary"><span>确定</span></a>
-                      <input type="submit" class="btn-submit">
+                      <a href="javascript:;" class="btn " onclick="toubiao();"><span>确定</span></a>
                     </div>
                   </div>
                 </div>
-              <input type="hidden" name="password_fake"><input type="hidden" name="transPwd"></form>
             </div>
           </div>
           <div class="secure-tips">
@@ -182,18 +186,32 @@ try{
 <script type="text/javascript" src="/Loan/js/pjjs/pay/postbe.js"></script>
 
 <script>
-try {
-    initPostbeData("218.204.104.234","20","00000007"
-                    ,"2017030210024437191120170302","6000060003321114","6000060004112605"
-                    ,"http://192.168.0.206:9999","P2P","[source_id:00000000;source_id_source:null;user_id:null;usr_type:null;cert_id:null;card_id:null;bank_name:null;bank_prov:null;bank_area:null;failure_reason:null;]");
-            var conPath='/muser';
-            if(conPath!=null||conPath!=''){
-             var path='/muser/ajax/sendPostUrl';
-              javaSendUrl(path);
-            }
-} catch (e) {
-    console.log(e);
+
+function toubiao(){
+	$("#err").html("");
+	var iuid = $("#iuid").val();
+	var imoney = $("#qian").html();
+	var inumber = $("#dingdan").html();
+	var iavailable = $("#available").html();
+	if(parseInt(imoney)<=parseInt(iavailable)){
+	 $.post("<%=path%>/investment/toubiao",{'iuid':iuid,'imoney':imoney,'inumber':inumber,'iavailable':iavailable},function(index){ 
+	  		if(index.success){
+	  			alert('投标成功');
+	  			window.location.href="<%=path%>/client/investment";
+	  		}else if(index.result=="err"){
+	  			$("#err").html("该用户已经投标了！");
+	  		}else{
+	  			alert("投标失败")
+	  		}
+	 },"json") 
+	}else{
+		$("#err").html("可用余额不足！");
+	}
 }
+
+
+
+
 </script>
 
 

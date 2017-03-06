@@ -58,9 +58,14 @@ public class CapitalServiceImpl implements CapitalService{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Capital selectByFund(Integer cid) {
 		
 		return capitalDao.selectByFund(cid);
+=======
+	public String selectByid(Integer uid) {
+		return capitalDao.selectByid(uid);
+>>>>>>> master
 	}
 
 }

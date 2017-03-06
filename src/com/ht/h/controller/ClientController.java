@@ -1,11 +1,14 @@
 package com.ht.h.controller;
 
 import javax.servlet.http.HttpServletRequest;
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+=======
+>>>>>>> master
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,10 @@ import com.ht.h.dto.Pager;
 import com.ht.h.service.interfaces.BankService;
 import com.ht.h.service.interfaces.RechargeService;
 
+import com.ht.h.bean.Capital;
+import com.ht.h.bean.Customer;
+import com.ht.h.dto.DateUtil;
+import com.ht.h.service.interfaces.CapitalService;
 
 @Controller
 @RequestMapping(value="client")
@@ -37,6 +44,10 @@ public class ClientController {
 	
 	@Autowired
 	private RechargeService rechargeService;
+	
+	@Autowired
+	private CapitalService capitalService;
+	
 	
 	/*
 	 * 跳转到首页
@@ -138,9 +149,16 @@ public class ClientController {
 		return "client/article";
 	}
 	
-	@RequestMapping(value="detail")
-	public String detail(){
-		return "client/detail";
+	
+	//跳转到我要投资页面
+	@RequestMapping(value="detail1")
+	public String detail(HttpSession session){
+		Customer customer = (Customer) session.getAttribute("customer");
+		if(customer!=null){
+			return "client/detail";
+		}else{
+			return "client/login";
+		}
 	}
 	
 	/*
@@ -250,10 +268,18 @@ public class ClientController {
 	
 	/**
 	 * 
-	 * 跳转到消息中心
+	 * 跳转到汇付天下
+	 * @throws Exception 
 	 */
 	@RequestMapping(value="pay")
-	public String pay(){
+	public String pay(String qian,String id,HttpServletRequest request) throws Exception{
+		request.setAttribute("qian", qian);
+		request.setAttribute("dingdan", "HJ"+DateUtil.getCurrentDateStr());
+		request.setAttribute("time1", DateUtil.getCurrentDateStr2());
+		if(id!=null){
+			Capital	capital = capitalService.selectByPrimaryKey(Integer.valueOf(id));
+			request.setAttribute("available", capital.getAvailable());
+		}
 		return "client/pay";
 	}
 	

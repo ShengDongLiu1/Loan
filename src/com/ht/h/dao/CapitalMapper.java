@@ -24,5 +24,7 @@ public interface CapitalMapper {
     
     Long getTotal(Map<String, Object> map);
     
+    String selectByid(Integer uid);
+    
     
 }

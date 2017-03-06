@@ -176,4 +176,12 @@
       ctime = #{ctime,jdbcType=TIMESTAMP}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
+  
+  
+  <select id="selectByid" resultType="java.lang.String" parameterType="java.lang.Integer" >
+    select 
+   		cid
+    from Capital
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
 </mapper>
