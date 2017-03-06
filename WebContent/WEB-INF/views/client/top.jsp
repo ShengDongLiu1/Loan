@@ -248,7 +248,6 @@ $(window).load(function(){
 			 	<a href="<%=path %>/client/left?uid=${customer.uid}">${customer.username}</a>
 			 	<span>|</span>
 		 		<a href="<%=path %>/customer/logOut">注销</a>
-		 		<a href="<%=path %>/customer/logOut" >注销</a>
 		 	</c:if>
 		 	<span>|</span>
 		 	<a href="<%=path%>/client/recharge">充值</a>
