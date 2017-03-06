@@ -78,7 +78,6 @@ public class CapitalController {
 	}
 	
 	
-<<<<<<< HEAD
 	@RequestMapping("selectAngodiv1")
 	public String selectAngodiv1(String state,@RequestParam(value="time1",required=false)String time1,@RequestParam(value="time",required=false)String time,@RequestParam(value="page",required=false)int page,Recharge recharge,HttpServletResponse response, HttpSession session)throws Exception{
 		System.out.println("selectAngodiv");
@@ -116,7 +115,7 @@ public class CapitalController {
 		}
 		return null;
 	}
-=======
+	
 	@RequestMapping(value="selectById")
 	public Capital selectById(String id, Capital capital){
 		if(id!=null){
@@ -125,5 +124,4 @@ public class CapitalController {
 		return capital;
 	}
 
->>>>>>> master
 }

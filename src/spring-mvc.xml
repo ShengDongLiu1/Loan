@@ -48,11 +48,8 @@
     		<mvc:exclude-mapping path="/recharge/*"/> 
     		<mvc:exclude-mapping path="/client/*"/>
     		<mvc:exclude-mapping path="/loan/addLoan"/>
-<<<<<<< HEAD
     		<mvc:exclude-mapping path="/loan/selCusLoan"/>
-=======
     		<mvc:exclude-mapping path="/investment/*"/>
->>>>>>> master
     		<mvc:exclude-mapping path="/css/*.css"/>
     		<mvc:exclude-mapping path="/11112/css/*.css"/>
     		<mvc:exclude-mapping path="/11112/images/*.jpg"/>
