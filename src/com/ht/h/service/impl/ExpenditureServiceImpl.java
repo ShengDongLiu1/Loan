@@ -57,4 +57,10 @@ public class ExpenditureServiceImpl implements ExpenditureService{
 		return expenditureDao.getTotal(map);
 	}
 
+	@Override
+	public List<Expenditure> expendAll() {
+		
+		return expenditureDao.expendAll();
+	}
+
 }

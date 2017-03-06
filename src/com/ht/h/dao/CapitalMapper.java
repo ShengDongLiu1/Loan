@@ -14,6 +14,8 @@ public interface CapitalMapper {
 
     Capital selectByPrimaryKey(Integer cid);
     
+    Capital selectByPrimaryKey2(Integer cid);
+
     Capital selectByFund(Integer cid);
     
     int updateByPrimaryKeySelective(Capital record);
@@ -23,6 +25,8 @@ public interface CapitalMapper {
     List<Capital> selectAll(Map<String, Object> map);
     
     Long getTotal(Map<String, Object> map);
+    
+    String selectByid(Integer uid);
     
     
 }

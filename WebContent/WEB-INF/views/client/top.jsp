@@ -247,7 +247,7 @@ $(window).load(function(){
 			 	<span>欢迎</span>
 			 	<a href="<%=path %>/client/left?uid=${customer.uid}">${customer.username}</a>
 			 	<span>|</span>
-		 		<a href="javascript:void(0)">注销</a>
+		 		<a href="<%=path %>/customer/logOut">注销</a>
 		 	</c:if>
 		 	<span>|</span>
 		 	<a href="<%=path%>/client/recharge">充值</a>
@@ -275,7 +275,7 @@ $(window).load(function(){
 <div class="zxcf_menu_wper" >
 	<div class="zxcf_menu px1000" style="margin-left: 21.5%;">
 		  <a href="<%=path %>/client/index" class="zm_cura">首页</a>
-		  <a href="<%=path %>/client/invest">我要投资</a>
+		  <a href="<%=path %>/client/invest?page=1&rows=10">我要投资</a>
 		  <a href="<%=path %>/client/borrow">我要借款</a>
 		  <a href="#">实时财务</a>
 		  <a href="<%=path %>/client/noticelist">新手指引</a>

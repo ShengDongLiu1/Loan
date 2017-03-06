@@ -138,6 +138,11 @@
 		</if>
 	</select>
 	
+	<!-- 收入报表 -->
+	<select id="statementAll" resultMap="queryResultMap">
+		select itype,imoney from income   where date_format(itime,'%Y-%m')=date_format(now(),'%Y-%m')
+	</select>
+	
 	<!-- 查询收入总条数 -->
 	<select id="getTotal" parameterType="Map" resultType="Long">
 		select count(*) from income i,customer cu
