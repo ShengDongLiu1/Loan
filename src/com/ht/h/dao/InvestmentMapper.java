@@ -1,5 +1,8 @@
 package com.ht.h.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.ht.h.bean.Investment;
 
 public interface InvestmentMapper {
@@ -14,4 +17,8 @@ public interface InvestmentMapper {
     int updateByPrimaryKeySelective(Investment record);
 
     int updateByPrimaryKey(Investment record);
+    
+    List<Investment> InvestmentSelectAll(Map<String, Object> map);
+    
+    Long getTotal(Map<String, Object> map);
 }

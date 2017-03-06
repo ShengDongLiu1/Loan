@@ -1,5 +1,8 @@
 package com.ht.h.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +44,17 @@ public class InvestmentImpl implements InvestmentService{
 	@Override
 	public int updateByPrimaryKey(Investment record) {
 		return investmentMapper.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Investment> InvestmentSelectAll(Map<String, Object> map) {
+		return investmentMapper.InvestmentSelectAll(map);
+	}
+
+	@Override
+	public Long getTotal(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return investmentMapper.getTotal(map);
 	}
 	
 }

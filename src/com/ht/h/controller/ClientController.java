@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ht.h.bean.Bank;
 import com.ht.h.bean.Capital;
 import com.ht.h.bean.Customer;
+import com.ht.h.bean.Investment;
+import com.ht.h.bean.PageBean;
 import com.ht.h.bean.Recharge;
 import com.ht.h.dto.DateUtil;
 import com.ht.h.dto.Pager;
 import com.ht.h.service.interfaces.BankService;
 import com.ht.h.service.interfaces.CapitalService;
+import com.ht.h.service.interfaces.InvestmentService;
 import com.ht.h.service.interfaces.RechargeService;
 
 
@@ -35,6 +38,9 @@ public class ClientController {
 	
 	@Autowired
 	private RechargeService rechargeService;
+	
+	@Autowired
+	private InvestmentService investmentService;
 	
 	/*
 	 * 跳转到首页
@@ -197,7 +203,24 @@ public class ClientController {
 	 * 投资管理
 	 * */
 	@RequestMapping(value="investment")
-	public String investment(){
+	public String investment(@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows, HttpServletRequest request){
+		PageBean pageBean=null;
+		if(page == null && rows == null){
+			pageBean=new PageBean(1,10);
+		}else{
+			pageBean=new PageBean(Integer.parseInt(page),Integer.parseInt(rows));
+		}
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("start", pageBean.getStart());
+		map.put("size", pageBean.getPageSize());
+		List<Investment> list=investmentService.InvestmentSelectAll(map);
+		Long total=investmentService.getTotal(map);
+		request.setAttribute("rechList", list);
+		request.setAttribute("total", total);
+		pageBean.setTotal(Integer.parseInt(String.valueOf(total)));
+		request.setAttribute("count", pageBean.getCount());
+		request.setAttribute("page",pageBean.getPage());
+		request.setAttribute("pageSize",pageBean.getPageSize());
 		return "client/investment";
 	}
 	
