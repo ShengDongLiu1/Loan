@@ -33,8 +33,6 @@ public class InvestmentController {
 	@RequestMapping("toubiao")
 	@ResponseBody
 	public String toubiao(Investment investment,HttpServletResponse response) throws Exception{
-		System.out.println(investment.getInumber()+"--"+investment.getIavailable());
-	
 		JSONObject result = new JSONObject();
 		String iuid = investmentService.repeatUser(investment.getIuid());
 		if(iuid==null){
