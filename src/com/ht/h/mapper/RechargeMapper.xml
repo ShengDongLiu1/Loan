@@ -20,7 +20,7 @@
     <result column="rtype" jdbcType="VARCHAR" property="rtype" />
     <result column="rmoney" jdbcType="DECIMAL" property="rmoney" />
     <result column="rtime" jdbcType="TIMESTAMP" property="rtime" />
-    
+    <result column="rstate" jdbcType="VARCHAR" property="rstate" />
      <association property="capital" javaType="com.ht.h.bean.Capital">
 	    <result column="cid" property="cid" />
     	<result column="uid" jdbcType="INTEGER" property="uid" />
@@ -36,7 +36,7 @@
   </sql>
   
   <sql id="Cap_Rec_List">
-    r.rtime,r.rtype,r.Rmoney,c.Available
+   r.rstate, r.rtime,r.rtype,r.Rmoney,c.Available
   </sql>
   
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -197,7 +197,6 @@
       rtime = #{rtime,jdbcType=TIMESTAMP}
     where rid = #{rid,jdbcType=INTEGER}
   </update>
-  
   
    <select id="rechargetQueryAll" parameterType="Map" resultMap="CapRecMap">
   	select <include refid="Cap_Rec_List" /> 

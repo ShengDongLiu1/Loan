@@ -65,4 +65,10 @@ public class BankServiceImpl implements BankService{
 	public List<Bank> queryByUid(int uid) {
 		return bankDao.queryByUid(uid);
 	}
+
+	@Override
+	public void addbank(Bank bank) {
+		bankDao.addbank(bank);
+		
+	}
 }

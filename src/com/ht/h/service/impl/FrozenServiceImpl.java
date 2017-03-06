@@ -1,5 +1,8 @@
 package com.ht.h.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -42,6 +45,18 @@ public class FrozenServiceImpl implements FrozenService{
 	@Override
 	public int updateByPrimaryKey(Frozen record) {
 		return frozenDao.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public int frozenCount(Map<String, Object> map) {
+		// TODO 自动生成的方法存根
+		return frozenDao.frozenCount(map);
+	}
+
+	@Override
+	public List<Frozen> frozenQueryAll(Map<String, Object> map) {
+		// TODO 自动生成的方法存根
+		return frozenDao.frozenQueryAll(map);
 	}
 
 }

@@ -173,14 +173,18 @@ public class ClientController {
 	 * 资金记录
 	 * */
 	@RequestMapping(value="MoneyRecord")
-	public String MoneyRecord(HttpServletRequest request){
+	public String MoneyRecord(HttpServletRequest request,@RequestParam(value="state",required=false)String state,@RequestParam(value="time1",required=false)String time1,@RequestParam(value="time",required=false)String time,@RequestParam(value="page",required=false)int page){
 		//if(state == "1" && state.equals("1")){//查询充值表
 			Pager<Recharge> pager = new Pager<Recharge>();
 			pager.setPageSize(10);
 			int count = rechargeService.rechargetCount();
 			int total = count % pager.getPageSize() == 0 ? count / pager.getPageSize() : count / pager.getPageSize() +1;
 			pager.setTotal(total);
-			if(pager.getTotal() == 0){
+			if(page >= 1 && page <= pager.getTotal()){
+				pager.setPageNo(page);
+			} else if (page < 1) {
+				pager.setPageNo(1);
+			} else if(pager.getTotal() == 0){
 				pager.setPageNo(1);
 			}else{
 				pager.setPageNo(pager.getTotal());
@@ -191,6 +195,7 @@ public class ClientController {
 			List<Recharge> userList=rechargeService.rechargetQueryAll(map);
 			pager.setRows(userList);
 			request.setAttribute("rechList", pager);
+			request.setAttribute("count", count);
 			return "client/MoneyRecord";
 	}
 	
@@ -219,7 +224,7 @@ public class ClientController {
 		Customer customer=(Customer) session.getAttribute("customer");
 		List<Bank> list=bankService.selectCard(customer.getUid());//查询所有数据
 		request.setAttribute("bankList", list);
-		return "client/BankCard";
+		return "client/BankCards";
 	}
 	
 	/*

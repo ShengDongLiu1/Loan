@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	 pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html>
 <!-- saved from url=(0050)http://mertest.chinapnr.com/muser/bankcard/addCard -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style media="screen"></style>
@@ -10,9 +16,10 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no">
-<link rel="stylesheet" href="/Loan/css/huifucss/2/style.css">
+<link rel="stylesheet" href="/Loan/css/huifucss/style.css">
 <link rel="shortcut icon" href="http://mertest.chinapnr.com/muser/favicon.ico">
 <script src="/Loan/js/huifujs/jquery-1.8.2.min.js.下载"></script>
+
 </head>
 <body class="w960">
   <div class="wrapper">
@@ -28,28 +35,12 @@
       <div class="main">
         <div class="content">
           <h1 class="page-title">绑定取现银行卡<span> 该银行卡将作为利息发放及本金发放的银行卡</span></h1>
-          <form method="post" action="http://mertest.chinapnr.com/muser/bankcard/addCard" autocomplete="off" class="validate-form errFocus" novalidate=""><input type="text" name="prevent_autofill" id="prevent_autofill" value="" style="display:none;"><input type="password" id="password_fake" value="" style="display:none;" pname="password_fake">
+          <form method="post" action="<%=path %>/banktion/addbank" autocomplete="off" class="validate-form errFocus" novalidate=""><input type="text" name="prevent_autofill" id="prevent_autofill" value="" style="display:none;"><input type="password" id="password_fake" value="" style="display:none;" pname="password_fake">
                   <input type="hidden" name="loginId" id="loginId" value="pjzb_1223566788">
                   <input type="hidden" name="custId" value="6000060004112605">
                   <input type="hidden" name="merUsrName" value="普金资本运营(赣州)有限公司">
                   <input type="hidden" name="merShortName" value="普金资本">
-                  <input type="hidden" name="merCustId" value="6000060003321114">
-                  <input type="hidden" name="shortName" value="">
-                  <input id="sendFlag" type="hidden" name="sendFlag" value="true">
-                  <input type="hidden" name="version" value="10">
-                  <input type="hidden" name="merPriv" value="1223566788">
-                  <input type="hidden" name="cmdId" value="UserBindCard">
-                  <input type="hidden" name="bgRetUrl" value="http://120.76.203.19:8090/shzc_test/WEB-PC/reAddBankInfo.do">
-                  <input id="chkValue" type="hidden" name="chkValue" value="8055D9CEAFBAD8B92D9C8B43F13DDD707BEBB7737D8A050CFA9AAAAA59A8B99A5283B64CB776200F6A2C838D150AAF3AE66D71A8E71F899A0AE0724CB3091A1F0E9E2457C273A32666B65B42061D39A8C6CD8F4B11E6425F4E8628EE7DACA3701CFE4A8BF8C567BD09BDACF6037BFECF8C7430D4FC3A9FD3BBF6843B7EDF3023">
-                  <input type="hidden" name="charset" id="charset" value="UTF-8">
-                  <input type="hidden" name="usrRole" id="usrRole" value="01">
-                  <input type="hidden" name="maskCertId" id="maskCertId" value="3607261988 **** 001X">
-                  <input type="hidden" name="cardName" value="唐洁龙">
-                  <input type="hidden" name="encryptStr" id="encryptStr" value="D2B84E677073B0AF8F065886A390F5B8">
-                  <input type="hidden" name="qpAuthFlag" value="">
-                  <input type="hidden" name="veriCardType" value="">
-                  <input type="hidden" name="SourceId" value="10000038">
-                  <input type="hidden" name="loginKey" value="">
+                 
             <div class="form form-border mb30">
               <!--平台名称-->
               <div class="form-title form-title-big">
@@ -62,11 +53,11 @@
                   <dd>
                     <div class="form-group">
                       <label class="label">真实姓名:</label>
-                      <span class="form-text">唐洁龙</span>
+                      <span class="form-text">${customer.realname }</span>
                     </div>
                     <div class="form-group">
                       <label class="label">证件号码:</label>
-                      <span class="form-text">3607261988 **** 001X</span>
+                      <span class="form-text">${customer.idnumber }</span>
                     </div>
                   </dd>
                   <dd>
@@ -234,92 +225,8 @@
                         </div>
                       </label>
                     </div>
-                    <div class="form-group form-group-prov-city">
-                      <label class="label">银行卡所属地:</label>
-                      <div class="form-unit form-unit-action">
-                        <div class="form-unit-info">
-                          <b>江苏 苏州</b>
-                          <span></span>
-                          <i class="form-unit-action-arrow"></i>
-                        </div>
-                      </div>
-                      <input type="hidden" name="provId" required="" value="0032">
-                      <input type="hidden" name="areaId" required="" value="3206">
-                      <label class="form-tips tip tip-card-city">
-                        <div class="form-tips-content">
-                          <div class="tips-content-short">
-                            <span class="pw-secure"><b></b><b></b><b></b><b></b><b></b></span>
-                          </div>
-                          <div class="tips-content-long">
-                            <div class="tips-prov-city">
-                              <a href="javascript:void(0)" class="on"><span>省份</span></a>
-                              <a href="javascript:void(0)"><span>城市</span></a>
-                            </div>
-                            <div class="tips-list tips-list-prov">
-                                  <a href="javascript:;" rel="0011"><span>北京</span></a>
-                                  <a href="javascript:;" rel="0012"><span>天津</span></a>
-                                  <a href="javascript:;" rel="0013"><span>河北</span></a>
-                                  <a href="javascript:;" rel="0014"><span>山西</span></a>
-                                  <a href="javascript:;" rel="0015"><span>内蒙古</span></a>
-                                  <a href="javascript:;" rel="0021"><span>辽宁</span></a>
-                                  <a href="javascript:;" rel="0022"><span>吉林</span></a>
-                                  <a href="javascript:;" rel="0023"><span>黑龙江</span></a>
-                                  <a href="javascript:;" rel="0031"><span>上海</span></a>
-                                  <a href="javascript:;" rel="0032" class="on"><span>江苏</span></a>
-                                  <a href="javascript:;" rel="0033"><span>浙江</span></a>
-                                  <a href="javascript:;" rel="0034"><span>安徽</span></a>
-                                  <a href="javascript:;" rel="0035"><span>福建</span></a>
-                                  <a href="javascript:;" rel="0036"><span>江西</span></a>
-                                  <a href="javascript:;" rel="0037"><span>山东</span></a>
-                                  <a href="javascript:;" rel="0041"><span>河南</span></a>
-                                  <a href="javascript:;" rel="0042"><span>湖北</span></a>
-                                  <a href="javascript:;" rel="0043"><span>湖南</span></a>
-                                  <a href="javascript:;" rel="0044"><span>广东</span></a>
-                                  <a href="javascript:;" rel="0045"><span>广西</span></a>
-                                  <a href="javascript:;" rel="0046"><span>海南</span></a>
-                                  <a href="javascript:;" rel="0050"><span>重庆</span></a>
-                                  <a href="javascript:;" rel="0051"><span>四川</span></a>
-                                  <a href="javascript:;" rel="0052"><span>贵州</span></a>
-                                  <a href="javascript:;" rel="0053"><span>云南</span></a>
-                                  <a href="javascript:;" rel="0054"><span>西藏</span></a>
-                                  <a href="javascript:;" rel="0061"><span>陕西</span></a>
-                                  <a href="javascript:;" rel="0062"><span>甘肃</span></a>
-                                  <a href="javascript:;" rel="0063"><span>青海</span></a>
-                                  <a href="javascript:;" rel="0064"><span>宁夏</span></a>
-                                  <a href="javascript:;" rel="0065"><span>新疆</span></a>
-                                  <a href="javascript:;" rel="2001"><span>香港</span></a>
-                                  <a href="javascript:;" rel="2002"><span>澳门</span></a>
-                                  <a href="javascript:;" rel="2003"><span>台湾</span></a>
-                            </div>
-                            <div class="tips-list tips-list-city"><a href="javascript:void(0)" rel="3201"><span>南京</span></a><a href="javascript:void(0)" rel="3202"><span>常州</span></a><a href="javascript:void(0)" rel="3203"><span>淮安</span></a><a href="javascript:void(0)" rel="3204"><span>连云港</span></a><a href="javascript:void(0)" rel="3205"><span>南通</span></a><a href="javascript:void(0)" rel="3206" class="on"><span>苏州</span></a><a href="javascript:void(0)" rel="3207"><span>宿迁</span></a><a href="javascript:void(0)" rel="3208"><span>泰州</span></a><a href="javascript:void(0)" rel="3209"><span>无锡</span></a><a href="javascript:void(0)" rel="3210"><span>徐州</span></a><a href="javascript:void(0)" rel="3211"><span>盐城</span></a><a href="javascript:void(0)" rel="3212"><span>扬州</span></a><a href="javascript:void(0)" rel="3213"><span>镇江</span></a><a href="javascript:void(0)" rel="3214"><span>胥浦</span></a></div>
-                          </div>
-                        </div>
-                      </label>
-                      <label class="form-tips error required">
-                        <div class="form-tips-arrow"></div>
-                        <div class="form-tips-content">
-                          <p>请选择银行卡的省份及城市</p>
-                        </div>
-                      </label>
-                      <label class="form-tips okay">&nbsp;</label>
-                    </div>
-                    <div class="form-group">
-                      <label class="label">汇付交易密码:</label>
-                      <input type="password" class="form-unit form-unit-error" required="" maxlength="16" pname="transPwd">          
-                      <label class="form-tips error required active">
-                        <div class="form-tips-arrow"></div>
-                        <div class="form-tips-content">
-                          <p>汇付交易密码不能为空</p>
-                        </div>
-                      </label>
-                        <label class="form-tips error serverActive">
-                          <div class="form-tips-arrow"></div>
-                          <div class="form-tips-content">
-                            <p>汇付交易密码错误, 请重试!</p>
-                          </div>
-                        </label>
-                      <a href="http://mertest.chinapnr.com/muser/password/transpwd/forgetTransPwd?Test=test&amp;MerCustId=6000060003321114&amp;UsrCustId=6000060004112605&amp;CmdId=UserBindCard&amp;Version=10&amp;SourceId=10000038" class="form-link" target="_blank">忘记汇付交易密码？</a>
-                    </div>
+                    
+                    
                     <div class="form-group" style="margin-top:40px;">
                       <label class="label label-top">&nbsp;</label>
                       <label class="checkbox" for="Checkbox-1" style="width:175px;display:inline-block">
@@ -329,7 +236,7 @@
                   </dd>
                 </dl>
                 <div class="form-group form-btns">
-                  <a href="javascript:void(0)" class="btn btn-primary"><span>确定</span></a>
+                  <a href="javascript:tj();" class="btn btn-primary"><span>确定</span></a>
                   <input type="submit" class="btn-submit">
                 </div>
               </div>
@@ -385,14 +292,14 @@ try{
 }catch(e){
   document.write("<script type='text/javascript' src=/Loan/js/huifujs/zepto.md5.js'><\/script>");
 }
+
+tj(){
+	alert("提交");
+}
 </script><script type="text/javascript" src="/Loan/js/huifujs/jQuery.md5.js.下载"></script>
 <script type="text/javascript" src=/Loan/js/huifujs/postbe.js.下载"></script>
 
 <script>
-try {
-    initPostbeData("218.204.104.234","","10000038"
-                    ,"","6000060003321114","6000060004112605"
-                    ,"http://192.168.0.206:9999","P2P","[source_id:10000038;source_id_source:null;user_id:null;usr_type:C;cert_id:null;card_id:6228480402564890018;bank_name:ABC;bank_prov:0032;bank_area:3206;failure_reason:交易密码错误，请重新输入;]");
 
     //    /muser/ajax/posebe
     //http://mobileservice.chinapnr.com/postbe
@@ -422,9 +329,6 @@ try {
    // }else{
      //   sendPostbe('NA');
     //}
-} catch (e) {
-    console.log(e);
-}
 </script>
 
 
