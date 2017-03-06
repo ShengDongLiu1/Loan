@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ht.h.bean.Expenditure;
+import com.ht.h.bean.Income;
 import com.ht.h.bean.PageBean;
 import com.ht.h.dto.StringUtil;
 import com.ht.h.service.interfaces.ExpenditureService;
@@ -53,5 +55,15 @@ public class ExpenditureController {
 		map.put("rows", incList);
 		map.put("total", total);
 		return map;
+	}
+	
+	/**
+	 * 支出报表统计
+	 */
+	@RequestMapping(value="/expendAll")
+	public String expendAll(HttpServletRequest request){
+		List<Expenditure> expenditures=expenditureService.expendAll();
+		request.setAttribute("expendAll", expenditures);
+		return "statement/expend";	
 	}
 }

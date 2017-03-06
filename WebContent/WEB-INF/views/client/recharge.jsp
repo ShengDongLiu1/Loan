@@ -47,7 +47,7 @@
 		<div class="account-right"><div class="account-right-nav">
 	<div class="sub-a-nav">
 		<a href="javascript:void(0);" class="active show-ipay">充值</a>
-		<a href="javascript:void(0);" class="show-ipay-list">充值记录</a>
+		<a href="javascript:void(0);" id="czjl">充值记录</a>
 	</div>
 	<em class="em-line"></em>
 </div>
@@ -86,11 +86,11 @@
 					<div class="children4">充值状态</div>
 				</li>
 			</ul>
-			<ul class="ipay-list-box listData">
+			<ul class="ipay-list-box listData" id="n">
 			
 			</ul>
 			<ul class="paging">
-			
+				
 			</ul>
 		</div>
 	</div>
@@ -98,9 +98,7 @@
 		</div>
 		<!-- end -->
 	</div>
-<<<<<<< Updated upstream
 	<jsp:include flush="true" page="bottom.jsp"></jsp:include>
-=======
 	<div id="ajaxFooter">	
 	<div class="mod-sidebar">
 		<ul>
@@ -169,25 +167,22 @@
 		</div>
 	</div>
 </div>
-	<!--[if lt IE 9]>
-	    <script src="src/libs/json2.js"></script>
-	<![endif]-->
 	<script type="text/javascript">
-	$('#ipay-submit').click(function(){
-		/* alert("++++++"); */
-		var money = $('#ipay-amt').val();
-		/* alert(money+"++++++"); */
-		
-		$.post("<%=path%>/recharge/queryByBank",
-            function(data){
-				if(data.result=="fail"){
-					/* alert(data.errorMsg); */
-				}else if(data.result=="seccuss"){
-					window.location.href="<%=path%>/recharge/add?rmoney="+money; 
+		$('#ipay-submit').click(function(){
+			var money = $('#ipay-amt').val();
+			$.post("<%=path%>/recharge/queryByBank",
+	            function(data){
+					if(data.result=="fail"){
+					}else if(data.result=="seccuss"){
+						window.location.href="<%=path%>/recharge/add?rmoney="+money; 
+					}
 				}
-			}
-	   	)
-	})
+		   	)
+		})
+		$('#czjl').click(function(){
+			window.location.href="<%=path%>/recharge/queryBy.do"; 
+		})
+		
+
 	</script>
->>>>>>> Stashed changes
 </body></html>

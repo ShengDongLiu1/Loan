@@ -27,4 +27,12 @@ public interface RechargeMapper {
 	int rechargetCount();
 
 	List<Recharge> rechargetQueryAll(Map<String, Object> map);
+    
+    List<Recharge> queryBy1();
+    
+    Long getTotal1();
+    
+    List<Recharge> queryBy(Map<String, Object> map);
+    
+    Long getTotalBy(Map<String, Object> map);
 }

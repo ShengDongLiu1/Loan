@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.h.dao.DatumMapper">
+  <resultMap id="BaseResultMap" type="com.ht.h.bean.Datum">
+    <id column="did" jdbcType="INTEGER" property="did" />
+    <result column="dlid" jdbcType="INTEGER" property="dlid" />
+    <result column="dcard" jdbcType="VARCHAR" property="dcard" />
+    <result column="household" jdbcType="VARCHAR" property="household" />
+    <result column="dcensus" jdbcType="VARCHAR" property="dcensus" />
+    <result column="dcredit" jdbcType="VARCHAR" property="dcredit" />
+    <result column="dapply" jdbcType="VARCHAR" property="dapply" />
+    <result column="dother1" jdbcType="VARCHAR" property="dother1" />
+    <result column="dother2" jdbcType="VARCHAR" property="dother2" />
+    <result column="dother3" jdbcType="VARCHAR" property="dother3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    did, dlid, dcard, household, dcensus, dcredit, dapply, dother1, dother2, dother3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from datum
+    where did = #{did,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByDlid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from datum
+    where dlid = #{dlid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from datum
+    where did = #{did,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ht.h.bean.Datum">
+    insert into datum (did, dlid, dcard, 
+      household, dcensus, dcredit, 
+      dapply, dother1, dother2, 
+      dother3)
+    values (#{did,jdbcType=INTEGER}, #{dlid,jdbcType=INTEGER}, #{dcard,jdbcType=VARCHAR}, 
+      #{household,jdbcType=VARCHAR}, #{dcensus,jdbcType=VARCHAR}, #{dcredit,jdbcType=VARCHAR}, 
+      #{dapply,jdbcType=VARCHAR}, #{dother1,jdbcType=VARCHAR}, #{dother2,jdbcType=VARCHAR}, 
+      #{dother3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.h.bean.Datum">
+    insert into datum
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        did,
+      </if>
+      <if test="dlid != null">
+        dlid,
+      </if>
+      <if test="dcard != null">
+        dcard,
+      </if>
+      <if test="household != null">
+        household,
+      </if>
+      <if test="dcensus != null">
+        dcensus,
+      </if>
+      <if test="dcredit != null">
+        dcredit,
+      </if>
+      <if test="dapply != null">
+        dapply,
+      </if>
+      <if test="dother1 != null">
+        dother1,
+      </if>
+      <if test="dother2 != null">
+        dother2,
+      </if>
+      <if test="dother3 != null">
+        dother3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="dlid != null">
+        #{dlid,jdbcType=INTEGER},
+      </if>
+      <if test="dcard != null">
+        #{dcard,jdbcType=VARCHAR},
+      </if>
+      <if test="household != null">
+        #{household,jdbcType=VARCHAR},
+      </if>
+      <if test="dcensus != null">
+        #{dcensus,jdbcType=VARCHAR},
+      </if>
+      <if test="dcredit != null">
+        #{dcredit,jdbcType=VARCHAR},
+      </if>
+      <if test="dapply != null">
+        #{dapply,jdbcType=VARCHAR},
+      </if>
+      <if test="dother1 != null">
+        #{dother1,jdbcType=VARCHAR},
+      </if>
+      <if test="dother2 != null">
+        #{dother2,jdbcType=VARCHAR},
+      </if>
+      <if test="dother3 != null">
+        #{dother3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.h.bean.Datum">
+    update datum
+    <set>
+      <if test="dlid != null">
+        dlid = #{dlid,jdbcType=INTEGER},
+      </if>
+      <if test="dcard != null">
+        dcard = #{dcard,jdbcType=VARCHAR},
+      </if>
+      <if test="household != null">
+        household = #{household,jdbcType=VARCHAR},
+      </if>
+      <if test="dcensus != null">
+        dcensus = #{dcensus,jdbcType=VARCHAR},
+      </if>
+      <if test="dcredit != null">
+        dcredit = #{dcredit,jdbcType=VARCHAR},
+      </if>
+      <if test="dapply != null">
+        dapply = #{dapply,jdbcType=VARCHAR},
+      </if>
+      <if test="dother1 != null">
+        dother1 = #{dother1,jdbcType=VARCHAR},
+      </if>
+      <if test="dother2 != null">
+        dother2 = #{dother2,jdbcType=VARCHAR},
+      </if>
+      <if test="dother3 != null">
+        dother3 = #{dother3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where did = #{did,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.h.bean.Datum">
+    update datum
+    set dlid = #{dlid,jdbcType=INTEGER},
+      dcard = #{dcard,jdbcType=VARCHAR},
+      household = #{household,jdbcType=VARCHAR},
+      dcensus = #{dcensus,jdbcType=VARCHAR},
+      dcredit = #{dcredit,jdbcType=VARCHAR},
+      dapply = #{dapply,jdbcType=VARCHAR},
+      dother1 = #{dother1,jdbcType=VARCHAR},
+      dother2 = #{dother2,jdbcType=VARCHAR},
+      dother3 = #{dother3,jdbcType=VARCHAR}
+    where did = #{did,jdbcType=INTEGER}
+  </update>
+</mapper>

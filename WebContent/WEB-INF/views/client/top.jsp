@@ -147,13 +147,13 @@ $(window).load(function(){
                     <p>
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1223348320&site=qq&menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:1223348320:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>东哥</span>
+                          <span>傻猴</span>
                     	</a>
                     </p>
                      <p>                              
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1274603021&amp;site=qq&amp;menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:1274603021:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>乐哥</span>
+                          <span>乐古</span>
                     	</a>
                     </p>
                     <p>
@@ -171,7 +171,7 @@ $(window).load(function(){
                     <p>
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=844661789&site=qq&menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:844661789:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>豪哥</span>
+                          <span>豪傻</span>
                     	</a>
                     </p>
                     <p>
@@ -183,7 +183,7 @@ $(window).load(function(){
                     <p>
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=599646324&site=qq&menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:599646324:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>骚根</span>
+                          <span>根哥</span>
                     	</a>
                     </p>
                   
@@ -247,7 +247,7 @@ $(window).load(function(){
 			 	<span>欢迎</span>
 			 	<a href="<%=path %>/client/left?uid=${customer.uid}">${customer.username}</a>
 			 	<span>|</span>
-		 		<a href="javascript:void(0)">注销</a>
+		 		<a href="<%=path %>/customer/logOut">注销</a>
 		 	</c:if>
 		 	<span>|</span>
 		 	<a href="<%=path%>/client/recharge">充值</a>
@@ -275,7 +275,7 @@ $(window).load(function(){
 <div class="zxcf_menu_wper" >
 	<div class="zxcf_menu px1000" style="margin-left: 21.5%;">
 		  <a href="<%=path %>/client/index" class="zm_cura">首页</a>
-		  <a href="<%=path %>/client/invest">我要投资</a>
+		  <a href="<%=path %>/client/invest?page=1&rows=10">我要投资</a>
 		  <a href="<%=path %>/client/borrow">我要借款</a>
 		  <a href="#">实时财务</a>
 		  <a href="<%=path %>/client/noticelist">新手指引</a>

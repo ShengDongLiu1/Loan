@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ht.h.dao.InvestmentMapper" >
+  <resultMap id="BaseResultMap" type="com.ht.h.bean.Investment" >
+    <id column="iid" property="iid" jdbcType="INTEGER" />
+    <result column="iuid" property="iuid" jdbcType="INTEGER" />
+    <result column="lid" property="lid" jdbcType="INTEGER" />
+    <result column="imoney" property="imoney" jdbcType="DECIMAL" />
+    <result column="inumber" property="inumber" jdbcType="VARCHAR" />
+    <result column="itime" property="itime" jdbcType="TIMESTAMP" />
+    <result column="iavailable" property="iavailable" jdbcType="DECIMAL" />
+    <result column="istatus" property="istatus" jdbcType="VARCHAR" />
+  </resultMap>
+  
+    <!-- 关联到借款表（loan） -->
+  <resultMap type="com.ht.h.bean.Investment" id="BaseResultMaps">
+	<id column="iid" property="iid" jdbcType="INTEGER" />
+    <result column="iuid" property="iuid" jdbcType="INTEGER" />
+    <result column="lid" property="lid" jdbcType="INTEGER" />
+    <result column="imoney" property="imoney" jdbcType="DECIMAL" />
+    <result column="inumber" property="inumber" jdbcType="VARCHAR" />
+    <result column="itime" property="itime" jdbcType="TIMESTAMP" />
+    <result column="iavailable" property="iavailable" jdbcType="DECIMAL" />
+    <result column="istatus" property="istatus" jdbcType="VARCHAR" />
+    
+    <association property="loan" javaType="com.ht.h.bean.Loan">
+    	<result property="lid" column="lid"/>
+    	<result property="ltitle" column="ltitle"/>
+    	<result property="lmoney" column="lmoney"/>
+    	<result property="lrate" column="lrate"/>
+    	<result property="ltype" column="ltype"/>
+    </association>  
+  </resultMap>
+  <sql id="Base_Column_List" >
+    iid, iuid, lid, imoney, inumber, itime, iavailable, istatus
+    </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from investment
+    where iid = #{iid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from investment
+    where iid = #{iid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ht.h.bean.Investment" >
+    insert into investment (iid, iuid, lid, 
+      imoney, inumber, itime, 
+      iavailable, istatus)
+    values (#{iid,jdbcType=INTEGER}, #{iuid,jdbcType=INTEGER}, #{lid,jdbcType=INTEGER}, 
+      #{imoney,jdbcType=DECIMAL}, #{inumber,jdbcType=VARCHAR}, #{itime,jdbcType=TIMESTAMP}, 
+      #{iavailable,jdbcType=DECIMAL}, #{istatus,jdbcType=VARCHAR})
+      iavailable)
+    values (#{iid,jdbcType=INTEGER}, #{iuid,jdbcType=INTEGER}, #{lid,jdbcType=INTEGER}, 
+      #{imoney,jdbcType=DECIMAL}, #{inumber,jdbcType=VARCHAR}, #{itime,jdbcType=TIMESTAMP}, 
+      #{iavailable,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.h.bean.Investment" >
+    insert into investment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="iid != null" >
+        iid,
+      </if>
+      <if test="iuid != null" >
+        iuid,
+      </if>
+      <if test="lid != null" >
+        lid,
+      </if>
+      <if test="imoney != null" >
+        imoney,
+      </if>
+      <if test="inumber != null" >
+        inumber,
+      </if>
+      <if test="itime != null" >
+        itime,
+      </if>
+      <if test="iavailable != null" >
+        iavailable,
+      </if>
+      <if test="istatus != null" >
+        istatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="iid != null" >
+        #{iid,jdbcType=INTEGER},
+      </if>
+      <if test="iuid != null" >
+        #{iuid,jdbcType=INTEGER},
+      </if>
+      <if test="lid != null" >
+        #{lid,jdbcType=INTEGER},
+      </if>
+      <if test="imoney != null" >
+        #{imoney,jdbcType=DECIMAL},
+      </if>
+      <if test="inumber != null" >
+        #{inumber,jdbcType=VARCHAR},
+      </if>
+      <if test="itime != null" >
+        #{itime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iavailable != null" >
+        #{iavailable,jdbcType=DECIMAL},
+      </if>
+      <if test="istatus != null" >
+        #{istatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.h.bean.Investment" >
+    update investment
+    <set >
+      <if test="iuid != null" >
+        iuid = #{iuid,jdbcType=INTEGER},
+      </if>
+      <if test="lid != null" >
+        lid = #{lid,jdbcType=INTEGER},
+      </if>
+      <if test="imoney != null" >
+        imoney = #{imoney,jdbcType=DECIMAL},
+      </if>
+      <if test="inumber != null" >
+        inumber = #{inumber,jdbcType=VARCHAR},
+      </if>
+      <if test="itime != null" >
+        itime = #{itime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iavailable != null" >
+        iavailable = #{iavailable,jdbcType=DECIMAL},
+      </if>
+      <if test="istatus != null" >
+        istatus = #{istatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.h.bean.Investment" >
+    update investment
+    set iuid = #{iuid,jdbcType=INTEGER},
+      lid = #{lid,jdbcType=INTEGER},
+      imoney = #{imoney,jdbcType=DECIMAL},
+      inumber = #{inumber,jdbcType=VARCHAR},
+      itime = #{itime,jdbcType=TIMESTAMP},
+      iavailable = #{iavailable,jdbcType=DECIMAL},
+      istatus = #{istatus,jdbcType=VARCHAR}
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+  
+  	<!-- 查询投资记录和借款记录 -->
+  <select id="InvestmentSelectAll" parameterType="Map" resultMap="BaseResultMaps">
+	   select * from loan l, investment i
+	   <where>
+	     l.lid = i.lid
+	   </where>
+	   <if test="start!=null and size!=null">
+			limit #{start},#{size}
+	   </if>
+  </select>
+   
+    <!-- 查询质检记录条数 -->
+	<select id="getTotal" parameterType="Map" resultType="Long">
+	   select count(*) from loan l, investment i
+	   <where>
+	     l.lid = i.lid
+	   </where>
+	</select>
+  
+   <select id="repeatUser" resultType="java.lang.String" parameterType="java.lang.Integer" >
+  	select iid from Investment where (iuid= #{uid})
+  </select>
+</mapper>

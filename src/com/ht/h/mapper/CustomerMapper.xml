@@ -13,10 +13,11 @@
     <result column="ustate" jdbcType="VARCHAR" property="ustate" />
     <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
     <result column="information" jdbcType="VARCHAR" property="information" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
   </resultMap>
   <sql id="Base_Column_List">
     uid, username, userpwd, realname, sex, idnumber, phone, credit, ustate, createtime, 
-    information
+    information,email
   </sql>
   
   <!-- 客户登录 -->
@@ -55,11 +56,11 @@
     insert into customer (uid, username, userpwd, 
       realname, sex, idnumber, 
       phone, credit, ustate, 
-      createtime, information)
+      createtime, information,email)
     values (#{uid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR}, 
       #{realname,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{idnumber,jdbcType=VARCHAR}, 
       #{phone,jdbcType=VARCHAR}, #{credit,jdbcType=DOUBLE}, #{ustate,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{information,jdbcType=VARCHAR})
+      #{createtime,jdbcType=TIMESTAMP}, #{information,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR})
   </insert>
   
   <!-- 添加客户 -->
@@ -99,6 +100,9 @@
       <if test="information != null">
         information,
       </if>
+      <if test="email != null">
+      	email,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -133,6 +137,9 @@
       </if>
       <if test="information != null">
         #{information,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+      	#{email,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -171,6 +178,9 @@
       <if test="information != null">
         information = #{information,jdbcType=VARCHAR},
       </if>
+      <if test="email != null">
+      	email = #{email,jdbcType=VARCHAR},
+      </if>
     </set>
     where uid = #{uid,jdbcType=INTEGER}
   </update>
@@ -187,7 +197,8 @@
       credit = #{credit,jdbcType=DOUBLE},
       ustate = #{ustate,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP},
-      information = #{information,jdbcType=VARCHAR}
+      information = #{information,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
   

@@ -727,6 +727,13 @@ p.tips-title b{
     height: 420px;
     margin: -210px 0 0 -300px;
 }
+
+.change-idcard {
+    width: 600px;
+    height: 330px;
+    margin: -210px 0 0 -300px;
+}
+
 .change-phone{
 	width: 600px;
     height: 400px;

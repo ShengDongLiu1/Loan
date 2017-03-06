@@ -101,7 +101,6 @@ $(function(){
 	$('textarea').focus(function(){
 		$('.mess').html('');
 	});
-<<<<<<< Updated upstream
 });
 
 //查询客户的借款申请
@@ -144,8 +143,9 @@ function selCusLoan(num){
  				"<td>"+xingyong(value.lclass,value.lmoneys)+"</td>"+
  				"<td>"+value.ltype+"</td>"+
  				"<td>"+value.lmiaoshu+"</td>"+
- 				"<td>"+value.lstate+"</td>"+
+ 				"<td>"+lstate(value.lstate)+"</td>"+
  				"<td>"+jsonDateFormat(value.ltime)+"</td>"+
+ 				"<td>"+isUpFile(value.lid,value.lstate)+"</td>"+
 			"</tr>"
 		});
 		$('#cusLoan').html(tbody);
@@ -156,6 +156,16 @@ function selCusLoan(num){
 	},"json");
 }
 
+function isUpFile(lid,lstate){
+	var btn=""
+	if(lstate == 1){
+		btn="<a href='javascript:void(0)' onclick='upFile("+lid+");'>上传资料</a>"
+	}else{
+		btn="——"
+	}
+	return btn;
+}
+
 //信用贷款
 function xingyong(lclass,lnums){
 	if(lclass == '信用贷款'){
@@ -164,6 +174,40 @@ function xingyong(lclass,lnums){
 		return lnums;
 	}
 }
-=======
+
+//借款状态
+function lstate(value){
+	var btn="";
+	if(value == 0){
+		btn="未通过";
+	}else if(value == 1){
+		btn="初审中";
+	}else if(value == 2){
+		btn="招标中";
+	}else if(value == 3){
+		btn="满标";
+	}else if(value == 4){
+		btn="还款中";
+	}else if(value == 5){
+		btn="已还款";
+	}else if(value == 6){
+		btn="流标";
+	}
+	return btn;
+}
+
+function upFile(lid){
+	$('#upfile').show();
+	$('#flid').val(lid);
+}
+
+$(function(){
+	$('#close').click(function(){
+		$('#upfile').hide();
+		$('#flid').val('');
+	});
 });
->>>>>>> Stashed changes
+
+function getFileName(fid){
+    $('#'+fid).append("(<span class='okimg'>已选取</span>)");  
+}

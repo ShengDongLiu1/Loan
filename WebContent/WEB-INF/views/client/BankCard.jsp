@@ -81,6 +81,7 @@
 			<div class="bank-addCard"><a href="javascript:;">添加银行卡</a></div>
 		</div>
 	</div>
+<<<<<<< HEAD
 </div>
 		<!-- end -->
 	</div>
@@ -153,6 +154,12 @@
 		</div>
 	</div>
 </div>
+=======
+		<em></em>
+	</div>
+		<jsp:include flush="true" page="bottom.jsp"></jsp:include>
+		<!-- end -->
+>>>>>>> master
 	<!--[if lt IE 9]>
 	    <script src="src/libs/json2.js"></script>
 	<![endif]-->

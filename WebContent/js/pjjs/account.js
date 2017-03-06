@@ -3260,7 +3260,7 @@ function initSafe(){
 	});
 }
 //邮箱绑定
-function bindEmail(){
+function bindEmail(path){
 	utils.Dialog(true);
 	$('.bind-email').fadeIn();
 	$('.bind-email .close').click(function(){
@@ -3282,7 +3282,7 @@ function bindEmail(){
 				email:email
 		};
 		utils.ajax({
-			url:'http://120.76.203.19:8090/shzc_test/WEB-PC/app/sendEmailForUserSet.do',
+			url:path+'/customer/send?email='+email,
 			data:JSON.stringify(param),
 			dataType:'json',
 			success:function(data){
@@ -3297,68 +3297,44 @@ function bindEmail(){
 		        }
 			}
 		})
+		utils.toast('一封邮件已发到您的邮箱');
+		setTimeout(function(){  //使用  setTimeout（）方法设定定时1000毫秒
+			$("#email_form").submit();
+    	},500);
 	});
 	
 };
 //修改绑定手机号
-function changePhone(phone){
+function changePhone(path,phone,btn){
 	utils.Dialog(true);
+	var wait = 60; 
 	$('.change-phone').fadeIn();
 	$('.change-phone .close').click(function(){
 		$('.change-phone').hide();
 		utils.Dialog();
 	});
 	$('.change-phone .step1').show().siblings('.step2').hide();
-	$('#oldPhoneNum').text(phone);
 	$('#oldMobliePhoneCode').val('');
-	clearInterval(utils.time);
-	//获取原手机短信验证码
+	
 	$('#getMsgCodeOld').removeClass('disabled').text('获取验证码').unbind('click').click(function(){
-		utils.getSmsCode($(this),phone,'oldMobileCode');
+		utils.toast('验证码已发送到您的手机请注意查收！');
+		//获取原手机短信验证码
+        $.post(path+"/customer/verification",{'phone':phone},function(index){ 
+	    },"json") 
 	});
 	//验证原手机号码
-	$('#phone-submit-one').unbind('click').click(function(){
+	$('#phone-submit').unbind('click').click(function(){
+		var codemess = $('#codemes').val();
 		var oldMobileCode = $('#oldMobliePhoneCode').val();
+		var mobile = $('#newMobliePhone').val();
 		if($('#getMsgCodeOld').data('error')){
 			utils.alert($('#getMsgCodeOld').data('error'));
 			return;
 		};
-		if(!$('#getMsgCodeOld').data('randomCode')){
-			utils.alert('请先获取原手机短信验证码！');
-			return;
-		};
 		if(oldMobileCode == ''){
-			utils.toast('原手机短信验证码不能为空');
+			utils.toast('验证码不能为空');
 			return;
 		}
-		var param = {
-				code:oldMobileCode,
-				type:'oldMobileCode'
-		}
-		utils.ajax({
-			url:'http://120.76.203.19:8090/shzc_test/WEB-PC/app/checkMobilePhoneCode.do',
-			data:JSON.stringify(param),
-			success:function(data){
-				if(data.error == '0'){
-					$('.change-phone .step1').hide().siblings('.step2').show();
-					changePhoneStepTwo();
-				}else{
-					utils.alert(data.msg);
-				}
-			}
-		})
-	})
-}
-//修改手机第二步
-function changePhoneStepTwo(){
-	//获取短信验证码
-	$('#getMsgCode').removeClass('disabled').text('获取验证码').unbind('click').click(function(){
-		utils.getSmsCode($(this),$('#newMobliePhone').val(),'updateMobileCode');
-	})
-	$('#phone-submit').unbind('click').click(function(){
-		var mobile = $('#newMobliePhone').val();
-		var updateMobileCode = $('#newMobliePhoneCode').val();
-		
 		if(mobile == ''){
 			utils.toast('新手机号码不能为空');
 			return;
@@ -3367,41 +3343,14 @@ function changePhoneStepTwo(){
 			utils.toast('请填写正确的手机号码');
 			return;
 		}
-		if($('#getMsgCode').data('error')){
-			utils.alert($('#getMsgCode').data('error'));
-			return;
-		};
-		if(!$('#getMsgCode').data('randomCode')){
-			utils.alert('请获取新手机短信验证码！');
-			return;
-		};
-		if(updateMobileCode == ''){
-			utils.toast('新手机短信验证码不能为空');
+		if(codemess != 'ok'){
+			utils.toast('验证码错误');
 			return;
 		}
-		var param = {
-				mobile:mobile,
-				updateMobileCode:updateMobileCode
-		}
-		utils.ajax({
-			url:'http://120.76.203.19:8090/shzc_test/WEB-PC/app/updateBindingMobile.do',
-			data:JSON.stringify(param),
-			dataType:'json',
-			success:function(data){
-				if(data.error == '0'){
-					$('.change-phone .popup-from').hide().siblings('.popup-result').show();
-					$('#phone-submit-success').click(function(){
-						utils.Storage.clear();
-						window.location.href='http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/login.html';
-					})
-				}else{
-					utils.alert(data.msg);
-				}
-				
-			}
-		});
+		$("#phoneupdate_form").submit();
 	})
 }
+
 //修改登录交易密码
 function changePwd(){
 	utils.Dialog(true);
@@ -3454,6 +3403,8 @@ function changePwdSubmit(){
 	}
 	
 }
+
+
 //我的银行卡
 function initMyDebitCard() {
 	$.ajax({

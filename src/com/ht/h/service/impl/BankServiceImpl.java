@@ -58,17 +58,18 @@ public class BankServiceImpl implements BankService{
 	}
 
 	@Override
-	public List<Bank> selectCard(Integer uid) {
-		return bankDao.selectCard(uid);
-	}
-	@Override
 	public List<Bank> queryByUid(int uid) {
 		return bankDao.queryByUid(uid);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void addbank(Bank bank) {
 		bankDao.addbank(bank);
 		
+=======
+	public List<Bank> selectCard(Integer uid) {
+		return bankDao.selectCard(uid);
+>>>>>>> master
 	}
 }
