@@ -1,14 +1,9 @@
 package com.ht.h.controller;
-
-<<<<<<< HEAD
-=======
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-<<<<<<< HEAD
->>>>>>> master
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,8 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-<<<<<<< HEAD
-=======
 
 import com.ht.h.bean.Bank;
 import com.ht.h.bean.Capital;
@@ -30,12 +23,9 @@ import com.ht.h.bean.Recharge;
 import com.ht.h.dto.DateUtil;
 import com.ht.h.dto.Pager;
 import com.ht.h.service.interfaces.BankService;
-<<<<<<< HEAD
 import com.ht.h.service.interfaces.CapitalService;
 import com.ht.h.service.interfaces.RechargeService;
-=======
 import com.ht.h.service.interfaces.RechargeService;
->>>>>>> master
 
 import com.ht.h.bean.Capital;
 import com.ht.h.bean.Customer;
@@ -45,7 +35,6 @@ import com.ht.h.dto.PageBean;
 import com.ht.h.dto.StringUtil;
 import com.ht.h.service.interfaces.CapitalService;
 import com.ht.h.service.interfaces.LoanService;
->>>>>>> master
 
 @Controller
 @RequestMapping(value="client")
@@ -60,15 +49,9 @@ public class ClientController {
 	@Autowired
 	private RechargeService rechargeService;
 	
-<<<<<<< HEAD
-	
-=======
-	@Autowired
-	private CapitalService capitalService;
 	
 	@Autowired
 	private LoanService loanService;
->>>>>>> master
 	/*
 	 * 跳转到首页
 	 * */

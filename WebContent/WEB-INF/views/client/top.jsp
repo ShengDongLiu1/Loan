@@ -247,11 +247,8 @@ $(window).load(function(){
 			 	<span>欢迎</span>
 			 	<a href="<%=path %>/client/left?uid=${customer.uid}">${customer.username}</a>
 			 	<span>|</span>
-<<<<<<< HEAD
 		 		<a href="<%=path %>/customer/logOut">注销</a>
-=======
 		 		<a href="<%=path %>/customer/logOut" >注销</a>
->>>>>>> master
 		 	</c:if>
 		 	<span>|</span>
 		 	<a href="<%=path%>/client/recharge">充值</a>
