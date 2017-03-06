@@ -3,10 +3,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -19,27 +15,17 @@ import com.ht.h.bean.Bank;
 import com.ht.h.bean.Capital;
 import com.ht.h.bean.Customer;
 import com.ht.h.bean.Investment;
+import com.ht.h.bean.Loan;
 import com.ht.h.bean.PageBean;
 import com.ht.h.bean.Recharge;
 import com.ht.h.dto.DateUtil;
 import com.ht.h.dto.Pager;
+import com.ht.h.dto.StringUtil;
 import com.ht.h.service.interfaces.BankService;
 import com.ht.h.service.interfaces.CapitalService;
-<<<<<<< HEAD
 import com.ht.h.service.interfaces.InvestmentService;
-=======
-import com.ht.h.service.interfaces.RechargeService;
->>>>>>> master
-import com.ht.h.service.interfaces.RechargeService;
-
-import com.ht.h.bean.Capital;
-import com.ht.h.bean.Customer;
-import com.ht.h.bean.Loan;
-import com.ht.h.dto.DateUtil;
-import com.ht.h.dto.PageBean;
-import com.ht.h.dto.StringUtil;
-import com.ht.h.service.interfaces.CapitalService;
 import com.ht.h.service.interfaces.LoanService;
+import com.ht.h.service.interfaces.RechargeService;
 
 @Controller
 @RequestMapping(value="client")
@@ -54,15 +40,12 @@ public class ClientController {
 	@Autowired
 	private RechargeService rechargeService;
 	
-<<<<<<< HEAD
 	@Autowired
 	private InvestmentService investmentService;
 	
-=======
 	
 	@Autowired
 	private LoanService loanService;
->>>>>>> master
 	/*
 	 * 跳转到首页
 	 * */
@@ -248,7 +231,6 @@ public class ClientController {
 	 * 投资管理
 	 * */
 	@RequestMapping(value="investment")
-<<<<<<< HEAD
 	public String investment(@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows, HttpServletRequest request){
 		PageBean pageBean=null;
 		if(page == null && rows == null){
@@ -267,11 +249,9 @@ public class ClientController {
 		request.setAttribute("count", pageBean.getCount());
 		request.setAttribute("page",pageBean.getPage());
 		request.setAttribute("pageSize",pageBean.getPageSize());
-=======
-	public String investment(Loan loan,@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,String username,HttpServletRequest req){
->>>>>>> master
+		
 		return "client/investment";
-	}
+		}
 	
 	/*
 	 *借款管理
@@ -324,17 +304,6 @@ public class ClientController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(value="pay")
-<<<<<<< HEAD
-	public String pay(String qian,String id,HttpServletRequest request) throws Exception{
-		System.out.println("id:==="+id);
-		request.setAttribute("qian", qian);
-		request.setAttribute("dingdan", "HJ"+DateUtil.getCurrentDateStr());
-		request.setAttribute("time1", DateUtil.getCurrentDateStr2());
-		if(id!=null){
-			Capital	capital = capitalService.selectByPrimaryKey(Integer.valueOf(id));
-			System.out.println(capital+"-------------");
-			request.setAttribute("available", capital.getAvailable());
-=======
 	public String pay(String qian,String id,HttpServletRequest request,String lid) throws Exception{
 		request.setAttribute("qian", qian);
 		request.setAttribute("lid", lid);
@@ -347,7 +316,6 @@ public class ClientController {
 			}else{
 				return "client/BankCard";
 			}
->>>>>>> master
 		}
 		return "client/pay";
 	}

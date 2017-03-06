@@ -77,48 +77,30 @@
                       <dd>
                         <div class="form-group">
                           <label class="label">投资人:</label>
-<<<<<<< HEAD
-                          <input type="hidden" id="uid" value="${customer.uid}">
-=======
                           <input type="hidden" id="iuid" name="iuid" value="${customer.uid}">
                           <input type="hidden" id="lid" name="lid" value="${requestScope.lid}">
->>>>>>> master
                           <span class="form-text">${customer.username}</span>
                         </div>
                         <div id="timer" style="font:11px tahoma;height:10px;"></div>
                         <div class="form-group">
                           <label class="label">投标金额（元）:</label>
-<<<<<<< HEAD
-=======
                           <input type="hidden" id="imoney" name="imoney" value="${requestScope.qian}">
->>>>>>> master
                           <span class="form-text" id="qian">${requestScope.qian}</span>
                         </div>
                         <div class="form-group">
                           <label class="label">订单号:</label>
-<<<<<<< HEAD
-                          <span class="form-text" id="dingdan">${requestScope.dingdan}</span>
-                        </div>
-                        <div class="form-group">
-                          <label class="label">投标时间:</label>
-                          <span class="form-text" id="time1">${requestScope.time1}</span>
-=======
                           <input type="hidden" id="inumber" name="inumber" value="${requestScope.dingdan}">
                           <span class="form-text" id="dingdan" >${requestScope.dingdan}</span>
                         </div>
                         <div class="form-group">
                           <label class="label">投标时间:</label>
                           <span class="form-text" id="time1">当前时间</span>
->>>>>>> master
                         </div>
                       </dd>
                       <dd>
                         <div class="form-group">
                           <label class="label">账户可用余额（元）:</label>
-<<<<<<< HEAD
-=======
                           <input type="hidden" id="iavailable" name="iavailable" value="${requestScope.available}">
->>>>>>> master
                           <span class="form-text" id="available">${requestScope.available}</span>
                         </div>
                       <!--   <div class="form-group">
@@ -140,12 +122,7 @@
                       </dd>
                     </dl>
                     <div class="form-group form-btns">
-<<<<<<< HEAD
-                      <a href="javascript:;" class="btn btn-primary" onclick="toubiao();"><span>确定</span></a>
-                      <input type="submit" class="btn-submit">
-=======
                       <a href="javascript:;" class="btn " onclick="toubiao();"><span>确定</span></a>
->>>>>>> master
                     </div>
                   </div>
                 </div>
@@ -212,36 +189,6 @@ try{
 <script>
 
 function toubiao(){
-<<<<<<< HEAD
-	var uid = $("#uid").val();
-	var qian = $("#qian").val();
-	var dingdan = $("#dingdan").val();
-	var time1 = $("#time1").val();
-	var available = $("#available").val();
-	  $.post("<%=path%>/investment/toubiao",{'uid':uid},{'qian':qian},{'dingdan':dingdan},{time1:time1},{'available':available},function(index){ 
-	   		if(index.result=='success'){
-	   			alert('投标成功');
-	   		}else{
-	   			alert("投标失败")
-	   		}
-	  
-	  },"json") 
-}
-
-
-
-try {
-    initPostbeData("218.204.104.234","20","00000007"
-                    ,"2017030210024437191120170302","6000060003321114","6000060004112605"
-                    ,"http://192.168.0.206:9999","P2P","[source_id:00000000;source_id_source:null;user_id:null;usr_type:null;cert_id:null;card_id:null;bank_name:null;bank_prov:null;bank_area:null;failure_reason:null;]");
-            var conPath='/muser';
-            if(conPath!=null||conPath!=''){
-             var path='/muser/ajax/sendPostUrl';
-              javaSendUrl(path);
-            }
-} catch (e) {
-    console.log(e);
-=======
 	$("#err").html("");
 	var iuid = $("#iuid").val();
 	var lid = $("#lid").val();
@@ -263,7 +210,6 @@ try {
 	}else{
 		$("#err").html("可用余额不足！");
 	}
->>>>>>> master
 }
 
 

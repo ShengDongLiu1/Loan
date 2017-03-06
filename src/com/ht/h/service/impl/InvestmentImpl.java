@@ -1,11 +1,7 @@
 package com.ht.h.service.impl;
 
-<<<<<<< HEAD
 import java.util.List;
 import java.util.Map;
-
-=======
->>>>>>> master
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,19 +46,16 @@ public class InvestmentImpl implements InvestmentService{
 	}
 
 	@Override
-<<<<<<< HEAD
 	public List<Investment> InvestmentSelectAll(Map<String, Object> map) {
 		return investmentMapper.InvestmentSelectAll(map);
 	}
 
 	@Override
 	public Long getTotal(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return investmentMapper.getTotal(map);
-=======
+	}
 	public String repeatUser(Integer iuid) {
 		return investmentMapper.repeatUser(iuid);
->>>>>>> master
 	}
 	
 }

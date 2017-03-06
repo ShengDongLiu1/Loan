@@ -1,11 +1,7 @@
 package com.ht.h.dao;
 
-<<<<<<< HEAD
 import java.util.List;
 import java.util.Map;
-
-=======
->>>>>>> master
 import com.ht.h.bean.Investment;
 
 public interface InvestmentMapper {
@@ -21,11 +17,8 @@ public interface InvestmentMapper {
 
     int updateByPrimaryKey(Investment record);
     
-<<<<<<< HEAD
     List<Investment> InvestmentSelectAll(Map<String, Object> map);
     
     Long getTotal(Map<String, Object> map);
-=======
     String repeatUser(Integer iuid);
->>>>>>> master
 }

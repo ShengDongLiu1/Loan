@@ -85,10 +85,7 @@
                           <p class="det_input">
                           	  <input type="text" id="qian" placeholder="100">
                           	  <input type="hidden" id="uid" value="${customer.uid }">
-<<<<<<< HEAD
-=======
                           	  <input type="hidden" id="lid" value="${requestScope.lid }">
->>>>>>> master
                           </p>
                           <p class="det_shouyi">每投资1万元收益<strong>183.33元</strong></p>
                           <p><a href="javascript:void(0)" class=" pro_btn det_btn" onclick="touzi()">立即投资</a></p>
@@ -487,18 +484,11 @@
 	function touzi(){
 		var qian = $("#qian").val();
 		var id = $("#uid").val();
-<<<<<<< HEAD
-		if(qian==null || qian==""){
-			alert("请输入投资金额!")
-		}else{
-			window.location.href="<%=path%>/client/pay?qian="+qian+"&id="+id;
-=======
 		var lid = $("#lid").val();
 		if(qian==null || qian==""){
 			alert("请输入投资金额!")
 		}else{
 			window.location.href="<%=path%>/client/pay?qian="+qian+"&id="+id+"&lid="+lid;
->>>>>>> master
 		}
 	}
 </script>
