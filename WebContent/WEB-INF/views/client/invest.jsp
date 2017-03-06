@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -59,151 +60,68 @@
 	  	    <span>发布时间<img src="<%=path %>/images/invest_jiantou.png" alt=""></span>
 	  	    <span>项目期限<img src="<%=path %>/images/invest_jiantou.png" alt=""></span>
 	  	    </h3>
+	  	
 	  	    <div class="product_list mt20">
-	  	    	     <div class="prolist_one prolist_one_bl01 mt20">
-	  	    	           <h2 class="prolist_one_tit"><span>抵押</span>汽车销售服务企业补充流动资金（三期）
-                           </h2>
-                           <ul class="prolist_one_ul clearfix">
-                           	   <li>
-                           	   	   年华收益：<strong>12.49%</strong><br>
-                           	   	   还款方式：按月付息，到期还本
-                           	   </li>
-                           	   <li>
-                           	   	   剩余期限：<i>308</i>天<br>
-                                    保障机构：中融兴业融资担保有限公司
-                           	   </li>
-                           	   <li class="prolist_press">
-                           	   	   募集金额：<strong>9,900.00</strong> 元 <br>
-                                   认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
-                           	   </li>
-                           	   <li class="prolist_btn">
-                           	   	    <a href="<%=path %>/client/detail1" class="pro_btn">立即投资</a>
-                           	   </li>
-                           </ul>
-	  	             </div>
-	  	             <!-- end one -->
-	  	             <div class="prolist_one prolist_one_bl01 mt20">
-	  	    	           <h2 class="prolist_one_tit"><span>抵押</span>汽车销售服务企业补充流动资金（三期）
-                           </h2>
-                           <ul class="prolist_one_ul clearfix">
-                           	   <li>
-                           	   	   年华收益：<strong>12.49%</strong><br>
-                           	   	   还款方式：按月付息，到期还本
-                           	   </li>
-                           	   <li>
-                           	   	   剩余期限：<i>308</i>天<br>
-                                    保障机构：中融兴业融资担保有限公司
-                           	   </li>
-                           	   <li class="prolist_press">
-                           	   	   募集金额：<strong>9,900.00</strong> 元 <br>
-                                   认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
-                           	   </li>
-                           	   <li class="prolist_btn">
-                           	   	    <a href="<%=path %>/client/detail" class="pro_btn">立即投资</a>
-                           	   </li>
-                           </ul>
-	  	             </div>
-	  	             <!-- end one -->
-	  	             <div class="prolist_one prolist_one_bl02 mt20">
-	  	    	           <h2 class="prolist_one_tit"><span class="pro_spanbg02">抵押</span>汽车销售服务企业补充流动资金（三期）
-                           </h2>
-                           <ul class="prolist_one_ul clearfix">
-                           	   <li>
-                           	   	   年华收益：<strong>12.49%</strong><br>
-                           	   	   还款方式：按月付息，到期还本
-                           	   </li>
-                           	   <li>
-                           	   	   剩余期限：<i>308</i>天<br>
-                                    保障机构：中融兴业融资担保有限公司
-                           	   </li>
-                           	   <li class="prolist_press">
-                           	   	   募集金额：<strong>9,900.00</strong> 元 <br>
-                                   认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
-                           	   </li>
-                           	   <li class="prolist_btn">
-                           	   	    <a href="<%=path %>/client/detail" class="pro_btn">立即投资</a>
-                           	   </li>
-                           </ul>
-	  	             </div>
-	  	             <!-- end one -->
-	  	             <div class="prolist_one prolist_one_bl02 mt20">
-	  	    	           <h2 class="prolist_one_tit"><span class="pro_spanbg02">抵押</span>汽车销售服务企业补充流动资金（三期）
-                           </h2>
-                           <ul class="prolist_one_ul clearfix">
-                           	   <li>
-                           	   	   年华收益：<strong>12.49%</strong><br>
-                           	   	   还款方式：按月付息，到期还本
-                           	   </li>
-                           	   <li>
-                           	   	   剩余期限：<i>308</i>天<br>
-                                    保障机构：中融兴业融资担保有限公司
-                           	   </li>
-                           	   <li class="prolist_press">
-                           	   	   募集金额：<strong>9,900.00</strong> 元 <br>
-                                   认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
-                           	   </li>
-                           	   <li class="prolist_btn">
-                           	   	    <a href="<%=path %>/client/detail" class="pro_btn">立即投资</a>
-                           	   </li>
-                           </ul>
-	  	             </div>
-	  	             <!-- end one -->
-                     <div class="prolist_one prolist_one_bl03 mt20">
-	  	    	           <h2 class="prolist_one_tit"><span class="pro_spanbg03">抵押</span>汽车销售服务企业补充流动资金（三期）
-                           </h2>
-                           <ul class="prolist_one_ul clearfix">
-                           	   <li>
-                           	   	   年华收益：<strong>12.49%</strong><br>
-                           	   	   还款方式：按月付息，到期还本
-                           	   </li>
-                           	   <li>
-                           	   	   剩余期限：<i>308</i>天<br>
-                                    保障机构：中融兴业融资担保有限公司
-                           	   </li>
-                           	   <li class="prolist_press">
-                           	   	   募集金额：<strong>9,900.00</strong> 元 <br>
-                                   认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
-                           	   </li>
-                           	   <li class="prolist_btn">
-                           	   	    <a href="<%=path %>/client/detail" class="pro_btn">立即投资</a>
-                           	   </li>
-                           </ul>
-	  	             </div>
-	  	             <!-- end one -->
-	  	             <div class="prolist_one prolist_one_bl03 prolist_onebg mt20">
-	  	    	           <h2 class="prolist_one_tit"><span class="pro_spanbg03">抵押</span>汽车销售服务企业补充流动资金（三期）
-                           </h2>
-                           <ul class="prolist_one_ul clearfix">
-                           	   <li>
-                           	   	   年华收益：<strong>12.49%</strong><br>
-                           	   	   还款方式：按月付息，到期还本
-                           	   </li>
-                           	   <li>
-                           	   	   剩余期限：<i>308</i>天<br>
-                                    保障机构：中融兴业融资担保有限公司
-                           	   </li>
-                           	   <li class="prolist_press">
-                           	   	   募集金额：<strong>9,900.00</strong> 元 <br>
-                                   认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
-                           	   </li>
-                           	   <li class="prolist_btn">
-                           	   	    <a href="#" class="pro_btn pro_btnbg02">已完成</a>
-                           	   </li>
-                           </ul>
-	  	             </div>
-	  	             <!-- end one -->
-	  	             <!-- pagelink -->
-	  	              <p class="pagelink">
-	  	                 <a href="#" class="pglink_cura">1</a>
-	  	                 <a href="#">2</a>
-	  	                 <a href="#">3</a>
-	  	                 <a href="#">下一页</a>
-	  	              </p>
-	  	             <!-- pagelink end -->
-	  	            
+	  	        <c:forEach var="list" items="${loan1}" varStatus="status">
+					 <tr class="success">
+						<td>
+						   <div class="prolist_one prolist_one_bl01 mt20">
+		  	    	           <h2 class="prolist_one_tit"><span style="width: auto;">${list.ltitle}</span>
+	                           </h2>
+	                           <ul class="prolist_one_ul clearfix">
+	                           	   <li>
+	                           	   	   年华收益：<strong>12.49%</strong><br>
+	                           	   	   还款方式：按月付息，到期还本
+	                           	   </li>
+	                           	   	<li>描述：${list.lmiaoshu }</li>
+	                           	   	<li>类型：${list.ltype }</li>
+	                           	   <li>
+	                           	   	   剩余期限：<i>308</i>天<br>
+	                                    保障机构：中融兴业融资担保有限公司
+	                           	   </li>
+	                           	   <li class="prolist_press">
+	                           	   	   募集金额：<strong>${list.lmoney}</strong> 元 <br>
+	                                   认购进度：<span class="ui-progressbar-mid ui-progressbar-mid-100">100%</span>
+	                           	   </li>
+	                           	   <li class="prolist_btn">
+	                           	   	    <a href="<%=path %>/client/detail1?lid='${list.lid}'" class="pro_btn">立即投资</a>
+	                           	   </li>
+	                           </ul>
+		  	             </div>
+						</td>
+					</tr>
+				</c:forEach>  
+	  	    
+	             <!-- end one -->
+	             <!-- pagelink -->
+	              <p class="pagelink" style="width: 400px;">
+	                 <a href="<%=path %>/client/invest?page=1&rows=10">1</a>
+	             	 <a href="<%=path %>/client/invest?page=2&rows=10">2</a>
+	                 <a href="<%=path %>/client/invest?page=3&rows=10">3</a>
+	               	 <a href="javascript:void(0);" onclick="fenye()">上一页</a>
+					<a href="javascript:void(0);" onclick="fenye2()">下一页</a>
+	              </p>
+	             <!-- pagelink end -->
 	  	    </div>
 	  </div>
 </div>
 <jsp:include flush="true" page="bottom.jsp"></jsp:include>
 </body>
+<script type="text/javascript">
+	function fenye(){
+		var page1 = ${page};
+		var a = page1 - 1
+		if(a>0){
+			window.location.href="<%=path %>/client/invest?page=${page-1}&rows=10"
+		}
+	}
+	function fenye2(){
+		var count = ${count};
+		var page1 = ${page};
+		var a = page1 + 1
+		if(a<=count){
+			window.location.href="<%=path %>/client/invest?page=${page+1}&rows=10"
+		}
+	}
+</script>
 </html>

@@ -78,6 +78,7 @@
                         <div class="form-group">
                           <label class="label">投资人:</label>
                           <input type="hidden" id="iuid" name="iuid" value="${customer.uid}">
+                          <input type="hidden" id="lid" name="lid" value="${requestScope.lid}">
                           <span class="form-text">${customer.username}</span>
                         </div>
                         <div id="timer" style="font:11px tahoma;height:10px;"></div>
@@ -190,11 +191,13 @@ try{
 function toubiao(){
 	$("#err").html("");
 	var iuid = $("#iuid").val();
+	var lid = $("#lid").val();
+	var iddd = lid.substring(1,lid.length-1)
 	var imoney = $("#qian").html();
 	var inumber = $("#dingdan").html();
 	var iavailable = $("#available").html();
 	if(parseInt(imoney)<=parseInt(iavailable)){
-	 $.post("<%=path%>/investment/toubiao",{'iuid':iuid,'imoney':imoney,'inumber':inumber,'iavailable':iavailable},function(index){ 
+	 $.post("<%=path%>/investment/toubiao",{'iuid':iuid,'lid':iddd,'imoney':imoney,'inumber':inumber,'iavailable':iavailable},function(index){ 
 	  		if(index.success){
 	  			alert('投标成功');
 	  			window.location.href="<%=path%>/client/investment";

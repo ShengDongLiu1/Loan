@@ -25,4 +25,7 @@ public interface CapitalService {
     Long getTotal(Map<String, Object> map);
     
     String selectByid(Integer uid);
+    
+    Capital selectByPrimaryKey2(Integer cid);
+
 }
