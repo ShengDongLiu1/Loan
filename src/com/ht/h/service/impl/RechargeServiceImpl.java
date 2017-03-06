@@ -58,4 +58,22 @@ public class RechargeServiceImpl implements RechargeService{
 		return rechargDao.getTotal(map);
 	}
 
+	@Override
+	public int queryByRserial(String Rserial) {
+		// TODO Auto-generated method stub
+		return rechargDao.queryByRserial(Rserial);
+	}
+
+	@Override
+	public int rechargetCount() {
+		// TODO 自动生成的方法存根
+		return rechargDao.rechargetCount();
+	}
+
+	@Override
+	public List<Recharge> rechargetQueryAll(Map<String, Object> map) {
+		// TODO 自动生成的方法存根
+		return rechargDao.rechargetQueryAll(map);
+	}
+
 }

@@ -29,6 +29,16 @@ public class Withdrawals {
 
     private Customer customer;
     
+    private Capital capital;
+
+    public Capital getCapital() {
+		return capital;
+	}
+
+	public void setCapital(Capital capital) {
+		this.capital = capital;
+	}
+
     public Customer getCustomer() {
 		return customer;
 	}

@@ -21,4 +21,10 @@ public interface RechargeMapper {
     List<Recharge> queryAll(Map<String, Object> map);
     
     Long getTotal(Map<String, Object> map);
+    
+    int queryByRserial(String Rserial);
+
+	int rechargetCount();
+
+	List<Recharge> rechargetQueryAll(Map<String, Object> map);
 }

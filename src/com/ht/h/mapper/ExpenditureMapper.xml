@@ -119,6 +119,11 @@
       eremarks = #{eremarks,jdbcType=VARCHAR}
     where eid = #{eid,jdbcType=INTEGER}
   </update>
+  	
+  	<!-- 支出报表 -->
+	<select id="expendAll" resultMap="BaseResultMap">
+		select etype,emoney from expenditure   where date_format(etime,'%Y-%m')=date_format(now(),'%Y-%m')
+	</select>
   
   <!-- 分页加条件查询 -->
 	<select id="queryAll" parameterType="Map" resultMap="queryResultMap">

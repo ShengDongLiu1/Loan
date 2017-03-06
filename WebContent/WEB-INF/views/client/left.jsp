@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="/Loan/css/pjcss/public.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/account.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/datepicker.css">
+
+<script type="text/javascript" src="<%=path %>/js/jquery-1.4.4.min.js"></script>
+<script charset="utf-8" async="" src="<%=path %>/js/pjjs/i.js" id="_da"></script>
+<script type="text/javascript" src="<%=path %>/js/pjjs/bootstrap-datepicker.js"></script>
+
+
 </head>
 <body bgcolor="#FFFFCC">
 	<jsp:include flush="true" page="top.jsp"></jsp:include>
@@ -23,7 +29,7 @@
 			<div class="account-left-nav">
 				<div class="navbar icon icon-account">我的账户</div>
 				<ul class="sub-nav">
-					<li class="active"><a href="<%=path %>/client/left">账户总览</a></li>
+					<li class="active"><a href="<%=path %>/client/left?uid=${customer.uid}">账户总览</a></li>
 					<li><a href="<%=path%>/client/recharge">充值</a></li>
 					<li><a href="<%=path%>/client/funds">提现</a></li>
 					<li><a href="<%=path%>/client/MoneyRecord">资金记录</a></li>
@@ -63,15 +69,15 @@
 			<!-- <p id="registpay"><a href="javascript:;">登录汇付</a></p> -->
 		</div>
 		<div class="center-user">
-			<p class="amt color"><span id="usableSum">250436507.25</span>元</p>
+			<p class="amt color"><span id="usableSum">${fund.available}</span>元</p>
 			<p class="text">可用余额</p>
 			<p class="link">
-				<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#ipay" class="active">充值</a>
-				<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#cash">提现</a>
+				<a href="<%=path%>/client/recharge" class="active">充值</a>
+				<a href="<%=path%>/client/funds">提现</a>
 			</p>
 		</div>
 		<div class="center-profit">
-			<p class="amt"><span id="earnSum">1764.62</span>元</p>
+			<p class="amt"><span id="earnSum">${fund.income}</span>元</p>
 			<p class="text">收益总额</p>
 		<!-- 	<p class="icon icon-quan">代金券 <b id="voucher">0</b> 张，现金券 <b id="cashMap">0</b> 张</p> -->
 		</div>	
@@ -108,9 +114,9 @@
 		<!-- end -->
 	</div>
 	<jsp:include flush="true" page="bottom.jsp"></jsp:include>
-	<script type="text/javascript" src="/Loan/js/pjjs/jquery.js"></script>
-	<script type="text/javascript" src="/Loan/js/pjjs/chart.js"></script>
-	<script type="text/javascript" src="/Loan/js/pjjs/bootstrap-datepicker.js"></script>
-	<script type="text/javascript" src="/Loan/js/pjjs/public.js"></script>
-	<script type="text/javascript" src="/Loan/js/pjjs/account.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/pjjs/jquery.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/pjjs/public.js"></script>
+	<!-- 客服QQ -->
+	<script type="text/javascript" src="<%=path %>/js/pjjs/countUp.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/pjjs/about.js"></script>
 </body></html>

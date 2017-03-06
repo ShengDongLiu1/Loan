@@ -21,4 +21,6 @@ public interface IncomeMapper {
     List<Income> queryAll(Map<String, Object> map);
     
     Long getTotal(Map<String, Object> map);
+    
+    List<Income> statementAll();
 }

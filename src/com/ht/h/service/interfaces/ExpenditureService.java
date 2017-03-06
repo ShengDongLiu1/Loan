@@ -21,4 +21,6 @@ public interface ExpenditureService {
     List<Expenditure> queryAll(Map<String, Object> map);
     
     Long getTotal(Map<String, Object> map);
+    
+    List<Expenditure> expendAll();
 }

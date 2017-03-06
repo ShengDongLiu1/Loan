@@ -12,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ht.h.bean.Bank;
+import com.ht.h.bean.sysuser;
 import com.ht.h.dto.PageBean;
 import com.ht.h.service.interfaces.BankService;
 import com.ht.h.util.ResponseUtil;
@@ -59,4 +61,17 @@ public class BankController {
 		System.out.println("list:"+jsonArray);
 		return null;
 	}
+	
+	
+	@RequestMapping(value="/selectCard",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> selectCard(@RequestParam(value="uid",required=false)Integer uid,HttpServletResponse response,HttpSession session) throws Exception{
+		System.out.println("uid"+uid);
+		List<Bank> list=bankService.selectCard(uid);//查询所有数据
+		Map<String, Object> map=new HashMap<>();
+		map.put("success", true);
+		map.put("list", list);
+		return map;
+	}
+	
 }

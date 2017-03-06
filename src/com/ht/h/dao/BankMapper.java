@@ -21,4 +21,9 @@ public interface BankMapper {
 	List<Bank> select(Map<String, Object> map);
 
 	Long queryAllCount(Map<String, Object> map);
+	
+	List<Bank> selectCard(Integer uid);
+	
+	List<Bank> selectCard(Integer uid);
+	List<Bank> queryByUid(int uid);
 }

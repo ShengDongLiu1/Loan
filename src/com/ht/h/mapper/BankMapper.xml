@@ -15,6 +15,15 @@
     	<result column="realname" property="realname" />
 	</association>
   </resultMap>
+  
+  <resultMap id="selectMap" type="com.ht.h.bean.Bank">
+    <id column="bid" jdbcType="INTEGER" property="bid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="baccount" jdbcType="VARCHAR" property="baccount" />
+    <result column="bcardnumber" jdbcType="VARCHAR" property="bcardnumber" />
+    <result column="btime" jdbcType="TIMESTAMP" property="btime" />
+    <result column="bstate" jdbcType="VARCHAR" property="bstate" />
+ </resultMap>
   <sql id="Base_Column_List">
     bid, uid, baccount, bcardnumber, btime, bstate
   </sql>
@@ -155,5 +164,15 @@
 			and b.btime between #{btime} and #{btime1}
 		</if>
     </where>
+ </select>
+  <select id="selectCard" parameterType="java.lang.Integer" resultMap="selectMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bank
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+ <!-- 查询当前用户所以银行卡信息 -->
+ <select id="queryByUid" parameterType="Integer" resultMap="BaseResultMap">
+ 	select * from bank where uid=#{0};
  </select>
 </mapper>

@@ -1,4 +1,4 @@
-/* public js
+﻿/* public js
  * Copyright 2016, wushulin
  * Date   2016/11/12
  * auther shulin.wu@pjzb.com
@@ -56,7 +56,7 @@ utils.Loading = function(m){
 utils.initPage = function(){
 	//底部初始化
 	$.ajax({
-	    url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/footer.html',
+	    url: 'footer.html',
 	    type: "get",
 	    dataType: "html",
 	    success: function (data) {
@@ -64,7 +64,7 @@ utils.initPage = function(){
 	       $('#ht').click(function(){
 	    	   if(!utils.Storage.getItem('uid')){
 	    		   utils.alert('您还未登录，请先登录！',function(){
-	    			   window.location.href="http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/login.html";
+	    			   window.location.href="login.html";
 	    		   })
 	    	   }else{
 	    		   window.location.href="account.html#hetong";
@@ -85,10 +85,10 @@ utils.initPage = function(){
 	       $('.wenquan').click(function(){
 	    	   if(!utils.Storage.getItem('uid')){
 	    		   utils.alert('您还未登录，请先登录！',function(){
-	    			   window.location.href="http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/login.html";
+	    			   window.location.href="login.html";
 	    		   })
 	    	   }else{
-	    		   window.location.href="http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/other/question.html";
+	    		   window.location.href="other/question.html";
 	    	   }
 	       })
 	       //客服QQ
@@ -98,7 +98,7 @@ utils.initPage = function(){
     		});
     	   //友情链接
     	   $.ajax({
-    		    url:'http://120.76.203.19:8090/shzc_test/WEB-PC/src/app/queryLinksType2.do',
+    		    url:'../app/queryLinksType2.do',
     		    type: "get",
     		    dataType: "json",
     		    success: function (data) {
@@ -118,7 +118,7 @@ utils.initPage = function(){
 	});
 	//top初始化
 	$.ajax({
-	    url:'http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/top.html',
+	    url:'top.html',
 	    type: "get",
 	    dataType: "html",
 	    success: function (data) {
@@ -138,14 +138,14 @@ utils.initPage = function(){
 //初始化登录状态
 utils.initLoginData = function(){
 	if(utils.Storage.getItem('uid')){
-		$('#top .top-list li:last a').text(utils.Storage.getItem('username')).attr('href','http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/account.html').addClass('user');
+		$('#top .top-list li:last a').text(utils.Storage.getItem('username')).attr('href','account.html').addClass('user');
 		$('#top .top-list li:last').addClass('no');
 		$('#top .top-list li:first a').text('退出').attr({'class':'','href':'javascript:;'}).click(function(){
 			utils.Storage.clear();
-			window.location.href='http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/index.html';
+			window.location.href='index.html';
 		});
 	}else{
-		$('.nav .icon-acc a').attr('href','http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/login.html');
+		$('.nav .icon-acc a').attr('href','login.html');
 		$('#top .pay').remove();
 	}
 };
@@ -240,7 +240,7 @@ utils.ajax = function(opt){
 //	if(utils.Storage.getItem('username') && (DateTime - utils.Storage.getItem('time'))>1800000){
 //		utils.Storage.clear();
 //		utils.alert('您的登录已经超时，请重新登录！',function(){
-//			window.location.href="http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/login.html";
+//			window.location.href="login.html";
 //		});
 //	}else{
 		//不对返回数据做缓存
@@ -261,7 +261,7 @@ utils.ajax = function(opt){
 			if(result.error == '9999'){
 				utils.Storage.clear();
 				utils.alert('您还未登录，请先登录',function(){
-					window.location.href="http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/login.html";
+					window.location.href="login.html";
 				});
 			}else{
 				fn.success(result, textStatus);
@@ -288,11 +288,11 @@ utils.ajax = function(opt){
  */
 utils.initInput = function(){
 	$('input').focus(function(){
-		if($(this).siblings('http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/label.icon')){
+		if($(this).siblings('label.icon')){
 			$(this).parent('.from').addClass('focus');
 		}
 	}).blur(function(){
-		if($(this).siblings('http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/label.icon')){
+		if($(this).siblings('label.icon')){
 			$(this).parent('.from').removeClass('focus');
 		}
 	})
@@ -511,7 +511,7 @@ utils.getSmsCode = function(obj,phone,name){
 	obj.addClass('disabled');
 	var param={"info":"{cellPhone:'"+phone+"',smsType:'"+name+"'}"};
 	utils.ajax({
-        url:'http://120.76.203.19:8090/shzc_test/WEB-PC/src/app/sendSMS.do',
+        url:'../app/sendSMS.do',
         data:param,
         dataType:'json',
         success: function(data){
@@ -757,7 +757,7 @@ utils.getImgCode = function(el,type){
  */
 function newPointer(){
 	//预先加载
-	preloadImages(['src/images/new-step0.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step0.jpg*/,'src/images/new-step1.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step1.jpg*/,'src/images/new-step2.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step2.jpg*/,'src/images/new-step3.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step3.jpg*/,'src/images/new-step4.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step4.jpg*/,'src/images/new-step5.jpg'/*tpa=http://120.76.203.19:8090/shzc_test/WEB-PC/src/libs/src/images/new-step5.jpg*/]);
+	preloadImages(['src/images/new-step0.jpg','src/images/new-step1.jpg','src/images/new-step2.jpg','src/images/new-step3.jpg','src/images/new-step4.jpg','src/images/new-step5.jpg']);
 	
 	var oWidth = document.documentElement.offsetWidth;
 	var i = 0;
