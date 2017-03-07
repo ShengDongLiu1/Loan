@@ -45,7 +45,7 @@
       #{bcardnumber,jdbcType=VARCHAR}, #{btime,jdbcType=TIMESTAMP}, #{bstate,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ht.h.bean.Bank">
+  <insert id="addbank" parameterType="com.ht.h.bean.Bank">
     insert into bank
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="bid != null">

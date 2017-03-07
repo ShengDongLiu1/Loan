@@ -25,6 +25,16 @@ public class Repayment {
     
     private Loan loan;
 
+    private Capital capital;
+
+    public Capital getCapital() {
+		return capital;
+	}
+
+	public void setCapital(Capital capital) {
+		this.capital = capital;
+	}
+
     public Integer getRid() {
         return rid;
     }

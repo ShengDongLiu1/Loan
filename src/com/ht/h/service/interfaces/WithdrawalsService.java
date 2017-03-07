@@ -22,7 +22,7 @@ public interface WithdrawalsService {
     
     Long getTotal(Map<String, Object> map);
 
-	int withdrawalsCount();
+	int withdrawalsCount(Map<String, Object> map);
 
 	List<Withdrawals> withdrawalsQueryAll(Map<String, Object> map);
 }

@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -16,16 +15,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ht.h.bean.Capital;
 import com.ht.h.bean.Customer;
+<<<<<<< Updated upstream
+import com.ht.h.bean.Frozen;
 import com.ht.h.bean.Repayment;
 import com.ht.h.bean.Withdrawals;
+=======
+>>>>>>> Stashed changes
 import com.ht.h.bean.PageBean;
 import com.ht.h.bean.Recharge;
+import com.ht.h.bean.Withdrawals;
 import com.ht.h.dto.Pager;
 import com.ht.h.dto.StringUtil;
 import com.ht.h.service.interfaces.CapitalService;
 import com.ht.h.service.interfaces.CustomerService;
+import com.ht.h.service.interfaces.FrozenService;
 import com.ht.h.service.interfaces.RechargeService;
-import com.ht.h.service.interfaces.RepaymentService;
 import com.ht.h.service.interfaces.WithdrawalsService;
 import com.ht.h.util.ResponseUtil;
 
@@ -43,11 +47,13 @@ public class CapitalController {
 	private CustomerService customerService;
 	
 	@Autowired
-	private RechargeService rechargetService;
+	private RepaymentService repaymentService;
 	
 	@Autowired
 	private WithdrawalsService withdrawalsService;
 	
+	@Autowired
+	private FrozenService frozenService;
 	@RequestMapping("capitalPage")
 	public String page() {
 		return "capital/capitalPage";
@@ -79,14 +85,17 @@ public class CapitalController {
 	
 	
 	@RequestMapping("selectAngodiv1")
-	public String selectAngodiv1(String state,@RequestParam(value="time1",required=false)String time1,@RequestParam(value="time",required=false)String time,@RequestParam(value="page",required=false)int page,Recharge recharge,HttpServletResponse response, HttpSession session)throws Exception{
-		System.out.println("selectAngodiv");
+	public String selectAngodiv1(@RequestParam(value="state",required=false)String state,@RequestParam(value="time1",required=false)String time1,@RequestParam(value="time",required=false)String time,@RequestParam(value="page",required=false)int page,Recharge recharge,HttpServletResponse response,HttpServletRequest request,HttpSession session)throws Exception{
 		//获取页面传过来的一个状态，根据这个状态来查询不同的表
-		if(state == "2" && state.equals("2")){//查询提现表
-			System.out.println("selectAngodiv"+state);
+		if(state == "2" || state.equals("2")){//查询提现表
 			Pager<Withdrawals> pager = new Pager<Withdrawals>();
 			pager.setPageSize(10);
-			int count = withdrawalsService.withdrawalsCount();
+			Customer customer = (Customer) session.getAttribute("customer");
+			Map<String,Object> map=new HashMap<String,Object>();
+			map.put("wtime", time);
+			map.put("wtime1", time1);
+			map.put("uid", customer.getUid());
+			int count = withdrawalsService.withdrawalsCount(map);
 			int total = count % pager.getPageSize() == 0 ? count / pager.getPageSize() : count / pager.getPageSize() +1;
 			pager.setTotal(total);
 			if(page >= 1 && page <= pager.getTotal()){
@@ -98,20 +107,67 @@ public class CapitalController {
 			}else{
 				pager.setPageNo(pager.getTotal());
 			}
-			Map<String,Object> map=new HashMap<String,Object>();
-			map.put("wtime", time);
-			map.put("wtime1", time1);
 			map.put("start", pager.getBeginIndex());
 			map.put("size", pager.getPageSize());
 			List<Withdrawals> userList=withdrawalsService.withdrawalsQueryAll(map);
 			pager.setRows(userList);
-			
-			session.setAttribute("witlist", pager);
-			return null;
-		}else if(state=="2" && state.equals("2")){
-			
-			
-			return null;
+			request.setAttribute("witlist", pager);
+			request.setAttribute("count",count);
+			return "client/MoneyRecord2";
+		}else if(state=="3" || state.equals("3")){
+			Pager<Repayment> pager = new Pager<Repayment>();
+			pager.setPageSize(10);
+			Customer customer = (Customer) session.getAttribute("customer");
+			Map<String,Object> map=new HashMap<String,Object>();
+			map.put("rtime", time);
+			map.put("rtime1", time1);
+			map.put("uid", customer.getUid());
+			int count = repaymentService.RepaymentCount(map);
+			int total = count % pager.getPageSize() == 0 ? count / pager.getPageSize() : count / pager.getPageSize() +1;
+			pager.setTotal(total);
+			if(page >= 1 && page <= pager.getTotal()){
+				pager.setPageNo(page);
+			} else if (page < 1) {
+				pager.setPageNo(1);
+			} else if(pager.getTotal() == 0){
+				pager.setPageNo(1);
+			}else{
+				pager.setPageNo(pager.getTotal());
+			}
+			map.put("start", pager.getBeginIndex());
+			map.put("size", pager.getPageSize());
+			List<Repayment> userList=repaymentService.repaymentQueryAll(map);
+			pager.setRows(userList);
+			request.setAttribute("replist", pager);
+			request.setAttribute("count",count);
+			return "client/MoneyRecord3";
+		}else if(state=="4" || state.equals("4")){
+			Pager<Frozen> pager = new Pager<Frozen>();
+			pager.setPageSize(10);
+			Customer customer = (Customer) session.getAttribute("customer");
+			Map<String,Object> map=new HashMap<String,Object>();
+			map.put("ftime", time);
+			map.put("ftime1", time1);
+			map.put("uid", customer.getUid());
+			int count = frozenService.frozenCount(map);
+			int total = count % pager.getPageSize() == 0 ? count / pager.getPageSize() : count / pager.getPageSize() +1;
+			pager.setTotal(total);
+			if(page >= 1 && page <= pager.getTotal()){
+				pager.setPageNo(page);
+			} else if (page < 1) {
+				pager.setPageNo(1);
+			} else if(pager.getTotal() == 0){
+				pager.setPageNo(1);
+			}else{
+				pager.setPageNo(pager.getTotal());
+			}
+			map.put("start", pager.getBeginIndex());
+			map.put("size", pager.getPageSize());
+			List<Frozen> userList=frozenService.frozenQueryAll(map);
+			pager.setRows(userList);
+			request.setAttribute("frolist", pager);
+			request.setAttribute("count",count);
+			return "client/MoneyRecord4";
 		}
 		return null;
 	}
