@@ -263,15 +263,13 @@ function idcardSubmit(){
 		</form>
 	</div>
 </div>
-
-
 		<!-- end -->
 	</div>
 	<jsp:include flush="true" page="bottom.jsp"></jsp:include>
-		<script type="text/javascript" src="<%=path %>/js/pjjs/jquery.js"></script>
-		<script type="text/javascript" src="<%=path %>/js/pjjs/chart.js"></script>
-		<script type="text/javascript" src="<%=path %>/js/pjjs/bootstrap-datepicker.js"></script>
-		<script type="text/javascript" src="<%=path %>/js/pjjs/public.js"></script>
-		<script type="text/javascript" src="<%=path %>/js/pjjs/account.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/pjjs/jquery.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/pjjs/chart.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/pjjs/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/pjjs/public.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/pjjs/account.js"></script>
 </body>
 </html>
