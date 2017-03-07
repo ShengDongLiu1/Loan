@@ -73,4 +73,10 @@ public class CapitalServiceImpl implements CapitalService{
 		return capitalDao.selectByPrimaryKey2(cid);
 	}
 
+	@Override
+	public int updateRecharge(Capital capital) {
+		// TODO Auto-generated method stub
+		return capitalDao.updateRecharge(capital);
+	}
+
 }

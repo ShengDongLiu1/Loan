@@ -22,6 +22,8 @@ public interface CapitalMapper {
 
     int updateByPrimaryKey(Capital record);
     
+    int updateRecharge(Capital capital);
+    
     List<Capital> selectAll(Map<String, Object> map);
     
     Long getTotal(Map<String, Object> map);
