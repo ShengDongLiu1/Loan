@@ -50,10 +50,6 @@
     from capital
     where uid = #{uid,jdbcType=INTEGER}
 	</select>
-<<<<<<< HEAD
-  
-=======
->>>>>>> master
    <select id="selectByFund" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     	select c.available,c.income from capital c where c.uid=#{uid,jdbcType=INTEGER}
   </select>

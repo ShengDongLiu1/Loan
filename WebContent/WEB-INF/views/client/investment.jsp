@@ -16,7 +16,17 @@
 <link rel="stylesheet" href="/Loan/css/pjcss/public.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/account.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/datepicker.css">
-
+<script type="text/javascript">--
+	function dateSearch(){
+		var startDate = $("#startDate").val;
+		var endDate = $("#endDate").val;
+		alert(startDate+", "+endDate);
+		$('#investmentDg').datagrid('load',{  
+			startDate:startDate,
+			startDate:startDate
+		}); 
+	}
+</script>
 </head>
 <body bgcolor="#FFFFCC">
 	<jsp:include flush="true" page="top.jsp"></jsp:include>
@@ -59,11 +69,8 @@
 		<a href="javascript:;" id="invest-s4">已回收的借款</a>
 	</div>
 	<div class="account-form cl">
-		<input type="text" class="date icon icon-date" autocomplete="off" id="invest-startDate" readonly="readonly">
-		<p class="text">至</p>
-		<input type="text" class="date icon icon-date" autocomplete="off" id="invest-endDate" readonly="readonly">
-		<!-- <input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" /> -->
-		<button type="button" class="search" id="investSearch">搜索</button>
+		<input type="date" id="startDate" name="startDate"> 至 <input type="date" id="endDate" name="endDate">
+		<button type="button" class="search" onclick="dateSearch();">搜索</button>
 	</div>
 	<div class="invest-listData invest-listData1">
 		<ul class="investData list-box">
@@ -77,7 +84,7 @@
 				<div class="children6">投资时间</div>
 			</li>
 		</ul>
-		<ul class="investData listData">
+		<ul class="investData listData" id="investmentDg">
 			<li class="interval">
 				<c:forEach var="list" items="${rechList}">
 					<div class="children0">${list.loan.ltitle}</div>
