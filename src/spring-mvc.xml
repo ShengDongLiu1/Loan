@@ -46,6 +46,7 @@
     		<mvc:exclude-mapping path="/customer/*"/>
     		<mvc:exclude-mapping path="/register/*"/>
     		<mvc:exclude-mapping path="/recharge/*"/> 
+    		<mvc:exclude-mapping path="/withdrawals/*"/>
     		<mvc:exclude-mapping path="/client/*"/>
     		<mvc:exclude-mapping path="/loan/addLoan"/>
     		<mvc:exclude-mapping path="/loan/selCusLoan"/>

@@ -17,11 +17,11 @@ public class Withdrawals {
 
     private String wbank;
 
-    private Long wmoney;
+    private double wmoney;
 
-    private Long wcounterfee;
+    private double wcounterfee;
 
-    private Long wactual;
+    private double wactual;
 
     private String wstate;
 
@@ -79,27 +79,27 @@ public class Withdrawals {
         this.wbank = wbank == null ? null : wbank.trim();
     }
 
-    public Long getWmoney() {
+    public double getWmoney() {
         return wmoney;
     }
 
-    public void setWmoney(Long wmoney) {
+    public void setWmoney(double wmoney) {
         this.wmoney = wmoney;
     }
 
-    public Long getWcounterfee() {
+    public double getWcounterfee() {
         return wcounterfee;
     }
 
-    public void setWcounterfee(Long wcounterfee) {
+    public void setWcounterfee(double wcounterfee) {
         this.wcounterfee = wcounterfee;
     }
 
-    public Long getWactual() {
+    public double getWactual() {
         return wactual;
     }
 
-    public void setWactual(Long wactual) {
+    public void setWactual(double wactual) {
         this.wactual = wactual;
     }
 

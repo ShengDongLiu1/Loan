@@ -232,4 +232,8 @@
 		</where>
 	</select>
   
+  <select id="withdrawalsCountInt" resultType="int">
+		select count(*) from withdrawals
+	</select>
+  
 </mapper>

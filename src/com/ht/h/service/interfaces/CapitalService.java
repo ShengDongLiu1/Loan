@@ -29,5 +29,7 @@ public interface CapitalService {
     String selectByid(Integer uid);
     
     Capital selectByPrimaryKey2(Integer cid);
-
+    
+    List<Capital> queryByUid(int uid);
+    
 }
