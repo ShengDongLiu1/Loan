@@ -40,7 +40,6 @@
 				<ul class="sub-nav">
 					<li><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
 					<li><a href="<%=path%>/client/security">安全设置</a></li>
-					<li><a href="<%=path%>/client/MessageCenter">消息中心</a></li>
 				</ul>
 			</div>
 		</div>
@@ -49,7 +48,6 @@
 	<div class="sub-a-nav">
 		<a href="javascript:void(0);" class="active">我的银行卡</a>
 	</div>
-<<<<<<< Updated upstream
 	<em></em>
 </div>
 <div id="myDebitCard" class="account-content">
@@ -59,7 +57,6 @@
 		<!-- end -->
 	</div>
 	<jsp:include flush="true" page="bottom.jsp"></jsp:include>
-=======
 		<em></em>
 	</div>
 	<div id="myDebitCard" class="account-content">
@@ -81,7 +78,6 @@
 			<div class="bank-addCard"><a href="javascript:;">添加银行卡</a></div>
 		</div>
 	</div>
-<<<<<<< HEAD
 </div>
 		<!-- end -->
 	</div>
@@ -135,7 +131,6 @@
 			</p>
 			<div class="footer-list" style="width:690px;">
 				<a href="https://credit.cecdc.com/CX20160720023638001698.html"><img src="./asda_files/ft_link_01.png" alt=""></a>
-	</script>
 				<a href="https://www.yunaq.com/analytics/login/?site=pujinziben.com"><img src="./asda_files/ft_link_02.png" alt=""></a>
 				<a href="http://si.trustutn.org/info?sn=876160725000486996572"><img src="./asda_files/ft_link_03.png" alt=""></a> 
 				<a href="http://webscan.360.cn/index/checkwebsite/url/www.pujinziben.com"><img width="110px" height="40px" border="0" src="./asda_files/745ef449cbf0f6a74791f73d57aa7ac2"></a>
@@ -154,15 +149,8 @@
 		</div>
 	</div>
 </div>
-=======
 		<em></em>
-	</div>
 		<jsp:include flush="true" page="bottom.jsp"></jsp:include>
-		<!-- end -->
->>>>>>> master
-	<!--[if lt IE 9]>
-	    <script src="src/libs/json2.js"></script>
-	<![endif]-->
 	<script type="text/javascript">
 	//添加银行卡
 	function addCard(){
@@ -184,5 +172,5 @@
 	        }
 	    })
 	}
->>>>>>> Stashed changes
+	</script>
 </body></html>

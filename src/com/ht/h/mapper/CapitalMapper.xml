@@ -49,12 +49,8 @@
     <include refid="Base_Column_List" />
     from capital
     where uid = #{uid,jdbcType=INTEGER}
-<<<<<<< Updated upstream
 	</select>
   
-=======
-  </select>
->>>>>>> Stashed changes
    <select id="selectByFund" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     	select c.available,c.income from capital c where c.uid=#{uid,jdbcType=INTEGER}
   </select>
