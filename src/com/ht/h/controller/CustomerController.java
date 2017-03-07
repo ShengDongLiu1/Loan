@@ -256,13 +256,10 @@ public class CustomerController {
 	      } 
 	 
 	    } catch (HttpException e) { 
-	      // TODO Auto-generated catch block 
 	      e.printStackTrace(); 
 	    } catch (IOException e) { 
-	      // TODO Auto-generated catch block 
 	      e.printStackTrace(); 
 	    } catch (DocumentException e) { 
-	      // TODO Auto-generated catch block 
 	      e.printStackTrace(); 
 	    }   
 	    return null; 
@@ -336,9 +333,9 @@ public class CustomerController {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.host", "smtp.163.com");
         // 发件人的账号
-        props.put("mail.user","15727760379@163.com");
+        props.put("mail.user","15779753872@163.com");
         // 访问SMTP服务时需要提供的密码
-        props.put("mail.password", "hyg789698");
+        props.put("mail.password", "lsd991435358");
 
         // 构建授权信息，用于进行SMTP进行身份验证
         Authenticator authenticator = new Authenticator() {
@@ -374,7 +371,7 @@ public class CustomerController {
         }*/
 
         // 设置邮件标题
-        message.setSubject("鸿金金隆");
+        message.setSubject("鸿金金融");
         
         String code = EmailCode.getCode();
         // 设置邮件的内容体GB2312

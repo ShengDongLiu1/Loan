@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ht.h.bean.Bank;
 import com.ht.h.bean.Customer;
-import com.ht.h.bean.sysuser;
 import com.ht.h.dto.PageBean;
 import com.ht.h.service.interfaces.BankService;
 import com.ht.h.service.interfaces.CapitalService;
