@@ -60,7 +60,7 @@
 			<img src="../images/c.jpg" width="120" height="120">
 		</div>
 		<div class="center-self">
-			<p class="name">傑哥</p>
+			<p class="name">${customer.username}</p>
 			<p class="safety">安全等级： <span id="safeLevel">高</span></p>
 			<p class="center-icon">
 				<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/account.html#safe" class="icon icon-c-phone"></a>
