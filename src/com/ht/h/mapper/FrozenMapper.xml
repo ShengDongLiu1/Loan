@@ -103,4 +103,24 @@
       fremarks = #{fremarks,jdbcType=VARCHAR}
     where fid = #{fid,jdbcType=INTEGER}
   </update>
+  
+     <select id="frozenQueryAll" parameterType="Map" resultMap="BaseResultMap">
+  	select f.fid, f.uid, f.fmoney, f.ftime, f.fstate, f.fremarks
+  		
+  	from frozen f, user u
+		<where>
+			f.uid=u.uid
+			<if test="ftime!=null and ftime!='' and ftime1!=null and ftime1!=''">
+			and f.ftime between #{ftime} and #{ftime1}
+		</if>
+		</where>
+		order by f.ftime desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+  </select>
+  
+  <select id="frozenCount" resultType="int">
+		select count(*) from frozen
+	</select>
 </mapper>

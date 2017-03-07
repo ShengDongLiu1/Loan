@@ -1,9 +1,12 @@
 package com.ht.h.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -15,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ht.h.bean.Bank;
+import com.ht.h.bean.Customer;
 import com.ht.h.bean.sysuser;
 import com.ht.h.dto.PageBean;
 import com.ht.h.service.interfaces.BankService;
+import com.ht.h.service.interfaces.CapitalService;
 import com.ht.h.util.ResponseUtil;
 import com.ht.h.util.StringUtil;
 
@@ -31,9 +36,18 @@ public class BankController {
 	@Autowired
 	private BankService bankService;
 	
+	@Autowired
+	private CapitalService capitalService;
+	
 	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public String bank(){
 		return "bank/bankPage";
+	}
+	
+	@RequestMapping(value="/addCard",method=RequestMethod.GET)
+	public String addCard(){
+		
+		return "huifuPage/AddCard";
 	}
 
 	
@@ -73,5 +87,25 @@ public class BankController {
 		map.put("list", list);
 		return map;
 	}
+	
+	@RequestMapping(value="/addbank",method=RequestMethod.POST)
+	public String addbank(@RequestParam(value="cardId",required=false)String cardId,@RequestParam(value="bankId",required=false)String bankId,HttpServletResponse response,HttpSession session,HttpServletRequest request) throws Exception{
+		Bank bank=new Bank();
+		System.out.println(bankId);
+		Customer customer = (Customer) session.getAttribute("customer");
+		bank.setUid(customer.getUid());
+		bank.setBaccount(bankId);
+		bank.setBcardnumber(cardId);
+		Date now = new Date(); 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//可以方便地修改日期格式
+		Date time= dateFormat.parse(dateFormat.format(new Date()));
+		bank.setBtime(time);
+		bank.setBstate("1");
+		bankService.addbank(bank);
+		List<Bank> list=bankService.selectCard(customer.getUid());//查询所有数据
+		request.setAttribute("bankList", list);
+		return "client/BankCards";
+	}
+	
 	
 }

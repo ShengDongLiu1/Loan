@@ -37,51 +37,17 @@ window.onload = function() {
 
 
 function angodiv1() {
-	
- 	var div1=document.getElementById("angodiv1");//充值
- 	var div2=document.getElementById("angodiv2");//提现
- 	var div3=document.getElementById("angodiv3");//还款
- 	var div4=document.getElementById("angodiv4");//冻结
- 	div1.style.display="block";
- 	div2.style.display="none";
- 	div3.style.display="none";
- 	div4.style.display="none";
- 	//显示div,下面是隐藏div div1.style.display="none";
+	window.location.href="<%=path%>/client/MoneyRecord?state=2&page=1";
 }
 function angodiv2() {
-	
-	window.location.href="<%=path%>/capital/selectAngodiv1?state=2&page=1";
- 	var div1=document.getElementById("angodiv1");//充值
- 	var div2=document.getElementById("angodiv2");//提现
- 	var div3=document.getElementById("angodiv3");//还款
- 	var div4=document.getElementById("angodiv4");//冻结
- 	div2.style.display="block";
- 	div1.style.display="none";
- 	div3.style.display="none";
- 	div4.style.display="none";
- 	//显示div,下面是隐藏div div1.style.display="none";
+ 	window.location.href="<%=path%>/capital/selectAngodiv1?state=2&page=1";
+ 	
 }
 function angodiv3() {
- 	var div1=document.getElementById("angodiv1");//充值
- 	var div2=document.getElementById("angodiv2");//提现
- 	var div3=document.getElementById("angodiv3");//还款
- 	var div4=document.getElementById("angodiv4");//冻结
- 	div3.style.display="block";
- 	div1.style.display="none";
- 	div2.style.display="none";
- 	div4.style.display="none";
- 	//显示div,下面是隐藏div div1.style.display="none";
+	window.location.href="<%=path%>/capital/selectAngodiv1?state=3&page=1";
 }
 function angodiv4() {
- 	var div1=document.getElementById("angodiv1");//充值
- 	var div2=document.getElementById("angodiv2");//提现
- 	var div3=document.getElementById("angodiv3");//还款
- 	var div4=document.getElementById("angodiv4");//冻结
- 	div4.style.display="block";
- 	div1.style.display="none";
- 	div3.style.display="none";
- 	div2.style.display="none";
- 	//显示div,下面是隐藏div div1.style.display="none";
+	window.location.href="<%=path%>/capital/selectAngodiv1?state=4&page=1";
 }
 </script>
 </head>
@@ -157,71 +123,36 @@ function angodiv4() {
 							<c:forEach var="list" items="${rechList.rows}">
 								<tr class="success">
 									<td><fmt:formatDate value="${list.rtime}" type="both"/></td>
-									<td>${list.rtype}</td>
+									<td>${list.rstate}</td>
 									<td>${list.rmoney}</td>
 									<td>${list.capital.available}</td>
-									<td><a
-										href="<%=path %>/capital/selectAngodiv1?kid=${list.rid}&page=${lists.pageNo}&state=1">查询</a>
+									<td>
+										<c:choose>
+											<c:when test="${list.rtype == 1}">充值成功</c:when>
+											<c:when test="${list.rtype == 2}">充值失败</c:when>
+											<c:otherwise>审核中</c:otherwise>
+										</c:choose>
+									</td>
 								</tr>
 							</c:forEach>
 							
 				</tbody>
 			</table>
 			<div>
-								<a href="javacscript:void(0)" onclick="mygoods(2)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
-								<a href="javacscript:void(0)" onclick="mygoods(3)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
-								当前页 第<span id="page"></span>页&nbsp;&nbsp;
-								共<span id="count"></span>页&nbsp;&nbsp;
-								共<span id="total"></span>条数据&nbsp;&nbsp;
+								<a href="<%=path %>/client/MoneyRecord?state=2&page=${rechList.pageNo - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
+								<a href="<%=path %>/client/MoneyRecord?state=2&page=${rechList.pageNo + 1}" onclick="mygoods(3)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
+								当前页 第<span id="page">${rechList.pageNo}</span>页&nbsp;&nbsp;
+								共<span id="count">${rechList.total}</span>页&nbsp;&nbsp;
+								共<span id="total">${count}</span>条数据&nbsp;&nbsp;
 							</div>
 		</div>
 		
-		
-		
-		<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
-		<div id="angodiv2">
-	
-	<table class="table" style="border: 2px solid; border-color: #DFF0D8;">
-				<thead>
-					<tr>
-						<th width="150px">提现时间</th>
-						<th width="150px">提现银行</th>
-						<th width="150px">提现金额</th>
-						<th width="150px">可用余额</th>
-						<th width="150px">操作</th>
-					</tr>
-				</thead>
-				<tbody>
-							<c:forEach var="list" items="${witlist.rows}">
-								<tr class="success">
-									<td><fmt:formatDate value="${list.wtime}" type="both"/></td>
-									<td>${list.wbank}</td>
-									<td>${list.wmoney}</td>
-									<td>${list.capital.available}</td>
-									<td><a
-										href="<%=path %>/capital/selectAngodiv1?kid=${list.rid}&page=${lists.pageNo}&state=1">查询</a>
-								</tr>
-							</c:forEach>
-							
-				</tbody>
-			</table>
-			<div>
-								<a href="javacscript:void(0)" onclick="mygoods(2)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
-								<a href="javacscript:void(0)" onclick="mygoods(3)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
-								当前页 第<span id="page"></span>页&nbsp;&nbsp;
-								共<span id="count"></span>页&nbsp;&nbsp;
-								共<span id="total"></span>条数据&nbsp;&nbsp;
-							</div>
-		</div>
 		</div>
 
 		</div>
 		<!-- end -->
 	</div>
-<<<<<<< Updated upstream
 	<jsp:include flush="true" page="bottom.jsp"></jsp:include>
-</body></html>
-=======
 	<div id="ajaxFooter">	
 	<div class="mod-sidebar">
 		<ul>
@@ -296,4 +227,3 @@ function angodiv4() {
 </body>
 
 </html>
->>>>>>> Stashed changes

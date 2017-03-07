@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -52,7 +53,7 @@
 </div>
 <div class="account-content" id="invest">
 	<div class="sub-nav">
-		<a href="javascript:;" class="active" id="invest-s1">成功借出</a>
+		<a href="javascript:;" class="active" id="invest-s1">成功投资</a>
 		<a href="javascript:;" id="invest-s2">招标中的借款</a>
 		<a href="javascript:;" id="invest-s3">回款中的借款</a>
 		<a href="javascript:;" id="invest-s4">已回收的借款</a>
@@ -67,28 +68,33 @@
 	<div class="invest-listData invest-listData1">
 		<ul class="investData list-box">
 			<li class="title">
-				<div class="children0">标题</div>
-				<div class="children1">类型</div>
-				<div class="children2">年利率</div>
-				<div class="children3">期限</div>
-				<div class="children4">还款方式</div>
+				<div class="children0">借款标题</div>
+				<div class="children1">订单号</div>
+				<div class="children2">借款金额</div>
+				<div class="children3">年利率</div>
+				<div class="children4">借款类型</div>
 				<div class="children5">投资金额</div>
 				<div class="children6">投资时间</div>
 			</li>
 		</ul>
 		<ul class="investData listData">
 			<li class="interval">
-				<div class="children0"><a href="http://120.76.203.19:8090/shzc_test/WEB-PC/invest.html?id=388" title="多金宝小测试3">多金宝小测试3</a></div>
-				<div class="children1">多金宝</div>
-				<div class="children2">9%</div>
-				<div class="children3">4个月</div>
-				<div class="children4">等额本息</div>
-				<div class="children5"><span class="black">1,000.00</span></div>
-				<div class="children6">2016-09-14</div>
+				<c:forEach var="list" items="${rechList}">
+					<div class="children0">${list.loan.ltitle}</div>
+					<div class="children1">${list.inumber}</div>
+					<div class="children2">${list.loan.lmoney}</div>
+					<div class="children3">${list.loan.lrate}</div>
+					<div class="children4">${list.loan.ltype}</div>
+					<div class="children5"><span class="black">${list.imoney}</span></div>
+					<div class="children6"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${list.itime}"/></div>
+				</c:forEach>
 			</li>
 		</ul>
-		<ul class="paging" style="width: 340px; margin: 30px auto 0px;"><li><button type="button" class="pre">上一页</button></li><li class="active"><button type="button" data-num="1">1</button></li><li><button type="button" data-num="2">2</button></li><li><button type="button" data-num="3">3</button></li><li><button type="button" data-num="4">4</button></li><li><button type="button" class="next">下一页</button></li></ul>
-	</div>
+		<ul class="paging" style="width: 340px; margin: 30px auto 0px;">
+			<li><button type="button" class="pre" id = "previous" <c:if test='${page == 1}'> style='opacity: 0.2;' </c:if>>上一页</button></li>
+			<li><button type="button" class="next" id = "next1" <c:if test='${count <= page}'> style='opacity: 0.2;' </c:if>>下一页</button></li>
+		</ul>
+    </div>
 	<div class="invest-listData invest-listData2">
 		<ul class="investData list-box">
 			<li class="title">
@@ -219,7 +225,24 @@
 	</div>
 </div>
 </div>
-		<!-- end -->
 	</div>
 	<jsp:include flush="true" page="bottom.jsp"></jsp:include>
+	<script>
+	$("#previous").click(function(){
+		var page=${page == 1};
+		if(page){
+			return false;
+		}else{
+			window.location.href="<%=path %>/client/investment?page=${page - 1}&&rows=${pageSize }"; 
+		}
+	})
+	$("#next1").click(function(){
+		var page=${count <= page};
+		if(page){
+			return false;
+		}else{
+			window.location.href="<%=path %>/client/investment?page=${page + 1}&&rows=${pageSize }"; 
+		}
+	})
+	</script>
 </body></html>

@@ -44,7 +44,17 @@
     <include refid="Base_Column_List" />
     	from capital where cid = #{cid,jdbcType=INTEGER}
   </select>
+  <select id="selectByPrimaryKey2" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from capital
+    where uid = #{uid,jdbcType=INTEGER}
+<<<<<<< Updated upstream
+	</select>
   
+=======
+  </select>
+>>>>>>> Stashed changes
    <select id="selectByFund" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     	select c.available,c.income from capital c where c.uid=#{uid,jdbcType=INTEGER}
   </select>
@@ -176,4 +186,12 @@
       ctime = #{ctime,jdbcType=TIMESTAMP}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
+  
+  
+  <select id="selectByid" resultType="java.lang.String" parameterType="java.lang.Integer" >
+    select 
+   		cid
+    from Capital
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
 </mapper>

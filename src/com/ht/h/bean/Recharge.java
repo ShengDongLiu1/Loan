@@ -23,6 +23,10 @@ public class Recharge {
 
     private Date rtime;
     
+    private String username;
+    
+    private Capital capital;
+    
     private Customer customer;
 
     public Customer getCustomer() {
@@ -31,6 +35,14 @@ public class Recharge {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	public Capital getCapital() {
+		return capital;
+	}
+
+	public void setCapital(Capital capital) {
+		this.capital = capital;
 	}
 
 	public Integer getRid() {
@@ -49,6 +61,13 @@ public class Recharge {
         this.uid = uid;
     }
 
+    public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	public String getRserial() {
 		return rserial;

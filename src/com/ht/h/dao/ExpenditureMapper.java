@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.ht.h.bean.Expenditure;
+import com.ht.h.bean.Income;
 
 public interface ExpenditureMapper {
     int deleteByPrimaryKey(Integer eid);
@@ -21,4 +22,6 @@ public interface ExpenditureMapper {
     List<Expenditure> queryAll(Map<String, Object> map);
     
     Long getTotal(Map<String, Object> map);
+    
+    List<Expenditure> expendAll();
 }

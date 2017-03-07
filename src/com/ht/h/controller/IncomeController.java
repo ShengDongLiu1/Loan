@@ -5,13 +5,17 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONArray;
 import com.ht.h.bean.Income;
 import com.ht.h.bean.PageBean;
 import com.ht.h.dto.StringUtil;
@@ -54,5 +58,15 @@ public class IncomeController {
 		map.put("rows", incList);
 		map.put("total", total);
 		return map;
+	}
+
+	/**
+	 * 收入报表统计
+	 */
+	@RequestMapping(value="/statementAll")
+	public String statementAll(HttpServletRequest request){
+		List<Income> incomes=incomeService.statementAll();
+		request.setAttribute("statementAll", incomes);
+		return "statement/income";	
 	}
 }

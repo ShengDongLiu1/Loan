@@ -21,4 +21,8 @@ public interface RepaymentMapper {
     List<Repayment> queryAll(Map<String, Object> map);
     
     Long getTotal(Map<String, Object> map);
+
+	int RepaymentCount(Map<String, Object> map);
+
+	List<Repayment> repaymentQueryAll(Map<String, Object> map);
 }

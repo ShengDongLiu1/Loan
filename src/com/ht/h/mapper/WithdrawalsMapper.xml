@@ -25,6 +25,7 @@
   	  <result column="wbank" jdbcType="VARCHAR" property="wbank" />
   	  <result column="wmoney" jdbcType="DECIMAL" property="wmoney" />
       <result column="wtime" jdbcType="TIMESTAMP" property="wtime" />
+    <result column="wstate" jdbcType="VARCHAR" property="wstate" />
       
     <association property="capital" javaType="com.ht.h.bean.Capital">
 	    <result column="cid" property="cid" />
@@ -37,7 +38,7 @@
   </sql>
   
   <sql id="Cap_Wit_List">
-    w.wtime,w.wbank,w.wmoney,c.Available
+    w.wtime,w.wbank,w.wmoney,w.wstate,c.Available
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -209,8 +210,11 @@
 		<where>
 			w.uid=c.uid
 			<if test="wtime!=null and wtime!='' and wtime1!=null and wtime1!=''">
-			and w.rtime between #{wtime} and #{wtime1}
-		</if>
+				and w.rtime between #{wtime} and #{wtime1}
+			</if>
+			<if test="uid != null and uid != '' ">
+				and w.uid = #{uid}
+			</if>
 		</where>
 		order by w.wtime desc
 		<if test="start!=null and size!=null">
@@ -218,8 +222,14 @@
 		</if>
   </select>
   
-  <select id="withdrawalsCount" resultType="int">
-		select count(*) from withdrawals
+  <select id="withdrawalsCount" resultType="int" parameterType="Map" >
+		select count(*) from withdrawals w, capital c
+		<where>
+			w.uid=c.uid
+			<if test="uid != null and uid != '' ">
+				and w.uid = #{uid,jdbcType=INTEGER}
+			</if>
+		</where>
 	</select>
   
 </mapper>

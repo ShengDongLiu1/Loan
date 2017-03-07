@@ -57,4 +57,16 @@ public class RepaymentServiceImpl implements RepaymentService{
 		return repaymentDao.getTotal(map);
 	}
 
+	@Override
+	public int RepaymentCount(Map<String, Object> map) {
+		// TODO 自动生成的方法存根
+		return repaymentDao.RepaymentCount(map);
+	}
+
+	@Override
+	public List<Repayment> repaymentQueryAll(Map<String, Object> map) {
+		// TODO 自动生成的方法存根
+		return repaymentDao.repaymentQueryAll(map);
+	}
+
 }
