@@ -12,6 +12,11 @@
     <result column="rstate" jdbcType="VARCHAR" property="rstate" />
     <result column="rserial" jdbcType="VARCHAR" property="rserial" />
     <result column="rtime" jdbcType="TIMESTAMP" property="rtime" />
+    <association property="customer" javaType="com.ht.h.bean.Customer"> 
+    	<result property="uid" column="uid"/> 
+	    <result property="username" column="username"/> 
+	    <result property="realname" column="realname"/> 
+	</association> 
   </resultMap>
   
    <resultMap id="CapRecMap" type="com.ht.h.bean.Recharge">

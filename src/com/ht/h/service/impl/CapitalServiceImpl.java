@@ -73,4 +73,14 @@ public class CapitalServiceImpl implements CapitalService{
 		return capitalDao.selectByPrimaryKey2(cid);
 	}
 
+	@Override
+	public int updateRecharge(Capital capital) {
+		return capitalDao.updateRecharge(capital);
+	}
+
+	@Override
+	public List<Capital> queryByUid(int uid) {
+		return capitalDao.queryByUid(uid);
+	}
+
 }

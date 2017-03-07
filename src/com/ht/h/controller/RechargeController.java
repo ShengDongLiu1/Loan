@@ -20,10 +20,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ht.h.bean.Bank;
+import com.ht.h.bean.Capital;
 import com.ht.h.bean.Customer;
 import com.ht.h.bean.PageBean;
 import com.ht.h.bean.Recharge;
 import com.ht.h.service.interfaces.BankService;
+import com.ht.h.service.interfaces.CapitalService;
 import com.ht.h.service.interfaces.RechargeService;
 import com.ht.h.util.ResponseUtil;
 import com.ht.h.util.StringUtil;
@@ -41,6 +43,9 @@ public class RechargeController {
 	
 	@Resource
 	private RechargeService rechargeService;
+	
+	@Autowired
+	private CapitalService capitalService;
 	
 	@Autowired
 	private BankService bankService;
@@ -68,10 +73,28 @@ public class RechargeController {
 	
 	@RequestMapping("/update")
 	@ResponseBody
-	public Map<String, Object> upDate(Recharge recharge,HttpServletRequest request){
+	public Map<String, Object> upDate(Recharge recharge,HttpServletRequest request) throws ParseException{
 		recharge.setRstate("成功");
 		int i=rechargeService.updateByPrimaryKeySelective(recharge);
 		Map<String, Object> map = new HashMap<String,Object>();
+		HttpSession session=request.getSession();
+		Customer customer=(Customer)session.getAttribute("customer");
+		Capital c=capitalService.selectByPrimaryKey2(customer.getUid());
+		if(c!=null && !"".equals(c)){
+			Capital capital=new Capital();
+			capital.setCid(c.getCid());
+			capital.setAllasset(recharge.getRmoney()+c.getAllasset());
+			capital.setAvailable(recharge.getRmoney()+c.getAvailable());
+			capital.setCtime(SDF.parse(SDF.format(new Date())));
+			capitalService.updateRecharge(capital);
+		}else{
+			Capital capital=new Capital();
+			capital.setUid(customer.getUid());
+			capital.setAllasset(recharge.getRmoney());
+			capital.setAvailable(recharge.getRmoney());
+			capital.setCtime(SDF.parse(SDF.format(new Date())));
+			capitalService.insertSelective(capital);
+		}
 		if(i==0){
 			map.put("errorMsg", "请先添加银行卡！");
 			map.put("result", "fail");
@@ -132,7 +155,7 @@ public class RechargeController {
 		return null;
 	}
 	
-	//分页查询
+	//客户查询
 	@RequestMapping("/queryBy")
 	public String queryBy(@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,@RequestParam(value="rtime1",required=false)String rtime1,@RequestParam(value="rstate",required=false)String rstate,@RequestParam(value="rtime",required=false)String rtime,@RequestParam(value="username",required=false)String username,HttpServletResponse response,HttpServletRequest request) throws Exception{
 		PageBean pageBean=null;
@@ -151,6 +174,7 @@ public class RechargeController {
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		List<Recharge> list=rechargeService.queryBy(map);
+		System.out.println(list.get(0).getCustomer().getUsername()+":username");
 		Long total=rechargeService.getTotalBy(map);
 		request.setAttribute("list", list);
 		request.setAttribute("total", total);

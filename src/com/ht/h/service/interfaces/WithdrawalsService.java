@@ -25,4 +25,7 @@ public interface WithdrawalsService {
 	int withdrawalsCount(Map<String, Object> map);
 
 	List<Withdrawals> withdrawalsQueryAll(Map<String, Object> map);
+	
+	int withdrawalsCountInt();
+	
 }
