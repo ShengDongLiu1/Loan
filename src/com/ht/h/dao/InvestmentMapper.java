@@ -20,5 +20,6 @@ public interface InvestmentMapper {
     List<Investment> InvestmentSelectAll(Map<String, Object> map);
     
     Long getTotal(Map<String, Object> map);
-    String repeatUser(Integer iuid);
+    
+    String repeatUser(Integer iuid,Integer lid);
 }

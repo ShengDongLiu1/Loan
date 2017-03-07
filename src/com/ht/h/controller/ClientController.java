@@ -4,13 +4,16 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
 import com.ht.h.bean.Bank;
 import com.ht.h.bean.Capital;
 import com.ht.h.bean.Customer;
@@ -26,6 +29,7 @@ import com.ht.h.service.interfaces.CapitalService;
 import com.ht.h.service.interfaces.InvestmentService;
 import com.ht.h.service.interfaces.LoanService;
 import com.ht.h.service.interfaces.RechargeService;
+import com.ht.h.util.ResponseUtil;
 
 @Controller
 @RequestMapping(value="client")
@@ -308,20 +312,35 @@ public class ClientController {
 	 * 跳转到汇付天下
 	 * @throws Exception 
 	 */
+	@RequestMapping(value="pay1")
+	@ResponseBody
+	public String pay1(String id,HttpServletRequest request,String lid,HttpServletResponse response) throws Exception{
+		JSONObject result = new JSONObject();
+		if(id!=null){
+			String iuid = investmentService.repeatUser(Integer.valueOf(id),Integer.valueOf(lid));
+			if(Integer.valueOf(iuid)<1){
+				Capital	capital = capitalService.selectByPrimaryKey2(Integer.valueOf(id));
+				if(capital!=null){
+					result.put("success", true);
+				}else{
+					result.put("result", "err1");
+				}
+			}else{
+				result.put("result", "err2");
+			}
+		}
+		ResponseUtil.write(response, result);
+		return null;
+	}
+	
 	@RequestMapping(value="pay")
-	public String pay(String qian,String id,HttpServletRequest request,String lid) throws Exception{
+	public String pay(HttpServletRequest request,String qian,String id,String lid) throws Exception{
+		Capital	capital = capitalService.selectByPrimaryKey2(Integer.valueOf(id));
+		request.setAttribute("available", capital.getAvailable());
 		request.setAttribute("qian", qian);
 		request.setAttribute("lid", lid);
 		request.setAttribute("dingdan", "HJ"+DateUtil.getCurrentDateStr());
 		request.setAttribute("time1", DateUtil.getCurrentDateStr2());
-		if(id!=null){
-			Capital	capital = capitalService.selectByPrimaryKey2(Integer.valueOf(id));
-			if(capital!=null){
-				request.setAttribute("available", capital.getAvailable());
-			}else{
-				return "client/BankCard";
-			}
-		}
 		return "client/pay";
 	}
 	

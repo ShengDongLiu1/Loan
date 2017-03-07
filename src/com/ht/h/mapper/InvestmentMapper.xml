@@ -168,8 +168,8 @@
 	     l.lid = i.lid
 	   </where>
 	</select>
-  
+   
    <select id="repeatUser" resultType="java.lang.String" parameterType="java.lang.Integer" >
-  	select iid from Investment where (iuid= #{uid})
+  	select count(*) from Investment where iuid= #{0} and lid = #{1}
   </select>
 </mapper>

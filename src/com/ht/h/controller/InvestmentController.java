@@ -42,8 +42,7 @@ public class InvestmentController {
 	@ResponseBody
 	public String toubiao(Investment investment,HttpServletResponse response) throws Exception{
 		JSONObject result = new JSONObject();
-		String iuid = investmentService.repeatUser(investment.getIuid());
-		if(iuid==null){
+	
 			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 			Date time=null;
 			time= sdf.parse(sdf.format(new Date()));
@@ -59,9 +58,7 @@ public class InvestmentController {
 			}else{
 				result.put("success", false);
 			}
-		}else{
-			result.put("result", "err");
-		}
+		
 		ResponseUtil.write(response, result);
 		return null;
 		
