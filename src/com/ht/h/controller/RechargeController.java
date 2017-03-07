@@ -174,6 +174,7 @@ public class RechargeController {
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		List<Recharge> list=rechargeService.queryBy(map);
+		System.out.println(list.get(0).getCustomer().getUsername()+":username");
 		Long total=rechargeService.getTotalBy(map);
 		request.setAttribute("list", list);
 		request.setAttribute("total", total);

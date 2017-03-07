@@ -169,7 +169,7 @@
 	function article_edit(id){
 		var rbank=$("#rbank").val();
 		alert(rbank+"++++");
-		$.post("<%=path%>/recharge/update?rid="+id+"&rbank="+rbank,
+		$.post("<%=path%>/recharge/update?rid="+id+"&rbank="+rbank+"&rmoney=${money }",
 			function(data){
 				if(data.result=="fail"){
 					/* alert(data.errorMsg); */
