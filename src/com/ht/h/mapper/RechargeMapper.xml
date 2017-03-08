@@ -234,6 +234,9 @@
   	select r.*,u.username from recharge r, Customer u
 		<where>
 			r.uid=u.uid	
+			<if test="uid != null and uid != '' ">
+				and r.uid = #{uid}
+			</if>
 			<if test="username != null and username != '' ">
 				and u.username like #{username}
 			</if>
@@ -254,6 +257,9 @@
   	select count(*) from recharge r, Customer u
 		<where>
 			r.uid=u.uid	
+			<if test="uid != null and uid != '' ">
+				and r.uid = #{uid}
+			</if>
 			<if test="username != null and username != '' ">
 				and u.username like #{username}
 			</if>

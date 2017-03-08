@@ -55,13 +55,13 @@
 <div class="account-content">
 	<!-- 充值记录 -->
 	<div class="ipay-pay">
-		<div class="account-form cl">
-			<input type="text" class="date icon icon-date" id="startDate">
+		<!-- <div class="account-form cl">
+			<input type="datetime" class="date icon icon-date" id="startDate">
 			<p class="text">至</p>
-			<input type="text" class="date icon icon-date" id="endDate">
-			<!-- <input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" /> -->
+			<input type="datetime" class="date icon icon-date" id="endDate">
+			<input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" />
 			<button type="button" class="search" id="ipaySearch">搜索</button>
-		</div>
+		</div> -->
 		<div class="account-list">
 			<table class="table" id="sample-table-2">
 				<thead>
@@ -173,37 +173,23 @@
 		$('#cz').click(function(){
 			window.location.href="<%=path%>/recharge/czadd.do"; 
 		})
-		$('.show-ipay-list').click(function(){
-	    		$(this).addClass('active').siblings('a').removeClass('active');
-	    		$('.em-line').animate({'left':'120px'},500);
-	    		$('.ipay-pay').hide();
-	    		$('.ipay-list').show();
-	    		
-	    		$('#startDate').datepicker({format:'yyyy-mm-dd'}).on('changeDate',function(){});
-		    	$('#endDate').datepicker({format:'yyyy-mm-dd'}).on('changeDate',function(){});
-		    	if($('.listData li').size() == 0){
-		    		//初始化数据查询
-			    	initIpayData();
-		    	}
-		    	//搜索
-		    	$('#ipaySearch').unbind('click').click(function(){
-		    		var rtime = $('#startDate').val();
-		    		var rtime1 = $('#endDate').val();
-		    		if(rtime == ''){
-		    			utils.toast('开始时间不能为空');
-		    			return;
-		    		}
-		    		if(rtime1 == ''){
-		    			utils.toast('结束时间不能为空');
-		    			return;
-		    		}
-		    		if(rtime>rtime1){
-		    			utils.toast('开始时间不能大于结束时间');
-		    			return;
-		    		}
-		    		initIpayData(rtime,rtime1);
-		    	});
-	    	});
+		$('#ipaySearch').click(function(){
+    		var rtime = $('#startDate').val();
+    		var rtime1 = $('#endDate').val();
+    		if(rtime == ''){
+    			alert('开始时间不能为空');
+    			return;
+    		}
+    		if(rtime1 == ''){
+    			alert('结束时间不能为空');
+    			return;
+    		}
+    		if(rtime>rtime1){
+    			alert('开始时间不能大于结束时间');
+    			return;
+    		}
+    		window.location.href="<%=path%>/recharge/queryBy.do?rtime="+rtime+"&&rtime1="+rtime1; 
+    	});
 		function username(value){
 			var btn="<a href='javascript:onCustomer("+value.uid+")'>"+value.username+"</a>";
 			return btn;

@@ -165,6 +165,9 @@ public class RechargeController {
 			pageBean=new PageBean(Integer.parseInt(page),Integer.parseInt(rows));
 		}
 		Map<String, Object> map = new HashMap<String,Object>();
+		HttpSession session=request.getSession();
+		Customer customer=(Customer)session.getAttribute("customer");
+		map.put("uid", customer.getUid());
 		map.put("rstate", rstate);
 		map.put("username", StringUtil.formatLike(username));
 		if(rtime != null && !"".equals(rtime) && rtime1 != null && !"".equals(rtime1)){
@@ -174,7 +177,6 @@ public class RechargeController {
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		List<Recharge> list=rechargeService.queryBy(map);
-		System.out.println(list.get(0).getCustomer().getUsername()+":username");
 		Long total=rechargeService.getTotalBy(map);
 		request.setAttribute("list", list);
 		request.setAttribute("total", total);
