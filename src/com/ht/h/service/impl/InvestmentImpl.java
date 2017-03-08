@@ -54,8 +54,8 @@ public class InvestmentImpl implements InvestmentService{
 	public Long getTotal(Map<String, Object> map) {
 		return investmentMapper.getTotal(map);
 	}
-	public String repeatUser(Integer iuid) {
-		return investmentMapper.repeatUser(iuid);
+	public String repeatUser(Integer iuid,Integer lid) {
+		return investmentMapper.repeatUser(iuid,lid);
 	}
 	
 }

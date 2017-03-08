@@ -88,6 +88,7 @@
                           	  <input type="hidden" id="lid" value="${requestScope.lid }">
                           </p>
                           <p class="det_shouyi">每投资1万元收益<strong>183.33元</strong></p>
+                          <span id="err" style="color: red"></span>
                           <p><a href="javascript:void(0)" class=" pro_btn det_btn" onclick="touzi()">立即投资</a></p>
 	  	     	    </div>
 	  	     </div>
@@ -485,10 +486,23 @@
 		var qian = $("#qian").val();
 		var id = $("#uid").val();
 		var lid = $("#lid").val();
+		var lid1 = lid.substring(1,lid.length-1)
 		if(qian==null || qian==""){
-			alert("请输入投资金额!")
+			$("#err").html("请输入投资金额！");
+		}else if(isNaN(qian)){
+			$("#err").html("输入金额有误！");
 		}else{
-			window.location.href="<%=path%>/client/pay?qian="+qian+"&id="+id+"&lid="+lid;
+			 $.post("<%=path%>/client/pay1",{'qian':qian,'id':id,'lid':lid1},function(index){ 
+			  		if(index.success){
+			  			window.location.href="<%=path%>/client/pay?qian="+qian+"&id="+id+"&lid="+lid1;
+			  		}else if(index.result=="err1"){
+			  			$("#err").html("未添加银行卡！");
+			  		}else if(index.result=="err2"){
+			  			$("#err").html("该用户已经投过此标了！");
+			  		}else {
+			  			alert("投标失败")
+			  		}
+			 },"json") 
 		}
 	}
 </script>

@@ -195,4 +195,9 @@
     from Capital
     where uid = #{uid,jdbcType=INTEGER}
   </select>
+  
+ <select id="queryByUid" parameterType="Integer" resultMap="BaseResultMap">
+ 	select * from capital where uid=#{0};
+ </select>
+  
 </mapper>

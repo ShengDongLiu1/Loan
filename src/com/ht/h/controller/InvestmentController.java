@@ -42,26 +42,22 @@ public class InvestmentController {
 	@ResponseBody
 	public String toubiao(Investment investment,HttpServletResponse response) throws Exception{
 		JSONObject result = new JSONObject();
-		String iuid = investmentService.repeatUser(investment.getIuid());
-		if(iuid==null){
-			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-			Date time=null;
-			time= sdf.parse(sdf.format(new Date()));
-			investment.setItime(time);
-			int resultTotal = investmentService.insertSelective(investment);
-			if(resultTotal>0){
-				Capital capital = new Capital();	
-				String cid = capitalService.selectByid(investment.getIuid());
-				capital.setCid(Integer.valueOf(cid));
-				capital.setAvailable(investment.getIavailable()-investment.getImoney());
-				capitalService.updateByPrimaryKeySelective(capital);
-				result.put("success", true);
-			}else{
-				result.put("success", false);
-			}
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		Date time=null;
+		time= sdf.parse(sdf.format(new Date()));
+		investment.setItime(time);
+		int resultTotal = investmentService.insertSelective(investment);
+		if(resultTotal>0){
+			Capital capital = new Capital();	
+			String cid = capitalService.selectByid(investment.getIuid());
+			capital.setCid(Integer.valueOf(cid));
+			capital.setAvailable(investment.getIavailable()-investment.getImoney());
+			capitalService.updateByPrimaryKeySelective(capital);
+			result.put("success", true);
 		}else{
-			result.put("result", "err");
+			result.put("success", false);
 		}
+		
 		ResponseUtil.write(response, result);
 		return null;
 		

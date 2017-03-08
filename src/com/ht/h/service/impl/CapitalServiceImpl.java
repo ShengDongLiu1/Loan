@@ -75,8 +75,12 @@ public class CapitalServiceImpl implements CapitalService{
 
 	@Override
 	public int updateRecharge(Capital capital) {
-		// TODO Auto-generated method stub
 		return capitalDao.updateRecharge(capital);
+	}
+
+	@Override
+	public List<Capital> queryByUid(int uid) {
+		return capitalDao.queryByUid(uid);
 	}
 
 }

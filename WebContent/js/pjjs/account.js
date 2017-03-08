@@ -1003,7 +1003,7 @@ function inOrOut(income,spending){
 function strChina(str){
 	return str.replace(/<[^>]+>/g,"");
 }
-//投资管理
+/*//投资管理
 function initInvestManage(){
 	$.ajax({
 	    url: 'http://120.76.203.19:8090/shzc_test/WEB-PC/scripts/src/template/investmanage.html',
@@ -1034,7 +1034,7 @@ function initInvestManage(){
 	    	});
 	    }
 	});
-}
+}*/
 
 //债权管理
 function initClaimManage(){

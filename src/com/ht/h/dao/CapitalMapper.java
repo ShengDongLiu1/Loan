@@ -30,5 +30,5 @@ public interface CapitalMapper {
     
     String selectByid(Integer uid);
     
-    
+    List<Capital> queryByUid(int uid);
 }
