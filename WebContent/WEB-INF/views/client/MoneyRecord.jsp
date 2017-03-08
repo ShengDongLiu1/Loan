@@ -49,6 +49,14 @@ function angodiv3() {
 function angodiv4() {
 	window.location.href="<%=path%>/capital/selectAngodiv1?state=4&page=1";
 }
+function selectdate(){
+	var time=$("#time").val();
+	var time1=$("#time1").val();
+	window.location.href="<%=path%>/client/MoneyRecord?time='+time+'&time1='+time1+'&page=1";
+$.post('<%=path%>/train/list.do',
+			{"t_carID":t_carID,"t_driverID":t_driverID,"beginTime":beginTime,"endTime":endTime}
+	);
+}
 </script>
 </head>
 
@@ -100,11 +108,11 @@ function angodiv4() {
 	</div>
 	<div class="account-form cl">
 		<p class="text long">交易时间：</p>
-		<input type="text" class="date icon icon-date" id="time" readonly="readonly">
+		<input type="date" class="date icon icon-date" name="time" id="time">
 		<p class="text">至</p>
-		<input type="text" class="date icon icon-date" id="time1" readonly="readonly">
+		<input type="date" class="date icon icon-date" name="time1"  id="time1">
 		<!-- <input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" /> -->
-		<button type="button" class="search" onclick="">搜索</button>
+		<button type="button" class="search" onclick="selectdate();">搜索</button>
 	</div>
 	<div></div>
 	<div id="angodiv1">
@@ -120,7 +128,7 @@ function angodiv4() {
 					</tr>
 				</thead>
 				<tbody>
-							<c:forEach var="list" items="${rechList.rows}">
+							<c:forEach var="list" items="${userList}">
 								<tr class="success">
 									<td><fmt:formatDate value="${list.rtime}" type="both"/></td>
 									<td>${list.rstate}</td>
@@ -138,12 +146,13 @@ function angodiv4() {
 							
 				</tbody>
 			</table>
-			<div>
-								<a href="<%=path %>/client/MoneyRecord?state=2&page=${rechList.pageNo - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
-								<a href="<%=path %>/client/MoneyRecord?state=2&page=${rechList.pageNo + 1}" onclick="mygoods(3)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
-								当前页 第<span id="page">${rechList.pageNo}</span>页&nbsp;&nbsp;
-								共<span id="count">${rechList.total}</span>页&nbsp;&nbsp;
-								共<span id="total">${count}</span>条数据&nbsp;&nbsp;
+			<div>			<c:if test="${page > 1}">
+								<a href="<%=path %>/client/MoneyRecord?state=2&page=${page - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
+							</c:if>
+								<a href="<%=path %>/client/MoneyRecord?state=2&page=${page + 1}" onclick="mygoods(3)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
+								当前页 第<span id="page">${page}</span>页&nbsp;&nbsp;
+								共<span id="count">${count}</span>页&nbsp;&nbsp;
+								共<span id="total">${total}</span>条数据&nbsp;&nbsp;
 							</div>
 		</div>
 		

@@ -234,6 +234,9 @@
   	from repayment r, capital c
 		<where>
 			r.uid=c.uid
+			 <if test="uid != null">
+      			and  r.uid = #{uid}
+     		 </if>
 			<if test="rtime!=null and rtime!='' and rtime1!=null and rtime1!=''">
 			and r.rtime between #{rtime} and #{rtime1}
 		</if>
@@ -244,8 +247,17 @@
 		</if>
   </select>
   
-  <select id="RepaymentCount" resultType="int">
-		select count(*) from recharge
+  <select id="RepaymentCount" parameterType="Map" resultType="java.lang.Integer">
+		select count(*) from repayment r, capital c
+		<where>
+			r.uid=c.uid
+			 <if test="uid != null">
+      			and  r.uid = #{uid}
+     		 </if>
+			<if test="rtime!=null and rtime1!=null">
+			and r.rtime between #{rtime} and #{rtime1}
+			</if>
+		</where>
 	</select>
 	
 </mapper>

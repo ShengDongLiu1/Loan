@@ -24,7 +24,7 @@ public interface RechargeMapper {
     
     int queryByRserial(String Rserial);
 
-	int rechargetCount();
+	int rechargetCount(Map<String, Object> map);
 
 	List<Recharge> rechargetQueryAll(Map<String, Object> map);
     

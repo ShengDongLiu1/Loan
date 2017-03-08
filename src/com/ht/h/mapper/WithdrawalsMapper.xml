@@ -209,12 +209,13 @@
   	from withdrawals w, capital c
 		<where>
 			w.uid=c.uid
+			<if test="uid != null">
+				and w.uid = #{uid}
+			</if>
 			<if test="wtime!=null and wtime!='' and wtime1!=null and wtime1!=''">
 				and w.rtime between #{wtime} and #{wtime1}
 			</if>
-			<if test="uid != null and uid != '' ">
-				and w.uid = #{uid}
-			</if>
+			
 		</where>
 		order by w.wtime desc
 		<if test="start!=null and size!=null">
@@ -222,12 +223,15 @@
 		</if>
   </select>
   
-  <select id="withdrawalsCount" resultType="int" parameterType="Map" >
+  <select id="withdrawalsCount" parameterType="Map" resultType="java.lang.Integer">
 		select count(*) from withdrawals w, capital c
 		<where>
 			w.uid=c.uid
-			<if test="uid != null and uid != '' ">
-				and w.uid = #{uid,jdbcType=INTEGER}
+			<if test="uid != null">
+				and w.uid = #{uid}
+			</if>
+			<if test="wtime!=null and wtime1!=null">
+				and w.wtime between #{wtime} and #{wtime1}
 			</if>
 		</where>
 	</select>

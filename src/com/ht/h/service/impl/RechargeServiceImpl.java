@@ -63,8 +63,8 @@ public class RechargeServiceImpl implements RechargeService{
 	}
 
 	@Override
-	public int rechargetCount() {
-		return rechargDao.rechargetCount();
+	public int rechargetCount(Map<String, Object> map) {
+		return rechargDao.rechargetCount(map);
 	}
 
 	@Override
@@ -89,5 +89,4 @@ public class RechargeServiceImpl implements RechargeService{
 	public Long getTotalBy(Map<String, Object> map) {
 		return rechargDao.getTotalBy(map);
 	}
-
 }

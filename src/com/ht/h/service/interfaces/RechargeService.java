@@ -24,8 +24,6 @@ public interface RechargeService {
     
     int queryByRserial(String Rserial);
 
-	int rechargetCount();
-
 	List<Recharge> rechargetQueryAll(Map<String, Object> map);
     
     List<Recharge> queryBy1();
@@ -35,4 +33,6 @@ public interface RechargeService {
     List<Recharge> queryBy(Map<String, Object> map);
     
     Long getTotalBy(Map<String, Object> map);
+
+	int rechargetCount(Map<String, Object> map);
 }

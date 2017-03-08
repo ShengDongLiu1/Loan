@@ -276,9 +276,13 @@
   		from recharge r, capital c
 		<where>
 			r.uid=c.uid
-			<if test="rtime!=null and rtime!='' and rtime1!=null and rtime1!=''">
+			 <if test="uid != null">
+      			and  c.uid = #{uid}
+     		 </if>
+			<if test="rtime!=null and rtime1!=null">
 			and r.rtime between #{rtime} and #{rtime1}
-		</if>
+			</if>
+			
 		</where>
 		order by r.rtime desc
 		<if test="start!=null and size!=null">
@@ -286,8 +290,17 @@
 		</if>
   </select>
    
-  <select id="rechargetCount" resultType="int">
-		select count(*) from recharge
+  <select id="rechargetCount"  parameterType="Map" resultType="java.lang.Integer">
+		select count(*) from recharge r, capital c
+		<where>
+			r.uid=c.uid
+			 <if test="uid != null">
+      			and  r.uid = #{uid}
+     		 </if>
+			<if test="rtime!=null and rtime1!=null">
+			and r.rtime between #{rtime} and #{rtime1}
+			</if>
+		</where>
 	</select>
 </mapper>
 

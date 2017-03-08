@@ -105,11 +105,14 @@
   </update>
   
      <select id="frozenQueryAll" parameterType="Map" resultMap="BaseResultMap">
-  	select f.fid, f.uid, f.fmoney, f.ftime, f.fstate, f.fremarks
+  	select f.fid, f.uid, f.fmoney, f.ftime, f.fstate, f.fremarks,c.uid
   		
-  	from frozen f, user u
+  	from frozen f,customer c
 		<where>
-			f.uid=u.uid
+			f.uid=c.uid
+			 <if test="uid != null">
+      			and  f.uid = #{uid}
+     		 </if>
 			<if test="ftime!=null and ftime!='' and ftime1!=null and ftime1!=''">
 			and f.ftime between #{ftime} and #{ftime1}
 		</if>
@@ -120,7 +123,17 @@
 		</if>
   </select>
   
-  <select id="frozenCount" resultType="int">
-		select count(*) from frozen
+  <select id="frozenCount" parameterType="Map" resultType="java.lang.Integer">
+		select count(*) from frozen f,customer c
+		
+		<where>
+			f.uid=c.uid
+			 <if test="uid != null">
+      			and  f.uid = #{uid}
+     		 </if>
+			<if test="ftime!=null and ftime!='' and ftime1!=null and ftime1!=''">
+			and f.ftime between #{ftime} and #{ftime1}
+		</if>
+		</where>
 	</select>
 </mapper>

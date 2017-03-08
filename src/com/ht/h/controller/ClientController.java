@@ -209,30 +209,32 @@ public class ClientController {
 	 * 资金记录
 	 * */
 	@RequestMapping(value="MoneyRecord")
-	public String MoneyRecord(HttpServletRequest request,@RequestParam(value="state",required=false)String state,@RequestParam(value="time1",required=false)String time1,@RequestParam(value="time",required=false)String time,@RequestParam(value="page",required=false)int page){
+	public String MoneyRecord(HttpServletRequest request,@RequestParam(value="state",required=false)String state,@RequestParam(value="time1",required=false)String time1,@RequestParam(value="time",required=false)String time,@RequestParam(value="page",required=false)Integer page,HttpSession session){
 		//if(state == "1" && state.equals("1")){//查询充值表
-			Pager<Recharge> pager = new Pager<Recharge>();
-			pager.setPageSize(10);
-			int count = rechargeService.rechargetCount();
-			int total = count % pager.getPageSize() == 0 ? count / pager.getPageSize() : count / pager.getPageSize() +1;
-			pager.setTotal(total);
-			if(page >= 1 && page <= pager.getTotal()){
-				pager.setPageNo(page);
-			} else if (page < 1) {
-				pager.setPageNo(1);
-			} else if(pager.getTotal() == 0){
-				pager.setPageNo(1);
-			}else{
-				pager.setPageNo(pager.getTotal());
-			}
-			Map<String,Object> map=new HashMap<String,Object>();
-			map.put("start", pager.getBeginIndex());
-			map.put("size", pager.getPageSize());
-			List<Recharge> userList=rechargeService.rechargetQueryAll(map);
-			pager.setRows(userList);
-			request.setAttribute("rechList", pager);
-			request.setAttribute("count", count);
-			return "client/MoneyRecord";
+		PageBean pageBean=null;
+		if(page == null){
+			pageBean=new PageBean(1,10);
+		}else{
+			pageBean=new PageBean(page,10);
+		}
+		Customer customer = (Customer) session.getAttribute("customer");
+		Map<String,Object> map=new HashMap<String,Object>();
+			
+		map.put("uid", customer.getUid());
+		map.put("rtime", time);
+		map.put("rtime1", time1);
+		map.put("uid", customer.getUid());
+		map.put("start", pageBean.getStart());
+		map.put("size", pageBean.getPageSize());
+		List<Recharge> userList=rechargeService.rechargetQueryAll(map);
+		int total = rechargeService.rechargetCount(map);
+		pageBean.setTotal(total);
+		request.setAttribute("userList", userList);
+		request.setAttribute("total", total);//总条数
+		request.setAttribute("count",pageBean.getCount());//总页数
+		request.setAttribute("page", pageBean.getPage());		//当前页
+		request.setAttribute("pageSize", pageBean.getPageSize());//一页显示条数
+		return "client/MoneyRecord";
 	}
 	
 	

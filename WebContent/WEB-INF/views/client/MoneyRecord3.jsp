@@ -49,7 +49,11 @@ function angodiv4() {
 	window.location.href="<%=path%>/capital/selectAngodiv1?state=4&page=1";
 }
 
-
+//function selectdate(){
+//	var time=document.getElementById("time");
+//	var time1=document.getElementById("time1");
+//	window.location.href="<%=path%>/capital/selectAngodiv1?time='+time+'&time1='+time1+'&state=3&page=1";
+//}
 </script>
 </head>
 
@@ -105,7 +109,7 @@ function angodiv4() {
 		<p class="text">至</p>
 		<input type="text" class="date icon icon-date" id="time1" readonly="readonly">
 		<!-- <input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" /> -->
-		<button type="button" class="search" onclick="">搜索</button>
+		<button type="button" class="search" onclick="selectdate();">搜索</button>
 	</div>
 	<div></div>	
 		
@@ -123,7 +127,7 @@ function angodiv4() {
 					</tr>
 				</thead>
 				<tbody>
-							<c:forEach var="list" items="${replist.rows}" >
+							<c:forEach var="list" items="${userList}" >
 								<tr class="success">
 									<td><fmt:formatDate value="${list.rtime}" type="both"/></td>
 									<td>${list.rstate}</td>
@@ -143,11 +147,14 @@ function angodiv4() {
 				</tbody>
 			</table>
 			<div>
-								<a href="<%=path %>/capital/selectAngodiv1?state=3&page=${replist.pageNo - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
-								<a href="<%=path %>/capital/selectAngodiv1?state=3&page=${replist.pageNo + 1}" onclick="mygoods(3)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
-								当前页 第<span id="page">${replist.pageNo}</span>页&nbsp;&nbsp;
-								共<span id="count">${replist.total}</span>页&nbsp;&nbsp;
-								共<span id="total">${count}</span>条数据&nbsp;&nbsp;
+			
+							<c:if test="${page > 1}">
+								<a href="<%=path %>/client/MoneyRecord?state=3&page=${page - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
+							</c:if>
+								<a href="<%=path %>/client/MoneyRecord?state=3&page=${page + 1}" onclick="mygoods(3)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
+								当前页 第<span id="page">${page}</span>页&nbsp;&nbsp;
+								共<span id="count">${count}</span>页&nbsp;&nbsp;
+								共<span id="total">${total}</span>条数据&nbsp;&nbsp;
 							</div>
 		</div>
 		</div>
