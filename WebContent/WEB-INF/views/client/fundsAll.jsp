@@ -127,7 +127,6 @@ function angodiv1() {
 				<ul class="sub-nav">
 					<li><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
 					<li><a href="<%=path%>/client/security">安全设置</a></li>
-					<li><a href="<%=path%>/client/MessageCenter">消息中心</a></li>
 				</ul>
 			</div>
 		</div>
@@ -153,7 +152,6 @@ function angodiv1() {
 		<table class="table" style="border: 2px solid; border-color: #DFF0D8;">
 			<thead data-options="frozen:true" >
 				<tr class="juzho">
-					<th width="5%">编号</th>
 					<th width="8%">用户名</th>
 					<th width="26%">提现账号</th>
 					<th width="10%">提现银行</th>
@@ -167,7 +165,6 @@ function angodiv1() {
 			<tbody>
 				<c:forEach var="list" items="${witList.rows}">
 					<tr class="success">
-						<td>${list.wid}</td>
 						<td>${customer.username}</td>
 						<td>${list.wnumber}</td>
 						<td>${list.wbank}</td>
@@ -189,8 +186,8 @@ function angodiv1() {
 		</table>
 	</div>
 	<div>
-		<a href="<%=path %>/client/withdrawalsList?state=2&page=${witList.pageNo - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
-		<a href="<%=path %>/client/withdrawalsList?state=2&page=${witList.pageNo + 1}" onclick="mygoods(3)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
+		<a href="<%=path %>/withdrawals/withdrawalsList?state=2&page=${witList.pageNo - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
+		<a href="<%=path %>/withdrawals/withdrawalsList?state=2&page=${witList.pageNo + 1}" onclick="mygoods(3)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
 		当前页 第<span id="page">${witList.pageNo}</span>页&nbsp;&nbsp;
 		共<span id="count">${witList.total}</span>页&nbsp;&nbsp;
 		共<span id="total">${count}</span>条数据&nbsp;&nbsp;

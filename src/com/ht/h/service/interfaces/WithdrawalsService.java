@@ -27,5 +27,7 @@ public interface WithdrawalsService {
 	List<Withdrawals> withdrawalsQueryAll(Map<String, Object> map);
 	
 	int withdrawalsCountInt();
+
+    int updateState(Withdrawals record);
 	
 }

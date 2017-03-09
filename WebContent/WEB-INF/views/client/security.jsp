@@ -165,18 +165,6 @@ function idcardSubmit(){
 						<a href="javascript:;" id="password-btn" onclick="changePwd()">修改</a>
 					</div>
 				</li>
-				<li>
-					<div class="safe-list-1">
-						<p class="icon icon-true">交易密码</p>
-					</div>
-					<div class="safe-list-2">
-						******
-					</div>
-					<div class="safe-list-3">
-						<a href="javascript:;" onclick="changePwd()">修改</a>
-						<a href="http://120.76.203.19:8090/shzc_test/WEB-PC/recoverpwd.html#deal" id="forgetpwd">忘记密码</a>
-					</div>
-				</li>
 			</ul>
 		</div>
 	</div>

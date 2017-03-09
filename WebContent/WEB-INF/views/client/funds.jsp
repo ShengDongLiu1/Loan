@@ -117,7 +117,6 @@
 				<ul class="sub-nav">
 					<li><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
 					<li><a href="<%=path%>/client/security">安全设置</a></li>
-					<li><a href="<%=path%>/client/MessageCenter">消息中心</a></li>
 				</ul>
 			</div>
 		</div>

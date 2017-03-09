@@ -63,9 +63,6 @@
   <insert id="insertSelective" parameterType="com.ht.h.bean.Withdrawals">
     insert into withdrawals
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="wid != null">
-        wid,
-      </if>
       <if test="uid != null">
         uid,
       </if>
@@ -92,9 +89,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="wid != null">
-        #{wid,jdbcType=INTEGER},
-      </if>
       <if test="uid != null">
         #{uid,jdbcType=INTEGER},
       </if>
@@ -178,6 +172,9 @@
       <if test="wbank!=null and wbank!='' "> 
         and w.wbank like #{wbank} 
       </if> 
+      <if test="wstate!=null and wstate!='' "> 
+        and w.wstate like #{wstate} 
+      </if> 
     </where> 
     order by w.wtime desc 
     <if test="start!=null and size!=null"> 
@@ -199,8 +196,15 @@
       <if test="wbank!=null and wbank!='' "> 
         and w.wbank like #{wbank} 
       </if> 
+      <if test="wstate!=null and wstate!='' "> 
+        and w.wstate like #{wstate} 
+      </if> 
     </where> 
   </select> 
+  
+  <update id="updateState" parameterType="com.ht.h.bean.Withdrawals">
+    update withdrawals set wstate = #{wstate,jdbcType=VARCHAR} where wid = #{wid,jdbcType=INTEGER}
+  </update>
   
   
     <select id="withdrawalsQueryAll" parameterType="Map" resultMap="WitgoCapResultMap">
@@ -234,10 +238,6 @@
 				and w.wtime between #{wtime} and #{wtime1}
 			</if>
 		</where>
-	</select>
-  
-  <select id="withdrawalsCountInt" resultType="int">
-		select count(*) from withdrawals
 	</select>
   
 </mapper>

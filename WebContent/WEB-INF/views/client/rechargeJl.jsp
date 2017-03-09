@@ -177,15 +177,12 @@
     		var rtime = $('#startDate').val();
     		var rtime1 = $('#endDate').val();
     		if(rtime == ''){
-    			alert('开始时间不能为空');
     			return;
     		}
     		if(rtime1 == ''){
-    			alert('结束时间不能为空');
     			return;
     		}
     		if(rtime>rtime1){
-    			alert('开始时间不能大于结束时间');
     			return;
     		}
     		window.location.href="<%=path%>/recharge/queryBy.do?rtime="+rtime+"&&rtime1="+rtime1; 

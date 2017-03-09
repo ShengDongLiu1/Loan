@@ -156,12 +156,10 @@
 			return btn;
 		}
 		function selectfiltrate(){
-			alert("++++++++");
 	    	var username=$('#username').textbox('getValue');
 	    	var rtime=$('#rtime').textbox('getValue');
 	    	var rtime1=$('#rtime1').textbox('getValue');
 	    	var rstate=$("#rstate").combobox('getValue')
-	    	alert(rstate+"+----------++");
 	    	$('#dg').datagrid('load',{  
 				username:username,
 				rtime:rtime,

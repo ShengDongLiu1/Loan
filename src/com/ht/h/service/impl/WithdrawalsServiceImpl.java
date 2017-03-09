@@ -59,18 +59,21 @@ public class WithdrawalsServiceImpl implements WithdrawalsService{
 
 	@Override
 	public int withdrawalsCount(Map<String, Object> map) {
-		// TODO 自动生成的方法存根
 		return withdrawalsDao.withdrawalsCount(map);
 	}
 
 	@Override
 	public List<Withdrawals> withdrawalsQueryAll(Map<String, Object> map) {
-		// TODO 自动生成的方法存根
 		return withdrawalsDao.withdrawalsQueryAll(map);
 	}
 
 	@Override
 	public int withdrawalsCountInt() {
 		return withdrawalsDao.withdrawalsCountInt();
+	}
+
+	@Override
+	public int updateState(Withdrawals record) {
+		return withdrawalsDao.updateState(record);
 	}
 }

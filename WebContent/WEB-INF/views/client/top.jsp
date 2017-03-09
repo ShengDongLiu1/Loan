@@ -147,7 +147,7 @@ $(window).load(function(){
                     <p>
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1223348320&site=qq&menu=yes">
                           <img border="0" src="http://wpa.qq.com/pa?p=2:1223348320:41" alt="点击这里给我发消息" title="点击这里给我发消息">
-                          <span>傻猴</span>
+                          <span>东哥</span>
                     	</a>
                     </p>
                      <p>                              
@@ -277,9 +277,9 @@ $(window).load(function(){
 		  <a href="<%=path %>/client/index" class="zm_cura">首页</a>
 		  <a href="<%=path %>/client/invest?page=1&rows=10">我要投资</a>
 		  <a href="<%=path %>/client/borrow">我要借款</a>
-		  <a href="#">实时财务</a>
-		  <a href="<%=path %>/client/noticelist">新手指引</a>
+		  <a href="<%=path %>/client/problem">新手指引</a>
 		  <a href="<%=path %>/client/AboutUs" style="margin-right:0;">关于我们</a>
+		  <a href="<%=path %>/client/left?uid=${customer.uid}">我的账户</a>
 	</div>
 </div>
 <script>

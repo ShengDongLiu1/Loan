@@ -131,15 +131,11 @@ $.post('<%=path%>/train/list.do',
 							<c:forEach var="list" items="${userList}">
 								<tr class="success">
 									<td><fmt:formatDate value="${list.rtime}" type="both"/></td>
-									<td>${list.rstate}</td>
+									<td>${list.rtype}</td>
 									<td>${list.rmoney}</td>
 									<td>${list.capital.available}</td>
 									<td>
-										<c:choose>
-											<c:when test="${list.rtype == 1}">充值成功</c:when>
-											<c:when test="${list.rtype == 2}">充值失败</c:when>
-											<c:otherwise>审核中</c:otherwise>
-										</c:choose>
+										${list.rstate}
 									</td>
 								</tr>
 							</c:forEach>

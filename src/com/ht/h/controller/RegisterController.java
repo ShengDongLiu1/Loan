@@ -103,7 +103,7 @@ public class RegisterController {
 	@RequestMapping(value="/userregister",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> userRegister(Customer customer,String yanzheng,HttpSession session) throws Exception{
-		/*customer.setUserpwd(AES.getInstance().encrypt(customer.getUserpwd()));*/
+		customer.setUserpwd(AES.getInstance().encrypt(customer.getUserpwd()));
 		Map<String, Object> map=new HashMap<>();
 		map.put("phone", customer.getPhone());
 		map.put("username", customer.getUsername());

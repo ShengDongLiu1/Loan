@@ -36,6 +36,7 @@ import com.ht.h.bean.Customer;
 import com.ht.h.bean.PageBean;
 import com.ht.h.dto.StringUtil;
 import com.ht.h.service.interfaces.CustomerService;
+import com.ht.h.util.AES;
 import com.ht.h.util.EmailCode;
 
 
@@ -75,6 +76,7 @@ public class CustomerController {
 	 * @return
 	 * @throws Exception 
 	 */
+	@SuppressWarnings("unused")
 	@RequestMapping(value="/cusLogin",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> cusLogin(Customer customer,HttpSession session,HttpServletRequest req) throws Exception{
@@ -82,24 +84,26 @@ public class CustomerController {
 		map.put("phone", customer.getUsername());
 		map.put("username", customer.getUsername());
 		map.put("userpwd", customer.getUserpwd());
-		/*map.put("userpwd", (AES.getInstance().encrypt(customer.getUserpwd())));*/
+		map.put("userpwd", (AES.getInstance().encrypt(customer.getUserpwd())));
 		customer=customerService.cusLogin(map);
-		String name=null,idex=null,end = null,phoneindex=null,phoneend=null;
-		if(!"".equals(customer.getIdnumber())&&!"".equals(customer.getRealname())&&customer.getIdnumber()!=null&&customer.getRealname()!=null){
-			idex = customer.getIdnumber().substring(0, 3);
-			end = customer.getIdnumber().substring(14, 18);
-			name = customer.getRealname().substring(1, customer.getRealname().length());
-			customer.setRealname("*"+name);
-			customer.setIdnumber(idex+"**************"+end);
-		}
-		phoneindex = customer.getPhone().substring(0,3);
-		//phoneend = customer.getPhone().substring(8, 11);
-		customer.setCodephone(phoneindex+"*******"+phoneend);
-		if(customer != null){
-			session.setAttribute("customer", customer);
-			HttpSession s = req.getSession();
-			s.setAttribute("errorcode", "ok");
-			map.put("result", "success");
+		if(customer!=null){
+			String name=null,idex=null,end = null,phoneindex=null,phoneend=null;
+			if(!"".equals(customer.getIdnumber())&&!"".equals(customer.getRealname())&&customer.getIdnumber()!=null&&customer.getRealname()!=null){
+				idex = customer.getIdnumber().substring(0, 3);
+				end = customer.getIdnumber().substring(14, 18);
+				name = customer.getRealname().substring(1, customer.getRealname().length());
+				customer.setRealname("*"+name);
+				customer.setIdnumber(idex+"**************"+end);
+				phoneindex = customer.getPhone().substring(0,3);
+				//phoneend = customer.getPhone().substring(8, 11);
+				customer.setCodephone(phoneindex+"*******"+phoneend);
+				customer.setUserpwd(AES.getInstance().decrypt(customer.getUserpwd()));
+				session.setAttribute("customer", customer);
+				HttpSession s = req.getSession();
+				s.setAttribute("errorcode", "ok");
+				map.put("result", "success");
+			}
+				
 		}else{
 			map.put("result", "用户名或密码错误");
 		}
@@ -174,8 +178,7 @@ public class CustomerController {
 	public String UpdatePassword(@RequestParam("uid") String uid,@RequestParam("newPassword") String newPassword) throws Exception{
 		Customer customer=new Customer();
 		customer.setUid(Integer.valueOf(uid));
-		/*customer.setUserpwd(AES.getInstance().encrypt(newPassword));*/
-		customer.setUserpwd(newPassword);
+		customer.setUserpwd(AES.getInstance().encrypt(newPassword));
 		int ret=customerService.updateByPrimaryKeySelective(customer);
 		return "client/login";
 		

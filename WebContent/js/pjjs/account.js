@@ -3398,7 +3398,7 @@ function changePwdSubmit(){
 		return;
 	}
 	if(newPassword == confirmPassword){
-		utils.toast('密码修改成功，请重新登录');
+		/*utils.toast('密码修改成功，请重新登录');*/
 		$("#update_form").submit();
 	}
 	
