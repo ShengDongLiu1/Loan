@@ -87,8 +87,8 @@
             <div class="form form-border mb30">
               <!--平台名称-->
               <div class="form-title form-title-big">
-                <p class="info mb15"><span>平台名称:普金资本</span>
-                <span>公司名称: 普金资本运营(赣州)有限公司</span></p>
+                <p class="info mb15"><span>平台名称: 鸿金金融</span>
+                <span>公司名称: 鸿金金融运营(赣州)有限公司</span></p>
                 <p class="info"><span>汇付账号：pjzb_1223566788</span></p>
               </div>
               <!--end-->
@@ -143,7 +143,7 @@
   <div class="min-width-in">
   <div class="footer min-width">
     <div class="content">
-      汇付天下有限公司版权所有  Copyright © 2016 ChinaPnR All Right Reserved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402000137"><img src="./汇付天下_files/babhtb.png" style="absolute:middle;"> 沪公网安备 31010402000137号</a>
+      汇付天下有限公司版权所有  Copyright © 2016 ChinaPnR All Right Reserved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402000137"><img src="../images/huifu/babhtb.png" style="absolute:middle;"> 沪公网安备 31010402000137号</a>
       <br>
       <a href="http://www.chinapnr.com/" target="_blank">关于汇付天下</a>
       <a href="http://www.chinapnr.com/security_01.html" target="_blank">安全保障</a>

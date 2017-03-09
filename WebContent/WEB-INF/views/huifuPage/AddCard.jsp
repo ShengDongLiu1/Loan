@@ -38,14 +38,14 @@
           <form method="post" action="<%=path %>/banktion/addbank" autocomplete="off" class="validate-form errFocus" novalidate=""><input type="text" name="prevent_autofill" id="prevent_autofill" value="" style="display:none;"><input type="password" id="password_fake" value="" style="display:none;" pname="password_fake">
                   <input type="hidden" name="loginId" id="loginId" value="pjzb_1223566788">
                   <input type="hidden" name="custId" value="6000060004112605">
-                  <input type="hidden" name="merUsrName" value="普金资本运营(赣州)有限公司">
-                  <input type="hidden" name="merShortName" value="普金资本">
+                  <input type="hidden" name="merUsrName" value="鸿金金融运营(赣州)有限公司">
+                  <input type="hidden" name="merShortName" value="鸿金金融">
                  
             <div class="form form-border mb30">
               <!--平台名称-->
               <div class="form-title form-title-big">
-                <p class="info mb15"><span>平台名称: 普金资本</span>
-                <span>公司名称: 普金资本运营(赣州)有限公司</span></p>
+                <p class="info mb15"><span>平台名称: 鸿金金融</span>
+                <span>公司名称: 鸿金金融运营(赣州)有限公司</span></p>
               </div>
               <div class="form-content">
               <!--账户余额开始-->
@@ -259,7 +259,7 @@
   <div class="min-width-in">
   <div class="footer min-width">
     <div class="content">
-      汇付天下有限公司版权所有  Copyright © 2016 ChinaPnR All Right Reserved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402000137"><img src="./汇付天下_files/babhtb.png" style="absolute:middle;"> 沪公网安备 31010402000137号</a>
+      汇付天下有限公司版权所有  Copyright © 2016 ChinaPnR All Right Reserved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402000137"><img src="../images/huifu/babhtb.png" style="absolute:middle;"> 沪公网安备 31010402000137号</a>
       <br>
       <a href="http://www.chinapnr.com/" target="_blank">关于汇付天下</a>
       <a href="http://www.chinapnr.com/security_01.html" target="_blank">安全保障</a>

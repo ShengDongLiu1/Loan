@@ -26,7 +26,7 @@
 			<div class="account-left-nav">
 				<div class="navbar icon icon-account">我的账户</div>
 				<ul class="sub-nav">
-					<li class="active"><a href="<%=path %>/client/left?uid=${customer.uid}">账户总览</a></li>
+					<li><a href="<%=path %>/client/left?uid=${customer.uid}">账户总览</a></li>
 					<li><a href="<%=path%>/client/recharge">充值</a></li>
 					<li><a href="<%=path%>/client/funds">提现</a></li>
 					<li><a href="<%=path%>/client/MoneyRecord">资金记录</a></li>
@@ -38,7 +38,7 @@
 				</ul>
 				<div class="navbar icon icon-settings">账户设置</div>
 				<ul class="sub-nav">
-					<li><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
+					<li class="active"><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
 					<li><a href="<%=path%>/client/security">安全设置</a></li>
 					<%-- <li><a href="<%=path%>/client/MessageCenter">消息中心</a></li> --%>
 				</ul>
