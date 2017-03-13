@@ -192,12 +192,11 @@ function toubiao(){
 	$("#err").html("");
 	var iuid = $("#iuid").val();
 	var lid = $("#lid").val();
-	var iddd = lid.substring(1,lid.length-1)
 	var imoney = $("#qian").html();
 	var inumber = $("#dingdan").html();
 	var iavailable = $("#available").html();
 	if(parseInt(imoney)<=parseInt(iavailable)){
-	 $.post("<%=path%>/investment/toubiao",{'iuid':iuid,'lid':iddd,'imoney':imoney,'inumber':inumber,'iavailable':iavailable},function(index){ 
+	 $.post("<%=path%>/investment/toubiao",{'iuid':iuid,'lid':lid,'imoney':imoney,'inumber':inumber,'iavailable':iavailable},function(index){ 
 	  		if(index.success){
 	  			alert('投标成功');
 	  			window.location.href="<%=path%>/client/investment";

@@ -183,7 +183,9 @@ public class ClientController {
 	 * 跳转到我的账户
 	 * */
 	@RequestMapping(value="left")
-	public String left(@RequestParam("uid") Integer uid,HttpServletRequest request){
+	public String left(HttpServletRequest request,HttpSession session){
+		Customer kh=(Customer)session.getAttribute("customer");
+		Integer uid=kh.getUid();
 		Capital capital=new Capital();
 		capital=capitalService.selectByFund(uid);
 		request.setAttribute("fund", capital);
@@ -237,6 +239,17 @@ public class ClientController {
 		return "client/MoneyRecord";
 	}
 	
+	@SuppressWarnings("unused")
+	@RequestMapping(value="test")
+	public String test(HttpSession session,HttpServletRequest request,@RequestParam(value="page",required=false)Integer page){
+		PageBean pageBean=null;
+		if (pageBean==null) {
+			PageBean pBean=new PageBean(1, 10);
+		}else{
+			PageBean pageB=new PageBean(page, 10);
+		}
+		return "test.jsp";
+	}
 	
 	/*
 	 * 投资管理

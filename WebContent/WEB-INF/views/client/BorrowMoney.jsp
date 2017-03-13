@@ -20,25 +20,45 @@
 <body bgcolor="#FFFFCC">
 	<jsp:include flush="true" page="top.jsp"></jsp:include>
 		<div class="account cl">
-		<div class="account-left">
+			<div class="account-left">
 			<div class="account-left-nav">
 				<div class="navbar icon icon-account">我的账户</div>
 				<ul class="sub-nav">
-					<li><a href="<%=path %>/client/left?uid=${customer.uid}">账户总览</a></li>
+					<c:choose>
+						<c:when test="${customer.uid == null}">
+							<li><a href="<%=path %>/client/login">账户总览</a></li>
+						</c:when>
+						<c:when test="${customer.uid != null}">
+							<li class="active"><a href="<%=path %>/client/left">账户总览</a></li>
+						</c:when>
+					</c:choose>
 					<li><a href="<%=path%>/client/recharge">充值</a></li>
 					<li><a href="<%=path%>/client/funds">提现</a></li>
-					<li><a href="<%=path%>/client/MoneyRecord">资金记录</a></li>
+					<li><a href="<%=path%>/client/MoneyRecord?page=1">资金记录</a></li>
 				</ul>
 				<div class="navbar icon icon-self">我的管理</div>
 				<ul class="sub-nav">
-					<li><a href="<%=path%>/client/investment">投资管理</a></li>
-					<li class="active"><a href="<%=path%>/client/BorrowMoney">借款管理</a></li>
+					<c:choose>
+						<c:when test="${customer.uid == null}">
+							<li><a href="<%=path %>/client/login">投资管理</a></li>
+						</c:when>
+						<c:when test="${customer.uid != null}">
+							<li><a href="<%=path%>/client/investment">投资管理</a></li>
+						</c:when>
+					</c:choose>
+					<li><a href="<%=path%>/client/BorrowMoney">借款管理</a></li>
 				</ul>
 				<div class="navbar icon icon-settings">账户设置</div>
 				<ul class="sub-nav">
-					<li><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
+					<c:choose>
+						<c:when test="${customer.uid == null}">
+							<li><a href="<%=path %>/client/login">我的银行卡</a></li>
+						</c:when>
+						<c:when test="${customer.uid != null}">
+							<li><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
+						</c:when>
+					</c:choose>
 					<li><a href="<%=path%>/client/security">安全设置</a></li>
-					<%-- <li><a href="<%=path%>/client/MessageCenter">消息中心</a></li> --%>
 				</ul>
 			</div>
 		</div>

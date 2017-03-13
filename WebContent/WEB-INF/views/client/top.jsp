@@ -250,7 +250,14 @@ $(window).load(function(){
 		 		<a href="<%=path %>/customer/logOut">注销</a>
 		 	</c:if>
 		 	<span>|</span>
-		 	<a href="<%=path%>/client/recharge">充值</a>
+		 	<c:choose>
+				<c:when test="${customer.uid == null}">
+					<a href="<%=path %>/client/login">充值</a>
+				</c:when>
+				<c:when test="${customer.uid != null}">
+					<a href="<%=path%>/client/recharge">充值</a>
+				</c:when>
+			</c:choose>
 		 	<span>|</span>
 		 	<a href="<%=path %>/client/problem">常见问题</a>
 		 </div>
@@ -279,7 +286,15 @@ $(window).load(function(){
 		  <a href="<%=path %>/client/borrow">我要借款</a>
 		  <a href="<%=path %>/client/problem">新手指引</a>
 		  <a href="<%=path %>/client/AboutUs" style="margin-right:0;">关于我们</a>
-		  <a href="<%=path %>/client/left?uid=${customer.uid}">我的账户</a>
+		  <c:choose>
+				<c:when test="${customer.uid == null}">
+					<li><a href="<%=path %>/client/login">我的账户</a></li>
+				</c:when>
+			<c:when test="${customer.uid != null}">
+				 <a href="<%=path %>/client/left">我的账户</a>
+			</c:when>
+		</c:choose>
+		 
 	</div>
 </div>
 <script>
@@ -307,7 +322,11 @@ $(window).load(function(){
 	
 	function MyAccount(){
 		var uid=${customer.uid};
-		window.location.href='<%=path %>/client/left?uid='+uid; 
+		if(uid!=null){
+			window.location.href='<%=path %>/client/left'; 
+		}else{
+			window.location.href='<%=path %>/client/login'; 
+		}
 	}
 </script>
 
