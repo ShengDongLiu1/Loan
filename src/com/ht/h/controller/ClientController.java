@@ -273,7 +273,6 @@ public class ClientController {
 		request.setAttribute("count", pageBean.getCount());
 		request.setAttribute("page",pageBean.getPage());
 		request.setAttribute("pageSize",pageBean.getPageSize());
-		
 		return "client/investment";
 		}
 	
@@ -281,9 +280,32 @@ public class ClientController {
 	 *借款管理
 	 * */
 	@RequestMapping(value="BorrowMoney")
-	public String BorrowMoney(){
+	public String BorrowMoney(@RequestParam(value="lstate",required=false)String lstate,@RequestParam(value="state",required=false)String state,@RequestParam(value="page",required=false)Integer page,HttpServletRequest request,HttpSession session){
+		PageBean pageBean=null;
+		if(page == null){
+			pageBean=new PageBean(1,10);
+		}else{
+			pageBean=new PageBean(page,10);
+		}
+		Customer customer=(Customer) session.getAttribute("customer");
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("lstate", lstate);
+		map.put("uid", customer.getUid());
+		map.put("start", pageBean.getStart());
+		map.put("size", pageBean.getPageSize());
+		List<Loan> loanList=loanService.queryAll(map);
+		Long total=loanService.getTotal(map);
+		int i=total.intValue();
+		pageBean.setTotal(i);
+		request.setAttribute("loanList", loanList);//查询出当前已登入的用户下所有的借款
+		request.setAttribute("total", total);//总条数
+		request.setAttribute("count",pageBean.getCount());//总页数
+		request.setAttribute("page", pageBean.getPage());//当前页
+		request.setAttribute("pageSize", pageBean.getPageSize());//一页显示条数
 		return "client/BorrowMoney";
 	}
+	
+	
 	
 	/*
 	 *银行卡管理

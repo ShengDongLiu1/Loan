@@ -223,6 +223,9 @@
 			<if test="ltitle!=null and ltitle!='' ">
 				and l.ltitle like #{ltitle}
 			</if>
+			<if test="lstate!=null and lstate!='' ">
+				and l.lstate like #{lstate}
+			</if>
 			<if test="lterm!=null and lterm!='' ">
 				and l.lterm = #{lterm}
 			</if>
