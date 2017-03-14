@@ -86,11 +86,11 @@
 			<table class="table" id="sample-table-2">
 				<thead>
 					<tr>
-						<th class="center" width="200" style="text-align:center">账户名</th>
-						<th class="center" width="100" style="text-align:center">充值金额</th>
-						<th class="center" width="200" style="text-align:center">充值类型</th>
-						<th class="center" width="100" style="text-align:center">充值时间</th>
-						<th class="center" style="text-align:center" width="200">充值状态</th>
+						<th class="center" width="200" style="text-align:center;font-weight:bold;">账户名</th>
+						<th class="center" width="100" style="text-align:center;font-weight:bold">充值金额</th>
+						<th class="center" width="200" style="text-align:center;font-weight:bold">充值类型</th>
+						<th class="center" width="100" style="text-align:center;font-weight:bold">充值时间</th>
+						<th class="center" style="text-align:center;font-weight:bold" width="200">充值状态</th>
 					</tr>
 				</thead>
 				<tbody>
