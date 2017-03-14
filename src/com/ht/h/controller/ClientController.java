@@ -280,16 +280,16 @@ public class ClientController {
 	 *借款管理
 	 * */
 	@RequestMapping(value="BorrowMoney")
-	public String BorrowMoney(@RequestParam(value="lstate",required=false)String lstate,@RequestParam(value="state",required=false)String state,@RequestParam(value="page",required=false)Integer page,HttpServletRequest request,HttpSession session){
+	public String BorrowMoney(Loan loan,@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,HttpServletRequest request,HttpSession session){
 		PageBean pageBean=null;
-		if(page == null){
+		if(page == null || rows == null){
 			pageBean=new PageBean(1,10);
 		}else{
-			pageBean=new PageBean(page,10);
+			pageBean=new PageBean(Integer.parseInt(page),Integer.parseInt(rows));
 		}
+		Map<String, Object> map=new HashMap<>();
 		Customer customer=(Customer) session.getAttribute("customer");
-		Map<String, Object> map = new HashMap<String,Object>();
-		map.put("lstate", lstate);
+		map.put("lstate", loan.getLstate());
 		map.put("uid", customer.getUid());
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());

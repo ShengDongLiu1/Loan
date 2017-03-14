@@ -104,7 +104,7 @@
 						</tr>
 					</c:forEach>
 					<tr>
-						<th colspan="13">
+						<th colspan="13" style="text-align:center; padding-top: 20px;">
 				        	当前第${page }页/共${count }页&nbsp;&nbsp;共${total }条记录&nbsp;&nbsp;
 				        	<a href="javascript:void(0);" id = "first">首页</a>&nbsp;
 				        	<a href="javascript:void(0);" id = "previous" <c:if test='${page == 1}'> style='opacity: 0.2;' </c:if>>上一页</a>&nbsp;

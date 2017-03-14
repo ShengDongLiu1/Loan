@@ -20,6 +20,11 @@
 <link rel="stylesheet" href="/Loan/css/lanrenzhijia.css" media="all">
 <link rel="stylesheet" href="<%=path %>/js/site_main.css"/>
 <link rel="stylesheet" type="text/css" href="<%=path %>/js/jquery-easyui/themes/icon.css">
+<style type="text/css">
+	#angodiv1 table thead tr th{
+		font-weight:bold;
+	}
+</style>
 <script type="text/javascript" src="<%=path %>/js/jquery.min.js"></script>
 
 <link rel="stylesheet" href="<%=path %>/js/jquery-easyui/themes/default/easyui.css"/>
@@ -140,14 +145,14 @@ function angodiv1() {
 </div>
 <div class="account-content" style="display: block;">
 	<!-- 提现记录 -->
-	<div class="account-form cl">
+	<!-- <div class="account-form cl">
 		<p class="text long">交易时间：</p>
 		<input type="text" class="date icon icon-date" id="time" readonly="readonly">
 		<p class="text">至</p>
 		<input type="text" class="date icon icon-date" id="time1" readonly="readonly">
-		<!-- <input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" /> -->
+		<input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" />
 		<button type="button" class="search" onclick="">搜索</button>
-	</div>
+	</div> -->
 	<div id="angodiv1">
 		<table class="table" style="border: 2px solid; border-color: #DFF0D8;">
 			<thead data-options="frozen:true" >
@@ -185,7 +190,7 @@ function angodiv1() {
 			</tbody>
 		</table>
 	</div>
-	<div>
+	<div style="margin-top: 5px; text-align: center;">
 		<a href="<%=path %>/withdrawals/withdrawalsList?state=2&page=${witList.pageNo - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
 		<a href="<%=path %>/withdrawals/withdrawalsList?state=2&page=${witList.pageNo + 1}" onclick="mygoods(3)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
 		当前页 第<span id="page">${witList.pageNo}</span>页&nbsp;&nbsp;

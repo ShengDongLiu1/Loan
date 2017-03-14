@@ -21,7 +21,6 @@
 <script type="text/javascript" src="<%=path%>/js/jquery-3.1.1.min.js"></script>
 <style type="text/css">
 	#bj table thead tr th{
-		font-size:15px;
 		font-weight:bold;
 	}
 	#bj table tbody tr td{
@@ -100,11 +99,11 @@
 		<input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" />
 		<button type="button" class="search" id="loanSearch">搜索</button>
 	</div> -->
-	<div id="bj" style="width:901px;height:395px;border: 1px solid; border-color: #DFF0D8;">
+	<div id="bj" style="width:899px;height:395px;border: 2px solid; border-color: #DFF0D8;">
 		<table class="table">
 				<thead>
 					<tr>
-						<th style="width: 95px;">编号</th>
+						<th style="width: 95px;margin-left: 20px;float: left">编号</th>
 						<th style="width: 110px;">标题</th>
 						<th style="width: 100px;">借款类型</th>
 						<th style="width: 100px;">担保方式</th>
@@ -117,8 +116,8 @@
 				</thead>
 				<tbody>
 					<c:forEach var="loan" items="${loanList}">
-						<tr class="success">
-							<td>${loan.lid}</td>
+						<tr>
+							<td style="margin-left: 20px;float: left">${loan.lid}</td>
 							<td>${loan.ltitle}</td>
 							<td>${loan.ltype}</td>
 							<td>${loan.lclass}</td>
@@ -152,16 +151,14 @@
 				</tbody>
 			</table>
 		</div>
-		<div>			
-			<c:if test="${page > 1}">
-				<a href="<%=path %>/client/BorrowMoney?state=2&page=${page - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
-			</c:if>
-			<c:if test="${pageSize == 10}">
-				<a href="<%=path %>/client/BorrowMoney?state=2&page=${page + 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
-			</c:if>
-				当前页 第<span>${page}</span>页&nbsp;&nbsp;
-				共<span>${count}</span>页&nbsp;&nbsp;
-				共<span>${total}</span>条数据&nbsp;&nbsp;
+		<div style="text-align: center; margin-top: 5px;">			
+				<a href="javascript:void(0)" onclick="selCusLoan(2);"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
+		
+				<a href="javascript:void(0)" onclick="selCusLoan(3);"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
+			
+				当前页 第<span id="page">${page}</span>页&nbsp;&nbsp;
+				共<span id="count">${count}</span>页&nbsp;&nbsp;
+				共<span id="total">${total}</span>条数据&nbsp;&nbsp;
 		</div>
 </div>
 
@@ -169,4 +166,29 @@
 		<!-- end -->
 	</div>
 	<jsp:include flush="true" page="bottom.jsp"></jsp:include>
+	<script type="text/javascript">
+	//查询客户的借款申请
+	function selCusLoan(num){
+		var page=1;
+		var addpage=0;
+		if(num == 2){//上一页
+			addpage=$("#page").html();
+			page=parseInt(addpage)-1;
+			if(page == 0){
+				page=1;
+				/* alert('当前页已经是第一页！'); */
+				return false;
+			}
+		}else if(num == 3){//下一页
+			addpage=$("#page").html();
+			page+=parseInt(addpage);
+			if(parseInt($("#count").html())<page){
+				page=parseInt($("#count").html());
+				/* alert('当前页已经是最后一页！'); */
+				return false;
+			}
+		}
+		window.location.href='<%=path %>/client/BorrowMoney?page='+page+'&rows='+10;		
+	}
+	</script>
 </body></html>

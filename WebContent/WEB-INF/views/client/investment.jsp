@@ -16,7 +16,9 @@
 <link rel="stylesheet" href="/Loan/css/pjcss/public.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/account.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/datepicker.css">
-<script type="text/javascript">--
+<script src="<%=path%>/js/bootstrap.js"></script>
+<script type="text/javascript" src="<%=path%>/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
 	function dateSearch(){
 		var startDate = $("#startDate").val;
 		var endDate = $("#endDate").val;
@@ -84,13 +86,13 @@
 	<div class="invest-listData invest-listData1">
 		<ul class="investData list-box">
 			<li class="interval">
-				<div class="children0">标题</div>
-				<div class="children1">订单号</div>
-				<div class="children2">类型</div>
-				<div class="children3">年利率</div>
-				<div class="children4">还款期限</div>
-				<div class="children5">投资金额</div>
-				<div class="children6">投资时间</div>
+				<div class="children0" style="font-weight:bold;">标题</div>
+				<div class="children1" style="font-weight:bold;">订单号</div>
+				<div class="children2" style="font-weight:bold;">类型</div>
+				<div class="children3" style="font-weight:bold;">年利率</div>
+				<div class="children4" style="font-weight:bold;">还款期限</div>
+				<div class="children5" style="font-weight:bold;">投资金额</div>
+				<div class="children6" style="font-weight:bold;">投资时间</div>
 			</li>
 		</ul>
 		<ul class="investData listData" id="investmentDg">
@@ -102,21 +104,53 @@
 					<div class="children3"><span class="black">${list.loan.lrate}%</span></div>
 					<div class="children4"><span class="black">${list.loan.lterm}天</span></div>
 					<div class="children5"><span class="black">${list.imoney}元</span></div>
-					<div class="children6"><span class="black"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${list.itime}"/></span></div>
+					<div class="children6"><span class="black"><fmt:formatDate value="${list.itime}" type="both"/></span></div>
 				</c:forEach>
 			</li>
 		</ul>
-		<ul class="paging" style="width: 340px; margin: 30px auto 0px;">
-			<li><button type="button" class="pre" id = "previous" <c:if test='${page == 1}'> style='opacity: 0.2;' </c:if>>上一页</button></li>
-			<li><button type="button" class="next" id = "next1" <c:if test='${count <= page}'> style='opacity: 0.2;' </c:if>>下一页</button></li>
-		</ul>
+		<!-- <ul class="paging" style="width: 340px; margin: 30px auto 0px;">
+			<li><button type="button" class="pre" id = "previous">上一页</button></li>
+			<li><button type="button" class="next" id = "next1">下一页</button></li>
+		</ul> -->
+		<div style="text-align: center; margin-top: 5px;">			
+				<a href="javascript:void(0)" onclick="selCusLoan(2);"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
+		
+				<a href="javascript:void(0)" onclick="selCusLoan(3);"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
+			
+				当前页 第<span id="page">${page}</span>页&nbsp;&nbsp;
+				共<span id="count">${count}</span>页&nbsp;&nbsp;
+				共<span id="total">${total}</span>条数据&nbsp;&nbsp;
+		</div>
     </div>
 </div>
 </div>
 	</div>
 	<jsp:include flush="true" page="bottom.jsp"></jsp:include>
 	<script>
-	$("#previous").click(function(){
+	//查询客户的借款申请
+	function selCusLoan(num){
+		var page=1;
+		var addpage=0;
+		if(num == 2){//上一页
+			addpage=$("#page").html();
+			page=parseInt(addpage)-1;
+			if(page == 0){
+				page=1;
+				/* alert('当前页已经是第一页！'); */
+				return false;
+			}
+		}else if(num == 3){//下一页
+			addpage=$("#page").html();
+			page+=parseInt(addpage);
+			if(parseInt($("#count").html())<page){
+				page=parseInt($("#count").html());
+				/* alert('当前页已经是最后一页！'); */
+				return false;
+			}
+		}
+		window.location.href='<%=path %>/client/investment?page='+page+'&rows='+10;		
+	}
+<%-- 	$("#previous").click(function(){
 		var page=${page == 1};
 		if(page){
 			return false;
@@ -131,6 +165,6 @@
 		}else{
 			window.location.href="<%=path %>/client/investment?page=${page + 1}&&rows=${pageSize }"; 
 		}
-	})
+	}) --%>
 	</script>
 </body></html>

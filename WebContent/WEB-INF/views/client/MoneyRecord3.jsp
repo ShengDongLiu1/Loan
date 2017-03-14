@@ -28,7 +28,11 @@ window.onload = function() {
 <link rel="stylesheet" href="/Loan/css/pjcss/public.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/account.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/datepicker.css">
-
+<style type="text/css">
+	#angodiv2 table thead tr th{
+		font-weight:bold;
+	}
+</style>
 <script src="<%=path%>/js/bootstrap.js"></script>
 <script src="https://code.jquery.com/jquery.js"></script>
       <!-- 包括所有已编译的插件 -->
@@ -123,14 +127,14 @@ function angodiv4() {
 			<li><a href="javascript:angodiv4();">冻结</a></li>
 		</ul>
 	</div>
-	<div class="account-form cl">
+<!-- 	<div class="account-form cl">
 		<p class="text long">交易时间：</p>
 		<input type="text" class="date icon icon-date" id="time" readonly="readonly">
 		<p class="text">至</p>
 		<input type="text" class="date icon icon-date" id="time1" readonly="readonly">
-		<!-- <input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" /> -->
+		<input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" />
 		<button type="button" class="search" onclick="selectdate();">搜索</button>
-	</div>
+	</div> -->
 	<div></div>	
 		
 		<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
@@ -166,7 +170,7 @@ function angodiv4() {
 							
 				</tbody>
 			</table>
-			<div>
+			<div style="margin-top: 5px;text-align: center;">
 			
 							<c:if test="${page > 1}">
 								<a href="<%=path %>/client/MoneyRecord?state=3&page=${page - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;

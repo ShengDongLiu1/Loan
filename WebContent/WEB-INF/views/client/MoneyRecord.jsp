@@ -28,14 +28,17 @@ window.onload = function() {
 <link rel="stylesheet" href="/Loan/css/pjcss/public.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/account.css">
 <link rel="stylesheet" href="/Loan/css/pjcss/datepicker.css">
+<style type="text/css">
+	#angodiv1 table thead tr th{
+		font-size:15px;
+		font-weight:bold;
+	}
+</style>
 
 <script src="<%=path%>/js/bootstrap.js"></script>
 <script src="https://code.jquery.com/jquery.js"></script>
       <!-- 包括所有已编译的插件 -->
-
 <script>
-
-
 function angodiv1() {
 	window.location.href="<%=path%>/client/MoneyRecord?state=2&page=1";
 }
@@ -106,14 +109,14 @@ $.post('<%=path%>/train/list.do',
 			<li><a href="javascript:angodiv4();">冻结</a></li>
 		</ul>
 	</div>
-	<div class="account-form cl">
+	<!-- <div class="account-form cl">
 		<p class="text long">交易时间：</p>
 		<input type="date" class="date icon icon-date" name="time" id="time">
 		<p class="text">至</p>
 		<input type="date" class="date icon icon-date" name="time1"  id="time1">
-		<!-- <input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" /> -->
+		<input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" />
 		<button type="button" class="search" onclick="selectdate();">搜索</button>
-	</div>
+	</div> -->
 	<div></div>
 	<div id="angodiv1">
 	
@@ -142,7 +145,7 @@ $.post('<%=path%>/train/list.do',
 							
 				</tbody>
 			</table>
-			<div>			<c:if test="${page > 1}">
+			<div style="text-align: center; margin-top: 5px;">			<c:if test="${page > 1}">
 								<a href="<%=path %>/client/MoneyRecord?state=2&page=${page - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
 							</c:if>
 								<a href="<%=path %>/client/MoneyRecord?state=2&page=${page + 1}" onclick="mygoods(3)" style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
