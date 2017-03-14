@@ -25,8 +25,8 @@
 		font-weight:bold;
 	}
 	#bj table tbody tr td{
-		padding-top:5px;
-		padding-bottom: 20px;
+		padding-top:8px;
+		padding-bottom: 8px;
 	}
 </style>
 </head>
@@ -100,7 +100,7 @@
 		<input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" />
 		<button type="button" class="search" id="loanSearch">搜索</button>
 	</div> -->
-	<div id="bj" style="width:901px;height:470px;border: 2px solid; border-color: #DFF0D8;">
+	<div id="bj" style="width:901px;height:395px;border: 1px solid; border-color: #DFF0D8;">
 		<table class="table">
 				<thead>
 					<tr>
