@@ -81,16 +81,6 @@
 	<em class="em-line"></em>
 </div>
 <div class="account-content" id="invest">
-	<div class="sub-nav">
-		<a href="javascript:;" class="active" id="invest-s1">成功投资</a>
-		<a href="javascript:;" id="invest-s2">招标中的借款</a>
-		<a href="javascript:;" id="invest-s3">回款中的借款</a>
-		<a href="javascript:;" id="invest-s4">已回收的借款</a>
-	</div>
-	<div class="account-form cl">
-		<input type="date" id="startDate" name="startDate"> 至 <input type="date" id="endDate" name="endDate">
-		<button type="button" class="search" onclick="dateSearch();">搜索</button>
-	</div>
 	<div class="invest-listData invest-listData1">
 		<ul class="investData list-box">
 			<li class="title">
