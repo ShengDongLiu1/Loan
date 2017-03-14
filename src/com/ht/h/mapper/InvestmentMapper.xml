@@ -28,6 +28,7 @@
     	<result property="ltitle" column="ltitle"/>
     	<result property="lmoney" column="lmoney"/>
     	<result property="lrate" column="lrate"/>
+    	<result property="lterm" column="lterm"/>
     	<result property="ltype" column="ltype"/>
     </association>  
   </resultMap>

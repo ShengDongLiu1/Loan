@@ -83,26 +83,26 @@
 <div class="account-content" id="invest">
 	<div class="invest-listData invest-listData1">
 		<ul class="investData list-box">
-			<li class="title">
-				<div class="children0">借款标题</div>
+			<li class="interval">
+				<div class="children0">标题</div>
 				<div class="children1">订单号</div>
-				<div class="children2">借款金额</div>
+				<div class="children2">类型</div>
 				<div class="children3">年利率</div>
-				<div class="children4">借款类型</div>
+				<div class="children4">还款期限</div>
 				<div class="children5">投资金额</div>
 				<div class="children6">投资时间</div>
 			</li>
 		</ul>
 		<ul class="investData listData" id="investmentDg">
-			<li class="interval">
+			<li>
 				<c:forEach var="list" items="${rechList}">
-					<div class="children0">${list.loan.ltitle}</div>
-					<div class="children1">${list.inumber}</div>
-					<div class="children2">${list.loan.lmoney}</div>
-					<div class="children3">${list.loan.lrate}</div>
-					<div class="children4">${list.loan.ltype}</div>
-					<div class="children5"><span class="black">${list.imoney}</span></div>
-					<div class="children6"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${list.itime}"/></div>
+					<div class="children0"><span class="black">${list.loan.ltitle}</span></div>
+					<div class="children1"><span class="black">${list.inumber}</span></div>
+					<div class="children2"><span class="black">${list.loan.ltype}</span></div>
+					<div class="children3"><span class="black">${list.loan.lrate}%</span></div>
+					<div class="children4"><span class="black">${list.loan.lterm}天</span></div>
+					<div class="children5"><span class="black">${list.imoney}元</span></div>
+					<div class="children6"><span class="black"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${list.itime}"/></span></div>
 				</c:forEach>
 			</li>
 		</ul>
