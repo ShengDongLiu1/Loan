@@ -42,7 +42,7 @@ public class InvestmentController {
 	@ResponseBody
 	public String toubiao(Investment investment,HttpServletResponse response) throws Exception{
 		JSONObject result = new JSONObject();
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date time=null;
 		time= sdf.parse(sdf.format(new Date()));
 		investment.setItime(time);

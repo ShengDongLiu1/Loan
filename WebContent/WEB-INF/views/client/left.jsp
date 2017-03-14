@@ -77,7 +77,7 @@
 <div class="account-content" style="display: block;">
 	<div class="center-view">
 		<div class="center-header">
-			<img src="../images/c.jpg" width="120" height="120">
+			<img src="../images/d.jpg" width="120" height="120">
 		</div>
 		<div class="center-self">
 			<p class="name">${customer.username}</p>

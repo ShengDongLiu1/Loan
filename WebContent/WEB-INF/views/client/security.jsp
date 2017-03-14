@@ -142,7 +142,7 @@ function idcardSubmit(){
 					<div class="safe-list-1">
 						<p class="icon icon-true" id="cellPhone-icon">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机</p>
 					</div>
-					<div class="safe-list-2" id="cellPhone-text">${customer.codephone} </div>
+					<div class="safe-list-2" id="cellPhone-text">${customer.phone} </div>
 					<div class="safe-list-3">
 						<a href="javascript:;" id="cellPhone" class="on">已绑定</a>
 						<a href="javascript:;" onclick="changePhone('<%=path %>',${customer.phone},'getMsgCodeOld')">修改</a>

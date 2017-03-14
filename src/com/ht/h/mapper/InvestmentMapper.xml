@@ -157,6 +157,7 @@
 	   <where>
 	     l.lid = i.lid
 	   </where>
+	   		order by i.itime desc
 	   <if test="start!=null and size!=null">
 			limit #{start},#{size}
 	   </if>

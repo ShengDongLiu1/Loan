@@ -87,16 +87,16 @@ public class CustomerController {
 		map.put("userpwd", (AES.getInstance().encrypt(customer.getUserpwd())));
 		customer=customerService.cusLogin(map);
 		if(customer!=null){
-			String name=null,idex=null,end = null,phoneindex=null,phoneend=null;
+			String name=null,idex=null,end = null,phoneindex=null;
 			if(!"".equals(customer.getIdnumber())&&!"".equals(customer.getRealname())&&customer.getIdnumber()!=null&&customer.getRealname()!=null){
 				idex = customer.getIdnumber().substring(0, 3);
 				end = customer.getIdnumber().substring(14, 18);
 				name = customer.getRealname().substring(1, customer.getRealname().length());
 				customer.setRealname("*"+name);
 				customer.setIdnumber(idex+"**************"+end);
-				phoneindex = customer.getPhone().substring(0,3);
+			/*	phoneindex = customer.getPhone().substring(0,3);*/
 				//phoneend = customer.getPhone().substring(8, 11);
-				customer.setCodephone(phoneindex+"*******"+phoneend);
+				/*customer.setCodephone(phoneindex+"*******"+phoneend);*/
 				customer.setUserpwd(AES.getInstance().decrypt(customer.getUserpwd()));
 				session.setAttribute("customer", customer);
 				HttpSession s = req.getSession();
