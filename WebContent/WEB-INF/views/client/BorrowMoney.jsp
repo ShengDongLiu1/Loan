@@ -156,7 +156,7 @@
 			<c:if test="${page > 1}">
 				<a href="<%=path %>/client/BorrowMoney?state=2&page=${page - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
 			</c:if>
-			<c:if test="${total > 10}">
+			<c:if test="${pageSize == 10}">
 				<a href="<%=path %>/client/BorrowMoney?state=2&page=${page + 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
 			</c:if>
 				当前页 第<span>${page}</span>页&nbsp;&nbsp;
