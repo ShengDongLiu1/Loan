@@ -86,21 +86,21 @@
 			<table class="table" id="sample-table-2">
 				<thead>
 					<tr>
-						<th class="center" width="100">账户名</th>
-						<th class="center" width="100">充值金额</th>
-						<th class="center" width="100">充值类型</th>
-						<th class="center" width="100">充值时间</th>
-						<th class="center" width="100">充值状态</th>
+						<th class="center" width="200" style="text-align:center;font-weight:bold;">账户名</th>
+						<th class="center" width="100" style="text-align:center;font-weight:bold">充值金额</th>
+						<th class="center" width="200" style="text-align:center;font-weight:bold">充值类型</th>
+						<th class="center" width="100" style="text-align:center;font-weight:bold">充值时间</th>
+						<th class="center" style="text-align:center;font-weight:bold" width="200">充值状态</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${list}" var="c" varStatus="status">
 						<tr>
-							<td class="center" width="100">${c.customer.username }</td>
-							<td class="center" width="100">${c.rmoney }</td>
-							<td class="center" width="100">${c.rtype }</td>
-							<td class="center" width="100"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${c.rtime }"/></td>
-							<td class="center" width="100">${c.rstate }</td>
+							<td class="center" width="200" style="text-align:center">${c.customer.username }</td>
+							<td class="center" width="100" style="text-align:center">${c.rmoney }</td>
+							<td class="center" width="200" style="text-align:center">${c.rtype }</td>
+							<td class="center" width="100" style="text-align:center"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${c.rtime }"/></td>
+							<td class="center" style="text-align:center" width="200">${c.rstate }</td>
 						</tr>
 					</c:forEach>
 					<tr>
