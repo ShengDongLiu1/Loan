@@ -31,7 +31,7 @@
 							<li><a href="<%=path %>/client/login">账户总览</a></li>
 						</c:when>
 						<c:when test="${customer.uid != null}">
-							<li class="active"><a href="<%=path %>/client/left">账户总览</a></li>
+							<li><a href="<%=path %>/client/left">账户总览</a></li>
 						</c:when>
 					</c:choose>
 					<li><a href="<%=path%>/client/recharge">充值</a></li>
@@ -57,7 +57,7 @@
 							<li><a href="<%=path %>/client/login">我的银行卡</a></li>
 						</c:when>
 						<c:when test="${customer.uid != null}">
-							<li><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
+							<li class="active"><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
 						</c:when>
 					</c:choose>
 					<li><a href="<%=path%>/client/security">安全设置</a></li>

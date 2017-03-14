@@ -94,7 +94,7 @@ function idcardSubmit(){
 							<li><a href="<%=path %>/client/login">账户总览</a></li>
 						</c:when>
 						<c:when test="${customer.uid != null}">
-							<li class="active"><a href="<%=path %>/client/left">账户总览</a></li>
+							<li><a href="<%=path %>/client/left">账户总览</a></li>
 						</c:when>
 					</c:choose>
 					<li><a href="<%=path%>/client/recharge">充值</a></li>
@@ -123,14 +123,14 @@ function idcardSubmit(){
 							<li><a href="<%=path%>/client/BankCard">我的银行卡</a></li>
 						</c:when>
 					</c:choose>
-					<li><a href="<%=path%>/client/security">安全设置</a></li>
+					<li class="active"><a href="<%=path%>/client/security">安全设置</a></li>
 				</ul>
 			</div>
 		</div>
 		<!-- begin -->
 		<div class="account-right"><div class="account-right-nav">
 	<div class="sub-a-nav">
-		<a href="javascript:void(0);" class="active">安全中心</a>
+		<a href="javascript:void(0);" class="active">安全设置</a>
 	</div>
 	<em></em>
 </div>
