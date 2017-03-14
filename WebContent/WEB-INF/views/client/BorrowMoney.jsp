@@ -25,8 +25,8 @@
 		font-weight:bold;
 	}
 	#bj table tbody tr td{
-		padding-top:5px;
-		padding-bottom: 20px;
+		padding-top:8px;
+		padding-bottom: 8px;
 	}
 </style>
 </head>
@@ -100,7 +100,7 @@
 		<input type="text" placeholder="请输入关键字搜索" class="search icon icon-search" />
 		<button type="button" class="search" id="loanSearch">搜索</button>
 	</div> -->
-	<div id="bj" style="width:901px;height:470px;border: 2px solid; border-color: #DFF0D8;">
+	<div id="bj" style="width:901px;height:395px;border: 1px solid; border-color: #DFF0D8;">
 		<table class="table">
 				<thead>
 					<tr>
@@ -156,7 +156,7 @@
 			<c:if test="${page > 1}">
 				<a href="<%=path %>/client/BorrowMoney?state=2&page=${page - 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">上一页</a>&nbsp;&nbsp;
 			</c:if>
-			<c:if test="${total > 10}">
+			<c:if test="${pageSize == 10}">
 				<a href="<%=path %>/client/BorrowMoney?state=2&page=${page + 1}"  style="background:#224762;color:white;font-size:15px;border-radius:5px;text-decoration:none;">下一页</a>&nbsp;&nbsp;
 			</c:if>
 				当前页 第<span>${page}</span>页&nbsp;&nbsp;
