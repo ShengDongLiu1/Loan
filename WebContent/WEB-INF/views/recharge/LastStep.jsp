@@ -172,6 +172,7 @@
 			function(data){
 				if(data.result=="fail"){
 				}else if(data.result=="seccuss"){
+					alert("充值成功");
 					window.location.href="<%=path %>/index.jsp"; 
 				}
 		})

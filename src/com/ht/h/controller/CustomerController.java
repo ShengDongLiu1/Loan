@@ -97,12 +97,12 @@ public class CustomerController {
 			/*	phoneindex = customer.getPhone().substring(0,3);*/
 				//phoneend = customer.getPhone().substring(8, 11);
 				/*customer.setCodephone(phoneindex+"*******"+phoneend);*/
-				customer.setUserpwd(AES.getInstance().decrypt(customer.getUserpwd()));
-				session.setAttribute("customer", customer);
-				HttpSession s = req.getSession();
-				s.setAttribute("errorcode", "ok");
-				map.put("result", "success");
 			}
+			customer.setUserpwd(AES.getInstance().decrypt(customer.getUserpwd()));
+			session.setAttribute("customer", customer);
+			HttpSession s = req.getSession();
+			s.setAttribute("errorcode", "ok");
+			map.put("result", "success");
 				
 		}else{
 			map.put("result", "用户名或密码错误");

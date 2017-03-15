@@ -125,6 +125,7 @@
 			$.post("<%=path%>/recharge/queryByBank",
 	            function(data){
 					if(data.result=="fail"){
+						alert(data.errorMsg);
 					}else if(data.result=="seccuss"){
 						window.location.href="<%=path%>/recharge/add?rmoney="+money; 
 					}
